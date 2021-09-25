@@ -3,7 +3,7 @@ using Windows.ApplicationModel.Background;
 using Shiny;
 
 
-namespace Sample.UWP
+namespace Sample.UWP.Background
 {
     public sealed class MyShinyBackgroundTask : IBackgroundTask
     {
