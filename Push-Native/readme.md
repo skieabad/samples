@@ -9,6 +9,7 @@
 }
 ```
 
+2. Copy your own google-services.json to the root of this project (where this solution exists) and it will be copied into the android project during compile
 
 ## 3rd Party Libs
 * [Xamarin Forms](https://github.com/xamarin/xamarin.forms) - The cross platform library for .NET that we all know and love
