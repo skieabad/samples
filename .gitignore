@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Mobile.BuildTools
+appsettings.json
+appsettings.*.json
+google-services.json
+GoogleService-Info.plist
+
 # User-specific files
 *.rsuser
 *.suo

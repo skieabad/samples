@@ -3,46 +3,24 @@
   "appConfig": {
     "strategy": "TransformOnly"
   },
-  "artifactCopy": {
-    "disable": false
-  },
-  "automaticVersioning": {
-    "behavior": "PreferBuildNumber",
-    "environment": "All",
-    "versionOffset": 0
-  },
-  "css": {
-    "minify": false,
-    "bundleScss": false
-  },
-  "images": {
-    "directories": [],
-    "conditionalDirectories": {
-      "Debug": [],
-      "!Debug": [],
-      "iOS": [],
-      "Android": []
-    }
-  },
-  "manifests": {
-    "token": "$",
-    "variablePrefix": "Manifest_",
-    "missingTokensAsErrors": false,
-    "disable": false
-  },
-  "releaseNotes": {
-    "maxDays": 7,
-    "maxCommit": 10,
-    "characterLimit": 250,
-    "filename": "ReleaseNotes.txt",
-    "createInRoot": false,
-    "disable": false
-  },
-  "environment": {
-    "defaults": {},
-    "configuration": {
-      "Debug": {}
-    }
-  },
-  "debug": false
-}
+  "google": {
+    "servicesJson": "GoogleServicesJson"
+    //"infoPlist": "GoogleServicesInfoPlist"
+  }
+  //"appSettings": {
+  //  "Sample": [
+  //    {
+  //      "delimiter": ";",
+  //      "className": "Values",
+  //      "accessibility": "Public",
+  //      "namespace": "Secrets",
+  //      "rootNamespace": "Sample",
+  //      "properties": [
+  //        {
+  //          "name": "Key",
+  //          "type": "String"
+  //        }
+  //      ]
+  //    }
+  //  ]
+  //}
