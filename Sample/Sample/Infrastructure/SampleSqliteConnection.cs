@@ -12,5 +12,8 @@ namespace Sample
         {
             this.GetConnection().CreateTable<ShinyEvent>();
         }
+
+
+        public AsyncTableQuery<ShinyEvent> Events => this.Table<ShinyEvent>();
     }
 }

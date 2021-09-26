@@ -5,7 +5,7 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             xmlns:pushnotifications="clr-namespace:Samples.Push"
             mc:Ignorable="d"
-            x:Class="Samples.Push.PushPage"
+            x:Class="Sample.MainPage"
             SelectedTabColor="#C2E812"
             UnselectedTabColor="#4BA677"
             BarTextColor="White"
