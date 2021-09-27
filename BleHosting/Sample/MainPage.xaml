@@ -40,13 +40,6 @@
                     <TextCell Text="Subscribers" Detail="{Binding Subscribers}" />
                     <TextCell Text="Last Value" Detail="{Binding SubscribersLastValue}" />
                 </TableSection>
-
-                <TableSection Title="Read/Write Perf">
-                    <TextCell Text="A495FF23-C5B1-4B44-B512-1370F02D74DE" TextColor="Red" />
-                    <TextCell Text="Writes" Detail="{Binding SpeedWrites}" />
-                    <TextCell Text="Reads" Detail="{Binding SpeedReads}" />
-                    <TextCell Text="Speed" Detail="{Binding TransferSpeed}" />
-                </TableSection>
             </TableRoot>
         </TableView>
     </ContentPage.Content>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reactive.Linq;
 using System.Text;
 using System.Windows.Input;
 using Shiny;
@@ -13,7 +14,6 @@ namespace Sample
         static readonly string ServiceUuid = "A495FF20-C5B1-4B44-B512-1370F02D74DE";
         static readonly string Characteristic1Uuid = "A495FF21-C5B1-4B44-B512-1370F02D74DE";
         static readonly string Characteristic2Uuid = "A495FF22-C5B1-4B44-B512-1370F02D74DE";
-        static readonly string Characteristic3Uuid = "A495FF23-C5B1-4B44-B512-1370F02D74DE";
 
         readonly IBleHostingManager hostingManager;
         IDisposable? notifierSub;
@@ -58,22 +58,85 @@ namespace Sample
 
 
         public ICommand ToggleServer { get; }
-        [Reactive] public string ServerText { get; private set; }
-        [Reactive] public string LocalName { get; set; } = "ShinyTest";
-        [Reactive] public bool AndroidIncludeDeviceName { get; set; } = true;
-        [Reactive] public bool AndroidIncludeTx { get; set; } = true;
 
-        [Reactive] public string LastWriteValue { get; private set; }
-        [Reactive] public string LastWriteTime { get; private set; }
-        [Reactive] public string LastReadValue { get; private set; }
-        [Reactive] public string LastReadTime { get; private set; }
+        string serverText;
+        public string ServerText
+        {
+            get => this.serverText;
+            private set => this.Set(ref this.serverText, value);
+        }
 
-        [Reactive] public int Subscribers { get; private set; }
-        [Reactive] public string SubscribersLastValue { get; private set; }
 
-        [Reactive] public int SpeedWrites { get; private set; }
-        [Reactive] public int SpeedReads { get; private set; }
-        [Reactive] public string TransferSpeed { get; private set; }
+        string localName = "ShinyTest";
+        public string LocalName
+        {
+            get => this.localName;
+            set => this.Set(ref this.localName, value);
+        }
+
+
+        bool includeDeviceName = true;
+        public bool AndroidIncludeDeviceName
+        {
+            get => this.includeDeviceName;
+            set => this.Set(ref this.includeDeviceName, value);
+        }
+
+
+        bool includeTx = true;
+        public bool AndroidIncludeTx
+        {
+            get => this.includeTx;
+            set => this.Set(ref this.includeTx, value);
+        }
+
+
+        string lastWrite;
+        public string LastWriteValue
+        {
+            get => this.lastWrite;
+            private set => this.Set(ref this.lastWrite, value);
+        }
+
+
+        string writeTime;
+        public string LastWriteTime
+        {
+            get => this.writeTime;
+            private set => this.Set(ref this.writeTime, value);
+        }
+
+
+        string readValue;
+        public string LastReadValue
+        {
+            get => this.readValue;
+            private set => this.Set(ref this.readValue, value);
+        }
+
+
+        string readTime;
+        public string LastReadTime
+        {
+            get => this.readTime;
+            private set => this.Set(ref this.readTime, value);
+        }
+
+
+        int subscribers;
+        public int Subscribers
+        {
+            get => this.subscribers;
+            private set => this.Set(ref this.subscribers, value);
+        }
+
+
+        string subLastValue;
+        public string SubscribersLastValue
+        {
+            get => this.subLastValue;
+            private set => this.Set(ref this.subLastValue, value);
+        }
 
 
         void BuildService(IGattServiceBuilder serviceBuilder)
@@ -116,40 +179,21 @@ namespace Sample
                     }
                     else
                     {
-                        //this.notifierSub = Observable
-                        //    .Interval(TimeSpan.FromSeconds(2))
-                        //    .Select(_ => Observable.FromAsync(async () =>
-                        //    {
-                        //        var ticks = DateTime.Now.Ticks;
-                        //        var data = BitConverter.GetBytes(ticks);
-                        //        await this.push.Notify(data);
+                        this.notifierSub = Observable
+                            .Interval(TimeSpan.FromSeconds(2))
+                            .Select(_ => Observable.FromAsync(async () =>
+                            {
+                                var ticks = DateTime.Now.Ticks;
+                                var data = BitConverter.GetBytes(ticks);
+                                await this.push.Notify(data);
 
-                        //        return ticks;
-                        //    }))
-                            //.SubOnMainThread(x =>
-                            //    this.SubscribersLastValue = x.ToString()
-                            //);
+                                return ticks;
+                            }))
+                            .Subscribe(x => Device.BeginInvokeOnMainThread(() =>
+                                this.SubscribersLastValue = x.ToString()
+                            ));
                     }
                 })
-            );
-
-            serviceBuilder.AddCharacteristic(
-                Characteristic3Uuid,
-                cb =>
-                {
-                    cb.SetWrite(request =>
-                    {
-                        Device.BeginInvokeOnMainThread(() => ++this.SpeedWrites);
-                        return GattState.Success;
-                    });
-
-                    cb.SetRead(request =>
-                    {
-                        Device.BeginInvokeOnMainThread(() => ++this.SpeedReads);
-                        var data = BitConverter.GetBytes(DateTime.Now.Ticks);
-                        return ReadResult.Success(data);
-                    });
-                }
             );
         }
     }
