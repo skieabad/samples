@@ -17,14 +17,14 @@ GPS
 Geofencing
 Motion Acitivity
 Local Notifications
-NFC
+[NFC](Nfc) - Near Field Communication
 Sensors
 Speech Recognition
 Platform Intrisics
 
 Integrations
-* Prism + DryIoc + Shiny
-* Better - Shiny.Framework - Prism + ReactiveuI + Shiny with ease
+* [Prism + DryIoc + Shiny](Prism-Integration) - Prism Integration Example
+* [Better - Shiny.Framework](Prism-RXUI-Best-Integration) - Prism + ReactiveUI + Shiny with ease
 * SQLite - Stores, Settings, & Logging
 * AppCenter - 
 * Firebase Analytics -
