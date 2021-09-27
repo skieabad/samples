@@ -1,5 +1,6 @@
 ﻿using Prism.DryIoc;
 using Prism.Ioc;
+using Xamarin.Forms;
 
 namespace Sample
 {
