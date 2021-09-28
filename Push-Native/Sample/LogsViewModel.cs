@@ -1,7 +1,6 @@
 ﻿using Shiny;
 using System.Collections.Generic;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 
 namespace Sample
@@ -11,23 +10,21 @@ namespace Sample
         public LogsViewModel()
         {
             var conn = ShinyHost.Resolve<SampleSqliteConnection>();
-            this.Load = new Command(async () =>
+            this.Load = this.LoadingCommand(async () =>
             {
-                this.IsBusy = true;
                 this.Events = await conn
                     .Events
                     .OrderByDescending(x => x.Timestamp)
                     .ToListAsync();
-                this.IsBusy = false;
             });
 
-            this.Clear = new Command(async () =>
+            this.Clear = this.LoadingCommand(async () =>
             {
-                this.IsBusy = true;
                 await conn.DeleteAllAsync<ShinyEvent>();
                 this.Load.Execute(null);
             });
         }
+
 
         public ICommand Clear { get; }
         public ICommand Load { get; }

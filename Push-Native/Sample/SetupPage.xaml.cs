@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 
 
-namespace Samples.Push
+namespace Sample
 {
     public partial class SetupPage : ContentPage
     {

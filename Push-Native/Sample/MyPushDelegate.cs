@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using Shiny.Push;
-using Samples.Models;
-using Samples.Infrastructure;
 
 
-namespace Sample.Push
+namespace Sample
 {
     public class MyPushDelegate : IPushDelegate
     {
@@ -26,13 +23,14 @@ namespace Sample.Push
         public Task OnReceived(PushNotification push)
             => this.Insert("PUSH RECEIVED");
 
-        public Task OnTokenRefreshed(string token)
-            => this.Insert("PUSH TOKEN CHANGE");
+        public Task OnTokenChanged(string token)
+        //public Task OnTokenRefreshed(string token)
+            => this.Insert("PUSH TOKEN REFRESH");
 
-        Task Insert(string info) => this.conn.InsertAsync(new
+        Task Insert(string info) => this.conn.InsertAsync(new ShinyEvent
         {
-            Payload = info,
-            Token = this.pushManager.CurrentRegistrationToken,
+            Text = info,
+            Detail = "Token: " + this.pushManager.CurrentRegistrationToken,
             Timestamp = DateTime.UtcNow
         });
     }

@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:pushnotifications="clr-namespace:Samples.Push"
+            xmlns:sample="clr-namespace:Sample"
             mc:Ignorable="d"
             x:Class="Sample.MainPage"
             SelectedTabColor="#C2E812"
@@ -12,25 +12,34 @@
             Title="Push">
 
     <TabbedPage.Children>
-        <pushnotifications:SetupPage>
+        <sample:SetupPage>
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf013;"
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
-        </pushnotifications:SetupPage>
+        </sample:SetupPage>
 
-        <!--<pushnotifications:TagsPage>
+        <!--
+        <sample:TagsPage>
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf013;"
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
-        </pushnotifications:TagsPage>-->
+        </sample:TagsPage>
 
-        <pushnotifications:EventListPage>
+        <sample:SendPage>
+            <ContentPage.IconImageSource>
+                <FontImageSource Glyph="&#xf013;"
+                                 FontFamily="FAS" />
+            </ContentPage.IconImageSource>
+        </sample:SendPage>
+        -->
+
+        <sample:LogsPage>
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf017;"
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
-        </pushnotifications:EventListPage>
+        </sample:LogsPage>
     </TabbedPage.Children>
 </TabbedPage>
