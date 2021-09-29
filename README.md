@@ -6,6 +6,7 @@
 Push Firebase
 Push Azure Notification Hubs
 Push OneSignal
+No Code Gen - AppDelegate, Android App, & Android Activity are all manually hooked for Shiny to fully operate
 
 Beacon Ranging & Monitoring
 Jobs
