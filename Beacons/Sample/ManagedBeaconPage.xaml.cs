@@ -3,9 +3,9 @@
 
 namespace Sample
 {
-    public partial class SetupPage : ContentPage
+    public partial class ManagedBeaconPage : ContentPage
     {
-        public SetupPage()
+        public ManagedBeaconPage()
         {
             this.InitializeComponent();
         }

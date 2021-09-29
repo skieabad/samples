@@ -3,11 +3,12 @@
 
 namespace Sample
 {
-    public partial class SetupPage : ContentPage
+    public partial class RangingPage : ContentPage
     {
-        public SetupPage()
+        public RangingPage()
         {
             this.InitializeComponent();
         }
     }
 }
+

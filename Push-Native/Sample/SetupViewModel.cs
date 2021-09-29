@@ -1,57 +1,66 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-using Samples.Infrastructure;
 using Shiny;
 using Shiny.Push;
+using Xamarin.Forms;
 
 
-namespace Samples.Push
+namespace Sample
 {
     public class SetupViewModel : ViewModel
     {
-        readonly IPushManager? pushManager;
-        readonly IDialogs dialogs;
+        readonly IPushManager pushManager;
 
 
-        public SetupViewModel(IDialogs dialogs, IPushManager? pushManager = null)
+        public SetupViewModel()
         {
-            this.dialogs = dialogs;
-            this.pushManager = pushManager;
+            this.pushManager = ShinyHost.Resolve<IPushManager>();
 
-            this.RequestAccess = ReactiveCommand.CreateFromTask(
-                () => this.Do(async () =>
-                {
-                    var result = await this.pushManager.RequestAccess();
-                    this.AccessStatus = result.Status;
-                })
-            );
-            this.UnRegister = ReactiveCommand.CreateFromTask(
-                () => this.Do(async () =>
-                {
-                    await this.pushManager.UnRegister();
-                    this.AccessStatus = AccessState.Disabled;
-                }),
-                this.WhenAny(
-                    x => x.RegToken,
-                    x => !x.GetValue().IsEmpty()
-                )
-            );
+            this.RequestAccess = this.LoadingCommand(async () =>
+            {
+                var result = await this.pushManager.RequestAccess();
+                this.AccessStatus = result.Status;
+                this.Refresh();
+            });
+
+            this.UnRegister = this.LoadingCommand(async () =>
+            {
+                await this.pushManager.UnRegister();
+                this.AccessStatus = AccessState.Disabled;
+                this.Refresh();
+            });
+
+            this.Refresh();
         }
 
 
-        public ICommand RequestAccess { get; }
-        public ICommand UnRegister { get; }
+        public Command RequestAccess { get; }
+        public Command UnRegister { get; }
 
-        public bool IsTagsSupported => this.pushManager?.IsTagsSupport() ?? false;
-        public string Implementation => this.pushManager?.GetType().FullName ?? "None";
-        [Reactive] public string Tag { get; set; }
-        [Reactive] public string RegToken { get; private set; }
-        [Reactive] public DateTime? RegDate { get; private set; }
-        [Reactive] public AccessState AccessStatus { get; private set; } = AccessState.Unknown;
+        public bool IsTagsSupported => this.pushManager.IsTagsSupport();
+        public string Implementation => this.pushManager.GetType().FullName;
+
+        string regToken;
+        public string RegToken
+        {
+            get => this.regToken;
+            private set => this.Set(ref this.regToken, value);
+        }
+
+
+        DateTime? regDate;
+        public DateTime? RegDate
+        {
+            get => this.regDate;
+            private set => this.Set(ref this.regDate, value);
+        }
+
+
+        AccessState access = AccessState.Unknown;
+        public AccessState AccessStatus
+        {
+            get => this.access;
+            private set => this.Set(ref this.access, value);
+        }
 
 
         public override void OnAppearing()
@@ -63,20 +72,9 @@ namespace Samples.Push
 
         void Refresh()
         {
-            this.RegToken = this.pushManager?.CurrentRegistrationToken ?? "-";
-            this.RegDate = this.pushManager?.CurrentRegistrationTokenDate?.ToLocalTime();
-            this.Tag = this.pushManager?.TryGetTags()?.FirstOrDefault() ?? String.Empty;
-        }
-
-
-        async Task Do(Func<Task> task)
-        {
-            if (this.pushManager == null)
-                return;
-
-            await this.dialogs.LoadingTask(task, "Updating Push Details");
-            await this.dialogs.Snackbar("Push Details Updated");
-            this.Refresh();
+            //this.UnRegister.ChangeCanExecute();
+            this.RegToken = this.pushManager.CurrentRegistrationToken ?? "-";
+            this.RegDate = this.pushManager.CurrentRegistrationTokenDate?.ToLocalTime();
         }
     }
 }
