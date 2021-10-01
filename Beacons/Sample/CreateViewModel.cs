@@ -3,6 +3,9 @@ using System.Windows.Input;
 using System.Reactive.Linq;
 using Shiny;
 using Shiny.Beacons;
+using Prism.Navigation;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 
 namespace Sample
@@ -37,7 +40,7 @@ namespace Sample
                     var result = await monitorManager.RequestAccess();
                     if (result != AccessState.Available)
                     {
-                        await dialogs.AlertAccess(result);
+                        await dialogs.Alert($"Invalid Permission: {result}");
                     }
                     else
                     {
@@ -73,10 +76,10 @@ namespace Sample
                     var result = await rangingManager.RequestAccess();
                     if (result != AccessState.Available)
                     {
-                        await dialogs.AlertAccess(result);
+                        await dialogs.Alert($"Invalid Permission: {result}");
                     }
                     else
-                        {
+                    {
                         var region = this.GetBeaconRegion();
                         await navigator.GoBack(false, (nameof(BeaconRegion), region));
                     }

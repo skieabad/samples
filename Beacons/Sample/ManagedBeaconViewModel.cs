@@ -2,14 +2,14 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Prism.Navigation;
-
 using ReactiveUI;
-
+using ReactiveUI.Fody.Helpers;
+using Shiny;
 using Shiny.Beacons;
 using Shiny.Beacons.Managed;
 
 
-namespace Samples.Beacons
+namespace Sample
 {
     public class ManagedBeaconViewModel : ViewModel
     {
@@ -23,7 +23,7 @@ namespace Samples.Beacons
             this.scanner = beaconManager.CreateManagedScan();
             this.navigator = navigator;
             this.SetRegion = navigator.NavigateCommand(
-                "CreateBeacon",
+                "CreatePage",
                 p => p
                     .Set(nameof(BeaconRegion), this.region)
                     .Set("IsRanging", true)
@@ -31,13 +31,23 @@ namespace Samples.Beacons
         }
 
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public override async void OnNavigatedTo(INavigationParameters parameters)
         {
             this.region = parameters.GetValue<BeaconRegion>(nameof(BeaconRegion));
             if (this.region != null)
             {
-                this.scanner.Start(this.region, RxApp.MainThreadScheduler);
-                this.IsBusy = true;
+                try
+                {
+                    await this.scanner.Start(this.region, RxApp.MainThreadScheduler);
+                    this.Uuid = this.region.Uuid.ToString();
+                    this.Major = this.region.Major?.ToString() ?? "-";
+                    this.Minor = this.region.Minor?.ToString() ?? "-";
+                    this.IsBusy = true;
+                }
+                catch (Exception ex)
+                {
+                    await this.Dialogs.Alert(ex.ToString());
+                }
             }
         }
 
@@ -50,6 +60,9 @@ namespace Samples.Beacons
 
 
         public ICommand SetRegion { get; }
+        [Reactive] public string Uuid { get; private set; }
+        [Reactive] public string Major { get; private set; }
+        [Reactive] public string Minor { get; private set; }
         public ObservableCollection<ManagedBeacon> Beacons => this.scanner.Beacons;
     }
 }

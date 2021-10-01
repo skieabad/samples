@@ -4,6 +4,9 @@ using System.Windows.Input;
 using System.Reactive.Linq;
 using Shiny;
 using Shiny.Beacons;
+using Prism.Navigation;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 
 namespace Sample
@@ -11,6 +14,7 @@ namespace Sample
     public class RangingViewModel : ViewModel
     {
         readonly IBeaconRangingManager beaconManager;
+        readonly IDialogs dialogs;
         BeaconRegion? region;
         IDisposable? scanner;
 
@@ -35,7 +39,7 @@ namespace Sample
                 .ToPropertyEx(this, x => x.IsMinorSet);
 
             this.SetRegion = navigator.NavigateCommand(
-                "CreateBeacon",
+                "RangingPage",
                 p => p
                     .Set(nameof(BeaconRegion), this.region)
                     .Set("IsRanging", true)

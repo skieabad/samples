@@ -3,7 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Input;
+using Prism.Navigation;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
+using Shiny;
 using Shiny.Beacons;
+using Shiny.XamForms;
 
 
 namespace Sample
@@ -14,7 +19,7 @@ namespace Sample
                                    IDialogs dialogs,
                                    IBeaconMonitoringManager? beaconManager = null)
         {
-            this.Add = navigator.NavigateCommand("CreateBeacon");
+            this.Add = navigator.NavigateCommand("CreatePage");
             this.Load = ReactiveCommand.CreateFromTask(async () =>
             {
                 if (beaconManager == null)

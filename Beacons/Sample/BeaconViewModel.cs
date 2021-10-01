@@ -1,4 +1,6 @@
-﻿using Shiny;
+﻿using ReactiveUI.Fody.Helpers;
+
+using Shiny;
 using Shiny.Beacons;
 
 
@@ -18,11 +20,6 @@ namespace Sample
         public ushort Minor => this.Beacon.Minor;
         public string Identifier => $"Major: {this.Major} - Minor: {this.Minor}";
 
-        Proximity prox;
-        public Proximity Proximity
-        {
-            get => this.prox;
-            set => this.Set(ref this.prox, value);
-        }
+        [Reactive] public Proximity Proximity { get; set; }
     }
 }
