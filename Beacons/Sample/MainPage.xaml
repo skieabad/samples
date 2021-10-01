@@ -17,19 +17,19 @@
                     <TableSection>
                         <TextCell Text="Ranging (Foreground)"
                                   Command="{Binding Navigate}"
-                                  CommandParameter="RangingPage" />
+                                  CommandParameter="NavigationPage/RangingPage" />
 
                         <TextCell Text="Monitoring (Background)"
                                   Command="{Binding Navigate}"
-                                  CommandParameter="MonitoringPage" />
+                                  CommandParameter="NavigationPage/MonitoringPage" />
 
                         <TextCell Text="Monitoring Logs"
                                   Command="{Binding Navigate}"
-                                  CommandParameter="LogsPage" />
+                                  CommandParameter="NavigationPage/LogsPage" />
 
                         <TextCell Text="Managed Ranging Scan"
                                   Command="{Binding Navigate}"
-                                  CommandParameter="ManagedBeaconPage" />
+                                  CommandParameter="NavigationPage/ManagedBeaconPage" />
                     </TableSection>
                 </TableRoot>
             </TableView>

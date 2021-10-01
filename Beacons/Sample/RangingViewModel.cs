@@ -39,7 +39,7 @@ namespace Sample
                 .ToPropertyEx(this, x => x.IsMinorSet);
 
             this.SetRegion = navigator.NavigateCommand(
-                "RangingPage",
+                "CreatePage",
                 p => p
                     .Set(nameof(BeaconRegion), this.region)
                     .Set("IsRanging", true)
