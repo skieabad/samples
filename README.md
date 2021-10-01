@@ -32,6 +32,6 @@
 * OBD Interface
 * Media Sync
 * GeoDispatch
-* GPS Tags
+* [GPS Tags](gpstags) - GPS+Beacons - AirTags for Xamarin (but with normal beacons)
 * Data Sync
 * Trip Tracker

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sample="clr-namespace:Sample"
+             xmlns:beacons="clr-namespace:Shiny.Beacons;assembly=Shiny.Beacons"
+             x:DataType="sample:RegisterTagViewModel"
+             x:Class="Sample.RegisterTagPage"
+             Title="Register New Tag">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--ui:MaterialTextField Placeholder="Beacon UUID"
+                                  Text="{Binding BeaconUuid}"
+                                  Grid.Row="0" />
+
+            <ui:MaterialTextField Placeholder="Identifier"
+                                  Text="{Binding Identifier}"
+                                  Grid.Row="1" />-->
+
+            <CollectionView ItemsSource="{Binding Beacons}"
+                            Grid.Row="2">
+                <CollectionView.EmptyView>
+                    <Label Text="No Beacons Found"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalOptions="FillAndExpand"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="FillAndExpand"
+                           VerticalTextAlignment="Center" />
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="beacons:Beacon">
+                        <StackLayout>
+                            <Label Text="{Binding Major, StringFormat='Major: {0}'}" />
+                            <Label Text="{Binding Minor, StringFormat='Minor: {0}'}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Create Tag"
+                    Command="{Binding Create}"
+                    Grid.Row="3" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
