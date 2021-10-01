@@ -7,6 +7,7 @@ namespace Sample
         public RegisterTagPage()
         {
             this.InitializeComponent();
+            this.BindingContext = new RegisterTagViewModel();
         }
     }
 }

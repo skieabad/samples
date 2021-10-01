@@ -17,10 +17,9 @@ namespace Sample
         CompositeDisposable? subscriptions;
 
 
-        public MainViewModel(ITagManager tagManager)
+        public MainViewModel()
         {
-            this.tagManager = tagManager;
-
+            this.tagManager = ShinyHost.Resolve<ITagManager>();
             this.Add = new Command(
                 async () => await this.Navigation.PushAsync(new RegisterTagPage())
             );

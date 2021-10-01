@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
+using Shiny;
 using Shiny.Beacons;
 using Shiny.GpsTags;
 
@@ -14,8 +15,9 @@ namespace Sample
         IDisposable? scanSub;
 
 
-        public RegisterTagViewModel(ITagManager tagManager)
+        public RegisterTagViewModel()
         {
+            var tagManager = ShinyHost.Resolve<ITagManager>();
             //this.WhenAnyValue(x => x.BeaconUuid)
             //    .Where(x => Guid.TryParse(x, out var _))
             //    .Select(x => Guid.Parse(x))
