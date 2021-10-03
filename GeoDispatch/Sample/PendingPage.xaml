@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:geodispatch="clr-namespace:Sample"
+             xmlns:geodispatch1="clr-namespace:Shiny.GeoDispatch;assembly=Shiny.GeoDispatch"
+             x:DataType="geodispatch:PendingViewModel"
+             x:Class="Sample.PendingPage"
+             Title="Pending Replies">
+
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding Dispatches}"
+                        SelectedItem="{Binding SelectedDispatch}">
+            <CollectionView.EmptyView>
+                <Label Text="No Pending Dispatches" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="geodispatch1:GeoDispatchMessage">
+                    <StackLayout>
+                        <Label Text="{Binding Identifier}" />
+                        <Label Text="{Binding Message}" />
+                        <Label Text="{Binding DateReceived, StringFormat='{0:G}'}" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

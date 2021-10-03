@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:gpstags="clr-namespace:Shiny.GpsTags;assembly=Shiny.GpsTags"
-             xmlns:sample="clr-namespace:Sample"
-             x:DataType="sample:MainViewModel"
+             xmlns:samples="clr-namespace:ShinySponsors.GpsTags"
+             x:DataType="samples:MainViewModel"
              x:Class="Sample.MainPage"
              Title="GPS Tags">
 
@@ -14,10 +14,9 @@
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Tags}"
                         SelectedItem="{Binding SelectedTag}">
-            <!--<CollectionView.EmptyView>
-                <Label Text="No Registered Tags"
-                       Style="{StaticResource NoDataLabel}" />
-            </CollectionView.EmptyView>-->
+            <CollectionView.EmptyView>
+                <Label Text="No Registered Tags" />
+            </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="gpstags:Tag">

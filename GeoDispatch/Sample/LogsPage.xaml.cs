@@ -7,7 +7,6 @@ namespace Sample
         public LogsPage()
         {
             this.InitializeComponent();
-            this.BindingContext = new LogsViewModel();
         }
     }
 }
