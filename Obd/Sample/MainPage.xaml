@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:obdinterface="clr-namespace:ShinySponsors.ObdInterface"
+             xmlns:shiny="clr-namespace:Shiny.XamForms;assembly=Shiny.Framework"
+             x:DataType="obdinterface:MainViewModel"
+             x:Class="ShinySponsors.ObdInterface.MainPage"
+             Title="OBD Interfaces">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Text="Scan"
+                    Command="{Binding ToggleScan}"
+                    Grid.Row="0">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsBusy}" Value="True">
+                        <Setter Property="Text" Value="Stop Scan" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsBusy}" Value="False">
+                        <Setter Property="Text" Value="Scan" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+
+            <CollectionView ItemsSource="{Binding Devices}"
+                            SelectedItem="{Binding SelectedItem}"
+                            SelectionMode="Single"
+                            Grid.Row="1">
+                <CollectionView.EmptyView>
+                    <StackLayout>
+                        <ActivityIndicator IsVisible="{Binding IsBusy}" />
+
+                        <Label Text="No Devices Found"
+                               Style="{StaticResource NoDataLabel}" />
+                    </StackLayout>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="shiny:CommandItem">
+                        <Label Text="{Binding Text}"
+                               Padding="10"
+                               FontSize="Large"
+                               HorizontalOptions="FillAndExpand"
+                               HorizontalTextAlignment="Center"
+                               VerticalOptions="FillAndExpand"
+                               VerticalTextAlignment="Center" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
