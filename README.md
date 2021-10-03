@@ -29,9 +29,9 @@
 * No Code Gen - AppDelegate, Android App, & Android Activity are all manually hooked for Shiny to fully operate
 
 ## Sponsors
-* OBD Interface
+* [OBD Interface](obd) - BLE+Others - Making working with BLE & Other OBD dongles easy
 * Media Sync
-* GeoDispatch
+* [GeoDispatch](geodispatch) - Push+GPS - a new idea on how to manage location based dispatching
 * [GPS Tags](gpstags) - GPS+Beacons - AirTags for Xamarin (but with normal beacons)
 * Data Sync
-* Trip Tracker
+* [Trip Tracker](triptrack) - Track runs, walks, drives, etc - includes data such as average speed, points of trip

@@ -9,7 +9,7 @@ using Shiny.XamForms;
 using ReactiveUI.Fody.Helpers;
 
 
-namespace ShinySponsors.ObdInterface
+namespace Sample
 {
     public class MainViewModel : ViewModel
     {

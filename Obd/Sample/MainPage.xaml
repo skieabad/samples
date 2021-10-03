@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:obdinterface="clr-namespace:ShinySponsors.ObdInterface"
+             xmlns:obdinterface="clr-namespace:Sample"
              xmlns:shiny="clr-namespace:Shiny.XamForms;assembly=Shiny.Framework"
              x:DataType="obdinterface:MainViewModel"
-             x:Class="ShinySponsors.ObdInterface.MainPage"
+             x:Class="Sample.MainPage"
              Title="OBD Interfaces">
 
     <ContentPage.Content>

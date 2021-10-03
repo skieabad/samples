@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 
 
-namespace ShinySponsors.ObdInterface
+namespace Sample
 {
     public partial class MainPage : ContentPage
     {

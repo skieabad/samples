@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 
 
-namespace ShinySponsors.TripTracker
+namespace Sample
 {
     public partial class SettingsPage : ContentPage
     {

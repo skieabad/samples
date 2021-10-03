@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:triptracker="clr-namespace:ShinySponsors.TripTracker"
+             xmlns:triptracker="clr-namespace:Sample"
              mc:Ignorable="d"
              x:DataType="triptracker:SettingsViewModel"
-             x:Class="ShinySponsors.TripTracker.SettingsPage">
+             x:Class="Sample.SettingsPage">
 
     <ContentPage.Resources>
         <Style x:Name="Radio" TargetType="RadioButton">

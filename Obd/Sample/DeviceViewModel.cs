@@ -11,7 +11,7 @@ using Shiny.XamForms;
 using UnitsNet;
 
 
-namespace ShinySponsors.ObdInterface
+namespace Sample
 {
     public class DeviceViewModel : ViewModel
     {

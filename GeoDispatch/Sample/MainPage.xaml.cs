@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 
 
-namespace ShinySponsors.GeoDispatch
+namespace Sample
 {
     public partial class MainPage : TabbedPage
     {

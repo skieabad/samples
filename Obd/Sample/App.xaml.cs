@@ -10,7 +10,6 @@ namespace Sample
         public App()
         {
             InitializeComponent();
-            this.MainPage = new NavigationPage(new MainPage());
         }
     }
 }

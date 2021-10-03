@@ -6,7 +6,7 @@ using Shiny.TripTracker;
 
 
 
-namespace ShinySponsors.TripTracker
+namespace Sample
 {
     public class SampleTripTrackerDelegate : TripTrackerDelegate
     {

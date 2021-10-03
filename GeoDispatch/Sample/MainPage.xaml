@@ -6,6 +6,6 @@
             Title="GeoDispatch">
     <TabbedPage.Children>
         <geodispatch:PendingPage />
-        <geodispatch:EventPage />
+        <geodispatch:LogsPage />
     </TabbedPage.Children>
 </TabbedPage>

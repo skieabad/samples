@@ -13,27 +13,11 @@
 	<ItemGroup>
 		<PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
 		<PackageReference Include="Shiny" Version="2.2.0.2829" />
-		<PackageReference Include="Shiny.Push.AzurePushNotifications" Version="2.2.0.2829" />
-		<!--<PackageReference Include="Shiny.GeoDispatch" Version="1.0.20" />-->
+		<PackageReference Include="Shiny.Push.AzureNotificationHubs" Version="2.2.0.2829" />
+		<PackageReference Include="Shiny.GeoDispatch" Version="1.0.20" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
 		<PackageReference Include="Shiny.Framework" Version="1.3.0.93" />
-	</ItemGroup>
-	<ItemGroup>
-	  <None Include="App.xaml" />
-	  <None Include="MainPage.xaml" />
-	  <None Include="PendingPage.xaml" />
-	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Include="SendPage.xaml">
-	    <SubType>Designer</SubType>
-	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-	  </EmbeddedResource>
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="SendPage.xaml.cs">
-	    <DependentUpon>SendPage.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 </Project>

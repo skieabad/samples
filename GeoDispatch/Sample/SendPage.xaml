@@ -5,6 +5,6 @@
     x:Class="Sample.SendPage"
     Title="Send">
     <ContentPage.Content>
-        
+
     </ContentPage.Content>
 </ContentPage>

@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Windows.Input;
 using ReactiveUI;
-using ReactiveUI.Fody;
+using ReactiveUI.Fody.Helpers;
 
 
 namespace Sample
