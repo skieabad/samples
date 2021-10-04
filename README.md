@@ -29,6 +29,7 @@
 * No Code Gen - AppDelegate, Android App, & Android Activity are all manually hooked for Shiny to fully operate
 
 ## Sponsors
+* Call Directory
 * [OBD Interface](obd) - BLE+Others - Making working with BLE & Other OBD dongles easy
 * Media Sync
 * [GeoDispatch](geodispatch) - Push+GPS - a new idea on how to manage location based dispatching
