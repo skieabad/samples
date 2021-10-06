@@ -12,9 +12,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
-		<PackageReference Include="Shiny" Version="2.2.0.2829" />
-		<PackageReference Include="Shiny.Push.AzureNotificationHubs" Version="2.2.0.2829" />
-		<PackageReference Include="Shiny.GeoDispatch" Version="1.0.20" />
+		<PackageReference Include="Shiny" Version="2.3.0.2890-preview" />
+		<PackageReference Include="Shiny.Push.AzureNotificationHubs" Version="2.3.0.2890-preview" />
+		<PackageReference Include="Shiny.GeoDispatch" Version="1.0.45-preview" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />

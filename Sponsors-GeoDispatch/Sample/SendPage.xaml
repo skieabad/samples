@@ -2,9 +2,38 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sample="clr-namespace:Sample"
+    x:DataType="sample:SendViewModel"
     x:Class="Sample.SendPage"
     Title="Send">
     <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
+            <ScrollView Grid.Row="0">
+                <StackLayout>
+                    <Label Text="Radius (in meters)" />
+                    <Entry Text="{Binding Radius}"
+                           Keyboard="Numeric" />
+
+                    <Label Text="GPS Latitude" />
+                    <Entry Text="{Binding Latitude}"
+                           Keyboard="Numeric" />
+
+                    <Label Text="GPS Longitude" />
+                    <Entry Text="{Binding Longitude}"
+                           Keyboard="Numeric" />
+
+                    <Label Text="Message" />
+                    <Entry Text="{Binding Message}" />
+                </StackLayout>
+            </ScrollView>
+            <Button Text="Send Dispatch"
+                    Command="{Binding Send}"
+                    Grid.Row="1" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

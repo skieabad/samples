@@ -32,9 +32,11 @@ namespace Sample
             services.UseXfMaterialDialogs();
             services.AddSingleton<SampleSqliteConnection>();
             services.UseGeoDispatch<SampleGeoDispatchDelegate>();
-            services.UsePushAzureNotificationHubs<Shiny.GeoDispatch.GeoDispatchPushDelegate>(
+
+            // note that we're using the empty push delegate because we aren't interested in processing our own push events, geodispatch will be handling them
+            services.UsePushAzureNotificationHubs<Shiny.Push.Common.EmptyPushDelegate>(
                 Secrets.Values.AzureNotificationHubFullConnectionString,
-                Secrets.Values.AzureNotificationHubHubName
+                Secrets.Values.AzureNotificationHubName
             );
         }
     }
