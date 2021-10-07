@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:calldirectory="clr-namespace:ShinySponsors.CallDirectory"
+             x:DataType="calldirectory:EntryViewModel"
+             x:Class="ShinySponsors.CallDirectory.EntryPage"
+             Title="Call Directory Entry">
+
+    <ContentPage.Content>
+        <TableView>
+            <TableRoot>
+                <TableSection>
+                    <EntryCell Label="Phone #"
+                               Text="{Binding Phone}"
+                               Keyboard="Telephone" />
+
+                    <EntryCell Label="Label"
+                               Text="{Binding Label}" />
+
+                    <SwitchCell Text="Blocked"
+                                On="{Binding IsBlocked}" />
+                </TableSection>
+
+                <TableSection>
+                    <TextCell Text="Save"
+                              Command="{Binding Save}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

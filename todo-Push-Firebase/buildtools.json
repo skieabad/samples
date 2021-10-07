@@ -1,0 +1,27 @@
+{
+  "$schema": "https://mobilebuildtools.com/schemas/v2/buildtools.schema.json",
+  "appConfig": {
+    "disable": true
+    //"strategy": "TransformOnly"
+  },
+  "google": {
+    "servicesJson": "GoogleServicesJson"
+    //"infoPlist": "GoogleServicesInfoPlist"
+  }
+  //"appSettings": {
+  //  "Sample": [
+  //    {
+  //      "delimiter": ";",
+  //      "className": "Values",
+  //      "accessibility": "Public",
+  //      "namespace": "Secrets",
+  //      "rootNamespace": "Sample",
+  //      "properties": [
+  //        {
+  //          "name": "Key",
+  //          "type": "String"
+  //        }
+  //      ]
+  //    }
+  //  ]
+  }
