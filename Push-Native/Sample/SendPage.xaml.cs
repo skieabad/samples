@@ -8,6 +8,7 @@ namespace Sample
         public SendPage()
         {
             this.InitializeComponent();
+            this.BindingContext = new SendViewModel();
         }
     }
 }

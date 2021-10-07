@@ -9,6 +9,7 @@ namespace Sample
         public TagsPage()
         {
             this.InitializeComponent();
+            this.BindingContext = new TagsViewModel();
         }
     }
 }

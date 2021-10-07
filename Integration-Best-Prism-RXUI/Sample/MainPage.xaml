@@ -4,10 +4,10 @@
              xmlns:sample="clr-namespace:Sample"
              x:DataType="sample:MainViewModel"
              x:Class="Sample.MainPage"
-             Title="">
+             Title="Framework">
     <ContentPage.Content>
         <StackLayout>
-
+            <Label Text="{Binding [Test], StringFormat='This is coming from your localization: {0}'}"
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
