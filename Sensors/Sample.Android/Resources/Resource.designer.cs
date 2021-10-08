@@ -37,11 +37,10 @@ namespace Sample.Droid
 			global::Shiny.Resource.Attribute.fontStyle = global::Sample.Droid.Resource.Attribute.fontStyle;
 			global::Shiny.Resource.Attribute.fontVariationSettings = global::Sample.Droid.Resource.Attribute.fontVariationSettings;
 			global::Shiny.Resource.Attribute.fontWeight = global::Sample.Droid.Resource.Attribute.fontWeight;
+			global::Shiny.Resource.Attribute.nestedScrollViewStyle = global::Sample.Droid.Resource.Attribute.nestedScrollViewStyle;
+			global::Shiny.Resource.Attribute.queryPatterns = global::Sample.Droid.Resource.Attribute.queryPatterns;
+			global::Shiny.Resource.Attribute.shortcutMatchRequired = global::Sample.Droid.Resource.Attribute.shortcutMatchRequired;
 			global::Shiny.Resource.Attribute.ttcIndex = global::Sample.Droid.Resource.Attribute.ttcIndex;
-			global::Shiny.Resource.Boolean.enable_system_alarm_service_default = global::Sample.Droid.Resource.Boolean.enable_system_alarm_service_default;
-			global::Shiny.Resource.Boolean.enable_system_foreground_service_default = global::Sample.Droid.Resource.Boolean.enable_system_foreground_service_default;
-			global::Shiny.Resource.Boolean.enable_system_job_service_default = global::Sample.Droid.Resource.Boolean.enable_system_job_service_default;
-			global::Shiny.Resource.Boolean.workmanager_test_configuration = global::Sample.Droid.Resource.Boolean.workmanager_test_configuration;
 			global::Shiny.Resource.Color.androidx_core_ripple_material_light = global::Sample.Droid.Resource.Color.androidx_core_ripple_material_light;
 			global::Shiny.Resource.Color.androidx_core_secondary_text_default_material_light = global::Sample.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
 			global::Shiny.Resource.Color.notification_action_color_filter = global::Sample.Droid.Resource.Color.notification_action_color_filter;
@@ -169,6 +168,9 @@ namespace Sample.Droid
 			global::Shiny.Resource.Style.TextAppearance_Compat_Notification_Title = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
 			global::Shiny.Resource.Style.Widget_Compat_NotificationActionContainer = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Shiny.Resource.Style.Widget_Compat_NotificationActionText = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Shiny.Resource.Styleable.Capability = global::Sample.Droid.Resource.Styleable.Capability;
+			global::Shiny.Resource.Styleable.Capability_queryPatterns = global::Sample.Droid.Resource.Styleable.Capability_queryPatterns;
+			global::Shiny.Resource.Styleable.Capability_shortcutMatchRequired = global::Sample.Droid.Resource.Styleable.Capability_shortcutMatchRequired;
 			global::Shiny.Resource.Styleable.ColorStateListItem = global::Sample.Droid.Resource.Styleable.ColorStateListItem;
 			global::Shiny.Resource.Styleable.ColorStateListItem_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_alpha;
 			global::Shiny.Resource.Styleable.ColorStateListItem_android_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
@@ -208,6 +210,191 @@ namespace Sample.Droid
 			global::Shiny.Resource.Styleable.GradientColor_android_startY = global::Sample.Droid.Resource.Styleable.GradientColor_android_startY;
 			global::Shiny.Resource.Styleable.GradientColor_android_tileMode = global::Sample.Droid.Resource.Styleable.GradientColor_android_tileMode;
 			global::Shiny.Resource.Styleable.GradientColor_android_type = global::Sample.Droid.Resource.Styleable.GradientColor_android_type;
+			global::Shiny.Sensors.Resource.Attribute.alpha = global::Sample.Droid.Resource.Attribute.alpha;
+			global::Shiny.Sensors.Resource.Attribute.font = global::Sample.Droid.Resource.Attribute.font;
+			global::Shiny.Sensors.Resource.Attribute.fontProviderAuthority = global::Sample.Droid.Resource.Attribute.fontProviderAuthority;
+			global::Shiny.Sensors.Resource.Attribute.fontProviderCerts = global::Sample.Droid.Resource.Attribute.fontProviderCerts;
+			global::Shiny.Sensors.Resource.Attribute.fontProviderFetchStrategy = global::Sample.Droid.Resource.Attribute.fontProviderFetchStrategy;
+			global::Shiny.Sensors.Resource.Attribute.fontProviderFetchTimeout = global::Sample.Droid.Resource.Attribute.fontProviderFetchTimeout;
+			global::Shiny.Sensors.Resource.Attribute.fontProviderPackage = global::Sample.Droid.Resource.Attribute.fontProviderPackage;
+			global::Shiny.Sensors.Resource.Attribute.fontProviderQuery = global::Sample.Droid.Resource.Attribute.fontProviderQuery;
+			global::Shiny.Sensors.Resource.Attribute.fontProviderSystemFontFamily = global::Sample.Droid.Resource.Attribute.fontProviderSystemFontFamily;
+			global::Shiny.Sensors.Resource.Attribute.fontStyle = global::Sample.Droid.Resource.Attribute.fontStyle;
+			global::Shiny.Sensors.Resource.Attribute.fontVariationSettings = global::Sample.Droid.Resource.Attribute.fontVariationSettings;
+			global::Shiny.Sensors.Resource.Attribute.fontWeight = global::Sample.Droid.Resource.Attribute.fontWeight;
+			global::Shiny.Sensors.Resource.Attribute.nestedScrollViewStyle = global::Sample.Droid.Resource.Attribute.nestedScrollViewStyle;
+			global::Shiny.Sensors.Resource.Attribute.queryPatterns = global::Sample.Droid.Resource.Attribute.queryPatterns;
+			global::Shiny.Sensors.Resource.Attribute.shortcutMatchRequired = global::Sample.Droid.Resource.Attribute.shortcutMatchRequired;
+			global::Shiny.Sensors.Resource.Attribute.ttcIndex = global::Sample.Droid.Resource.Attribute.ttcIndex;
+			global::Shiny.Sensors.Resource.Color.androidx_core_ripple_material_light = global::Sample.Droid.Resource.Color.androidx_core_ripple_material_light;
+			global::Shiny.Sensors.Resource.Color.androidx_core_secondary_text_default_material_light = global::Sample.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
+			global::Shiny.Sensors.Resource.Color.notification_action_color_filter = global::Sample.Droid.Resource.Color.notification_action_color_filter;
+			global::Shiny.Sensors.Resource.Color.notification_icon_bg_color = global::Sample.Droid.Resource.Color.notification_icon_bg_color;
+			global::Shiny.Sensors.Resource.Dimension.compat_button_inset_horizontal_material = global::Sample.Droid.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::Shiny.Sensors.Resource.Dimension.compat_button_inset_vertical_material = global::Sample.Droid.Resource.Dimension.compat_button_inset_vertical_material;
+			global::Shiny.Sensors.Resource.Dimension.compat_button_padding_horizontal_material = global::Sample.Droid.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::Shiny.Sensors.Resource.Dimension.compat_button_padding_vertical_material = global::Sample.Droid.Resource.Dimension.compat_button_padding_vertical_material;
+			global::Shiny.Sensors.Resource.Dimension.compat_control_corner_material = global::Sample.Droid.Resource.Dimension.compat_control_corner_material;
+			global::Shiny.Sensors.Resource.Dimension.compat_notification_large_icon_max_height = global::Sample.Droid.Resource.Dimension.compat_notification_large_icon_max_height;
+			global::Shiny.Sensors.Resource.Dimension.compat_notification_large_icon_max_width = global::Sample.Droid.Resource.Dimension.compat_notification_large_icon_max_width;
+			global::Shiny.Sensors.Resource.Dimension.notification_action_icon_size = global::Sample.Droid.Resource.Dimension.notification_action_icon_size;
+			global::Shiny.Sensors.Resource.Dimension.notification_action_text_size = global::Sample.Droid.Resource.Dimension.notification_action_text_size;
+			global::Shiny.Sensors.Resource.Dimension.notification_big_circle_margin = global::Sample.Droid.Resource.Dimension.notification_big_circle_margin;
+			global::Shiny.Sensors.Resource.Dimension.notification_content_margin_start = global::Sample.Droid.Resource.Dimension.notification_content_margin_start;
+			global::Shiny.Sensors.Resource.Dimension.notification_large_icon_height = global::Sample.Droid.Resource.Dimension.notification_large_icon_height;
+			global::Shiny.Sensors.Resource.Dimension.notification_large_icon_width = global::Sample.Droid.Resource.Dimension.notification_large_icon_width;
+			global::Shiny.Sensors.Resource.Dimension.notification_main_column_padding_top = global::Sample.Droid.Resource.Dimension.notification_main_column_padding_top;
+			global::Shiny.Sensors.Resource.Dimension.notification_media_narrow_margin = global::Sample.Droid.Resource.Dimension.notification_media_narrow_margin;
+			global::Shiny.Sensors.Resource.Dimension.notification_right_icon_size = global::Sample.Droid.Resource.Dimension.notification_right_icon_size;
+			global::Shiny.Sensors.Resource.Dimension.notification_right_side_padding_top = global::Sample.Droid.Resource.Dimension.notification_right_side_padding_top;
+			global::Shiny.Sensors.Resource.Dimension.notification_small_icon_background_padding = global::Sample.Droid.Resource.Dimension.notification_small_icon_background_padding;
+			global::Shiny.Sensors.Resource.Dimension.notification_small_icon_size_as_large = global::Sample.Droid.Resource.Dimension.notification_small_icon_size_as_large;
+			global::Shiny.Sensors.Resource.Dimension.notification_subtext_size = global::Sample.Droid.Resource.Dimension.notification_subtext_size;
+			global::Shiny.Sensors.Resource.Dimension.notification_top_pad = global::Sample.Droid.Resource.Dimension.notification_top_pad;
+			global::Shiny.Sensors.Resource.Dimension.notification_top_pad_large_text = global::Sample.Droid.Resource.Dimension.notification_top_pad_large_text;
+			global::Shiny.Sensors.Resource.Drawable.notification_action_background = global::Sample.Droid.Resource.Drawable.notification_action_background;
+			global::Shiny.Sensors.Resource.Drawable.notification_bg = global::Sample.Droid.Resource.Drawable.notification_bg;
+			global::Shiny.Sensors.Resource.Drawable.notification_bg_low = global::Sample.Droid.Resource.Drawable.notification_bg_low;
+			global::Shiny.Sensors.Resource.Drawable.notification_bg_low_normal = global::Sample.Droid.Resource.Drawable.notification_bg_low_normal;
+			global::Shiny.Sensors.Resource.Drawable.notification_bg_low_pressed = global::Sample.Droid.Resource.Drawable.notification_bg_low_pressed;
+			global::Shiny.Sensors.Resource.Drawable.notification_bg_normal = global::Sample.Droid.Resource.Drawable.notification_bg_normal;
+			global::Shiny.Sensors.Resource.Drawable.notification_bg_normal_pressed = global::Sample.Droid.Resource.Drawable.notification_bg_normal_pressed;
+			global::Shiny.Sensors.Resource.Drawable.notification_icon_background = global::Sample.Droid.Resource.Drawable.notification_icon_background;
+			global::Shiny.Sensors.Resource.Drawable.notification_template_icon_bg = global::Sample.Droid.Resource.Drawable.notification_template_icon_bg;
+			global::Shiny.Sensors.Resource.Drawable.notification_template_icon_low_bg = global::Sample.Droid.Resource.Drawable.notification_template_icon_low_bg;
+			global::Shiny.Sensors.Resource.Drawable.notification_tile_bg = global::Sample.Droid.Resource.Drawable.notification_tile_bg;
+			global::Shiny.Sensors.Resource.Drawable.notify_panel_notification_icon_bg = global::Sample.Droid.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::Shiny.Sensors.Resource.Id.accessibility_action_clickable_span = global::Sample.Droid.Resource.Id.accessibility_action_clickable_span;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_0 = global::Sample.Droid.Resource.Id.accessibility_custom_action_0;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_1 = global::Sample.Droid.Resource.Id.accessibility_custom_action_1;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_10 = global::Sample.Droid.Resource.Id.accessibility_custom_action_10;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_11 = global::Sample.Droid.Resource.Id.accessibility_custom_action_11;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_12 = global::Sample.Droid.Resource.Id.accessibility_custom_action_12;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_13 = global::Sample.Droid.Resource.Id.accessibility_custom_action_13;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_14 = global::Sample.Droid.Resource.Id.accessibility_custom_action_14;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_15 = global::Sample.Droid.Resource.Id.accessibility_custom_action_15;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_16 = global::Sample.Droid.Resource.Id.accessibility_custom_action_16;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_17 = global::Sample.Droid.Resource.Id.accessibility_custom_action_17;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_18 = global::Sample.Droid.Resource.Id.accessibility_custom_action_18;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_19 = global::Sample.Droid.Resource.Id.accessibility_custom_action_19;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_2 = global::Sample.Droid.Resource.Id.accessibility_custom_action_2;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_20 = global::Sample.Droid.Resource.Id.accessibility_custom_action_20;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_21 = global::Sample.Droid.Resource.Id.accessibility_custom_action_21;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_22 = global::Sample.Droid.Resource.Id.accessibility_custom_action_22;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_23 = global::Sample.Droid.Resource.Id.accessibility_custom_action_23;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_24 = global::Sample.Droid.Resource.Id.accessibility_custom_action_24;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_25 = global::Sample.Droid.Resource.Id.accessibility_custom_action_25;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_26 = global::Sample.Droid.Resource.Id.accessibility_custom_action_26;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_27 = global::Sample.Droid.Resource.Id.accessibility_custom_action_27;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_28 = global::Sample.Droid.Resource.Id.accessibility_custom_action_28;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_29 = global::Sample.Droid.Resource.Id.accessibility_custom_action_29;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_3 = global::Sample.Droid.Resource.Id.accessibility_custom_action_3;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_30 = global::Sample.Droid.Resource.Id.accessibility_custom_action_30;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_31 = global::Sample.Droid.Resource.Id.accessibility_custom_action_31;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_4 = global::Sample.Droid.Resource.Id.accessibility_custom_action_4;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_5 = global::Sample.Droid.Resource.Id.accessibility_custom_action_5;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_6 = global::Sample.Droid.Resource.Id.accessibility_custom_action_6;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_7 = global::Sample.Droid.Resource.Id.accessibility_custom_action_7;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_8 = global::Sample.Droid.Resource.Id.accessibility_custom_action_8;
+			global::Shiny.Sensors.Resource.Id.accessibility_custom_action_9 = global::Sample.Droid.Resource.Id.accessibility_custom_action_9;
+			global::Shiny.Sensors.Resource.Id.actions = global::Sample.Droid.Resource.Id.actions;
+			global::Shiny.Sensors.Resource.Id.action_container = global::Sample.Droid.Resource.Id.action_container;
+			global::Shiny.Sensors.Resource.Id.action_divider = global::Sample.Droid.Resource.Id.action_divider;
+			global::Shiny.Sensors.Resource.Id.action_image = global::Sample.Droid.Resource.Id.action_image;
+			global::Shiny.Sensors.Resource.Id.action_text = global::Sample.Droid.Resource.Id.action_text;
+			global::Shiny.Sensors.Resource.Id.async = global::Sample.Droid.Resource.Id.async;
+			global::Shiny.Sensors.Resource.Id.blocking = global::Sample.Droid.Resource.Id.blocking;
+			global::Shiny.Sensors.Resource.Id.chronometer = global::Sample.Droid.Resource.Id.chronometer;
+			global::Shiny.Sensors.Resource.Id.dialog_button = global::Sample.Droid.Resource.Id.dialog_button;
+			global::Shiny.Sensors.Resource.Id.forever = global::Sample.Droid.Resource.Id.forever;
+			global::Shiny.Sensors.Resource.Id.icon = global::Sample.Droid.Resource.Id.icon;
+			global::Shiny.Sensors.Resource.Id.icon_group = global::Sample.Droid.Resource.Id.icon_group;
+			global::Shiny.Sensors.Resource.Id.info = global::Sample.Droid.Resource.Id.info;
+			global::Shiny.Sensors.Resource.Id.italic = global::Sample.Droid.Resource.Id.italic;
+			global::Shiny.Sensors.Resource.Id.line1 = global::Sample.Droid.Resource.Id.line1;
+			global::Shiny.Sensors.Resource.Id.line3 = global::Sample.Droid.Resource.Id.line3;
+			global::Shiny.Sensors.Resource.Id.normal = global::Sample.Droid.Resource.Id.normal;
+			global::Shiny.Sensors.Resource.Id.notification_background = global::Sample.Droid.Resource.Id.notification_background;
+			global::Shiny.Sensors.Resource.Id.notification_main_column = global::Sample.Droid.Resource.Id.notification_main_column;
+			global::Shiny.Sensors.Resource.Id.notification_main_column_container = global::Sample.Droid.Resource.Id.notification_main_column_container;
+			global::Shiny.Sensors.Resource.Id.right_icon = global::Sample.Droid.Resource.Id.right_icon;
+			global::Shiny.Sensors.Resource.Id.right_side = global::Sample.Droid.Resource.Id.right_side;
+			global::Shiny.Sensors.Resource.Id.tag_accessibility_actions = global::Sample.Droid.Resource.Id.tag_accessibility_actions;
+			global::Shiny.Sensors.Resource.Id.tag_accessibility_clickable_spans = global::Sample.Droid.Resource.Id.tag_accessibility_clickable_spans;
+			global::Shiny.Sensors.Resource.Id.tag_accessibility_heading = global::Sample.Droid.Resource.Id.tag_accessibility_heading;
+			global::Shiny.Sensors.Resource.Id.tag_accessibility_pane_title = global::Sample.Droid.Resource.Id.tag_accessibility_pane_title;
+			global::Shiny.Sensors.Resource.Id.tag_on_apply_window_listener = global::Sample.Droid.Resource.Id.tag_on_apply_window_listener;
+			global::Shiny.Sensors.Resource.Id.tag_on_receive_content_listener = global::Sample.Droid.Resource.Id.tag_on_receive_content_listener;
+			global::Shiny.Sensors.Resource.Id.tag_on_receive_content_mime_types = global::Sample.Droid.Resource.Id.tag_on_receive_content_mime_types;
+			global::Shiny.Sensors.Resource.Id.tag_screen_reader_focusable = global::Sample.Droid.Resource.Id.tag_screen_reader_focusable;
+			global::Shiny.Sensors.Resource.Id.tag_state_description = global::Sample.Droid.Resource.Id.tag_state_description;
+			global::Shiny.Sensors.Resource.Id.tag_transition_group = global::Sample.Droid.Resource.Id.tag_transition_group;
+			global::Shiny.Sensors.Resource.Id.tag_unhandled_key_event_manager = global::Sample.Droid.Resource.Id.tag_unhandled_key_event_manager;
+			global::Shiny.Sensors.Resource.Id.tag_unhandled_key_listeners = global::Sample.Droid.Resource.Id.tag_unhandled_key_listeners;
+			global::Shiny.Sensors.Resource.Id.tag_window_insets_animation_callback = global::Sample.Droid.Resource.Id.tag_window_insets_animation_callback;
+			global::Shiny.Sensors.Resource.Id.text = global::Sample.Droid.Resource.Id.text;
+			global::Shiny.Sensors.Resource.Id.text2 = global::Sample.Droid.Resource.Id.text2;
+			global::Shiny.Sensors.Resource.Id.time = global::Sample.Droid.Resource.Id.time;
+			global::Shiny.Sensors.Resource.Id.title = global::Sample.Droid.Resource.Id.title;
+			global::Shiny.Sensors.Resource.Id.view_tree_lifecycle_owner = global::Sample.Droid.Resource.Id.view_tree_lifecycle_owner;
+			global::Shiny.Sensors.Resource.Integer.status_bar_notification_info_maxnum = global::Sample.Droid.Resource.Integer.status_bar_notification_info_maxnum;
+			global::Shiny.Sensors.Resource.Layout.custom_dialog = global::Sample.Droid.Resource.Layout.custom_dialog;
+			global::Shiny.Sensors.Resource.Layout.notification_action = global::Sample.Droid.Resource.Layout.notification_action;
+			global::Shiny.Sensors.Resource.Layout.notification_action_tombstone = global::Sample.Droid.Resource.Layout.notification_action_tombstone;
+			global::Shiny.Sensors.Resource.Layout.notification_template_custom_big = global::Sample.Droid.Resource.Layout.notification_template_custom_big;
+			global::Shiny.Sensors.Resource.Layout.notification_template_icon_group = global::Sample.Droid.Resource.Layout.notification_template_icon_group;
+			global::Shiny.Sensors.Resource.Layout.notification_template_part_chronometer = global::Sample.Droid.Resource.Layout.notification_template_part_chronometer;
+			global::Shiny.Sensors.Resource.Layout.notification_template_part_time = global::Sample.Droid.Resource.Layout.notification_template_part_time;
+			global::Shiny.Sensors.Resource.String.status_bar_notification_info_overflow = global::Sample.Droid.Resource.String.status_bar_notification_info_overflow;
+			global::Shiny.Sensors.Resource.Style.TextAppearance_Compat_Notification = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification;
+			global::Shiny.Sensors.Resource.Style.TextAppearance_Compat_Notification_Info = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::Shiny.Sensors.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::Shiny.Sensors.Resource.Style.TextAppearance_Compat_Notification_Time = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::Shiny.Sensors.Resource.Style.TextAppearance_Compat_Notification_Title = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::Shiny.Sensors.Resource.Style.Widget_Compat_NotificationActionContainer = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::Shiny.Sensors.Resource.Style.Widget_Compat_NotificationActionText = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Shiny.Sensors.Resource.Styleable.Capability = global::Sample.Droid.Resource.Styleable.Capability;
+			global::Shiny.Sensors.Resource.Styleable.Capability_queryPatterns = global::Sample.Droid.Resource.Styleable.Capability_queryPatterns;
+			global::Shiny.Sensors.Resource.Styleable.Capability_shortcutMatchRequired = global::Sample.Droid.Resource.Styleable.Capability_shortcutMatchRequired;
+			global::Shiny.Sensors.Resource.Styleable.ColorStateListItem = global::Sample.Droid.Resource.Styleable.ColorStateListItem;
+			global::Shiny.Sensors.Resource.Styleable.ColorStateListItem_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_alpha;
+			global::Shiny.Sensors.Resource.Styleable.ColorStateListItem_android_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::Shiny.Sensors.Resource.Styleable.ColorStateListItem_android_color = global::Sample.Droid.Resource.Styleable.ColorStateListItem_android_color;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily = global::Sample.Droid.Resource.Styleable.FontFamily;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont = global::Sample.Droid.Resource.Styleable.FontFamilyFont;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_android_font = global::Sample.Droid.Resource.Styleable.FontFamilyFont_android_font;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_android_fontStyle = global::Sample.Droid.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_android_fontVariationSettings = global::Sample.Droid.Resource.Styleable.FontFamilyFont_android_fontVariationSettings;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_android_fontWeight = global::Sample.Droid.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_android_ttcIndex = global::Sample.Droid.Resource.Styleable.FontFamilyFont_android_ttcIndex;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_font = global::Sample.Droid.Resource.Styleable.FontFamilyFont_font;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_fontStyle = global::Sample.Droid.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_fontVariationSettings = global::Sample.Droid.Resource.Styleable.FontFamilyFont_fontVariationSettings;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_fontWeight = global::Sample.Droid.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::Shiny.Sensors.Resource.Styleable.FontFamilyFont_ttcIndex = global::Sample.Droid.Resource.Styleable.FontFamilyFont_ttcIndex;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily_fontProviderAuthority = global::Sample.Droid.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily_fontProviderCerts = global::Sample.Droid.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::Sample.Droid.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::Sample.Droid.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily_fontProviderPackage = global::Sample.Droid.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily_fontProviderQuery = global::Sample.Droid.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::Shiny.Sensors.Resource.Styleable.FontFamily_fontProviderSystemFontFamily = global::Sample.Droid.Resource.Styleable.FontFamily_fontProviderSystemFontFamily;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor = global::Sample.Droid.Resource.Styleable.GradientColor;
+			global::Shiny.Sensors.Resource.Styleable.GradientColorItem = global::Sample.Droid.Resource.Styleable.GradientColorItem;
+			global::Shiny.Sensors.Resource.Styleable.GradientColorItem_android_color = global::Sample.Droid.Resource.Styleable.GradientColorItem_android_color;
+			global::Shiny.Sensors.Resource.Styleable.GradientColorItem_android_offset = global::Sample.Droid.Resource.Styleable.GradientColorItem_android_offset;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_centerColor = global::Sample.Droid.Resource.Styleable.GradientColor_android_centerColor;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_centerX = global::Sample.Droid.Resource.Styleable.GradientColor_android_centerX;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_centerY = global::Sample.Droid.Resource.Styleable.GradientColor_android_centerY;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_endColor = global::Sample.Droid.Resource.Styleable.GradientColor_android_endColor;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_endX = global::Sample.Droid.Resource.Styleable.GradientColor_android_endX;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_endY = global::Sample.Droid.Resource.Styleable.GradientColor_android_endY;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_gradientRadius = global::Sample.Droid.Resource.Styleable.GradientColor_android_gradientRadius;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_startColor = global::Sample.Droid.Resource.Styleable.GradientColor_android_startColor;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_startX = global::Sample.Droid.Resource.Styleable.GradientColor_android_startX;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_startY = global::Sample.Droid.Resource.Styleable.GradientColor_android_startY;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_tileMode = global::Sample.Droid.Resource.Styleable.GradientColor_android_tileMode;
+			global::Shiny.Sensors.Resource.Styleable.GradientColor_android_type = global::Sample.Droid.Resource.Styleable.GradientColor_android_type;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::Sample.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::Sample.Droid.Resource.Attribute.font;
 			global::Xamarin.Essentials.Resource.Attribute.fontProviderAuthority = global::Sample.Droid.Resource.Attribute.fontProviderAuthority;
@@ -14453,19 +14640,7 @@ namespace Sample.Droid
 			public const int config_materialPreferenceIconSpaceReserved = 2130968578;
 			
 			// aapt resource value: 0x7F040003
-			public const int enable_system_alarm_service_default = 2130968579;
-			
-			// aapt resource value: 0x7F040004
-			public const int enable_system_foreground_service_default = 2130968580;
-			
-			// aapt resource value: 0x7F040005
-			public const int enable_system_job_service_default = 2130968581;
-			
-			// aapt resource value: 0x7F040006
-			public const int mtrl_btn_textappearance_all_caps = 2130968582;
-			
-			// aapt resource value: 0x7F040007
-			public const int workmanager_test_configuration = 2130968583;
+			public const int mtrl_btn_textappearance_all_caps = 2130968579;
 			
 			static Boolean()
 			{
@@ -16682,181 +16857,187 @@ namespace Sample.Droid
 			public const int abc_vector_test = 2131165268;
 			
 			// aapt resource value: 0x7F070055
-			public const int avd_hide_password = 2131165269;
+			public const int arrow = 2131165269;
 			
 			// aapt resource value: 0x7F070056
-			public const int avd_show_password = 2131165270;
+			public const int avd_hide_password = 2131165270;
 			
 			// aapt resource value: 0x7F070057
-			public const int btn_checkbox_checked_mtrl = 2131165271;
+			public const int avd_show_password = 2131165271;
 			
 			// aapt resource value: 0x7F070058
-			public const int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131165272;
+			public const int btn_checkbox_checked_mtrl = 2131165272;
 			
 			// aapt resource value: 0x7F070059
-			public const int btn_checkbox_unchecked_mtrl = 2131165273;
+			public const int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131165273;
 			
 			// aapt resource value: 0x7F07005A
-			public const int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131165274;
+			public const int btn_checkbox_unchecked_mtrl = 2131165274;
 			
 			// aapt resource value: 0x7F07005B
-			public const int btn_radio_off_mtrl = 2131165275;
+			public const int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131165275;
 			
 			// aapt resource value: 0x7F07005C
-			public const int btn_radio_off_to_on_mtrl_animation = 2131165276;
+			public const int btn_radio_off_mtrl = 2131165276;
 			
 			// aapt resource value: 0x7F07005D
-			public const int btn_radio_on_mtrl = 2131165277;
+			public const int btn_radio_off_to_on_mtrl_animation = 2131165277;
 			
 			// aapt resource value: 0x7F07005E
-			public const int btn_radio_on_to_off_mtrl_animation = 2131165278;
+			public const int btn_radio_on_mtrl = 2131165278;
 			
 			// aapt resource value: 0x7F07005F
-			public const int design_fab_background = 2131165279;
+			public const int btn_radio_on_to_off_mtrl_animation = 2131165279;
 			
 			// aapt resource value: 0x7F070060
-			public const int design_ic_visibility = 2131165280;
+			public const int compass = 2131165280;
 			
 			// aapt resource value: 0x7F070061
-			public const int design_ic_visibility_off = 2131165281;
+			public const int design_fab_background = 2131165281;
 			
 			// aapt resource value: 0x7F070062
-			public const int design_password_eye = 2131165282;
+			public const int design_ic_visibility = 2131165282;
 			
 			// aapt resource value: 0x7F070063
-			public const int design_snackbar_background = 2131165283;
+			public const int design_ic_visibility_off = 2131165283;
 			
 			// aapt resource value: 0x7F070064
-			public const int ic_arrow_down_24dp = 2131165284;
+			public const int design_password_eye = 2131165284;
 			
 			// aapt resource value: 0x7F070065
-			public const int ic_clock_black_24dp = 2131165285;
+			public const int design_snackbar_background = 2131165285;
 			
 			// aapt resource value: 0x7F070066
-			public const int ic_keyboard_black_24dp = 2131165286;
+			public const int ic_arrow_down_24dp = 2131165286;
 			
 			// aapt resource value: 0x7F070067
-			public const int ic_mtrl_checked_circle = 2131165287;
+			public const int ic_clock_black_24dp = 2131165287;
 			
 			// aapt resource value: 0x7F070068
-			public const int ic_mtrl_chip_checked_black = 2131165288;
+			public const int ic_keyboard_black_24dp = 2131165288;
 			
 			// aapt resource value: 0x7F070069
-			public const int ic_mtrl_chip_checked_circle = 2131165289;
+			public const int ic_mtrl_checked_circle = 2131165289;
 			
 			// aapt resource value: 0x7F07006A
-			public const int ic_mtrl_chip_close_circle = 2131165290;
+			public const int ic_mtrl_chip_checked_black = 2131165290;
 			
 			// aapt resource value: 0x7F07006B
-			public const int material_cursor_drawable = 2131165291;
+			public const int ic_mtrl_chip_checked_circle = 2131165291;
 			
 			// aapt resource value: 0x7F07006C
-			public const int material_ic_calendar_black_24dp = 2131165292;
+			public const int ic_mtrl_chip_close_circle = 2131165292;
 			
 			// aapt resource value: 0x7F07006D
-			public const int material_ic_clear_black_24dp = 2131165293;
+			public const int material_cursor_drawable = 2131165293;
 			
 			// aapt resource value: 0x7F07006E
-			public const int material_ic_edit_black_24dp = 2131165294;
+			public const int material_ic_calendar_black_24dp = 2131165294;
 			
 			// aapt resource value: 0x7F07006F
-			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165295;
+			public const int material_ic_clear_black_24dp = 2131165295;
 			
 			// aapt resource value: 0x7F070070
-			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165296;
+			public const int material_ic_edit_black_24dp = 2131165296;
 			
 			// aapt resource value: 0x7F070071
-			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165297;
+			public const int material_ic_keyboard_arrow_left_black_24dp = 2131165297;
 			
 			// aapt resource value: 0x7F070072
-			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165298;
+			public const int material_ic_keyboard_arrow_next_black_24dp = 2131165298;
 			
 			// aapt resource value: 0x7F070073
-			public const int material_ic_menu_arrow_down_black_24dp = 2131165299;
+			public const int material_ic_keyboard_arrow_previous_black_24dp = 2131165299;
 			
 			// aapt resource value: 0x7F070074
-			public const int material_ic_menu_arrow_up_black_24dp = 2131165300;
+			public const int material_ic_keyboard_arrow_right_black_24dp = 2131165300;
 			
 			// aapt resource value: 0x7F070075
-			public const int mtrl_dialog_background = 2131165301;
+			public const int material_ic_menu_arrow_down_black_24dp = 2131165301;
 			
 			// aapt resource value: 0x7F070076
-			public const int mtrl_dropdown_arrow = 2131165302;
+			public const int material_ic_menu_arrow_up_black_24dp = 2131165302;
 			
 			// aapt resource value: 0x7F070077
-			public const int mtrl_ic_arrow_drop_down = 2131165303;
+			public const int mtrl_dialog_background = 2131165303;
 			
 			// aapt resource value: 0x7F070078
-			public const int mtrl_ic_arrow_drop_up = 2131165304;
+			public const int mtrl_dropdown_arrow = 2131165304;
 			
 			// aapt resource value: 0x7F070079
-			public const int mtrl_ic_cancel = 2131165305;
+			public const int mtrl_ic_arrow_drop_down = 2131165305;
 			
 			// aapt resource value: 0x7F07007A
-			public const int mtrl_ic_error = 2131165306;
+			public const int mtrl_ic_arrow_drop_up = 2131165306;
 			
 			// aapt resource value: 0x7F07007B
-			public const int mtrl_navigation_bar_item_background = 2131165307;
+			public const int mtrl_ic_cancel = 2131165307;
 			
 			// aapt resource value: 0x7F07007C
-			public const int mtrl_popupmenu_background = 2131165308;
+			public const int mtrl_ic_error = 2131165308;
 			
 			// aapt resource value: 0x7F07007D
-			public const int mtrl_popupmenu_background_dark = 2131165309;
+			public const int mtrl_navigation_bar_item_background = 2131165309;
 			
 			// aapt resource value: 0x7F07007E
-			public const int mtrl_tabs_default_indicator = 2131165310;
+			public const int mtrl_popupmenu_background = 2131165310;
 			
 			// aapt resource value: 0x7F07007F
-			public const int navigation_empty_icon = 2131165311;
+			public const int mtrl_popupmenu_background_dark = 2131165311;
 			
 			// aapt resource value: 0x7F070080
-			public const int notification_action_background = 2131165312;
+			public const int mtrl_tabs_default_indicator = 2131165312;
 			
 			// aapt resource value: 0x7F070081
-			public const int notification_bg = 2131165313;
+			public const int navigation_empty_icon = 2131165313;
 			
 			// aapt resource value: 0x7F070082
-			public const int notification_bg_low = 2131165314;
+			public const int notification_action_background = 2131165314;
 			
 			// aapt resource value: 0x7F070083
-			public const int notification_bg_low_normal = 2131165315;
+			public const int notification_bg = 2131165315;
 			
 			// aapt resource value: 0x7F070084
-			public const int notification_bg_low_pressed = 2131165316;
+			public const int notification_bg_low = 2131165316;
 			
 			// aapt resource value: 0x7F070085
-			public const int notification_bg_normal = 2131165317;
+			public const int notification_bg_low_normal = 2131165317;
 			
 			// aapt resource value: 0x7F070086
-			public const int notification_bg_normal_pressed = 2131165318;
+			public const int notification_bg_low_pressed = 2131165318;
 			
 			// aapt resource value: 0x7F070087
-			public const int notification_icon_background = 2131165319;
+			public const int notification_bg_normal = 2131165319;
 			
 			// aapt resource value: 0x7F070088
-			public const int notification_template_icon_bg = 2131165320;
+			public const int notification_bg_normal_pressed = 2131165320;
 			
 			// aapt resource value: 0x7F070089
-			public const int notification_template_icon_low_bg = 2131165321;
+			public const int notification_icon_background = 2131165321;
 			
 			// aapt resource value: 0x7F07008A
-			public const int notification_tile_bg = 2131165322;
+			public const int notification_template_icon_bg = 2131165322;
 			
 			// aapt resource value: 0x7F07008B
-			public const int notify_panel_notification_icon_bg = 2131165323;
+			public const int notification_template_icon_low_bg = 2131165323;
 			
 			// aapt resource value: 0x7F07008C
-			public const int preference_list_divider_material = 2131165324;
+			public const int notification_tile_bg = 2131165324;
 			
 			// aapt resource value: 0x7F07008D
-			public const int test_custom_background = 2131165325;
+			public const int notify_panel_notification_icon_bg = 2131165325;
 			
 			// aapt resource value: 0x7F07008E
-			public const int tooltip_frame_dark = 2131165326;
+			public const int preference_list_divider_material = 2131165326;
 			
 			// aapt resource value: 0x7F07008F
-			public const int tooltip_frame_light = 2131165327;
+			public const int test_custom_background = 2131165327;
+			
+			// aapt resource value: 0x7F070090
+			public const int tooltip_frame_dark = 2131165328;
+			
+			// aapt resource value: 0x7F070091
+			public const int tooltip_frame_light = 2131165329;
 			
 			static Drawable()
 			{

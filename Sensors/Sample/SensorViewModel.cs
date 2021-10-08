@@ -2,14 +2,12 @@
 using System.Reactive.Linq;
 using System.Windows.Input;
 using Shiny.Sensors;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
 using Xamarin.Forms;
 
 
-namespace Samples.Sensors
+namespace Sample
 {
-    public class SensorViewModel<TReading> : ReactiveObject, ISensorViewModel
+    public class SensorViewModel<TReading> : Shiny.NotifyPropertyChanged, ISensorViewModel
     {
         IDisposable? sensorSub;
 
@@ -31,7 +29,6 @@ namespace Samples.Sensors
                     this.sensorSub = sensor
                         .WhenReadingTaken()
                         .Sample(TimeSpan.FromMilliseconds(500))
-                        .ObserveOn(RxApp.MainThreadScheduler)
                         .Subscribe(x => this.Value = x!.ToString());
                 }
                 else
@@ -47,7 +44,21 @@ namespace Samples.Sensors
         public string? Title { get; }
         public ICommand Toggle { get; }
         public string? ValueName { get; }
-        [Reactive] public string? Value { get; private set; }
-        [Reactive] public string? ToggleText { get; private set; }
+
+
+        string? value;
+        public string? Value
+        {
+            get => this.value;
+            private set => this.Set(ref this.value, value);
+        }
+
+
+        string? toggleText;
+        public string? ToggleText
+        {
+            get => this.toggleText;
+            private set => this.Set(ref this.toggleText, value);
+        }
     }
 }

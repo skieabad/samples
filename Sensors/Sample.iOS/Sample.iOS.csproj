@@ -136,4 +136,10 @@
       <Name>Sample</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\compass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\arrow.png" />
+  </ItemGroup>
 </Project>

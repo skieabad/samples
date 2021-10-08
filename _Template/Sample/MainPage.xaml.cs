@@ -14,14 +14,14 @@ namespace Sample
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            (this.BindingContext as ViewModel)?.OnAppearing();
+            this.TryFireOnAppearing();
         }
 
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            (this.BindingContext as ViewModel)?.OnDisappearing();
+            this.TryFireOnDisappearing();
         }
     }
 }

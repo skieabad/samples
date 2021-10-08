@@ -152,10 +152,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Sample.UWP.Background\Sample.UWP.Background.csproj">
-      <Project>{f07d2f85-6f84-4cab-a51a-d2f3a7c99a5b}</Project>
-      <Name>Sample.UWP.Background</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Sample\Sample.csproj">
       <Project>{C179D0D7-A1CD-4D26-B663-0884AA0552E8}</Project>
       <Name>Sample</Name>

@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 
 
-namespace Samples.Sensors
+namespace Sample
 {
     public partial class CompassPage : ContentPage
     {

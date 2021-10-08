@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Reactive.Linq;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
+
+using Shiny;
 using Shiny.Stores;
 
 
-namespace Samples.Stores
+namespace Sample
 {
     public class BindViewModel : ViewModel
     {
         readonly IObjectStoreBinder binder;
 
 
-        public BindViewModel(IObjectStoreBinder binder)
+        public BindViewModel()
         {
-            this.binder = binder;
-            this.WhenAnyValue(
-                x => x.YourText,
-                x => x.IsChecked
-            )
-            .Skip(1)
-            .Subscribe(_ => this.LastUpdated = DateTime.Now);
+            this.binder = ShinyHost.Resolve<IObjectStoreBinder>();
+            //this.WhenAnyValue(
+            //    x => x.YourText,
+            //    x => x.IsChecked
+            //)
+            //.Skip(1)
+            //.Subscribe(_ => this.LastUpdated = DateTime.Now);
         }
 
 

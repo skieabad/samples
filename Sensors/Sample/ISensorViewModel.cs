@@ -2,7 +2,7 @@
 using System.Windows.Input;
 
 
-namespace Samples.Sensors
+namespace Sample
 {
     public interface ISensorViewModel
     {
