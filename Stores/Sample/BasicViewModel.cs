@@ -8,6 +8,7 @@ namespace Sample
     public class BasicViewModel : ViewModel
     {
         readonly IAppSettings appSettings;
+        IDisposable? sub;
 
 
         public BasicViewModel()
@@ -42,25 +43,21 @@ namespace Sample
         public override void OnAppearing()
         {
             base.OnAppearing();
-            this.IsChecked = this.appSettings.IsChecked;
-            this.YourText = this.appSettings.YourText;
-            this.LastUpdated = this.appSettings.LastUpdated;
+            this.sub = this.appSettings
+                .WhenAnyProperty()
+                .Subscribe(_ =>
+                {
+                    this.IsChecked = this.appSettings.IsChecked;
+                    this.YourText = this.appSettings.YourText;
+                    this.LastUpdated = this.appSettings.LastUpdated;
+                });
+        }
 
-            //this.appSettings
-            //    .WhenAnyValue(x => x.LastUpdated)
-            //    .Subscribe(x => this.LastUpdated = x)
-            //    .DisposeWith(this.DeactivateWith);
 
-            //this.WhenAnyValue(
-            //    x => x.IsChecked,
-            //    x => x.YourText
-            //)
-            //.Subscribe(_ =>
-            //{
-            //    this.appSettings.IsChecked = this.IsChecked;
-            //    this.appSettings.YourText = this.YourText;
-            //})
-            //.DisposeWith(this.DeactivateWith);
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            this.sub?.Dispose();
         }
     }
 }

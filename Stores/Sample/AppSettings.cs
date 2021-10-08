@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Reactive.Linq;
+using Shiny;
 
 
 namespace Sample
 {
-    public interface IAppSettings
+    public interface IAppSettings : INotifyPropertyChanged
     {
         bool IsChecked { get; set; }
         string YourText { get; set; }
@@ -16,14 +18,9 @@ namespace Sample
     {
         public AppSettings()
         {
-            //this.WhenAnyValue(
-            //        x => x.IsChecked,
-            //        x => x.YourText
-            //    )
-            //    .Skip(1)
-            //    .Subscribe(_ =>
-            //        this.LastUpdated = DateTime.Now
-            //    );
+            this.WhenAnyProperty()
+                .Skip(1)
+                .Subscribe(_ => this.LastUpdated = DateTime.Now);
         }
 
 
