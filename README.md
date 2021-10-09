@@ -29,7 +29,10 @@ This is the upcoming new set of Shiny samples.
 * SQLite - Stores, Settings, & Logging
 * AppCenter - 
 * Firebase Analytics -
+
+## Boilerplate Stuff
 * [No Code Gen](NoCodeGen) - AppDelegate, Android App, & Android Activity are all manually hooked for Shiny to fully operate
+* [All Code Gen](All-CodeGen) - Everything from your iOS AppDelegate, Android Application & Activity, and the Shiny startup are generated - along with a lot of third party libraries
 
 ## Sponsors
 * [Call Directory](Sponsors-CallDirectory) - Allows you to enter your own call identifiers and even call block them if necessary
