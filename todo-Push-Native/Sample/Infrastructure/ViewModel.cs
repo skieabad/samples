@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows.Input;
+
 using Xamarin.Forms;
+
 
 namespace Sample
 {
@@ -9,6 +12,7 @@ namespace Sample
         public INavigation Navigate() => App.Current.MainPage.Navigation;
         public virtual void OnAppearing() { }
         public virtual void OnDisappearing() { }
+
 
         protected virtual Command LoadingCommand(Func<Task> taskFunc) => new Command(() => this.LoadingCommand(taskFunc));
 
@@ -29,6 +33,14 @@ namespace Sample
                 this.IsBusy = false;
             }
         }
+
+
+        protected virtual ICommand ConfirmCommand(string question, Func<Task> taskFunc) => new Command(async () =>
+        {
+            var result = await this.Confirm(question);
+            if (result)
+                await taskFunc();
+        });
 
 
         protected virtual Task Alert(string message, string title = "Info")

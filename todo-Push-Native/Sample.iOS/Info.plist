@@ -36,7 +36,9 @@
 	<string>Assets.xcassets/AppIcon.appiconset</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
 		<string>remote-notification</string>
+		<string>processing</string>
 	</array>
 </dict>
 </plist>

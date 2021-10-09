@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows.Input;
+
 using Xamarin.Forms;
 
 
@@ -31,6 +33,14 @@ namespace Sample
                 this.IsBusy = false;
             }
         }
+
+
+        protected virtual ICommand ConfirmCommand(string question, Func<Task> taskFunc) => new Command(async () =>
+        {
+            var result = await this.Confirm(question);
+            if (result)
+                await taskFunc();
+        });
 
 
         protected virtual Task Alert(string message, string title = "Info")

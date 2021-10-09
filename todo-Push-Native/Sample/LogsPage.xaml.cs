@@ -2,12 +2,11 @@
 
 namespace Sample
 {
-    public partial class LogsPage : ContentPage
+    public partial class LogsPage : SampleContentPage
     {
         public LogsPage()
         {
             this.InitializeComponent();
-            this.BindingContext = new LogsViewModel();
         }
     }
 }

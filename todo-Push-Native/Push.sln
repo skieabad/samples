@@ -15,7 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.UWP.Background", "Sa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8F76E178-020F-4AC5-A872-AB051DF69DEC}"
 	ProjectSection(SolutionItems) = preProject
-		appsettings.json = appsettings.json
 		buildtools.json = buildtools.json
 		google-services.json = google-services.json
 		readme.md = readme.md

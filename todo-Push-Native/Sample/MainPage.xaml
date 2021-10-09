@@ -11,6 +11,10 @@
             BarTextColor="White"
             Title="Push">
 
+    <TabbedPage.BindingContext>
+        <sample:MainViewModel />
+    </TabbedPage.BindingContext>
+
     <TabbedPage.Children>
         <sample:SetupPage>
             <ContentPage.IconImageSource>

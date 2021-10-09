@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Windows.Input;
 using Shiny;
 using Shiny.Push;
-using Xamarin.Forms;
 
 
 namespace Sample
@@ -33,8 +33,8 @@ namespace Sample
         }
 
 
-        public Command RequestAccess { get; }
-        public Command UnRegister { get; }
+        public ICommand RequestAccess { get; }
+        public ICommand UnRegister { get; }
 
         public bool IsTagsSupported => this.pushManager.IsTagsSupport();
         public string Implementation => this.pushManager.GetType().FullName;

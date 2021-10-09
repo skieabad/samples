@@ -1,15 +1,13 @@
 # Push
 
 
-## Compiling
-* Unlike other samples, Push has some special connection tokens that are used.  Please create an appsettings.json along side the solution file for this project.  It should look similar to the following
-```js
-{
-    "Blah": ""
-}
-```
+## Android
+1. Copy your own google-services.json to the root of this project (where this solution exists) and it will be copied into the android project during compile
+2. Ensure the AndroidManifest.xml package name matches your firebase setup
 
-2. Copy your own google-services.json to the root of this project (where this solution exists) and it will be copied into the android project during compile
+## iOS
+1. Ensure the aps-environment is pointed at development or production depending on your setup in your Entitlements.plist
+2. Set the 'CFBundleIdentifier' in your Info.plist to match your APN setup
 
 ## 3rd Party Libs
 * [Xamarin Forms](https://github.com/xamarin/xamarin.forms) - The cross platform library for .NET that we all know and love

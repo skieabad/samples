@@ -18,11 +18,14 @@ namespace Sample
                     .ToListAsync();
             });
 
-            this.Clear = this.LoadingCommand(async () =>
-            {
-                await conn.DeleteAllAsync<ShinyEvent>();
-                this.Load.Execute(null);
-            });
+            this.Clear = this.ConfirmCommand(
+                "Are you sure you want to the logs?",
+                async () =>
+                {
+                    await conn.DeleteAllAsync<ShinyEvent>();
+                    this.Load.Execute(null);
+                }
+            );
         }
 
 

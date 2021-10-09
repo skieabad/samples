@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using Shiny;
 using Shiny.Push;
-
 using Xamarin.Forms;
 
 namespace Sample
@@ -24,37 +24,31 @@ namespace Sample
                 }
             });
 
-            this.Clear = new Command(async () =>
+            this.Clear = this.ConfirmCommand("Are you sure you wish to clear all tags?", async () =>
             {
-                var result = await this.Confirm("Are you sure you wish to clear all tags?");
-                if (result)
-                {
-                    await this.Loading(() => push.ClearTags());
-                    this.Load.Execute(null);
-                }
+                await this.Loading(() => push.ClearTags());
+                this.Load.Execute(null);
             });
 
             this.Load = this.LoadingCommand(async () =>
             {
-                //this.Tags = this.push
-                //    .RegisteredTags
-                //            .Select(tag => new CommandItem
-                //            {
-                //                Text = tag,
-                //                PrimaryCommand = ReactiveCommand.CreateFromTask(async () =>
-                //                {
-                //                    var result = await dialogs.Confirm($"Are you sure you wish to remove tag '{tag}'?");
-                //                    if (result)
-                //                    {
-                //                        await tags.RemoveTag(tag);
-                //                        this.Load.Execute(null);
-                //                    }
-                //                }
-                //    .Select(x => new {
-                //    })
-                //    .ToList();
+                this.Tags = push
+                    .RegisteredTags
+                    .Select(tag => new CommandItem
+                    {
+                        Text = tag,
+                        Command = this.ConfirmCommand(
+                            $"Are you sure you wish to remove tag '{tag}'?",
+                            async () =>
+                            {
+                                await push.TryRemoveTag(tag);
+                                this.Load.Execute(null);
+                            }
+                        )
+                    })
+                    .ToList();
 
-                //this.RaisePropertyChanged(nameof(this.Tags));
+                this.RaisePropertyChanged(nameof(this.Tags));
             });
         }
 
@@ -62,7 +56,7 @@ namespace Sample
         public ICommand Load { get; }
         public ICommand Add { get; }
         public ICommand Clear { get; }
-        //public IList<CommandItem> Tags { get; private set; }
+        public IList<CommandItem> Tags { get; private set; }
 
         public override void OnAppearing()
         {

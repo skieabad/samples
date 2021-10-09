@@ -3,7 +3,7 @@
 
 namespace Sample
 {
-    public partial class SetupPage : ContentPage
+    public partial class SetupPage : SampleContentPage
     {
         public SetupPage()
         {

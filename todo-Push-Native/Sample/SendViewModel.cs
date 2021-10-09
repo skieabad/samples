@@ -9,10 +9,8 @@ namespace Sample
     {
         public SendViewModel()
         {
-            this.Send = new Command(() =>
+            this.Send = this.LoadingCommand(async () =>
             {
-                this.IsBusy = true;
-                this.IsBusy = false;
             });
         }
 
