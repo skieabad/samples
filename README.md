@@ -37,5 +37,5 @@ This is the upcoming new set of Shiny samples.
 * [Media Sync](Sponsors-MediaSync) - Using the power of background transfers in HTTP transfers, this will sync media (and deltas) to a URL of your choice
 * [GeoDispatch](geodispatch) - Push+GPS - a new idea on how to manage location based dispatching
 * [GPS Tags](gpstags) - GPS+Beacons - AirTags for Xamarin (but with normal beacons)
-* Data Sync
+* [Data Sync](datasync) - Jobs done right!
 * [Trip Tracker](triptrack) - Track runs, walks, drives, etc - includes data such as average speed, points of trip
