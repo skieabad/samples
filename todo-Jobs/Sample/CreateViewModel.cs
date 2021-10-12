@@ -8,24 +8,18 @@ using Prism.Navigation;
 using Shiny;
 using Shiny.Jobs;
 using Shiny.Notifications;
-using Samples.Infrastructure;
 
 
-namespace Samples.Jobs
+namespace Sample
 {
     public class CreateViewModel : ViewModel
     {
         readonly IJobManager jobManager;
-        readonly IDialogs dialogs;
 
 
-        public CreateViewModel(IJobManager jobManager,
-                               INavigationService navigator,
-                               INotificationManager notifications,
-                               IDialogs dialogs)
+        public CreateViewModel(IJobManager jobManager, INotificationManager notifications)
         {
             this.jobManager = jobManager;
-            this.dialogs = dialogs;
 
             var valObs = this.WhenAny(
                 x => x.JobName,
@@ -100,11 +94,11 @@ namespace Samples.Jobs
         [Reactive] public bool RunOnForeground { get; set; }
 
 
-        public override async void OnAppearing()
-        {
-            base.OnAppearing();
-            var r = await this.jobManager.RequestAccess();
-            this.AccessStatus = r.ToString();
-        }
+        //public override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    var r = await this.jobManager.RequestAccess();
+        //    this.AccessStatus = r.ToString();
+        //}
     }
 }

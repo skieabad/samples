@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
-             xmlns:samples="clr-namespace:Samples"
-             xmlns:jobs="clr-namespace:Samples.Jobs"
-             x:DataType="jobs:ListViewModel"
-             x:Class="Samples.Jobs.ListPage"
-             Title="Jobs">
+<samples:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:samples="clr-namespace:Sample"
+                           xmlns:jobs="clr-namespace:Sample"
+                           x:DataType="jobs:ListViewModel"
+                           x:Class="Sample.ListPage"
+                           Title="Jobs">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Create" Command="{Binding Create}" />
@@ -25,21 +25,19 @@
                                 Grid.Row="0">
 
                     <CollectionView.EmptyView>
-                        <Label Text="No Job Logs"
-                               Style="{StaticResource NoDataLabel}" />
+                        <Label Text="No Job Logs" />
                     </CollectionView.EmptyView>
 
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="samples:CommandItem">
-                            <samples:CommandCell Text="{Binding Text}"
-                                                 Detail="{Binding Detail}"
-                                                 PrimaryCommand="{Binding PrimaryCommand}"
-                                                 SecondaryCommand="{Binding SecondaryCommand}" />
+                        <DataTemplate x:DataType="">
+                            <StackLayout>
+                                <Label Text="" />
+                            </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </RefreshView>
-                
+
             <Button Text="Cancel All Jobs"
                     Command="{Binding CancelAllJobs}"
                     Grid.Row="1" />
@@ -49,4 +47,4 @@
                     Grid.Row="2" />
         </Grid>
     </ContentPage.Content>
-</ContentPage>
+</samples:SampleContentPage>

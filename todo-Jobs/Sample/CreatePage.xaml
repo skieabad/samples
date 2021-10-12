@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Samples.Jobs.CreatePage"
-             xmlns:jobs="clr-namespace:Samples.Jobs"
+             x:Class="Sample.CreatePage"
+             xmlns:jobs="clr-namespace:Sample"
              x:DataType="jobs:CreateViewModel"
              Style="{StaticResource ContentPage}"
              Title="Create">
