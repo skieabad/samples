@@ -6,15 +6,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Shiny.SpeechRecognition;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-//using Xamarin.Essentials;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 
-namespace Samples.Speech
+namespace Sample
 {
-    public class ConversationViewModel : ReactiveObject
+    public class ConversationViewModel : ViewModel
     {
         readonly ISpeechRecognizer speech;
 
@@ -22,18 +20,23 @@ namespace Samples.Speech
         public ConversationViewModel(ISpeechRecognizer speech)
         {
             this.speech = speech;
-            this.Start = ReactiveCommand.CreateFromTask(this.DoConversation);
+            this.Start = new Command(() => this.DoConversation());
 
             this.speech
                 .WhenListeningStatusChanged()
-                .ObserveOn(RxApp.MainThreadScheduler)
-                .Subscribe(x => this.IsListening = x);
+                .SubOnMainThread(x => this.IsListening = x);
         }
 
 
         public ICommand Start { get; }
         public ObservableCollection<ListItemViewModel> Items { get; } = new ObservableCollection<ListItemViewModel>();
-        [Reactive] public bool IsListening { get; private set; }
+
+        bool isListening;
+        public bool IsListening
+        {
+            get => this.isListening;
+            private set => this.Set(ref this.isListening, value);
+        }
 
 
         async Task DoConversation()
@@ -65,7 +68,7 @@ namespace Samples.Speech
         async Task Computer(string speak)
         {
             this.Add(speak, true);
-            //await TextToSpeech.SpeakAsync(speak);
+            await TextToSpeech.SpeakAsync(speak);
         }
 
 

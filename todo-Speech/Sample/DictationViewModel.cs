@@ -1,28 +1,29 @@
 ﻿using System;
 using System.Windows.Input;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-using Samples.Infrastructure;
 using Shiny;
 using Shiny.SpeechRecognition;
+using Xamarin.Forms;
+using System.Reactive.Disposables;
 
 
-namespace Samples.Speech
+namespace Sample
 {
     public class DictationViewModel : ViewModel
     {
-        public DictationViewModel(ISpeechRecognizer speech, IDialogs dialogs)
+        CompositeDisposable disposer = new CompositeDisposable();
+
+        public DictationViewModel(ISpeechRecognizer speech)
         {
             speech
                 .WhenListeningStatusChanged()
                 .SubOnMainThread(x => this.IsListening = x);
 
 
-            this.ToggleListen = ReactiveCommand.Create(()  =>
+            this.ToggleListen = new Command(()  =>
             {
                 if (this.IsListening)
                 {
-                    this.Deactivate();
+                    //this.Deactivate();
                 }
                 else
                 {
@@ -32,9 +33,9 @@ namespace Samples.Speech
                             .ContinuousDictation()
                             .SubOnMainThread(
                                 x => this.Text += " " + x,
-                                ex => dialogs.Alert(ex.ToString())
+                                ex => this.Alert(ex.ToString())
                             )
-                            .DisposedBy(this.DeactivateWith);
+                            .DisposedBy(disposer);
                     }
                     else
                     {
@@ -42,9 +43,8 @@ namespace Samples.Speech
                             .ListenUntilPause()
                             .SubOnMainThread(
                                 x => this.Text = x,
-                                ex => dialogs.Alert(ex.ToString())
-                            )
-                            .DisposedBy(this.DeactivateWith);
+                                ex => this.Alert(ex.ToString())
+                            );
                     }
                 }
             });

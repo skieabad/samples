@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 
 
-namespace Samples.Speech
+namespace Sample
 {
     public partial class ConversationPage : ContentPage
     {
