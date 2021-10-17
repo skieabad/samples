@@ -2,83 +2,90 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
+using System.Reactive.Disposables;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Shiny.Jobs;
 using Shiny;
 using Xamarin.Forms;
 
+
 namespace Sample
 {
     public class ListViewModel : ViewModel
     {
         readonly IJobManager jobManager;
+        CompositeDisposable? disposer;
 
 
         public ListViewModel()
         {
             this.jobManager = ShinyHost.Resolve<IJobManager>();
 
-            this.Create = new Command(async () => await this.Navigation.PushAsync(new CreatePage());
+            this.Create = new Command(
+                async () => await this.Navigation.PushAsync(new CreatePage())
+            );
 
             this.LoadJobs = new Command(async () =>
             {
-                var jobs = await jobManager.GetJobs();
-
-                var blah = jobs
-                    .Select(x => new
-                    {
-                        //Text = x.Identifier,
-                        //Detail = x.LastRunUtc?.ToLocalTime().ToString("G") ?? "Never Run",
-                        //PrimaryCommand = ReactiveCommand.CreateFromTask(() => jobManager.Run(x.Identifier)),
-                        //SecondaryCommand = ReactiveCommand.CreateFromTask(async () =>
-                        //{
-                        //    await jobManager.Cancel(x.Identifier);
-                        //    this.LoadJobs.Execute(null);
-                        //})
-                    })
-                    .ToList();
+                this.Jobs = (await jobManager.GetJobs()).ToList();
+                this.RaisePropertyChanged(nameof(this.Jobs));
             });
-            //this.BindBusyCommand(this.LoadJobs);
 
-            //this.RunAllJobs = ReactiveCommand.CreateFromTask(async () =>
-            //{
-            //    if (!await this.AssertJobs())
-            //        return;
+            this.RunAllJobs = new Command(async () =>
+            {
+                if (!await this.AssertJobs())
+                    return;
 
-            //    if (this.jobManager.IsRunning)
-            //    {
-            //        await dialogs.Alert("Job Manager is already running");
-            //    }
-            //    else
-            //    {
-            //        await this.jobManager.RunAll();
-            //        await dialogs.Snackbar("Job Batch Started");
-            //    }
-            //});
+                if (this.jobManager.IsRunning)
+                {
+                    await this.Alert("Job Manager is already running");
+                }
+                else
+                {
+                    await this.jobManager.RunAll();
+                    this.RunningText = "Job Batch Started";
+                }
+            });
 
-            //this.CancelAllJobs = ReactiveCommand.CreateFromTask(async _ =>
-            //{
-            //    if (!await this.AssertJobs())
-            //        return;
+            this.CancelAllJobs = new Command(async _ =>
+            {
+                if (!await this.AssertJobs())
+                    return;
 
-            //    var confirm = await dialogs.Confirm("Are you sure you wish to cancel all jobs?");
-            //    if (confirm)
-            //    {
-            //        await this.jobManager.CancelAll();
-            //        this.LoadJobs.Execute(null);
-            //    }
-            //});
+                var confirm = await this.Confirm("Are you sure you wish to cancel all jobs?");
+                if (confirm)
+                {
+                    await this.jobManager.CancelAll();
+                    this.LoadJobs.Execute(null);
+                }
+            });
         }
 
 
+        string runningText;
+        public string RunningText
+        {
+            get => this.runningText;
+            private set => this.Set(ref this.runningText, value);
+        }
         public ICommand LoadJobs { get; }
         public ICommand CancelAllJobs { get; }
         public ICommand RunAllJobs { get; }
         public ICommand Create { get; }
+        public List<JobInfo> Jobs { get; private set; }
 
 
-        public List<ShinyEvent> Jobs { get; private set; }
+        JobInfo? jobInfo;
+        public JobInfo? SelectedJob
+        {
+            get => this.jobInfo;
+            set
+            {
+                this.jobInfo = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
 
         public override void OnAppearing()
@@ -86,23 +93,42 @@ namespace Sample
             base.OnAppearing();
             this.LoadJobs.Execute(null);
 
-            //this.jobManager
-            //    .JobStarted
-            //    .Subscribe(x =>
-            //    {
-            //        this.dialogs.Snackbar($"Job {x.Identifier} Started");
-            //        this.LoadJobs.Execute(null);
-            //    })
-            //    .DisposedBy(this.DeactivateWith);
+            this.disposer = new CompositeDisposable();
 
-            //this.jobManager
-            //    .JobFinished
-            //    .Subscribe(x =>
-            //    {
-            //        this.dialogs.Snackbar($"Job {x.Job?.Identifier} Finished");
-            //        this.LoadJobs.Execute(null);
-            //    })
-            //    .DisposedBy(this.DeactivateWith);
+            this.jobManager
+                .JobStarted
+                .SubOnMainThread(x =>
+                {
+                    this.RunningText = $"{x.Identifier} Running";
+                    this.LoadJobs.Execute(null);
+                })
+                .DisposedBy(this.disposer);
+
+            this.jobManager
+                .JobFinished
+                .Subscribe(x =>
+                {
+                    var status = x.Success ? "Completed" : "Failed";
+                    this.RunningText = $"{x.Job?.Identifier} {status}";
+                    this.LoadJobs.Execute(null);
+                })
+                .DisposedBy(this.disposer);
+
+            this.WhenAnyProperty(x => x.SelectedJob)
+                .Where(x => x != null)
+                .SubscribeAsync(async x =>
+                {
+                    this.SelectedJob = null;
+                    await this.jobManager.Run(x.Identifier);
+                })
+                .DisposedBy(this.disposer);
+        }
+
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            this.disposer?.Dispose();
         }
 
 
@@ -111,7 +137,7 @@ namespace Sample
             var jobs = await this.jobManager.GetJobs();
             if (!jobs.Any())
             {
-                //await this.dialogs.Alert("There are no jobs");
+                await this.Alert("There are no jobs");
                 return false;
             }
 

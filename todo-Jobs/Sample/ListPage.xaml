@@ -3,6 +3,7 @@
                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                            xmlns:samples="clr-namespace:Sample"
                            xmlns:jobs="clr-namespace:Sample"
+                           xmlns:shiny="clr-namespace:Shiny.Jobs;assembly=Shiny.Jobs"
                            x:DataType="jobs:ListViewModel"
                            x:Class="Sample.ListPage"
                            Title="Jobs">
@@ -20,11 +21,14 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <RefreshView IsRefreshing="{Binding IsBusy}"
                          Command="{Binding LoadJobs}">
                 <CollectionView ItemsSource="{Binding Jobs}"
+                                SelectedItem="{Binding SelectedJob}"
+                                SelectionMode="Single"
                                 Grid.Row="0">
 
                     <CollectionView.EmptyView>
@@ -32,26 +36,31 @@
                     </CollectionView.EmptyView>
 
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="IJob">
+                        <DataTemplate x:DataType="shiny:JobInfo">
                             <StackLayout>
-                                <!--<StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding Com}" />
-                                </StackLayout.GestureRecognizers>-->
-                                <Label Text="{Binding JobIdentifier}" />
-                                <Label Text="{Binding Timestamp}" />
+                                <Label Text="{Binding Identifier}" FontSize="Large" />
+                                <Label Text="{Binding LastRunUtc}" FontSize="Small" />
+                                <BoxView BackgroundColor="WhiteSmoke"
+                                         HorizontalOptions="FillAndExpand"
+                                         HeightRequest="2" />
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </RefreshView>
 
+            <Label Text="{Binding RunningText}"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"
+                   Grid.Row="1" />
+
             <Button Text="Cancel All Jobs"
                     Command="{Binding CancelAllJobs}"
-                    Grid.Row="1" />
+                    Grid.Row="2" />
 
             <Button Text="Run All Jobs"
                     Command="{Binding RunAllJobs}"
-                    Grid.Row="2" />
+                    Grid.Row="3" />
         </Grid>
     </ContentPage.Content>
 </samples:SampleContentPage>

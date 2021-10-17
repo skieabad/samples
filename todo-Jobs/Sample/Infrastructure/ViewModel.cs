@@ -43,6 +43,9 @@ namespace Sample
         });
 
 
+        protected virtual Task<string> Choose(string title, params string[] choices)
+            => App.Current.MainPage.DisplayActionSheet(title, null, null, choices);
+
         protected virtual Task Alert(string message, string title = "Info")
             => App.Current.MainPage.DisplayAlert(title, message, "OK");
 

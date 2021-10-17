@@ -20,19 +20,16 @@ namespace Sample
 
         public void Start()
         {
-            this.jobManager.JobStarted.SubscribeAsync(args => this.conn.InsertAsync(new JobLog
+            this.jobManager.JobStarted.SubscribeAsync(job => this.conn.InsertAsync(new ShinyEvent
             {
-                JobIdentifier = args.Identifier,
-                JobType = args.Type.FullName,
-                Started = true,
+                Text = $"{job.Identifier} Started",
+                Detail = "",
                 Timestamp = DateTime.Now,
             }));
-            this.jobManager.JobFinished.SubscribeAsync(args => this.conn.InsertAsync(new JobLog
+            this.jobManager.JobFinished.SubscribeAsync(result => this.conn.InsertAsync(new ShinyEvent
             {
-                JobIdentifier = args.Job.Identifier,
-                JobType = args.Job.Type.FullName,
-                Error = args.Exception?.ToString(),
-                //Parameters = this.serializer.Serialize(args.Job.Parameters),
+                Text = result.Job?.Identifier + " " + (result.Success ? "Completed" : "Failed"),
+                Detail = result.Exception?.ToString() ?? "",
                 Timestamp = DateTime.Now
             }));
         }

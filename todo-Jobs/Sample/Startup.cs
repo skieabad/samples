@@ -11,6 +11,8 @@ namespace Sample
             // we inject our db so we can use it in our shiny background events to store them for display later
             services.AddSingleton<SampleSqliteConnection>();
 
+            services.AddSingleton<JobLoggerTask>();
+
             services.UseNotifications(); // adding notifications for some job fun
 
             // OPTION 1 - register with the type

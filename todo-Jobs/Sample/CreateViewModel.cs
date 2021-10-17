@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Shiny;
 using Shiny.Jobs;
 using Shiny.Notifications;
+using Xamarin.Forms;
 
 
 namespace Sample
@@ -20,17 +21,22 @@ namespace Sample
             this.jobManager = ShinyHost.Resolve<IJobManager>();
             this.notifications = ShinyHost.Resolve<INotificationManager>();
 
-            var valObs = this.WhenAnyProperty(
-                x => x.JobName,
-                x => x.SecondsToRun,
-                (name, seconds) =>
-                    !name.GetValue().IsEmpty() &&
-                    seconds.GetValue() >= 10
-            );
-
-            this.CreateJob = ReactiveCommand.CreateFromTask(
+            this.CreateJob = new Command(
                 async _ =>
                 {
+                    if (this.JobName.IsEmpty())
+                    {
+                        await this.Alert("Enter a job name");
+                        return;
+                    }
+                    if (this.SecondsToRun < 10)
+                    {
+                        await this.Alert("Must be great than 10 seconds");
+                        return;
+                    }
+
+                    await this.notifications.RequestAccess();
+
                     var job = new JobInfo(typeof(SampleJob), this.JobName.Trim())
                     {
                         Repeat = this.Repeat,
@@ -41,41 +47,19 @@ namespace Sample
                     };
                     job.SetParameter("SecondsToRun", this.SecondsToRun);
                     await this.jobManager.Register(job);
-                    await navigator.GoBack();
-                },
-                valObs
+                    await this.Navigation.PopAsync();
+                }
             );
 
-            this.RunAsTask = ReactiveCommand.Create(
-                () => this.jobManager.RunTask(this.JobName + "Task", async _ =>
-                {
-                    await notifications.Send("Shiny", $"Task {this.JobName} Started");
-                    var ts = TimeSpan.FromSeconds(this.SecondsToRun);
-                    await Task.Delay(ts);
-                    await notifications.Send("Shiny", $"Task {this.JobName} Finshed");
-                }),
-                valObs
-            );
 
-            this.ChangeRequiredInternetAccess = ReactiveCommand.CreateFromTask(async () =>
+            this.ChangeRequiredInternetAccess = new Command(async () =>
             {
-                var cfg = new Dictionary<string, Action>
-                {
-                    {
-                        InternetAccess.None.ToString(),
-                        () => this.RequiredInternetAccess = InternetAccess.None.ToString()
-                    },
-                    {
-                        InternetAccess.Any.ToString(),
-                        () => this.RequiredInternetAccess = InternetAccess.Any.ToString()
-                    },
-                    {
-                        InternetAccess.Unmetered.ToString(),
-                        () => this.RequiredInternetAccess = InternetAccess.Any.ToString()
-                    }
-                };
-
-                await this.dialogs.ActionSheet("Select", cfg);
+                this.RequiredInternetAccess = await this.Choose(
+                    "Internet Access",
+                    InternetAccess.None.ToString(),
+                    InternetAccess.Any.ToString(),
+                    InternetAccess.Unmetered.ToString()
+                );
             });
         }
 
