@@ -1,34 +1,23 @@
 ﻿using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-using Prism.Navigation;
 using Shiny;
 using Shiny.Locations;
-using Samples.Infrastructure;
 
 
-namespace Samples.Geofences
+namespace Sample
 {
     public class CreateViewModel : ViewModel
     {
         const int DEFAULT_DISTANCE_METERS = 200;
         readonly IGeofenceManager geofenceManager;
         readonly IGpsManager gpsManager;
-        readonly INavigationService navigator;
-        readonly IDialogs dialogs;
 
 
-        public CreateViewModel(INavigationService navigator,
-                               IGeofenceManager geofenceManager,
-                               IGpsManager gpsManager,
-                               IDialogs dialogs)
+        public CreateViewModel()
         {
-            this.navigator = navigator;
-            this.geofenceManager = geofenceManager;
-            this.gpsManager = gpsManager;
-            this.dialogs = dialogs;
+            this.geofenceManager = ShinyHost.Resolve<IGeofenceManager>();
+            this.gpsManager = ShinyHost.Resolve<IGpsManager>();
 
             var isValid = this.WhenAny(
                 x => x.NotifyOnEntry,

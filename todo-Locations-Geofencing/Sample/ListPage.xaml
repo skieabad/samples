@@ -1,11 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:samples="clr-namespace:Samples"
-             xmlns:geofences="clr-namespace:Samples.Geofences"
-             x:Class="Samples.Geofences.ListPage"
-             x:DataType="geofences:ListViewModel"
+             xmlns:sample="clr-namespace:Sample"
+             x:Class="Samples.ListPage"
+             x:DataType="sample:ListViewModel"
              Title="Geofences">
+
+    <ContentPage.BindingContext>
+        <sample:ListViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Create" Command="{Binding Create}" />

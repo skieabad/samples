@@ -15,11 +15,11 @@
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
         </geofences:ListPage>
-        <geofences:LogPage>
+        <geofences:LogsPage>
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf7e6;"
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
-        </geofences:LogPage>
+        </geofences:LogsPage>
     </TabbedPage.Children>
 </TabbedPage>

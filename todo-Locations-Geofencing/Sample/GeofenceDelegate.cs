@@ -1,37 +1,39 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Samples.Infrastructure;
-using Samples.Models;
 using Shiny;
 using Shiny.Locations;
+using Shiny.Notifications;
 
 
-namespace Samples.Geofences
+namespace Sample
 {
-    public class GeofenceDelegate : IGeofenceDelegate, IShinyStartupTask
+    public class GeofenceDelegate : IGeofenceDelegate
     {
-        readonly CoreDelegateServices services;
-        public GeofenceDelegate(CoreDelegateServices services) => this.services = services;
+        readonly INotificationManager notificationManager;
+        readonly SampleSqliteConnection conn;
+
+
+        public GeofenceDelegate(INotificationManager notificationManager, SampleSqliteConnection conn)
+        {
+            this.notificationManager = notificationManager;
+            this.conn = conn;
+        }
 
 
         public async Task OnStatusChanged(GeofenceState newStatus, GeofenceRegion region)
         {
-            await this.services.Connection.InsertAsync(new GeofenceEvent
-            {
-                Identifier = region.Identifier,
-                Entered = newStatus == GeofenceState.Entered,
-                Date = DateTime.Now
-            });
-            await this.services.Notifications.Send(
-                this.GetType(),
-                newStatus == GeofenceState.Entered,
-                "Geofence Event",
-                $"{region.Identifier} was {newStatus}"
-            );
+            //await this.services.Connection.InsertAsync(new GeofenceEvent
+            //{
+            //    Identifier = region.Identifier,
+            //    Entered = newStatus == GeofenceState.Entered,
+            //    Date = DateTime.Now
+            //});
+            //await this.services.Notifications.Send(
+            //    this.GetType(),
+            //    newStatus == GeofenceState.Entered,
+            //    "Geofence Event",
+            //    $"{region.Identifier} was {newStatus}"
+            //);
         }
-
-
-        public void Start()
-            => this.services.Notifications.Register(this.GetType(), true, "Geofences");
     }
 }

@@ -129,7 +129,7 @@
       <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="Shiny">
-      <Version>2.2.0.2829</Version>
+      <Version>2.3.0.2906</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

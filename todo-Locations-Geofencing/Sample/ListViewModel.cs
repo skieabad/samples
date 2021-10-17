@@ -4,14 +4,11 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using ReactiveUI;
-using Prism.Navigation;
+using Shiny;
 using Shiny.Locations;
-using Samples.Models;
-using Samples.Infrastructure;
 
 
-namespace Samples.Geofences
+namespace Sample
 {
     public class ListViewModel : ViewModel
     {
@@ -19,12 +16,9 @@ namespace Samples.Geofences
         readonly IDialogs dialogs;
 
 
-        public ListViewModel(INavigationService navigator,
-                             IGeofenceManager geofenceManager,
-                             IDialogs dialogs)
+        public ListViewModel()
         {
-            this.geofenceManager = geofenceManager;
-            this.dialogs = dialogs;
+            this.geofenceManager = ShinyHost.Resolve<IGeofenceManager>();
 
             this.Create = navigator.NavigateCommand("CreateGeofence");
             this.DropAllFences = ReactiveCommand.CreateFromTask(

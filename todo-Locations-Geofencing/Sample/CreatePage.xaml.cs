@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 
 
-namespace Samples.Geofences
+namespace Sample
 {
 	public partial class CreatePage : ContentPage
 	{
