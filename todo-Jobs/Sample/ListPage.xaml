@@ -6,6 +6,9 @@
                            x:DataType="jobs:ListViewModel"
                            x:Class="Sample.ListPage"
                            Title="Jobs">
+    <ContentPage.BindingContext>
+        <samples:ListViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Create" Command="{Binding Create}" />
@@ -29,9 +32,13 @@
                     </CollectionView.EmptyView>
 
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="">
+                        <DataTemplate x:DataType="IJob">
                             <StackLayout>
-                                <Label Text="" />
+                                <!--<StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Com}" />
+                                </StackLayout.GestureRecognizers>-->
+                                <Label Text="{Binding JobIdentifier}" />
+                                <Label Text="{Binding Timestamp}" />
                             </StackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

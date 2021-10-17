@@ -7,6 +7,10 @@
                         Style="{StaticResource ContentPage}"
                         Title="Create">
 
+    <ContentPage.BindingContext>
+        <jobs:CreateViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>

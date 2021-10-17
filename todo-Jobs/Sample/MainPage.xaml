@@ -8,6 +8,6 @@
 
     <TabbedPage.Children>
         <jobs:ListPage />
-        <jobs:LogPage />
+        <jobs:LogsPage />
     </TabbedPage.Children>
 </TabbedPage>

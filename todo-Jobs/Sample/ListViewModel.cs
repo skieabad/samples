@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Shiny.Jobs;
 using Shiny;
-
+using Xamarin.Forms;
 
 namespace Sample
 {
@@ -19,26 +19,26 @@ namespace Sample
         {
             this.jobManager = ShinyHost.Resolve<IJobManager>();
 
-            //this.Create = navigator.NavigateCommand("CreateJob");
+            this.Create = new Command(async () => await this.Navigation.PushAsync(new CreatePage());
 
-            //this.LoadJobs = ReactiveCommand.CreateFromTask(async () =>
-            //{
-            //    var jobs = await jobManager.GetJobs();
+            this.LoadJobs = new Command(async () =>
+            {
+                var jobs = await jobManager.GetJobs();
 
-            //    this.Jobs = jobs
-            //        .Select(x => new CommandItem
-            //        {
-            //            Text = x.Identifier,
-            //            Detail = x.LastRunUtc?.ToLocalTime().ToString("G") ?? "Never Run",
-            //            PrimaryCommand = ReactiveCommand.CreateFromTask(() => jobManager.Run(x.Identifier)),
-            //            SecondaryCommand = ReactiveCommand.CreateFromTask(async () =>
-            //            {
-            //                await jobManager.Cancel(x.Identifier);
-            //                this.LoadJobs.Execute(null);
-            //            })
-            //        })
-            //        .ToList();
-            //});
+                var blah = jobs
+                    .Select(x => new
+                    {
+                        //Text = x.Identifier,
+                        //Detail = x.LastRunUtc?.ToLocalTime().ToString("G") ?? "Never Run",
+                        //PrimaryCommand = ReactiveCommand.CreateFromTask(() => jobManager.Run(x.Identifier)),
+                        //SecondaryCommand = ReactiveCommand.CreateFromTask(async () =>
+                        //{
+                        //    await jobManager.Cancel(x.Identifier);
+                        //    this.LoadJobs.Execute(null);
+                        //})
+                    })
+                    .ToList();
+            });
             //this.BindBusyCommand(this.LoadJobs);
 
             //this.RunAllJobs = ReactiveCommand.CreateFromTask(async () =>
