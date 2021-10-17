@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:triptracker="clr-namespace:Sample"
+             mc:Ignorable="d"
+             x:DataType="triptracker:SettingsViewModel"
+             x:Class="Sample.SettingsPage">
+
+    <ContentPage.Resources>
+        <Style x:Name="Radio" TargetType="RadioButton">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor"
+                                        Value="Red" />
+                                <Setter Property="Opacity"
+                                        Value="0.5" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="IsChecked">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor"
+                                        Value="Green" />
+                                <Setter Property="Opacity"
+                                        Value="1" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <Grid Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label Text="Automotive" Grid.Row="0" Grid.Column="1" />
+            <RadioButton GroupName="Selection"
+                         HorizontalOptions="FillAndExpand"
+                         IsChecked="{Binding UseAutomotive}"
+                         IsEnabled="{Binding IsEnabled, Mode=OneWay}"
+                         Grid.Row="0"
+                         Grid.Column="0" />
+
+            <Label Text="Cycling" Grid.Row="1" Grid.Column="1" />
+            <RadioButton GroupName="Selection"
+                         IsChecked="{Binding UseCycling}"
+                         IsEnabled="{Binding IsEnabled, Mode=OneWay}"
+                         HorizontalOptions="FillAndExpand"
+                         Grid.Row="1"
+                         Grid.Column="0" />
+
+            <Label Text="Running" Grid.Row="2" Grid.Column="1" />
+            <RadioButton GroupName="Selection"
+                         IsChecked="{Binding UseRunning}"
+                         IsEnabled="{Binding IsEnabled, Mode=OneWay}"
+                         HorizontalOptions="FillAndExpand"
+                         Grid.Row="2"
+                         Grid.Column="0" />
+
+            <Label Text="Walking" Grid.Row="3" Grid.Column="1" />
+            <RadioButton GroupName="Selection"
+                         IsChecked="{Binding UseWalking}"
+                         IsEnabled="{Binding IsEnabled, Mode=OneWay}"
+                         HorizontalOptions="FillAndExpand"
+                         Grid.Row="3"
+                         Grid.Column="0" />
+
+            <Label Text="On-Foot (Running or Walking)" Grid.Row="4" Grid.Column="1" />
+            <RadioButton GroupName="Selection"
+                         IsChecked="{Binding UseOnFoot}"
+                         IsEnabled="{Binding IsEnabled, Mode=OneWay}"
+                         HorizontalOptions="FillAndExpand"
+                         Grid.Row="4"
+                         Grid.Column="0" />
+
+            <Label Text="Exercise" Grid.Row="5" Grid.Column="1" />
+            <RadioButton GroupName="Selection"
+                         IsChecked="{Binding UseExercise}"
+                         IsEnabled="{Binding IsEnabled, Mode=OneWay}"
+                         HorizontalOptions="FillAndExpand"
+                         Grid.Row="5"
+                         Grid.Column="0" />
+
+            <Label Text="Stationary" Grid.Row="6" Grid.Column="1" />
+            <RadioButton GroupName="Selection"
+                         IsChecked="{Binding UseStationary}"
+                         IsEnabled="{Binding IsEnabled, Mode=OneWay}"
+                         HorizontalOptions="FillAndExpand"
+                         Grid.Row="6"
+                         Grid.Column="0" />
+
+            <Button Text="Start Monitoring"
+                    Command="{Binding ToggleMonitoring}"
+                    Grid.Row="7"
+                    Grid.ColumnSpan="2">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsEnabled}" Value="True">
+                        <Setter Property="Text" Value="Stop Monitoring" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsEnabled}" Value="False">
+                        <Setter Property="Text" Value="Start Monitoring" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
