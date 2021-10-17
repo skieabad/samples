@@ -15,9 +15,9 @@ namespace Sample
         readonly IJobManager jobManager;
 
 
-        public ListViewModel(IJobManager jobManager)
+        public ListViewModel()
         {
-            this.jobManager = jobManager;
+            this.jobManager = ShinyHost.Resolve<IJobManager>();
 
             //this.Create = navigator.NavigateCommand("CreateJob");
 

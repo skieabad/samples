@@ -9,6 +9,7 @@ namespace Sample
 		public ListPage()
 		{
 			this.InitializeComponent();
+			this.BindingContext = new ListViewModel();
 		}
     }
 }

@@ -5,6 +5,7 @@ using System.Reactive.Threading.Tasks;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Shiny;
 using Shiny.SpeechRecognition;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -17,9 +18,9 @@ namespace Sample
         readonly ISpeechRecognizer speech;
 
 
-        public ConversationViewModel(ISpeechRecognizer speech)
+        public ConversationViewModel()
         {
-            this.speech = speech;
+            this.speech = ShinyHost.Resolve<ISpeechRecognizer>();
             this.Start = new Command(() => this.DoConversation());
 
             this.speech

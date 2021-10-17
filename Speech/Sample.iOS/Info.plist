@@ -34,5 +34,9 @@
 	<string>Sample</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Say something useful here</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Say something useful here</string>
 </dict>
 </plist>

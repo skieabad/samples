@@ -34,5 +34,16 @@
 	<string>Sample</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+        <array>
+            <string>fetch</string>
+            <string>processing</string>
+        </array>	
+        <key>BGTaskSchedulerPermittedIdentifiers</key>
+        <array>
+            <string>com.shiny.job</string>
+            <string>com.shiny.jobpower</string>
+            <string>com.shiny.jobnet</string>
+            <string>com.shiny.jobpowernet</string>
+        </array>
 </dict>
 </plist>

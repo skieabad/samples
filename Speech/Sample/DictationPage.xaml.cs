@@ -4,11 +4,12 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public partial class DictationPage : ContentPage
+    public partial class DictationPage : SampleContentPage
     {
         public DictationPage()
         {
             this.InitializeComponent();
+            this.BindingContext = new DictationViewModel();
         }
     }
 }
