@@ -12,7 +12,7 @@ namespace Sample
         public ICommand Remove { get; set; }
 
 
-        public string Text => $"{this.Region.Identifier}";
+        public string Text => this.Region.Identifier;
         public string Detail => $"{this.Region.Radius.TotalMeters}m from {this.Region.Center.Latitude}/{this.Region.Center.Longitude}";
     }
 }

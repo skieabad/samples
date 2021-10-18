@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Shiny;
 using Shiny.Locations;
+using Xamarin.Forms;
 
 
 namespace Sample
@@ -13,18 +14,17 @@ namespace Sample
     public class ListViewModel : ViewModel
     {
         readonly IGeofenceManager geofenceManager;
-        readonly IDialogs dialogs;
 
 
         public ListViewModel()
         {
             this.geofenceManager = ShinyHost.Resolve<IGeofenceManager>();
 
-            this.Create = navigator.NavigateCommand("CreateGeofence");
-            this.DropAllFences = ReactiveCommand.CreateFromTask(
-                async _ =>
+            this.Create = new Command(async () => await this.Navigation.PushAsync(new CreatePage()));
+            this.DropAllFences = new Command(
+                async () =>
                 {
-                    var confirm = await this.dialogs.Confirm("Are you sure you wish to drop all geofences?");
+                    var confirm = await this.Confirm("Are you sure you wish to drop all geofences?");
                     if (confirm)
                     {
                         await this.geofenceManager.StopAllMonitoring();
@@ -37,9 +37,7 @@ namespace Sample
 
         public ICommand Create { get; }
         public ICommand DropAllFences { get; }
-
         public IList<GeofenceRegionViewModel> Geofences { get; private set; } = new List<GeofenceRegionViewModel>();
-        public IList<GeofenceEvent> Events { get; private set; } = new List<GeofenceEvent>();
 
 
         public override async void OnAppearing()
@@ -57,16 +55,16 @@ namespace Sample
                 .Select(region => new GeofenceRegionViewModel
                 {
                     Region = region,
-                    Remove = ReactiveCommand.CreateFromTask(async _ =>
+                    Remove = new Command(async _ =>
                     {
-                        var confirm = await this.dialogs.Confirm("Are you sure you wish to remove geofence - " + region.Identifier);
+                        var confirm = await this.Confirm("Are you sure you wish to remove geofence - " + region.Identifier);
                         if (confirm)
                         {
                             await this.geofenceManager.StopMonitoring(region.Identifier);
                             await this.LoadRegions();
                         }
                     }),
-                    RequestCurrentState = ReactiveCommand.CreateFromTask(async _ =>
+                    RequestCurrentState = new Command(async _ =>
                     {
                         GeofenceState? status = null;
                         using (var cancelSrc = new CancellationTokenSource())
@@ -78,7 +76,7 @@ namespace Sample
                         if (status != null)
                         {
                             await Task.Delay(2000);
-                            await this.dialogs.Alert($"{region.Identifier} status is {status}");
+                            await this.Alert($"{region.Identifier} status is {status}");
                         }
                     })
                 })

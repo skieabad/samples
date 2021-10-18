@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-	public partial class ListPage : ContentPage
+	public partial class ListPage : SampleContentPage
 	{
 		public ListPage ()
 		{

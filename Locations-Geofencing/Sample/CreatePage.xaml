@@ -25,11 +25,11 @@
                            Text="{Binding Identifier}" />
 
                 <EntryCell Label="Latitude"
-                           Text="{Binding CenterLatitude, Converter={StaticResource Double}}"
+                           Text="{Binding CenterLatitude}"
                            Keyboard="Numeric" />
 
                 <EntryCell Label="Longitude"
-                           Text="{Binding CenterLongitude, Converter={StaticResource Double}}"
+                           Text="{Binding CenterLongitude}"
                            Keyboard="Numeric" />
 
                 <EntryCell Label="Radius (meters)"
@@ -48,8 +48,8 @@
             </TableSection>
 
             <TableSection Title="Quick Entries">
-                <TextCell Text="Apple HQ" Command="{Binding AddAppleHQ}" />
-                <TextCell Text="CN Tower, Toronto, Canada" Command="{Binding AddCnTower}" />
+                <TextCell Text="Apple HQ" Command="{Binding SetAppleHQ}" />
+                <TextCell Text="CN Tower, Toronto, Canada" Command="{Binding SetCNTower}" />
             </TableSection>
         </TableView>
     </ContentPage.Content>

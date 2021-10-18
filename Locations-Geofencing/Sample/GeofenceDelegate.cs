@@ -22,18 +22,18 @@ namespace Sample
 
         public async Task OnStatusChanged(GeofenceState newStatus, GeofenceRegion region)
         {
-            //await this.services.Connection.InsertAsync(new GeofenceEvent
-            //{
-            //    Identifier = region.Identifier,
-            //    Entered = newStatus == GeofenceState.Entered,
-            //    Date = DateTime.Now
-            //});
-            //await this.services.Notifications.Send(
-            //    this.GetType(),
-            //    newStatus == GeofenceState.Entered,
-            //    "Geofence Event",
-            //    $"{region.Identifier} was {newStatus}"
-            //);
+            var state = newStatus.ToString().ToUpper();
+
+            await this.conn.InsertAsync(new ShinyEvent
+            {
+                Text = region.Identifier,
+                Detail = $"You {state} the geofence",
+                Timestamp = DateTime.Now
+            });
+            await this.notificationManager.Send(
+                "Geofencing",
+                $"You {state} the geofence"
+            );
         }
     }
 }
