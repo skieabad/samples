@@ -1,29 +1,34 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Samples.Infrastructure;
-using Samples.Models;
 using Shiny.Locations;
 
 
-namespace Samples.Gps
+namespace Sample
 {
     public class GpsDelegate : IGpsDelegate
     {
-        readonly CoreDelegateServices services;
-        public GpsDelegate(CoreDelegateServices services) => this.services = services;
+        readonly SampleSqliteConnection conn;
+        public GpsDelegate(SampleSqliteConnection conn) => this.conn = conn;
 
 
         public Task OnReading(IGpsReading reading)
-            => this.services.Connection.InsertAsync(new GpsEvent
+            => this.conn.InsertAsync(new ShinyEvent
             {
-                Latitude = reading.Position.Latitude,
-                Longitude = reading.Position.Longitude,
-                Altitude = reading.Altitude,
-                PositionAccuracy = reading.PositionAccuracy,
-                Heading = reading.Heading,
-                HeadingAccuracy = reading.HeadingAccuracy,
-                Speed = reading.Speed,
-                Date = reading.Timestamp.ToLocalTime()
+                Text = $"{reading.Position.Latitude} / {reading.Position.Longitude} - H: {reading.Heading}",
+                Detail = $"Acc: {reading.PositionAccuracy} - SP: {reading.Speed}",
+                Timestamp = reading.Timestamp.ToLocalTime()
             });
+
+            //    new GpsEvent
+            //{
+            //    Latitude = reading.Position.Latitude,
+            //    Longitude = reading.Position.Longitude,
+            //    Altitude = reading.Altitude,
+            //    PositionAccuracy = reading.PositionAccuracy,
+            //    Heading = reading.Heading,
+            //    HeadingAccuracy = reading.HeadingAccuracy,
+            //    Speed = reading.Speed,
+            //    Date = reading.Timestamp.ToLocalTime()
+            //});
     }
 }

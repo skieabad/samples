@@ -1,7 +1,7 @@
 ﻿using Xamarin.Forms;
 
 
-namespace Samples.Gps
+namespace Sample
 {
     public partial class GpsPage : ContentPage
     {

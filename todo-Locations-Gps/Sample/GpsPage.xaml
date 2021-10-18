@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:gps="clr-namespace:Samples.Gps"
+             xmlns:gps="clr-namespace:Sample"
              x:DataType="gps:GpsViewModel"
-             x:Class="Samples.Gps.GpsPage"
+             x:Class="Sample.GpsPage"
              Title="Setup">
+
+    <ContentPage.BindingContext>
+        <gps:GpsViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <RefreshView IsRefreshing="{Binding IsBusy}">
