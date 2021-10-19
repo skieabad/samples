@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sample="clr-namespace:Sample"
+             xmlns:sf="http://shinylib.net"
+             x:DataType="sample:ListViewModel"
+             x:Class="Sample.ListPage"
+             Title="Call Directory">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <CollectionView ItemsSource="{Binding List}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedItem}"
+                            Grid.Row="0">
+                <CollectionView.EmptyView>
+                    <Label Text="No Call Directory Entries"
+                           Style="{StaticResource NoDataLabel}"/>
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="sf:CommandItem">
+                        <StackLayout>
+                            <Label Text="{Binding Text}" FontSize="Large" />
+                            <Label Text="{Binding Detail}" FontSize="Medium" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="New Entry"
+                    Command="{Binding NewEntry}"
+                    Grid.Row="1" />
+
+            <Button Text="Clear Entries"
+                    Command="{Binding ClearEntries}"
+                    Grid.Row="2" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
