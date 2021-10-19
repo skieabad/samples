@@ -7,15 +7,15 @@
 |Link/Title|Description|
 |----------|-----------|
 |[Beacons](Beacons)|Foreground & Background detection of BluetoothLE iBeacons|
-|[Push|Native](Push-Native)|Uses purely native push notification API's provided by the OS|
-|[Push Firebase](Push-Firebase)|Uses firebase messaging for push notifications on both iOS & Android|
-|[Push|Azure Notification Hubs](Push-AzureNotificationsHub)|Push notifications via Azure Notification Hubs and only 1 line of code to be changed|
-|[Push|OneSignal](Push-OneSignal)|Push notifications via OneSignal and only 1 line of code to be changed|
+|[Push - Native](Push-Native)|Uses purely native push notification API's provided by the OS|
+|[Push - Firebase](Push-Firebase)|Uses firebase messaging for push notifications on both iOS & Android|
+|[Push - Azure Notification Hubs](Push-AzureNotificationsHub)|Push notifications via Azure Notification Hubs and only 1 line of code to be changed|
+|[Push - OneSignal](Push-OneSignal)|Push notifications via OneSignal and only 1 line of code to be changed|
 |[NFC](Nfc)|Near Field Communication|
 |[Jobs](Jobs)|How to register jobs at startup or dynamically|
 |[Key/Value Storage](Stores)|How Shiny uses a "viewmodel" style object to bind to OS preferences, secure storage, and others|
-|[Bluetooth LE|Client](BluetoothLE-Client)|The biggest module in all of Shiny|BluetoothLE powered by Reactive Extensions|
-|[Bluetooth LE|Hosting](BluetoothLE-Hosting)|BLE Hosting|Foreground only on this one|sorry :)|
+|[Bluetooth LE - Client](BluetoothLE-Client)|The biggest module in all of Shiny|BluetoothLE powered by Reactive Extensions|
+|[Bluetooth LE - Hosting](BluetoothLE-Hosting)|BLE Hosting|Foreground only on this one|sorry :)|
 |[HTTP Transfers](HttpTransfers)|Perform upload & download operations while in the background.  Even track statistics while in the foreground|
 |[GPS](Locations-Gps)|Background GPS|
 |[Geofencing](Locations-Geofencing)|Geofence in your app with ease!  We even handle the automatic transition to different APIs when Google Play Services aren't around|
