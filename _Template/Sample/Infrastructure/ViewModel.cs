@@ -52,6 +52,9 @@ namespace Sample
         protected virtual Task<string> Prompt(string question)
             => App.Current.MainPage.DisplayPromptAsync("Question", question);
 
+        protected virtual Task<string> Choose(string title, params string[] choices)
+            => App.Current.MainPage.DisplayActionSheet(title, null, null, choices);
+
 
         bool isBusy;
         public bool IsBusy
