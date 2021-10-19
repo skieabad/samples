@@ -29,7 +29,7 @@
 |Link/Title|Description|
 |----------|-----------|
 |[Prism + DryIoc + Shiny](Integration-Prism)|Prism Integration Example
-|[Better|Shiny.Framework](Integration-Best-Prism-RXUI)|Prism + ReactiveUI + Shiny with ease
+|[Better Prism/RXUI Integration via Shiny.Framework](Integration-Best-Prism-RXUI)|Prism + ReactiveUI + Shiny with ease
 |SQLite|Stores, Settings, & Logging|
 |AppCenter|TODO|
 |Firebase Analytics|TODO|
