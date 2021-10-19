@@ -3,7 +3,7 @@
  These samples are a work in progress!
 
 ## Samples
-* [Beacons](beacons) - Foreground & Background detection of BluetoothLE iBeacons
+* [Beacons](Beacons) - Foreground & Background detection of BluetoothLE iBeacons
 * [Push - Native](Push-Native) - Uses purely native push notification API's provided by the OS
 * [Push Firebase](Push-Firebase) - Uses firebase messaging for push notifications on both iOS & Android
 * [Push - Azure Notification Hubs](Push-AzureNotificationsHub) - Push notifications via Azure Notification Hubs and only 1 line of code to be changed
