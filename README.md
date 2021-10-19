@@ -26,6 +26,8 @@
 |Platform Intrisics|TODO|
 
 ## Integrations
+|Link/Title|Description|
+|----------|-----------|
 |[Prism + DryIoc + Shiny](Integration-Prism)|Prism Integration Example
 |[Better|Shiny.Framework](Integration-Best-Prism-RXUI)|Prism + ReactiveUI + Shiny with ease
 |SQLite|Stores, Settings, & Logging|
@@ -33,10 +35,14 @@
 |Firebase Analytics|TODO|
 
 ## Boilerplate Stuff
+|Link/Title|Description|
+|----------|-----------|
 |[No Code Gen](Boilerplate-NoCodeGen)|AppDelegate, Android App, & Android Activity are all manually hooked for Shiny to fully operate|
 |[All Code Gen](Boilerplate-All-CodeGen)|Everything from your iOS AppDelegate, Android Application & Activity, and the Shiny startup are generated|along with a lot of third party libraries|
 
 ## Sponsors
+|Link/Title|Description|
+|----------|-----------|
 |[Call Directory](Sponsors-CallDirectory)|Allows you to enter your own call identifiers and even call block them if necessary|
 |[OBD Interface](Sponsors-Obd)|BLE+Others|Making working with BLE & Other OBD dongles easy|
 |[Media Sync](Sponsors-MediaSync)|Using the power of background transfers in HTTP transfers, this will sync media (and deltas) to a URL of your choice|
