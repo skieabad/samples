@@ -2,9 +2,9 @@
 
 namespace Sample
 {
-    public partial class MainPage : ContentPage
+    public partial class LogsPage : SampleContentPage
     {
-        public MainPage()
+        public LogsPage()
         {
             this.InitializeComponent();
         }

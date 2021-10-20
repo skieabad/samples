@@ -8,7 +8,7 @@
         <Color x:Key="PrimaryDark">#4ba677</Color>
         <Color x:Key="Accent">#745296</Color>
         <Color x:Key="NavigationBarTextColor">White</Color>
-
+            
         <Style x:Key="NoDataLabel" TargetType="Label">
             <Setter Property="FontSize" Value="{DynamicResource Large}" />
             <Setter Property="HorizontalTextAlignment" Value="Center" />

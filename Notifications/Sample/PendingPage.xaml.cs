@@ -1,10 +1,11 @@
 ﻿using Xamarin.Forms;
 
+
 namespace Sample
 {
-    public partial class MainPage : ContentPage
+    public partial class PendingPage : ContentPage
     {
-        public MainPage()
+        public PendingPage()
         {
             this.InitializeComponent();
         }
