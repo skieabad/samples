@@ -39,6 +39,7 @@
 |----------|-----------|
 |[No Code Gen](Boilerplate-NoCodeGen)|AppDelegate, Android App, & Android Activity are all manually hooked for Shiny to fully operate|
 |[All Code Gen](Boilerplate-All-CodeGen)|Everything from your iOS AppDelegate, Android Application & Activity, and the Shiny startup are generated|along with a lot of third party libraries|
+|[Standard/Recommended](Jobs)|This will wire in your Xamarin Forms app as well as any Android/iOS boilerplate - you are in charge of the startup file|
 
 ## Sponsors
 |Link/Title|Description|
