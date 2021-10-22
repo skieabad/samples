@@ -11,16 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Shiny" Version="2.3.0.2898-preview" />
-    <PackageReference Include="Shiny.Jobs" Version="2.3.0.2898-preview" />
-    <PackageReference Include="Shiny.Notifications" Version="2.3.0.2898-preview" />
+    <PackageReference Include="Shiny" Version="2.3.0.2906" />
+    <PackageReference Include="Shiny.Jobs" Version="2.3.0.2906" />
+    <PackageReference Include="Shiny.Notifications" Version="2.3.0.2906" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="LogsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
   </ItemGroup>
 </Project>

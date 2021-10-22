@@ -21,7 +21,7 @@ namespace Sample
             this.IsBusy = true;
             try
             {
-                await taskFunc.Invoke().ConfigureAwait(false);
+                await taskFunc.Invoke();
             }
             catch (Exception ex)
             {
