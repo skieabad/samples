@@ -17,4 +17,8 @@
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
+  </ItemGroup>
 </Project>

@@ -129,10 +129,14 @@
       <Version>6.2.12</Version>
     </PackageReference>
     <PackageReference Include="Shiny">
-      <Version>2.2.0.2829</Version>
+      <Version>2.3.0.2906</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj">
+      <Project>{6142cf7d-374c-477e-bf5c-f6c8aaa98284}</Project>
+      <Name>Sample.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sample\Sample.csproj">
       <Project>{c4a94d57-c146-4de5-a133-30704425fce7}</Project>
       <Name>Sample</Name>

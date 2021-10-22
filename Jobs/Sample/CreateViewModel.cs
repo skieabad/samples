@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class CreateViewModel : ViewModel
+    public class CreateViewModel : SampleViewModel
     {
         readonly IJobManager jobManager;
         readonly INotificationManager notifications;

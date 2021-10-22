@@ -26,7 +26,6 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="sample:ShinyEvent">
                         <StackLayout>
-                   
                             <Label Text="{Binding Text}"
                                    FontSize="Medium" />
 

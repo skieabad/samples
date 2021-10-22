@@ -151,6 +151,10 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj">
+      <Project>{358d7e5f-9081-4318-87f2-b5d0ff099964}</Project>
+      <Name>Sample.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sample.UWP.Background\Sample.UWP.Background.csproj">
       <Project>{f07d2f85-6f84-4cab-a51a-d2f3a7c99a5b}</Project>
       <Name>Sample.UWP.Background</Name>

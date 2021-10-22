@@ -3,25 +3,23 @@ using System.Reactive.Threading.Tasks;
 using System.Windows.Input;
 using Shiny;
 using Shiny.Locations;
+using Shiny.Notifications;
 using Xamarin.Forms;
 
 
 namespace Sample
 {
-    public class CreateViewModel : ViewModel
+    public class CreateViewModel : SampleViewModel
     {
-        readonly IGeofenceManager geofenceManager;
-        readonly IGpsManager gpsManager;
-
-
         public CreateViewModel()
         {
-            this.geofenceManager = ShinyHost.Resolve<IGeofenceManager>();
-            this.gpsManager = ShinyHost.Resolve<IGpsManager>();
+            var geofenceManager = ShinyHost.Resolve<IGeofenceManager>();
+            var gpsManager = ShinyHost.Resolve<IGpsManager>();
+            var notificationManager = ShinyHost.Resolve<INotificationManager>();
 
             this.SetCurrentLocation = new Command(async ct =>
             {
-                var loc = await this.gpsManager.GetCurrentPosition().ToTask(ct);
+                var loc = await gpsManager.GetCurrentPosition().ToTask(ct);
                 this.CenterLatitude = loc?.Position?.Latitude.ToString() ?? "";
                 this.CenterLongitude = loc?.Position?.Longitude.ToString() ?? "";
             });
@@ -47,7 +45,8 @@ namespace Sample
 
             this.CreateGeofence = new Command(async () =>
             {
-                var access = await this.geofenceManager.RequestAccess();
+
+                var access = await geofenceManager.RequestAccess();
 
                 if (access != AccessState.Available)
                 {
@@ -82,7 +81,14 @@ namespace Sample
                     }
                     try
                     {
-                        await this.geofenceManager.StartMonitoring(new GeofenceRegion(
+                        access = await notificationManager.RequestAccess();
+                        if (access != AccessState.Available)
+                        {
+                            await this.Alert("Permission denied to notifications - geofence will still be created and events will be stored, but you will not receive notifications");
+                            return;
+                        }
+
+                        await geofenceManager.StartMonitoring(new GeofenceRegion(
                             this.Identifier,
                             new Position(
                                 Double.Parse(this.CenterLatitude),

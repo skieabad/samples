@@ -1,26 +1,24 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Shiny" Version="2.3.0.2906" />
-    <PackageReference Include="Shiny.Locations" Version="2.3.0.2906" />
-    <PackageReference Include="Shiny.Notifications" Version="2.3.0.2906" />
-    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Shiny" Version="2.3.0.2906" />
+		<PackageReference Include="Shiny.Locations" Version="2.3.0.2906" />
+		<PackageReference Include="Shiny.Notifications" Version="2.3.0.2906" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="LogsPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
+	</ItemGroup>
 </Project>

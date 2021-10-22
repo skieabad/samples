@@ -7,9 +7,17 @@ namespace Sample
 {
     public class GeofenceRegionViewModel
     {
-        public GeofenceRegion Region { get; set; }
-        public ICommand RequestCurrentState { get; set; }
-        public ICommand Remove { get; set; }
+        public GeofenceRegionViewModel(GeofenceRegion region, ICommand remove, ICommand requestCurrent)
+        {
+            this.Region = region;
+            this.Remove = remove;
+            this.RequestCurrentState = requestCurrent;
+        }
+
+
+        public GeofenceRegion Region { get; }
+        public ICommand RequestCurrentState { get; }
+        public ICommand Remove { get; }
 
 
         public string Text => this.Region.Identifier;

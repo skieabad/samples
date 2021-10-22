@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
                           x:Class="Sample.ListPage"
                           x:DataType="sample:ListViewModel"
                           Title="Geofences">
@@ -81,4 +82,4 @@
             </Grid>
         </Grid>
     </ContentPage.Content>
-</sample:SampleContentPage>
+</shared:SampleContentPage>

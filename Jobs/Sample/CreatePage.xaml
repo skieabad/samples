@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<jobs:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                        x:Class="Sample.CreatePage"
-                        xmlns:jobs="clr-namespace:Sample"
-                        x:DataType="jobs:CreateViewModel"
-                        Title="Create">
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          x:Class="Sample.CreatePage"
+                          xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          x:DataType="sample:CreateViewModel"
+                          Title="Create">
 
     <ContentPage.BindingContext>
-        <jobs:CreateViewModel />
+        <sample:CreateViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -47,4 +48,4 @@
                     Grid.Row="1" />
         </Grid>
     </ContentPage.Content>
-</jobs:SampleContentPage>
+</shared:SampleContentPage>

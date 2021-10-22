@@ -2,9 +2,9 @@
 
 namespace Sample
 {
-    public partial class LogsPage : ContentPage
+    public partial class Styles : ResourceDictionary
     {
-        public LogsPage()
+        public Styles()
         {
             this.InitializeComponent();
         }

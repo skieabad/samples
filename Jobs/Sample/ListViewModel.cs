@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class ListViewModel : ViewModel
+    public class ListViewModel : SampleViewModel
     {
         readonly IJobManager jobManager;
         CompositeDisposable? disposer;

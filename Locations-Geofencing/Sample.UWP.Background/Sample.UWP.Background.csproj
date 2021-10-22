@@ -133,6 +133,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj">
+      <Project>{358d7e5f-9081-4318-87f2-b5d0ff099964}</Project>
+      <Name>Sample.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sample\Sample.csproj">
       <Project>{c4a94d57-c146-4de5-a133-30704425fce7}</Project>
       <Name>Sample</Name>

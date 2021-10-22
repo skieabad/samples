@@ -13,6 +13,7 @@ namespace Sample
 
             services.UseGeofencing<GeofenceDelegate>();
 
+            // if you need some very real-time geofencing, you want to use below - this will really hurt your user's battery
             //services.UseGpsDirectGeofencing<GeofenceDelegate>();
 
 

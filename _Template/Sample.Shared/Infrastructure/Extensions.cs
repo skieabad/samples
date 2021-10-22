@@ -20,9 +20,9 @@ namespace Sample
             );
 
         public static void TryFireOnAppearing(this Page page)
-            => (page.BindingContext as ViewModel)?.OnAppearing();
+            => (page.BindingContext as SampleViewModel)?.OnAppearing();
 
         public static void TryFireOnDisappearing(this Page page)
-            => (page.BindingContext as ViewModel)?.OnDisappearing();
+            => (page.BindingContext as SampleViewModel)?.OnDisappearing();
     }
 }

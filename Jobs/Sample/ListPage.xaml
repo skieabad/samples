@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<samples:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                           xmlns:samples="clr-namespace:Sample"
-                           xmlns:jobs="clr-namespace:Sample"
-                           xmlns:shiny="clr-namespace:Shiny.Jobs;assembly=Shiny.Jobs"
-                           x:DataType="jobs:ListViewModel"
-                           x:Class="Sample.ListPage"
-                           Title="Jobs">
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          xmlns:shiny="clr-namespace:Shiny.Jobs;assembly=Shiny.Jobs"
+                          x:DataType="sample:ListViewModel"
+                          x:Class="Sample.ListPage"
+                          Title="Jobs">
     <ContentPage.BindingContext>
-        <samples:ListViewModel />
+        <sample:ListViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
@@ -63,4 +63,4 @@
                     Grid.Row="3" />
         </Grid>
     </ContentPage.Content>
-</samples:SampleContentPage>
+</shared:SampleContentPage>

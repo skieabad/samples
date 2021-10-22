@@ -58,7 +58,6 @@
       <Version>2.3.0.2906</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
