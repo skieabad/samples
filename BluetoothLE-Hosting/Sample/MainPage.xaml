@@ -6,6 +6,10 @@
              x:DataType="sample:MainViewModel"
              Title="GATT Server">
 
+    <ContentPage.BindingContext>
+        <sample:MainViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <TableView>
             <TableRoot>

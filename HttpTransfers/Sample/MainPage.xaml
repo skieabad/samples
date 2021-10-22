@@ -2,12 +2,13 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:sample="clr-namespace:Sample"
+            xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
             x:Class="Sample.MainPage"
             Title="HTTP Transfers"
             NavigationPage.BackButtonTitle="Back">
 
     <TabbedPage.Children>
         <sample:PendingPage Title="Pending" />
-        <sample:LogsPage Title="Logs" />
+        <shared:LogsPage Title="Logs" />
     </TabbedPage.Children>
 </TabbedPage>

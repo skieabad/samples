@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class ManageUploadsViewModel : ViewModel
+    public class ManageUploadsViewModel : SampleViewModel
     {
         readonly IPlatform platform;
 

@@ -1,16 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Windows.Input;
-using System.Reactive.Linq;
-using System.Collections.Generic;
+﻿using System.Windows.Input;
 using Shiny;
 using Shiny.Net.Http;
 
 
 namespace Sample
 {
-    public class CreateViewModel : ViewModel
+    public class CreateViewModel : SampleViewModel
     {
         readonly IPlatform platform;
 

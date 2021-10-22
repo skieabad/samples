@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class PendingViewModel : ViewModel
+    public class PendingViewModel : SampleViewModel
     {
         readonly IHttpTransferManager httpTransfers;
         IDisposable? sub;

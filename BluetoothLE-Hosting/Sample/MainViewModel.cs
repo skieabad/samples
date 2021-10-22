@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class MainViewModel : ViewModel
+    public class MainViewModel : SampleViewModel
     {
         static readonly string ServiceUuid = "A495FF20-C5B1-4B44-B512-1370F02D74DE";
         static readonly string Characteristic1Uuid = "A495FF21-C5B1-4B44-B512-1370F02D74DE";
