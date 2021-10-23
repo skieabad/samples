@@ -5,16 +5,10 @@ using Shiny.Stores;
 
 namespace Sample
 {
-    public class BindViewModel : ViewModel
+    public class BindViewModel : SampleViewModel
     {
-        readonly IObjectStoreBinder binder;
+        readonly IObjectStoreBinder binder = ShinyHost.Resolve<IObjectStoreBinder>();
         IDisposable? sub;
-
-
-        public BindViewModel()
-        {
-            this.binder = ShinyHost.Resolve<IObjectStoreBinder>();
-        }
 
 
         bool isChecked;

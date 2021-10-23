@@ -5,16 +5,10 @@ using System.Reactive.Linq;
 
 namespace Sample
 {
-    public class BasicViewModel : ViewModel
+    public class BasicViewModel : SampleViewModel
     {
-        readonly IAppSettings appSettings;
+        readonly IAppSettings appSettings = ShinyHost.Resolve<IAppSettings>();
         IDisposable? sub;
-
-
-        public BasicViewModel()
-        {
-            this.appSettings = ShinyHost.Resolve<IAppSettings>();
-        }
 
 
         bool isChecked;
