@@ -1,10 +1,15 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:nfc="clr-namespace:Sample"
-             x:DataType="nfc:MainViewModel"
-             x:Class="Sample.MainPage"
-             Title="NFC">
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          x:DataType="sample:MainViewModel"
+                          x:Class="Sample.MainPage"
+                          Title="NFC">
+
+    <ContentPage.BindingContext>
+        <sample:MainViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Clear" Command="{Binding Clear}" />
@@ -34,15 +39,14 @@
                 </CollectionView.EmptyView>
 
                 <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="nfc:NDefItemViewModel">
+                    <DataTemplate x:DataType="sample:NDefItemViewModel">
                         <StackLayout>
                             <Label Text="{Binding Type}" FontSize="Title" />
                             <Label Text="{Binding Payload}" FontSize="Subtitle" />
-
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</shared:SampleContentPage>

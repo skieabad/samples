@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:d="http://xamarin.com/schemas/2014/forms/design"
                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                           xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
                           x:DataType="sample:OtherExtensionsViewModel"
                           mc:Ignorable="d"
                           x:Class="Sample.OtherExtensionsPage"
@@ -24,4 +25,4 @@
             </TableRoot>
         </TableView>
     </ContentPage.Content>
-</sample:SampleContentPage>
+</shared:SampleContentPage>

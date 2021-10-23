@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Shiny" Version="2.2.0.2829" />
-    <PackageReference Include="Shiny.Nfc" Version="2.2.0.2829" />
+    <PackageReference Include="Shiny" Version="2.3.0.2906" />
+    <PackageReference Include="Shiny.Nfc" Version="2.3.0.2906" />
     <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
@@ -22,5 +22,8 @@
     <EmbeddedResource Update="LogsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
   </ItemGroup>
 </Project>

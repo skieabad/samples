@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<gps:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:gps="clr-namespace:Sample"
-                       x:DataType="gps:GpsViewModel"
-                       x:Class="Sample.GpsPage"
-                       Title="Setup">
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          x:DataType="sample:GpsViewModel"
+                          x:Class="Sample.GpsPage"
+                          Title="Setup">
 
     <ContentPage.BindingContext>
-        <gps:GpsViewModel />
+        <sample:GpsViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
@@ -85,4 +86,4 @@
             </Grid>
         </RefreshView>
     </ContentPage.Content>
-</gps:SampleContentPage>
+</shared:SampleContentPage>

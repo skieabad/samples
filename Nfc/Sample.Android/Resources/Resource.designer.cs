@@ -37,11 +37,10 @@ namespace Sample.Droid
 			global::Shiny.Resource.Attribute.fontStyle = global::Sample.Droid.Resource.Attribute.fontStyle;
 			global::Shiny.Resource.Attribute.fontVariationSettings = global::Sample.Droid.Resource.Attribute.fontVariationSettings;
 			global::Shiny.Resource.Attribute.fontWeight = global::Sample.Droid.Resource.Attribute.fontWeight;
+			global::Shiny.Resource.Attribute.nestedScrollViewStyle = global::Sample.Droid.Resource.Attribute.nestedScrollViewStyle;
+			global::Shiny.Resource.Attribute.queryPatterns = global::Sample.Droid.Resource.Attribute.queryPatterns;
+			global::Shiny.Resource.Attribute.shortcutMatchRequired = global::Sample.Droid.Resource.Attribute.shortcutMatchRequired;
 			global::Shiny.Resource.Attribute.ttcIndex = global::Sample.Droid.Resource.Attribute.ttcIndex;
-			global::Shiny.Resource.Boolean.enable_system_alarm_service_default = global::Sample.Droid.Resource.Boolean.enable_system_alarm_service_default;
-			global::Shiny.Resource.Boolean.enable_system_foreground_service_default = global::Sample.Droid.Resource.Boolean.enable_system_foreground_service_default;
-			global::Shiny.Resource.Boolean.enable_system_job_service_default = global::Sample.Droid.Resource.Boolean.enable_system_job_service_default;
-			global::Shiny.Resource.Boolean.workmanager_test_configuration = global::Sample.Droid.Resource.Boolean.workmanager_test_configuration;
 			global::Shiny.Resource.Color.androidx_core_ripple_material_light = global::Sample.Droid.Resource.Color.androidx_core_ripple_material_light;
 			global::Shiny.Resource.Color.androidx_core_secondary_text_default_material_light = global::Sample.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
 			global::Shiny.Resource.Color.notification_action_color_filter = global::Sample.Droid.Resource.Color.notification_action_color_filter;
@@ -169,6 +168,9 @@ namespace Sample.Droid
 			global::Shiny.Resource.Style.TextAppearance_Compat_Notification_Title = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
 			global::Shiny.Resource.Style.Widget_Compat_NotificationActionContainer = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Shiny.Resource.Style.Widget_Compat_NotificationActionText = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Shiny.Resource.Styleable.Capability = global::Sample.Droid.Resource.Styleable.Capability;
+			global::Shiny.Resource.Styleable.Capability_queryPatterns = global::Sample.Droid.Resource.Styleable.Capability_queryPatterns;
+			global::Shiny.Resource.Styleable.Capability_shortcutMatchRequired = global::Sample.Droid.Resource.Styleable.Capability_shortcutMatchRequired;
 			global::Shiny.Resource.Styleable.ColorStateListItem = global::Sample.Droid.Resource.Styleable.ColorStateListItem;
 			global::Shiny.Resource.Styleable.ColorStateListItem_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_alpha;
 			global::Shiny.Resource.Styleable.ColorStateListItem_android_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
@@ -220,11 +222,10 @@ namespace Sample.Droid
 			global::Shiny.Nfc.Resource.Attribute.fontStyle = global::Sample.Droid.Resource.Attribute.fontStyle;
 			global::Shiny.Nfc.Resource.Attribute.fontVariationSettings = global::Sample.Droid.Resource.Attribute.fontVariationSettings;
 			global::Shiny.Nfc.Resource.Attribute.fontWeight = global::Sample.Droid.Resource.Attribute.fontWeight;
+			global::Shiny.Nfc.Resource.Attribute.nestedScrollViewStyle = global::Sample.Droid.Resource.Attribute.nestedScrollViewStyle;
+			global::Shiny.Nfc.Resource.Attribute.queryPatterns = global::Sample.Droid.Resource.Attribute.queryPatterns;
+			global::Shiny.Nfc.Resource.Attribute.shortcutMatchRequired = global::Sample.Droid.Resource.Attribute.shortcutMatchRequired;
 			global::Shiny.Nfc.Resource.Attribute.ttcIndex = global::Sample.Droid.Resource.Attribute.ttcIndex;
-			global::Shiny.Nfc.Resource.Boolean.enable_system_alarm_service_default = global::Sample.Droid.Resource.Boolean.enable_system_alarm_service_default;
-			global::Shiny.Nfc.Resource.Boolean.enable_system_foreground_service_default = global::Sample.Droid.Resource.Boolean.enable_system_foreground_service_default;
-			global::Shiny.Nfc.Resource.Boolean.enable_system_job_service_default = global::Sample.Droid.Resource.Boolean.enable_system_job_service_default;
-			global::Shiny.Nfc.Resource.Boolean.workmanager_test_configuration = global::Sample.Droid.Resource.Boolean.workmanager_test_configuration;
 			global::Shiny.Nfc.Resource.Color.androidx_core_ripple_material_light = global::Sample.Droid.Resource.Color.androidx_core_ripple_material_light;
 			global::Shiny.Nfc.Resource.Color.androidx_core_secondary_text_default_material_light = global::Sample.Droid.Resource.Color.androidx_core_secondary_text_default_material_light;
 			global::Shiny.Nfc.Resource.Color.notification_action_color_filter = global::Sample.Droid.Resource.Color.notification_action_color_filter;
@@ -352,6 +353,9 @@ namespace Sample.Droid
 			global::Shiny.Nfc.Resource.Style.TextAppearance_Compat_Notification_Title = global::Sample.Droid.Resource.Style.TextAppearance_Compat_Notification_Title;
 			global::Shiny.Nfc.Resource.Style.Widget_Compat_NotificationActionContainer = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionContainer;
 			global::Shiny.Nfc.Resource.Style.Widget_Compat_NotificationActionText = global::Sample.Droid.Resource.Style.Widget_Compat_NotificationActionText;
+			global::Shiny.Nfc.Resource.Styleable.Capability = global::Sample.Droid.Resource.Styleable.Capability;
+			global::Shiny.Nfc.Resource.Styleable.Capability_queryPatterns = global::Sample.Droid.Resource.Styleable.Capability_queryPatterns;
+			global::Shiny.Nfc.Resource.Styleable.Capability_shortcutMatchRequired = global::Sample.Droid.Resource.Styleable.Capability_shortcutMatchRequired;
 			global::Shiny.Nfc.Resource.Styleable.ColorStateListItem = global::Sample.Droid.Resource.Styleable.ColorStateListItem;
 			global::Shiny.Nfc.Resource.Styleable.ColorStateListItem_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_alpha;
 			global::Shiny.Nfc.Resource.Styleable.ColorStateListItem_android_alpha = global::Sample.Droid.Resource.Styleable.ColorStateListItem_android_alpha;
@@ -14636,19 +14640,7 @@ namespace Sample.Droid
 			public const int config_materialPreferenceIconSpaceReserved = 2130968578;
 			
 			// aapt resource value: 0x7F040003
-			public const int enable_system_alarm_service_default = 2130968579;
-			
-			// aapt resource value: 0x7F040004
-			public const int enable_system_foreground_service_default = 2130968580;
-			
-			// aapt resource value: 0x7F040005
-			public const int enable_system_job_service_default = 2130968581;
-			
-			// aapt resource value: 0x7F040006
-			public const int mtrl_btn_textappearance_all_caps = 2130968582;
-			
-			// aapt resource value: 0x7F040007
-			public const int workmanager_test_configuration = 2130968583;
+			public const int mtrl_btn_textappearance_all_caps = 2130968579;
 			
 			static Boolean()
 			{

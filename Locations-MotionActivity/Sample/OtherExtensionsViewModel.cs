@@ -6,7 +6,7 @@ using Shiny.Locations;
 
 namespace Sample
 {
-    public class OtherExtensionsViewModel : ViewModel
+    public class OtherExtensionsViewModel : SampleViewModel
     {
         readonly IMotionActivityManager activityManager = ShinyHost.Resolve<IMotionActivityManager>();
         IDisposable? sub;

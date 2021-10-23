@@ -11,10 +11,10 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class ListViewModel : ViewModel
+    public class ListViewModel : SampleViewModel
     {
         readonly IMotionActivityManager activityManager;
-        CompositeDisposable disposer;
+        CompositeDisposable? disposer;
 
 
         public ListViewModel()

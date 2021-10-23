@@ -1,9 +1,6 @@
-﻿using Xamarin.Forms;
-
-
-namespace Sample
+﻿namespace Sample
 {
-    public partial class GpsPage : ContentPage
+    public partial class GpsPage : SampleContentPage
     {
         public GpsPage()
         {

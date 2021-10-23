@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class GpsViewModel : ViewModel
+    public class GpsViewModel : SampleViewModel
     {
         readonly IGpsManager manager;
         CompositeDisposable disposer;

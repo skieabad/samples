@@ -17,17 +17,5 @@ namespace Sample
             Detail = $"Acc: {reading.PositionAccuracy} - SP: {reading.Speed}",
             Timestamp = reading.Timestamp.ToLocalTime()
         });
-
-            //    new GpsEvent
-            //{
-            //    Latitude = reading.Position.Latitude,
-            //    Longitude = reading.Position.Longitude,
-            //    Altitude = reading.Altitude,
-            //    PositionAccuracy = reading.PositionAccuracy,
-            //    Heading = reading.Heading,
-            //    HeadingAccuracy = reading.HeadingAccuracy,
-            //    Speed = reading.Speed,
-            //    Date = reading.Timestamp.ToLocalTime()
-            //});
     }
 }
