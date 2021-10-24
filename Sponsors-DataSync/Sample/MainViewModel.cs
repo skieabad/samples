@@ -10,14 +10,10 @@ using Prism.Navigation;
 using Bogus;
 using Shiny;
 using Shiny.DataSync;
-using Shiny.XamForms;
 
 
 namespace Sample
 {
-
-
-
     public class MainViewModel : ViewModel
     {
         readonly IDataSyncManager manager;

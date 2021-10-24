@@ -13,8 +13,8 @@
 
 	<ItemGroup>
 		<PackageReference Include="ReactiveUI.Fody" Version="16.2.6" />
-		<PackageReference Include="Shiny" Version="2.3.0.2888-preview" />
-		<PackageReference Include="Shiny.Beacons" Version="2.3.0.2888-preview" />
+		<PackageReference Include="Shiny" Version="2.3.0.2906" />
+		<PackageReference Include="Shiny.Beacons" Version="2.3.0.2906" />
 		<PackageReference Include="Shiny.Framework" Version="1.3.0.93" />
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
 	</ItemGroup>

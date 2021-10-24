@@ -20,4 +20,14 @@
 		<PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
 		<PackageReference Include="Shiny.Framework" Version="1.3.0.93" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="App.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
 </Project>

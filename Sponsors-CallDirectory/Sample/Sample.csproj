@@ -25,4 +25,7 @@
 	<ItemGroup>
 	  <None Include="App.xaml" />
 	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
+	</ItemGroup>
 </Project>
