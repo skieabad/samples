@@ -1,7 +1,6 @@
 name: Sample Request
 description: There is something that you don't find clear to implement with Shiny and it does not exist in these samples
-title: "[Feature Request]: "
-labels: [feature request, unverified]
+title: "[Sample Request]: "
 body:
   - type: markdown
     attributes:
