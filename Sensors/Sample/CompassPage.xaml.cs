@@ -1,9 +1,6 @@
-﻿using Xamarin.Forms;
-
-
-namespace Sample
+﻿namespace Sample
 {
-    public partial class CompassPage : ContentPage
+    public partial class CompassPage : SampleContentPage
     {
         public CompassPage()
         {

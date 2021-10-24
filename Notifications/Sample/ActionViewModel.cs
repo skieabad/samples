@@ -6,7 +6,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class ActionViewModel : ViewModel
+    public class ActionViewModel : SampleViewModel
     {
         public ActionViewModel()
         {

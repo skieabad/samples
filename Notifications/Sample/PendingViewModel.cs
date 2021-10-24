@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class PendingViewModel : ViewModel
+    public class PendingViewModel : SampleViewModel
     {
         public PendingViewModel()
         {
@@ -36,8 +36,8 @@ namespace Sample
                 "Clear All Pending Notifications?",
                 async () =>
                 {
-                        await notifications.Clear();
-                        this.Load.Execute(null);
+                    await notifications.Clear();
+                    this.Load.Execute(null);
                 }
             );
         }

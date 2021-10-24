@@ -1,9 +1,6 @@
-﻿using Xamarin.Forms;
-
-
-namespace Sample
+﻿namespace Sample
 {
-    public partial class PendingPage : ContentPage
+    public partial class PendingPage : SampleContentPage
     {
         public PendingPage()
         {

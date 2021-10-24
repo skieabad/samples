@@ -13,7 +13,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class ConversationViewModel : ViewModel
+    public class ConversationViewModel : SampleViewModel
     {
         readonly ISpeechRecognizer speech;
 

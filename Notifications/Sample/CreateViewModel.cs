@@ -12,7 +12,7 @@ using Shiny;
 
 namespace Sample
 {
-    public class CreateViewModel : ViewModel
+    public class CreateViewModel : SampleViewModel
     {
         readonly INotificationManager notificationManager;
         CompositeDisposable? disposer;

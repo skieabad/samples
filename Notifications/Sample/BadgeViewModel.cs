@@ -3,12 +3,12 @@ using System.Reactive.Linq;
 using System.Windows.Input;
 using Shiny;
 using Shiny.Notifications;
-
 using Xamarin.Forms;
+
 
 namespace Sample
 {
-    public class BadgeViewModel : ViewModel
+    public class BadgeViewModel : SampleViewModel
     {
         readonly INotificationManager notifications;
         IDisposable? sub;

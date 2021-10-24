@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class ChannelListViewModel : ViewModel
+    public class ChannelListViewModel : SampleViewModel
     {
         public ChannelListViewModel()
         {

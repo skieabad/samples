@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class ChannelCreateViewModel : ViewModel
+    public class ChannelCreateViewModel : SampleViewModel
     {
         public ChannelCreateViewModel()
         {

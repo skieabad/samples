@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:sample="clr-namespace:Sample"
-             mc:Ignorable="d"
-             x:DataType="sample:PendingViewModel"
-             x:Class="Sample.PendingPage"
-             Title="Pending">
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                          xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                          xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          mc:Ignorable="d"
+                          x:DataType="sample:PendingViewModel"
+                          x:Class="Sample.PendingPage"
+                          Title="Pending">
 
     <ContentPage.BindingContext>
         <sample:PendingViewModel />
@@ -25,7 +26,7 @@
                       IsRefreshing="{Binding IsBusy}"
                       IsPullToRefreshEnabled="True">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="sample:CommandItem">
+                    <DataTemplate x:DataType="shared:CommandItem">
                         <TextCell Text="{Binding Text}"
                                   Detail="{Binding Detail}">
                             <TextCell.ContextActions>
@@ -39,4 +40,4 @@
             </ListView>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</shared:SampleContentPage>

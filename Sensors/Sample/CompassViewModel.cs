@@ -1,19 +1,14 @@
 ﻿using System;
+using Shiny;
 using Shiny.Sensors;
 
 
 namespace Sample
 {
-    public class CompassViewModel : ViewModel
+    public class CompassViewModel : SampleViewModel
     {
-        readonly ICompass? compass;
+        readonly ICompass? compass = ShinyHost.Resolve<ICompass>();
         IDisposable? sub;
-
-
-        public CompassViewModel(ICompass? compass = null)
-        {
-            this.compass = compass;
-        }
 
 
         double rotation;

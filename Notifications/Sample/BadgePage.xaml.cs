@@ -1,10 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
-
-
-namespace Sample
+﻿namespace Sample
 {
-    public partial class BadgePage : ContentPage
+    public partial class BadgePage : SampleContentPage
     {
         public BadgePage()
         {

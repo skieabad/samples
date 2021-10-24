@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="Shiny" Version="2.3.0.2906" />
     <PackageReference Include="Shiny.SpeechRecognition" Version="2.3.0.2906" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
@@ -21,5 +21,11 @@
     <EmbeddedResource Update="LogsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Xamarin.Essentials" />
   </ItemGroup>
 </Project>

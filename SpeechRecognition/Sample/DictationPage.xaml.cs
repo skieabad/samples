@@ -9,7 +9,6 @@ namespace Sample
         public DictationPage()
         {
             this.InitializeComponent();
-            this.BindingContext = new DictationViewModel();
         }
     }
 }

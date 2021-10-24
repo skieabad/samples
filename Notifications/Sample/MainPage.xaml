@@ -1,6 +1,7 @@
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:sample="clr-namespace:Sample"
+            xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
             SelectedTabColor="#C2E812"
             UnselectedTabColor="#4BA677"
             x:Class="Sample.MainPage"
@@ -21,11 +22,11 @@
             </ContentPage.IconImageSource>
         </sample:PendingPage>
 
-        <sample:LogsPage Title="Logs">
+        <shared:LogsPage Title="Logs">
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf017;"
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
-        </sample:LogsPage>
+        </shared:LogsPage>
     </TabbedPage.Children>
 </TabbedPage>

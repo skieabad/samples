@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                          xmlns:sample="clr-namespace:Sample"
-                          x:DataType="sample:ChannelListViewModel"
-                          x:Class="Sample.ChannelListPage"
-                          Title="Channels">
+<shared:SampleContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                           xmlns:sample="clr-namespace:Sample"
+                           xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                           x:DataType="sample:ChannelListViewModel"
+                           x:Class="Sample.ChannelListPage"
+                           Title="Channels">
 
     <ContentPage.BindingContext>
         <sample:ChannelListViewModel />
@@ -24,7 +25,7 @@
             </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="sample:CommandItem">
+                <DataTemplate x:DataType="shared:CommandItem">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -57,4 +58,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </ContentPage.Content>
-</sample:SampleContentPage>
+</shared:SampleContentPage>

@@ -7,13 +7,13 @@ using Shiny.Sensors;
 
 namespace Sample
 {
-    public class MainViewModel
+    public class AllSensorsViewModel
     {
         public List<ISensorViewModel> Sensors { get; }
         public bool HasSensors => this.Sensors.Any();
 
 
-        public MainViewModel()
+        public AllSensorsViewModel()
         {
             this.Sensors = new List<ISensorViewModel>();
 

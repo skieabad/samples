@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class DictationViewModel : ViewModel
+    public class DictationViewModel : SampleViewModel
     {
         readonly ISpeechRecognizer speech;
         IDisposable? listenSub;
