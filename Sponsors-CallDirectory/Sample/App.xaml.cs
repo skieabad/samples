@@ -1,13 +1,10 @@
 ﻿using System;
+using Xamarin.Forms;
 
 namespace Sample
 {
-    public partial class App : Shiny.FrameworkApplication
+    public partial class App : FrameworkApplication
     {
-        protected override void Initialize()
-        {
-            this.InitializeComponent();
-            base.Initialize();
-        }
+
     }
 }
