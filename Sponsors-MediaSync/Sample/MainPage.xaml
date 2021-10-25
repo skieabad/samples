@@ -3,7 +3,7 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-            xmlns:mediasync="clr-namespace:Sample"
+            xmlns:mediasync="clr-namespace:Sample" xmlns:sample="clr-namespace:Sample;assembly=Sample.Shared"
             mc:Ignorable="d"
             x:Class="Sample.MainPage"
             SelectedTabColor="#C2E812"
@@ -26,11 +26,11 @@
             </ContentPage.IconImageSource>
         </mediasync:MediaScannerPage>
 
-        <mediasync:LogsPage Title="Logs">
+        <sample:LogsPage Title="Logs">
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf017;"
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
-        </mediasync:LogsPage>
+        </sample:LogsPage>
     </TabbedPage.Children>
 </TabbedPage>

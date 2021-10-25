@@ -3,12 +3,11 @@
 
 namespace Sample
 {
-    public partial class MainPage : ContentPage
+    public partial class MainPage : SampleContentPage
     {
         public MainPage()
         {
             this.InitializeComponent();
-            this.BindingContext = new MainViewModel();
         }
     }
 }

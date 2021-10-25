@@ -1,11 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:gpstags="clr-namespace:Shiny.GpsTags;assembly=Shiny.GpsTags"
-             xmlns:samples="clr-namespace:ShinySponsors.GpsTags"
-             x:DataType="samples:MainViewModel"
-             x:Class="Sample.MainPage"
-             Title="GPS Tags">
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:gpstags="clr-namespace:Shiny.GpsTags;assembly=Shiny.GpsTags"
+                          xmlns:sample="clr-namespace:Sample"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          x:DataType="sample:MainViewModel"
+                          x:Class="Sample.MainPage"
+                          Title="GPS Tags">
+
+    <ContentPage.BindingContext>
+        <sample:MainViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding Add}" />
@@ -39,4 +44,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </ContentPage.Content>
-</ContentPage>
+</shared:SampleContentPage>

@@ -7,25 +7,28 @@
              x:Class="Sample.RegisterTagPage"
              Title="Register New Tag">
 
+    <ContentPage.BindingContext>
+        <sample:RegisterTagViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <!--ui:MaterialTextField Placeholder="Beacon UUID"
-                                  Text="{Binding BeaconUuid}"
-                                  Grid.Row="0" />
+            <StackLayout Grid.Row="0">
+                <Label Text="Beacon UUID" />
+                <Entry Text="{Binding BeaconUuid}" />
 
-            <ui:MaterialTextField Placeholder="Identifier"
-                                  Text="{Binding Identifier}"
-                                  Grid.Row="1" />-->
+                <Label Text="Identifier" />
+                <Entry Text="{Binding Identifier}" />
+            </StackLayout>
 
             <CollectionView ItemsSource="{Binding Beacons}"
-                            Grid.Row="2">
+                            Grid.Row="1">
                 <CollectionView.EmptyView>
                     <Label Text="No Beacons Found"
                            FontSize="Large"
@@ -48,7 +51,7 @@
 
             <Button Text="Create Tag"
                     Command="{Binding Create}"
-                    Grid.Row="3" />
+                    Grid.Row="2" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:geodispatch="clr-namespace:Sample"
-            xmlns:geodispatch="clr-namespace:Sample;clr-assembly:Sample.Shared"
+            xmlns:sample="clr-namespace:Sample"
+            xmlns:shared="clr-namespace:Sample;clr-assembly:Sample.Shared"
             x:Class="Sample.MainPage"
             Title="GeoDispatch">
     <TabbedPage.Children>
-        <geodispatch:PendingPage />
+        <sample:PendingPage />
         <shared:LogsPage />
-        <geodispatch:SendPage />
+        <sample:SendPage />
     </TabbedPage.Children>
 </TabbedPage>

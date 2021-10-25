@@ -1,4 +1,4 @@
 using Xamarin.Forms.Xaml;
 
-[assembly: Shiny.GenerateStaticClasses("App1")]
+[assembly: Shiny.GenerateStaticClasses("Sample")]
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]

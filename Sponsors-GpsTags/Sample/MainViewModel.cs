@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class MainViewModel : ViewModel
+    public class MainViewModel : SampleViewModel
     {
         readonly ITagManager tagManager;
         CompositeDisposable? subscriptions;

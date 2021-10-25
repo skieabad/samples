@@ -28,7 +28,6 @@ namespace Sample
         {
             services.UseGlobalCommandExceptionHandler();
             services.UseXfMaterialDialogs();
-            services.AddSingleton<SampleSqliteConnection>();
             services.UseBleObdInterface(DeviceList.VeePeak);
         }
     }
