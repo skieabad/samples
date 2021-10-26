@@ -6,7 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <sample:Styles />
+                <!--<sample:Styles />-->
+                <ResourceDictionary MergedWith="sample:Styles" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
