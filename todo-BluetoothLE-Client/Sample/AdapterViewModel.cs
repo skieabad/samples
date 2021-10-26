@@ -12,7 +12,7 @@ using Shiny;
 using Shiny.BluetoothLE;
 
 
-namespace Samples.BluetoothLE
+namespace Sample
 {
     public class AdapterViewModel : ViewModel
     {

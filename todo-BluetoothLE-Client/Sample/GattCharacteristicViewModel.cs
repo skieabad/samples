@@ -12,7 +12,7 @@ using Shiny.BluetoothLE;
 using Samples.Infrastructure;
 
 
-namespace Samples.BluetoothLE
+namespace Sample
 {
     public class GattCharacteristicViewModel : ViewModel
     {

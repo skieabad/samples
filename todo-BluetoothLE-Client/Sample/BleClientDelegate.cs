@@ -1,50 +1,44 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Samples.Infrastructure;
-using Samples.Models;
 using Shiny;
 using Shiny.BluetoothLE;
+using Shiny.Notifications;
 
-
-namespace Samples.BluetoothLE
+namespace Sample
 {
-    public class BleClientDelegate : BleDelegate, IShinyStartupTask
+    public class BleClientDelegate : BleDelegate
     {
-        readonly CoreDelegateServices services;
-        public BleClientDelegate(CoreDelegateServices services) => this.services = services;
+        readonly SampleSqliteConnection conn;
+        readonly INotificationManager notifications;
+
+
+        public BleClientDelegate(SampleSqliteConnection conn, INotificationManager notificationManager)
+        {
+            this.conn = conn;
+            this.notifications = notificationManager;
+        }
 
 
         public override async Task OnAdapterStateChanged(AccessState state)
         {
             if (state == AccessState.Disabled)
-                await this.services.Notifications.Send(this.GetType(), true, "BLE State", "Turn on Bluetooth already");
+                await this.notifications.Send("BLE State", "Turn on Bluetooth already");
         }
 
 
         public override async Task OnConnected(IPeripheral peripheral)
         {
-            await this.services.Connection.InsertAsync(new BleEvent
-            {
-                Description = $"Peripheral '{peripheral.Name}' Connected",
-                Timestamp = DateTime.Now
-            });
-            await this.services.Notifications.Send(
-                this.GetType(),
-                true,
-                "BluetoothLE Device Connected",
-                $"{peripheral.Name} has connected"
-            );
+            //await this.services.Connection.InsertAsync(new BleEvent
+            //{
+            //    Description = $"Peripheral '{peripheral.Name}' Connected",
+            //    Timestamp = DateTime.Now
+            //});
+            //await this.services.Notifications.Send(
+            //    this.GetType(),
+            //    true,
+            //    "BluetoothLE Device Connected",
+            //    $"{peripheral.Name} has connected"
+            //);
         }
-
-
-        //public override Task OnScanResult(ScanResult result)
-        //{
-        //    // we only want this to run in the background
-        //    return base.OnScanResult(result);
-        //}
-
-
-        public void Start()
-            => this.services.Notifications.Register(this.GetType(), false, "BluetoothLE");
     }
 }

@@ -8,7 +8,7 @@ using Shiny.BluetoothLE;
 using Shiny.BluetoothLE.Managed;
 
 
-namespace Samples.BluetoothLE
+namespace Sample
 {
     public class ManagedPeripheralViewModel : ViewModel
     {

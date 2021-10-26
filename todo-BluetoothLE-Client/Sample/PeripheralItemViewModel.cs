@@ -4,7 +4,7 @@ using Shiny.BluetoothLE;
 using ReactiveUI.Fody.Helpers;
 
 
-namespace Samples.BluetoothLE
+namespace Sample
 {
     public class PeripheralItemViewModel : ViewModel
     {

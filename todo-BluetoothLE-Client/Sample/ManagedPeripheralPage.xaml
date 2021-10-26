@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ble="clr-namespace:Samples.BluetoothLE"
+             xmlns:ble="clr-namespace:Sample"
              x:DataType="ble:ManagedPeripheralViewModel"
-             x:Class="Samples.BluetoothLE.ManagedPeripheralPage"
+             x:Class="Sample.ManagedPeripheralPage"
              Title="{Binding Peripheral.Name}">
 
     <ContentPage.Content>

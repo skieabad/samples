@@ -2,15 +2,11 @@
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Input;
-using Prism.Navigation;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-using Samples.Infrastructure;
 using Shiny;
 using Shiny.BluetoothLE;
 
 
-namespace Samples.BluetoothLE
+namespace Sample
 {
     public class PeripheralViewModel : ViewModel
     {
