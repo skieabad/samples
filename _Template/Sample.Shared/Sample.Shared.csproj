@@ -10,4 +10,9 @@
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
 	</ItemGroup>
 
+	<!--<ItemGroup>
+		<EmbeddedResource Include="Styles.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+		</EmbeddedResource>
+	</ItemGroup>-->
 </Project>
