@@ -16,8 +16,11 @@ namespace Sample
             // if you need some very real-time geofencing, you want to use below - this will really hurt your user's battery
             //services.UseGpsDirectGeofencing<GeofenceDelegate>();
 
+            // let's send some notifications from our geofence
+            services.UseNotifications();
 
-            services.UseGps(); // we use this in the example, it isn't needed for geofencing in general
+            // we use this in the example, it isn't needed for geofencing in general
+            services.UseGps(); 
         }
     }
 }
