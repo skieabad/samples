@@ -4,25 +4,21 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Windows.Input;
-using Prism.Navigation;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
-using Samples.Infrastructure;
 using Shiny;
 using Shiny.BluetoothLE;
 
 
 namespace Sample.Standard
 {
-    public class ScanViewModel : ViewModel
+    public class ScanViewModel : SampleViewModel
     {
+        readonly IBleManager bleManager;
         IDisposable? scanSub;
 
 
-        public ScanViewModel(INavigationService navigator,
-                             IDialogs dialogs,
-                             IBleManager? bleManager = null)
+        public ScanViewModel()
         {
+            var bleManager = ShinyHost.Resolve<IBleManager>();
             this.IsScanning = bleManager?.IsScanning ?? false;
             this.CanControlAdapterState = bleManager?.CanControlAdapterState() ?? false;
 
