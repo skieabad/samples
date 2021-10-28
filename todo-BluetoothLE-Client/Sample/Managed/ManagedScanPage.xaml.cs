@@ -1,10 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
-
-
-namespace Samples.BluetoothLE
+﻿namespace Sample.Managed
 {
-    public partial class ManagedScanPage : ContentPage
+    public partial class ManagedScanPage : SampleContentPage
     {
         public ManagedScanPage()
         {

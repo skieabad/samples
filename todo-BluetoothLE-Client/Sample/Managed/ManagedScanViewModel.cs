@@ -2,17 +2,14 @@
 using System.Collections.ObjectModel;
 using System.Reactive.Linq;
 using System.Windows.Input;
-using Prism.Navigation;
-using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
 using Shiny;
 using Shiny.BluetoothLE;
 using Shiny.BluetoothLE.Managed;
 
 
-namespace Sample
+namespace Sample.Managed
 {
-    public class ManagedScanViewModel : ViewModel
+    public class ManagedScanViewModel : SampleViewModel
     {
         readonly IManagedScan scanner;
 

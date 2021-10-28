@@ -4,6 +4,7 @@ using Shiny;
 using Shiny.BluetoothLE;
 using Shiny.Notifications;
 
+
 namespace Sample
 {
     public class BleClientDelegate : BleDelegate

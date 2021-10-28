@@ -2,11 +2,11 @@
 using Xamarin.Forms;
 
 
-namespace Sample
+namespace Sample.Standard
 {
-    public partial class AdapterPage : ContentPage
+    public partial class ScanPage : ContentPage
     {
-        public AdapterPage()
+        public ScanPage()
         {
             this.InitializeComponent();
         }

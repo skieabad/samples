@@ -12,16 +12,16 @@ using Shiny;
 using Shiny.BluetoothLE;
 
 
-namespace Sample
+namespace Sample.Standard
 {
-    public class AdapterViewModel : ViewModel
+    public class ScanViewModel : ViewModel
     {
         IDisposable? scanSub;
 
 
-        public AdapterViewModel(INavigationService navigator,
-                                IDialogs dialogs,
-                                IBleManager? bleManager = null)
+        public ScanViewModel(INavigationService navigator,
+                             IDialogs dialogs,
+                             IBleManager? bleManager = null)
         {
             this.IsScanning = bleManager?.IsScanning ?? false;
             this.CanControlAdapterState = bleManager?.CanControlAdapterState() ?? false;

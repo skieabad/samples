@@ -29,4 +29,10 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Standard\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Standard\" />
+  </ItemGroup>
 </Project>
