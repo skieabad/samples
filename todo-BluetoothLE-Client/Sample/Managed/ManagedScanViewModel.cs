@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Shiny;
 using Shiny.BluetoothLE;
 using Shiny.BluetoothLE.Managed;
+using Xamarin.Forms;
 
 
 namespace Sample.Managed
@@ -14,30 +15,48 @@ namespace Sample.Managed
         readonly IManagedScan scanner;
 
 
-        public ManagedScanViewModel(IBleManager bleManager, INavigationService navigator)
+        public ManagedScanViewModel()
         {
-            this.scanner = bleManager
-                .CreateManagedScanner(RxApp.MainThreadScheduler, TimeSpan.FromSeconds(10))
-                .DisposedBy(this.DeactivateWith);
+            var bleManager = ShinyHost.Resolve<IBleManager>();
 
-            this.Toggle = ReactiveCommand.CreateFromTask(async () =>
+            //this.scanner = bleManager
+            //    .CreateManagedScanner(RxApp.MainThreadScheduler, TimeSpan.FromSeconds(10))
+            //    .DisposedBy(this.DeactivateWith);
+
+            this.Toggle = new Command(async () =>
                 this.IsBusy = await this.scanner.Toggle()
             );
 
-            this.WhenAnyValue(x => x.SelectedPeripheral)
+            this.WhenAnyProperty(x => x.SelectedPeripheral)
                 .Skip(1)
                 .Where(x => x != null)
                 .Subscribe(async x =>
                 {
                     this.SelectedPeripheral = null;
                     this.scanner.Stop();
-                    await navigator.Navigate("ManagedPeripheral", ("Peripheral", x.Peripheral));
+                    await this.Navigation.PushAsync(new ManagedPeripheralPage
+                    {
+                        BindingContext = new ManagedPeripheralViewModel(x.Peripheral)
+                    });
                 });
         }
 
 
-        public ICommand Toggle { get;  }
-        [Reactive] public ManagedScanResult? SelectedPeripheral { get; set; }
+        public ICommand Toggle { get; }
+
+
+        ManagedScanResult? selected;
+        public ManagedScanResult? SelectedPeripheral
+        {
+            get => this.selected;
+            set
+            {
+                this.selected = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
+
         public ObservableCollection<ManagedScanResult> Peripherals
             => this.scanner.Peripherals;
     }

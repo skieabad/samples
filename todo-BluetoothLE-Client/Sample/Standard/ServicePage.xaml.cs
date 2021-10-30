@@ -2,9 +2,9 @@
 
 namespace Sample.Standard
 {
-    public partial class CharacteristicsPage : ContentPage
+    public partial class ServicePage : SampleContentPage
     {
-        public CharacteristicsPage()
+        public ServicePage()
         {
             this.InitializeComponent();
         }

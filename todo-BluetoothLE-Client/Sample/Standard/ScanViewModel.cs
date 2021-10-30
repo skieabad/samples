@@ -6,6 +6,7 @@ using System.Reactive.Linq;
 using System.Windows.Input;
 using Shiny;
 using Shiny.BluetoothLE;
+using Xamarin.Forms;
 
 
 namespace Sample.Standard
@@ -22,22 +23,25 @@ namespace Sample.Standard
             this.IsScanning = bleManager?.IsScanning ?? false;
             this.CanControlAdapterState = bleManager?.CanControlAdapterState() ?? false;
 
-            this.WhenAnyValue(x => x.SelectedPeripheral)
+            this.WhenAnyProperty(x => x.SelectedPeripheral)
                 .Skip(1)
                 .Where(x => x != null)
                 .Subscribe(async x =>
                 {
                     this.SelectedPeripheral = null;
                     this.StopScan();
-                    await navigator.Navigate("Peripheral", ("Peripheral", x.Peripheral));
+                    await this.Navigation.PushAsync(new PeripheralPage
+                    {
+                        BindingContext = new PeripheralViewModel(x.Peripheral)
+                    });
                 });
 
-            this.ToggleAdapterState = ReactiveCommand.CreateFromTask(
+            this.ToggleAdapterState = new Command(
                 async () =>
                 {
                     if (bleManager == null)
                     {
-                        await dialogs.Alert("Platform Not Supported");
+                        await this.Alert("Platform Not Supported");
                     }
                     else
                     {
@@ -55,12 +59,12 @@ namespace Sample.Standard
                 }
             );
 
-            this.ScanToggle = ReactiveCommand.CreateFromTask(
+            this.ScanToggle = new Command(
                 async () =>
                 {
                     if (bleManager == null)
                     {
-                        await dialogs.Alert("Platform Not Supported");
+                        await this.Alert("Platform Not Supported");
                         return;
                     }
                     if (this.IsScanning)
@@ -104,7 +108,7 @@ namespace Sample.Standard
                                             this.Peripherals.Add(item);
                                     }
                                 },
-                                ex => dialogs.Alert(ex.ToString(), "ERROR")
+                                ex => this.Alert(ex.ToString(), "ERROR")
                             );
                     }
                 }
@@ -116,8 +120,26 @@ namespace Sample.Standard
         public ICommand ToggleAdapterState { get; }
         public bool CanControlAdapterState { get; }
         public ObservableCollection<PeripheralItemViewModel> Peripherals { get; } = new ObservableCollection<PeripheralItemViewModel>();
-        [Reactive] public PeripheralItemViewModel? SelectedPeripheral { get; set; }
-        [Reactive] public bool IsScanning { get; private set; }
+
+
+        PeripheralItemViewModel? selected;
+        public PeripheralItemViewModel? SelectedPeripheral
+        {
+            get => this.selected;
+            set
+            {
+                this.selected = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
+
+        bool scanning;
+        public bool IsScanning
+        {
+            get => this.scanning;
+            private set => this.Set(ref this.scanning, value);
+        }
 
 
         void StopScan()

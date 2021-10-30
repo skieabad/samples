@@ -22,7 +22,7 @@ namespace Sample.Standard
         public ICommand Read { get; }
         public ICommand Write { get; }
         public ICommand ToggleNotify { get; }
-        
+
 
         bool notifying;
         public bool IsNotifying

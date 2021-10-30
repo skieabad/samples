@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Sample.Standard
 {
-    public partial class ScanPage : ContentPage
+    public partial class ScanPage : SampleContentPage
     {
         public ScanPage()
         {

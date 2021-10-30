@@ -5,9 +5,9 @@ using Shiny.BluetoothLE;
 
 namespace Sample.Standard
 {
-    public class ServicesViewModel : SampleViewModel
+    public class PeripheralViewModel : SampleViewModel
     {
-        public ServicesViewModel(IPeripheral peripheral)
+        public PeripheralViewModel(IPeripheral peripheral)
         {
             this.Load = this.LoadingCommand(async () =>
             {

@@ -33,6 +33,11 @@
     <None Remove="Standard\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Standard\" />
+    <Compile Update="Standard\ServicePage.xaml.cs">
+      <DependentUpon>ServicePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Standard\PeripheralPage.xaml.cs">
+      <DependentUpon>PeripheralPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

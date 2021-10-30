@@ -3,7 +3,7 @@
 
 namespace Sample.Standard
 {
-    public partial class CharacteristicPage : ContentPage
+    public partial class CharacteristicPage : SampleContentPage
     {
         public CharacteristicPage()
         {

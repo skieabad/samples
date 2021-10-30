@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <sample:SampleContentPage
+    xmlns:sample="clr-namespace:Sample;assembly=Sample.Shared"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:sample="clr-namespace:Sample;assembly=Sample.Shared"
     xmlns:standard="clr-namespace:Sample.Standard"
-    x:DataType="standard:CharacteristicViewModel"
-    x:Class="Sample.Standard.CharacteristicPage">
+    x:DataType="standard:PeripheralViewModel"
+    x:Class="Sample.Standard.PeripheralPage">
     <ContentPage.Content>
 
     </ContentPage.Content>

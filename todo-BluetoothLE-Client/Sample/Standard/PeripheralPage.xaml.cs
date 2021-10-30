@@ -2,9 +2,9 @@
 
 namespace Sample.Standard
 {
-    public partial class ServicesPage : ContentPage
+    public partial class PeripheralPage : SampleContentPage
     {
-        public ServicesPage()
+        public PeripheralPage()
         {
             this.InitializeComponent();
         }

@@ -5,9 +5,9 @@ using Shiny.BluetoothLE;
 
 namespace Sample.Standard
 {
-    public class CharacteristicsViewModel : SampleViewModel
+    public class ServiceViewModel : SampleViewModel
     {
-        public CharacteristicsViewModel(IGattService service)
+        public ServiceViewModel(IGattService service)
         {
             this.Load = this.LoadingCommand(async () =>
             {
