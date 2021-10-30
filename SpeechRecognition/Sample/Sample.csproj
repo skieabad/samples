@@ -11,8 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Shiny" Version="2.3.0.2906" />
-    <PackageReference Include="Shiny.SpeechRecognition" Version="2.3.0.2906" />
+    <PackageReference Include="Shiny" Version="2.3.0.2919-preview" />
+    <PackageReference Include="Shiny.SpeechRecognition" Version="2.3.0.2919-preview" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
