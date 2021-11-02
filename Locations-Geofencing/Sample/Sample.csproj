@@ -11,7 +11,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Shiny" Version="2.3.0.2919-preview" />
 		<PackageReference Include="Shiny.Locations" Version="2.3.0.2919-preview" />
 		<PackageReference Include="Shiny.Notifications" Version="2.3.0.2919-preview" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
