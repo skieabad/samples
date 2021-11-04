@@ -11,7 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Shiny" Version="2.3.0.2906" />
     <PackageReference Include="Shiny.Net.Http" Version="2.3.0.2906" />
     <PackageReference Include="Shiny.Notifications" Version="2.3.0.2906" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
