@@ -1,6 +1,6 @@
 # Shiny Samples
  
- These samples are a work in progress!
+## THESE SAMPLES ARE NOT DONE (EVEN THE ONES THAT DON"T SAY TODO - THIS NOTE WILL DISAPPEAR WHEN THEY ARE)
 
 ## Libraries
 
