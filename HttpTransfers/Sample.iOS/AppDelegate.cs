@@ -3,7 +3,7 @@ using Foundation;
 using UIKit;
 using Xamarin.Forms.Platform.iOS;
 using Shiny;
-
+using ObjCRuntime;
 
 namespace Sample.iOS
 {
@@ -17,5 +17,9 @@ namespace Sample.iOS
 			this.LoadApplication(new App());
 			return base.FinishedLaunching(app, options);
 		}
-	}
+
+
+        public override void HandleEventsForBackgroundUrl(UIApplication application, string sessionIdentifier, Action completionHandler)
+            => this.ShinyHandleEventsForBackgroundUrl(sessionIdentifier, completionHandler);
+    }
 }
