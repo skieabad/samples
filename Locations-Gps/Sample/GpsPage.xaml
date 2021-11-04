@@ -53,11 +53,11 @@
                         </TableSection>
 
                         <TableSection Title="Listening">
-                            <TextCell Text="Use Realtime Values"
-                                      Command="{Binding UseRealtime}" />
-
                             <SwitchCell Text="Background"
                                         On="{Binding UseBackground}" />
+
+                            <SwitchCell Text="Real-Time Background"
+                                        On="{Binding UseRealtime}" />
 
                             <TextCell Text="Priority/Accuracy"
                                       Detail="{Binding Priority}"

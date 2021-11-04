@@ -22,7 +22,10 @@ namespace Sample
 
             var l = this.manager.CurrentListener;
             this.IsUpdating = l != null;
-            this.UseBackground = l?.UseBackground ?? true;
+
+            var mode = l?.BackgroundMode ?? GpsBackgroundMode.None;
+            this.UseBackground = mode != GpsBackgroundMode.None;
+            this.UseRealtime = mode == GpsBackgroundMode.Realtime;
             this.Priority = l?.Priority ?? GpsPriority.Normal;
             this.DesiredInterval = l?.Interval.TotalSeconds.ToString() ?? String.Empty;
             this.ThrottledInterval = l?.ThrottledInterval?.TotalSeconds.ToString() ?? String.Empty;
@@ -58,7 +61,7 @@ namespace Sample
                     {
                         var access = await this.manager.RequestAccess(new GpsRequest
                         {
-                            UseBackground = this.UseBackground
+                            BackgroundMode = this.GetMode()
                         });
                         this.Access = access.ToString();
 
@@ -70,7 +73,7 @@ namespace Sample
 
                         var request = new GpsRequest
                         {
-                            UseBackground = this.UseBackground,
+                            BackgroundMode = this.GetMode(),
                             Priority = this.Priority,
                         };
                         if (IsNumeric(this.DesiredInterval))
@@ -111,17 +114,10 @@ namespace Sample
                 }
             );
 
-            this.UseRealtime = new Command(() =>
-            {
-                var rt = GpsRequest.Realtime(false);
-                this.ThrottledInterval = String.Empty;
-                this.DesiredInterval = rt.Interval.TotalSeconds.ToString();
-                this.Priority = rt.Priority;
-            });
-
             this.RequestAccess = new Command(async () =>
             {
-                this.Access = (await this.manager.RequestAccess(new GpsRequest { UseBackground = this.UseBackground })).ToString();
+                var request = new GpsRequest { BackgroundMode = this.GetMode() };
+                this.Access = (await this.manager.RequestAccess(request)).ToString();
             });
         }
 
@@ -165,21 +161,6 @@ namespace Sample
         }
 
 
-        void SetValues(IGpsReading reading)
-        {
-            this.Latitude = reading.Position.Latitude;
-            this.Longitude = reading.Position.Longitude;
-            this.Altitude = reading.Altitude;
-            this.PositionAccuracy = reading.PositionAccuracy;
-
-            this.Heading = reading.Heading;
-            this.HeadingAccuracy = reading.HeadingAccuracy;
-            this.Speed = reading.Speed;
-            this.Timestamp = reading.Timestamp;
-        }
-
-
-        public Command UseRealtime { get; }
         public Command SelectPriority { get; }
         public Command GetLastReading { get; }
         public Command GetCurrentPosition { get; }
@@ -196,6 +177,7 @@ namespace Sample
             get => this.listenText;
             private set => this.Set(ref this.listenText, value);
         }
+
 
         string nTitle;
         public string NotificationTitle
@@ -217,6 +199,15 @@ namespace Sample
             get => this.useBg;
             set => this.Set(ref this.useBg, value);
         }
+
+
+        bool useRealtime = true;
+        public bool UseRealtime
+        {
+            get => this.useRealtime;
+            set => this.Set(ref this.useRealtime, value);
+        }
+
 
         GpsPriority priority = GpsPriority.Normal;
         public GpsPriority Priority
@@ -316,6 +307,32 @@ namespace Sample
             private set => this.Set(ref this.timestamp, value);
         }
 
+
+        void SetValues(IGpsReading reading)
+        {
+            this.Latitude = reading.Position.Latitude;
+            this.Longitude = reading.Position.Longitude;
+            this.Altitude = reading.Altitude;
+            this.PositionAccuracy = reading.PositionAccuracy;
+
+            this.Heading = reading.Heading;
+            this.HeadingAccuracy = reading.HeadingAccuracy;
+            this.Speed = reading.Speed;
+            this.Timestamp = reading.Timestamp;
+        }
+
+
+        GpsBackgroundMode GetMode()
+        {
+            var mode = GpsBackgroundMode.None;
+            if (this.UseBackground)
+            {
+                mode = this.UseRealtime
+                    ? GpsBackgroundMode.Realtime
+                    : GpsBackgroundMode.Standard;
+            }
+            return mode;
+        }
 
         static bool IsNumeric(string value)
         {
