@@ -39,10 +39,10 @@
 		<string>location</string>
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>The beacons or geofences or GPS always have you!</string>
+	<string>The GPS always have you!</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>The beacons or geofences or GPS always have you!</string>
+	<string>The GPS always have you!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>The beacons or geofences or GPS always have you!</string>
+	<string>The GPS always have you!</string>
 </dict>
 </plist>
