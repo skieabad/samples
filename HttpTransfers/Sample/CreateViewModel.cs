@@ -1,90 +1,103 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Windows.Input;
 using Shiny;
 using Shiny.Net.Http;
+using Xamarin.Forms;
 
 
 namespace Sample
 {
     public class CreateViewModel : SampleViewModel
     {
-        readonly IPlatform platform;
+        IDisposable? sub;
 
 
         public CreateViewModel()
         {
-            this.platform = ShinyHost.Resolve<IPlatform>();
+            var platform = ShinyHost.Resolve<IPlatform>();
             var httpTransfers = ShinyHost.Resolve<IHttpTransferManager>();
 
-            //this.WhenAnyValue(x => x.IsUpload)
-            //    .Subscribe(upload =>
-            //    {
-            //        if (!upload && this.FileName.IsEmpty())
-            //            this.FileName = Guid.NewGuid().ToString();
+            this.ManageUploads = new Command(
+                async () => this.Navigation.PushAsync(new ManageUploadsPage())
+            );
 
-            //        this.Title = upload ? "New Upload" : "New Download";
-            //    });
+            this.SelectUpload = new Command(async () =>
+            {
+                var files = platform.AppData.GetFiles("upload.*", SearchOption.TopDirectoryOnly);
+                if (!files.Any())
+                {
+                    await this.Alert("There are not files to upload.  Use 'Manage Uploads' below to create them");
+                }
+                else
+                {
+                    var cfg = new Dictionary<string, Action>();
+                    foreach (var file in files)
+                        cfg.Add(file.Name, () => this.FileName = file.Name);
 
-            //this.ManageUploads = navigationService.NavigateCommand("ManageUploads");
+                    //await dialogs.ActionSheet("Actions", cfg);
+                }
+            });
 
-            //this.ResetUrl = ReactiveCommand.Create(() =>
-            //{
-            //    appSettings.LastTransferUrl = null;
-            //    this.Url = appSettings.LastTransferUrl;
-            //});
+            this.Save = new Command(async () =>
+            {
+                this.ErrorMessage = "";
+                if (this.FileName.IsEmpty())
+                {
+                    this.ErrorMessage = "Enter a filename";
+                    return;
+                }
+                if (!Uri.TryCreate(this.Url, UriKind.Absolute, out var uri))
+                {
+                    this.ErrorMessage = "Please enter a valid URI";
+                    return;
+                }
+                var path = Path.Combine(platform.AppData.FullName, this.FileName);
+                var request = new HttpTransferRequest(this.Url, path, this.IsUpload)
+                {
+                    UseMeteredConnection = this.UseMeteredConnection
+                };
+                await httpTransfers.Enqueue(request);
 
-            //this.SelectUpload = ReactiveCommand.CreateFromTask(async () =>
-            //{
-            //    var files = platform.AppData.GetFiles("upload.*", SearchOption.TopDirectoryOnly);
-            //    if (!files.Any())
-            //    {
-            //        await dialogs.Alert("There are not files to upload.  Use 'Manage Uploads' below to create them");
-            //    }
-            //    else
-            //    {
-            //        var cfg = new Dictionary<string, Action>();
-            //        foreach (var file in files)
-            //            cfg.Add(file.Name, () => this.FileName = file.Name);
+                await this.Navigation.PopAsync();
+            });
+        }
 
-            //        await dialogs.ActionSheet("Actions", cfg);
-            //    }
-            //});
-            //this.Save = ReactiveCommand.CreateFromTask(
-            //    async () =>
-            //    {
-            //        var path = Path.Combine(this.platform.AppData.FullName, this.FileName);
-            //        var request = new HttpTransferRequest(this.Url, path, this.IsUpload)
-            //        {
-            //            UseMeteredConnection = this.UseMeteredConnection
-            //        };
-            //        await httpTransfers.Enqueue(request);
-            //        appSettings.LastTransferUrl = this.Url;
-	           //     await navigationService.GoBackAsync();
-            //    },
-            //    this.WhenAny
-            //    (
-            //        x => x.IsUpload,
-            //        x => x.Url,
-            //        x => x.FileName,
-            //        (up, url, fn) =>
-            //        {
-            //            this.ErrorMessage = String.Empty;
-            //            if (!Uri.TryCreate(url.GetValue(), UriKind.Absolute, out _))
-            //                this.ErrorMessage = "Invalid URL";
 
-            //            else if (up.GetValue() && fn.GetValue().IsEmpty())
-            //                this.ErrorMessage = "You must select or enter a filename";
+        public override void OnAppearing()
+        {
+            base.OnAppearing();
+            this.sub = this.WhenAnyProperty(x => x.IsUpload).Subscribe(upload =>
+            {
+                if (!upload && this.FileName.IsEmpty())
+                    this.FileName = Guid.NewGuid().ToString();
 
-            //            return this.ErrorMessage.IsEmpty();
-            //        }
-            //    )
-            //);
+                this.Title = upload ? "New Upload" : "New Download";
+            });
+        }
+
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            this.sub?.Dispose();
         }
 
 
         public ICommand Save { get; }
-        public ICommand ResetUrl { get; }
         public ICommand SelectUpload { get; }
         public ICommand ManageUploads { get; }
+
+
+        string title;
+        public string Title
+        {
+            get => this.title;
+            set => this.Set(ref this.title, value);
+        }
+
 
         string errMsg;
         public string ErrorMessage

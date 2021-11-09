@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sample="clr-namespace:Sample"
+             x:DataType="sample:ManageUploadsViewModel"
              x:Class="Sample.ManageUploadsPage"
              Title="Manage Uploads">
 

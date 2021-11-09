@@ -20,7 +20,7 @@ namespace Sample
         {
             this.httpTransfers = ShinyHost.Resolve<IHttpTransferManager>();
             this.Create = new Command(async () => await this.Navigation.PushAsync(new CreatePage()));
-            this.Load = new Command(async () =>
+            this.Load = this.LoadingCommand(async () =>
             {
                 var transfers = await httpTransfers.GetTransfers();
                 this.Transfers = transfers
@@ -31,15 +31,14 @@ namespace Sample
                             Identifier = transfer.Identifier,
                             Uri = transfer.Uri,
                             IsUpload = transfer.IsUpload,
-                            Cancel = new Command(async () =>
-                            {
-                                var confirm = await this.Confirm("Are you sure you want to cancel all transfers?");
-                                if (confirm)
+                            Cancel = this.ConfirmCommand(
+                                "Are you sure you want to cancel all transfers?",
+                                async () =>
                                 {
                                     await this.httpTransfers.Cancel(transfer.Identifier);
                                     this.Load.Execute(null);
                                 }
-                            })
+                            )
                         };
 
                         ToViewModel(vm, transfer);

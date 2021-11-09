@@ -2,8 +2,14 @@
 <shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          xmlns:sample="clr-namespace:Sample"
+                          x:DataType="sample:PendingViewModel"
                           x:Class="Sample.PendingPage"
                           Title="Pending">
+
+    <ContentPage.BindingContext>
+        <sample:PendingViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Create" Command="{Binding Create}" />
@@ -16,79 +22,86 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <ListView ItemsSource="{Binding Transfers}"
-                      RowHeight="150"
-                      Grid.Row="0">
+            <CollectionView ItemsSource="{Binding Transfers}"
+                            Grid.Row="0">
 
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.ContextActions>
-                                <MenuItem Text="Cancel"
-                                          Command="{Binding Cancel}"
-                                          IsDestructive="True" />
-                            </ViewCell.ContextActions>
+                <CollectionView.EmptyView>
+                    <Label Text="No Uploads"
+                           Style="{StaticResource NoDataLabel}" />
+                </CollectionView.EmptyView>
 
-                            <ViewCell.View>
-                                <Grid Padding="4">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*" />
-                                        <ColumnDefinition Width="1*" />
-                                        <ColumnDefinition Width="1*" />
-                                    </Grid.ColumnDefinitions>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="sample:HttpTransferViewModel">
+                        <Grid Padding="4">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
 
-                                    <Label Text="{Binding Uri}"
-                                           FontAttributes="Bold"
-                                           Grid.Row="0"
-                                           Grid.ColumnSpan="3" />
+                            <Label Text="{Binding Uri}"
+                                        FontAttributes="Bold"
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="3" />
 
-                                    <Label Text="{Binding Status, StringFormat='Status: {0}'}"
-                                           Grid.Row="1"
-                                           Grid.Column="0" />
+                            <Label Text="{Binding Status, StringFormat='Status: {0}'}"
+                                        Grid.Row="1"
+                                        Grid.Column="0" />
 
-                                    <Label Grid.Row="1" Grid.Column="0" />
+                            <Label Grid.Row="1" Grid.Column="0" />
 
-                                    <Label Text="{Binding IsUpload, StringFormat='Upload: {0}'}"
-                                           Grid.Row="1"
-                                           Grid.Column="3" />
+                            <Label Text="{Binding IsUpload, StringFormat='Upload: {0}'}"
+                                        Grid.Row="1"
+                                        Grid.Column="3" />
 
-                                    <Label Text="{Binding PercentCompleteText}"
-                                           HorizontalOptions="Center"
-                                           HorizontalTextAlignment="Center"
-                                           Grid.Column="0"
-                                           Grid.Row="2"/>
+                            <Label Text="{Binding PercentCompleteText}"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        Grid.Column="0"
+                                        Grid.Row="2"/>
 
-                                    <Label Text="{Binding TransferSpeed}"
-                                           HorizontalOptions="Center"
-                                           HorizontalTextAlignment="Center"
-                                           Grid.Column="1"
-                                           Grid.Row="2" />
+                            <Label Text="{Binding TransferSpeed}"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        Grid.Column="1"
+                                        Grid.Row="2" />
 
-                                    <Label Text="{Binding EstimateTimeRemaining}"
-                                           HorizontalOptions="Center"
-                                           HorizontalTextAlignment="Center"
-                                           Grid.Column="2"
-                                           Grid.Row="2" />
+                            <Label Text="{Binding EstimateTimeRemaining}"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"
+                                        Grid.Column="2"
+                                        Grid.Row="2" />
 
-                                    <ProgressBar Progress="{Binding PercentComplete}"
-                                                 HorizontalOptions="FillAndExpand"
-                                                 VerticalOptions="Center"
-                                                 Grid.Column="0"
-                                                 Grid.ColumnSpan="3"
-                                                 Grid.Row="3" />
-                                </Grid>
-                            </ViewCell.View>
-                        </ViewCell>
+                            <ProgressBar Progress="{Binding PercentComplete}"
+                                                HorizontalOptions="FillAndExpand"
+                                                VerticalOptions="Center"
+                                                Grid.Column="0"
+                                                Grid.ColumnSpan="3"
+                                                Grid.Row="3" />
+
+                            <Button Text="Cancel"
+                                    Command="{Binding Cancel}"
+                                    Grid.Row="4"
+                                    Grid.ColumnSpan="3"
+                                    Grid.Column="0" />
+
+                            <BoxView Style="{StaticResource HR}"
+                                    Grid.Row="4"
+                                    Grid.ColumnSpan="3"
+                                    Grid.Column="0" />
+                        </Grid>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
             <Button Text="Cancel All Tasks"
                     Command="{Binding CancelAll}"
