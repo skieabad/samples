@@ -4,7 +4,6 @@
              xmlns:sample="clr-namespace:Sample"
              x:DataType="sample:CreateViewModel"
              x:Class="Sample.CreatePage"
-             Style="{StaticResource ContentPage}"
              NavigationPage.BackButtonTitle="Back"
              Title="{Binding Title}">
 
@@ -13,41 +12,54 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <ScrollView Grid.Row="0">
-                <StackLayout>
-                    <Label Text="{Binding ErrorMessage}"
-                           TextColor="Red" />
-
-                    <TableView Intent="Form">
-                        <TableRoot>
-                            <TableSection>
-                                <EntryCell Label="URL" Text="{Binding Url}" />
-                            </TableSection>
-                            <TableSection>
-                                <SwitchCell Text="Upload" On="{Binding IsUpload}" />
-                                <SwitchCell Text="Allow Metered Connections" On="{Binding UseMeteredConnection}" />
-                            </TableSection>
-                            <TableSection>
-                                <EntryCell Label="File Name" Text="{Binding FileName}" IsEnabled="{Binding IsUpload, Converter={StaticResource Not}}" />
-                                <TextCell Text="Select Upload" Command="{Binding SelectUpload}" />
-                            </TableSection>
-                            <TableSection>
-                                <TextCell Text="Manage Uploads" Command="{Binding ManageUploads}" />
-                            </TableSection>
-                        </TableRoot>
-                    </TableView>
+        <StackLayout>
+            <Frame IsVisible="{Binding IsBusy}"
+                       BorderColor="Black"
+                       BackgroundColor="{StaticResource Primary}">
+                <StackLayout Orientation="Horizontal">
+                    <ActivityIndicator IsRunning="true" Color="Black" />
+                    <Label Text="Working..." />
                 </StackLayout>
-            </ScrollView>
+            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
-            <Button Text="Start Transfer"
-                    Command="{Binding Save}"
-                    Grid.Row="1" />
-        </Grid>
+                <Button Text="Start Transfer"
+                        Command="{Binding Save}"
+                        Grid.Row="0" />
+
+                <ScrollView Grid.Row="1">
+                    <StackLayout>
+                        <Label Text="{Binding ErrorMessage}"
+                               TextColor="Red" />
+
+                        <Label Text="URL" />
+                        <Entry Text="{Binding Url}" />
+
+                        <Label Text="File" />
+                        <Entry Text="{Binding FilePath}" />
+
+                        <Label Text="Allow Metered Connections" />
+                        <CheckBox IsChecked="{Binding UseMeteredConnection}" />
+
+                        <Label Text="Upload" />
+                        <CheckBox IsChecked="{Binding IsUpload}" />
+
+                        <Frame IsVisible="{Binding IsUpload}">
+                            <StackLayout>
+                                <Button Text="Select Upload" Command="{Binding SelectUpload}" />
+
+                                <Label Text="File Size (MB)" />
+                                <Entry Text="{Binding SizeInMegabytes}" Keyboard="Numeric" />
+                                <Button Text="Create New Random File" Command="{Binding CreateRandom}" />
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </ScrollView>
+            </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
