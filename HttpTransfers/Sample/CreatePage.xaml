@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sample="clr-namespace:Sample"
-             x:DataType="sample:CreateViewModel"
-             x:Class="Sample.CreatePage"
-             NavigationPage.BackButtonTitle="Back"
-             Title="{Binding Title}">
+<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
+                          xmlns:sample="clr-namespace:Sample"
+                          x:DataType="sample:CreateViewModel"
+                          x:Class="Sample.CreatePage"
+                          NavigationPage.BackButtonTitle="Back"
+                          Title="{Binding Title}">
 
     <ContentPage.BindingContext>
         <sample:CreateViewModel />
@@ -62,4 +63,4 @@
             </Grid>
         </StackLayout>
     </ContentPage.Content>
-</ContentPage>
+</shared:SampleContentPage>

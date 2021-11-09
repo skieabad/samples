@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public partial class CreatePage : ContentPage
+    public partial class CreatePage : SampleContentPage
     {
         public CreatePage()
         {

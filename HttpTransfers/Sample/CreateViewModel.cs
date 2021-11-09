@@ -25,7 +25,6 @@ namespace Sample
             this.platform = ShinyHost.Resolve<IPlatform>();
             var httpTransfers = ShinyHost.Resolve<IHttpTransferManager>();
 
-
             this.SelectUpload = new Command(async () =>
             {
                 var result = await FilePicker.PickAsync(new PickOptions
@@ -153,7 +152,7 @@ namespace Sample
         public string FilePath
         {
             get => this.filePath;
-            private set => this.Set(ref this.filePath, value);
+            set => this.Set(ref this.filePath, value);
         }
 
 
