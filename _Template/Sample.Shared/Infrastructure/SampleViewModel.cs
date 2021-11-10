@@ -53,17 +53,22 @@ namespace Sample
         });
 
 
+        protected virtual Task<T> InvokeOnMainThread<T>(Func<Task<T>> func) => Device.InvokeOnMainThreadAsync(func);
+        protected virtual Task InvokeOnMainThread(Func<Task> func) => Device.InvokeOnMainThreadAsync(func);
+        protected virtual Task InvokeOnMainThread(Action action) => Device.InvokeOnMainThreadAsync(action);
+
+
         protected virtual Task Alert(string message, string title = "Info")
-            => this.MainPage.DisplayAlert(title, message, "OK");
+            => this.InvokeOnMainThread(() => this.MainPage.DisplayAlert(title, message, "OK"));
 
         protected virtual Task<bool> Confirm(string question, string title = "Question")
-            => this.MainPage.DisplayAlert(title, question, "Ok", "Cancel");
+            => this.InvokeOnMainThread(() => this.MainPage.DisplayAlert(title, question, "Ok", "Cancel"));
 
         protected virtual Task<string> Prompt(string question)
-            => this.MainPage.DisplayPromptAsync("Question", question);
+            => this.InvokeOnMainThread(() => this.MainPage.DisplayPromptAsync("Question", question));
 
         protected virtual Task<string> Choose(string title, params string[] choices)
-            => this.MainPage.DisplayActionSheet(title, null, null, choices);
+            => this.InvokeOnMainThread(() => this.MainPage.DisplayActionSheet(title, null, null, choices));
 
 
         bool isBusy;

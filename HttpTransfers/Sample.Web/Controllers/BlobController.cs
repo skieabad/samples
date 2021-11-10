@@ -15,7 +15,7 @@ namespace Sample.Web.Controllers
 		public BlobController(IWebHostEnvironment env) => this.env = env;
 
 
-		[HttpGet("download/{fileName}")]
+		[HttpGet("~/download/{fileName}")]
 		public IActionResult Download(string fileName)
 		{
 			var path = Path.Combine(this.env.ContentRootPath, fileName);
@@ -23,7 +23,7 @@ namespace Sample.Web.Controllers
 		}
 
 
-		[HttpPost("upload")]
+		[HttpPost("~/upload")]
 		public async Task<ActionResult> Upload(IFormFile file)
         {
 			var savePath = Path.Combine(this.env.WebRootPath, file.FileName);
