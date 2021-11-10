@@ -19,7 +19,7 @@ namespace Sample
         public PendingViewModel()
         {
             this.httpTransfers = ShinyHost.Resolve<IHttpTransferManager>();
-            this.Create = new Command(async () => await this.Navigation.PushAsync(new CreatePage()));
+            this.Create = this.NavigateCommand<CreatePage>();
             this.Load = this.LoadingCommand(async () =>
             {
                 var transfers = await httpTransfers.GetTransfers();

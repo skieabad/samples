@@ -20,7 +20,8 @@ namespace Sample
 
         public CreateViewModel()
         {
-            this.Url = "https://acrmonster:44378/upload";
+            this.Url = "http://acrmac:44378/upload";
+            //this.Url = "http://acrmonster:44378/upload";
 
             this.platform = ShinyHost.Resolve<IPlatform>();
             var httpTransfers = ShinyHost.Resolve<IHttpTransferManager>();

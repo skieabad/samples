@@ -49,55 +49,56 @@
                             </Grid.RowDefinitions>
 
                             <Label Text="{Binding Uri}"
-                                        FontAttributes="Bold"
-                                        Grid.Row="0"
-                                        Grid.ColumnSpan="3" />
+                                   FontAttributes="Bold"
+                                   Grid.Row="0"
+                                   Grid.ColumnSpan="3" />
 
                             <Label Text="{Binding Status, StringFormat='Status: {0}'}"
-                                        Grid.Row="1"
-                                        Grid.Column="0" />
+                                   Grid.Row="1"
+                                   Grid.Column="0" />
 
                             <Label Grid.Row="1" Grid.Column="0" />
 
                             <Label Text="{Binding IsUpload, StringFormat='Upload: {0}'}"
-                                        Grid.Row="1"
-                                        Grid.Column="3" />
+                                   Grid.Row="1"
+                                   Grid.Column="3" />
 
                             <Label Text="{Binding PercentCompleteText}"
-                                        HorizontalOptions="Center"
-                                        HorizontalTextAlignment="Center"
-                                        Grid.Column="0"
-                                        Grid.Row="2"/>
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Grid.Column="0"
+                                   Grid.Row="2"/>
 
                             <Label Text="{Binding TransferSpeed}"
-                                        HorizontalOptions="Center"
-                                        HorizontalTextAlignment="Center"
-                                        Grid.Column="1"
-                                        Grid.Row="2" />
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Grid.Column="1"
+                                   Grid.Row="2" />
 
                             <Label Text="{Binding EstimateTimeRemaining}"
-                                        HorizontalOptions="Center"
-                                        HorizontalTextAlignment="Center"
-                                        Grid.Column="2"
-                                        Grid.Row="2" />
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Center"
+                                   Grid.Column="2"
+                                   Grid.Row="2" />
 
                             <ProgressBar Progress="{Binding PercentComplete}"
-                                                HorizontalOptions="FillAndExpand"
-                                                VerticalOptions="Center"
-                                                Grid.Column="0"
-                                                Grid.ColumnSpan="3"
-                                                Grid.Row="3" />
+                                         HorizontalOptions="FillAndExpand"
+                                         VerticalOptions="Center"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="4"
+                                         Grid.Row="3" />
 
                             <Button Text="Cancel"
                                     Command="{Binding Cancel}"
+                                    HorizontalOptions="FillAndExpand"
                                     Grid.Row="4"
                                     Grid.ColumnSpan="3"
                                     Grid.Column="0" />
 
                             <BoxView Style="{StaticResource HR}"
-                                    Grid.Row="4"
-                                    Grid.ColumnSpan="3"
-                                    Grid.Column="0" />
+                                     Grid.Row="5"
+                                     Grid.ColumnSpan="4"
+                                     Grid.Column="0" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
