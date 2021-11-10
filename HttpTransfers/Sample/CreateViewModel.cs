@@ -20,8 +20,8 @@ namespace Sample
 
         public CreateViewModel()
         {
-            this.Url = "http://acrmac:44378/upload";
-            //this.Url = "http://acrmonster:44378/upload";
+            //this.Url = "http://acrmac:44378/upload";
+            this.Url = "http://acrmonster:44378/upload";
 
             this.platform = ShinyHost.Resolve<IPlatform>();
             var httpTransfers = ShinyHost.Resolve<IHttpTransferManager>();
@@ -56,7 +56,8 @@ namespace Sample
                 }
                 var request = new HttpTransferRequest(this.Url, this.FilePath, this.IsUpload)
                 {
-                    UseMeteredConnection = this.UseMeteredConnection
+                    UseMeteredConnection = this.UseMeteredConnection,
+                    HttpMethod = this.IsUpload ? System.Net.Http.HttpMethod.Post : System.Net.Http.HttpMethod.Get
                 };
                 await httpTransfers.Enqueue(request);
 

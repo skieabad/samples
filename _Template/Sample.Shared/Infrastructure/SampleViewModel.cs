@@ -31,7 +31,7 @@ namespace Sample
             catch (Exception ex)
             {
                 Console.Write(ex);
-                await this.Alert("Error");
+                await this.Alert(ex.ToString(), "Error");
             }
             finally
             {
