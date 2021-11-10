@@ -15,8 +15,8 @@
     <ContentPage.Content>
         <StackLayout>
             <Frame IsVisible="{Binding IsBusy}"
-                       BorderColor="Black"
-                       BackgroundColor="{StaticResource Primary}">
+                   BorderColor="Black"
+                   BackgroundColor="{StaticResource Primary}">
                 <StackLayout Orientation="Horizontal">
                     <ActivityIndicator IsRunning="true" Color="Black" />
                     <Label Text="Working..." />
@@ -42,6 +42,12 @@
 
                         <Label Text="File" />
                         <Entry Text="{Binding FilePath}" />
+
+                        <Label Text="Post Data" />
+                        <Entry Text="{Binding PostData}" />
+
+                        <Label Text="HTTP Verb" />
+                        <Entry Text="{Binding HttpVerb}" />
 
                         <Label Text="Allow Metered Connections" />
                         <CheckBox IsChecked="{Binding UseMeteredConnection}" />

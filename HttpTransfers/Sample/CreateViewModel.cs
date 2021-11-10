@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Shiny;
@@ -54,10 +55,24 @@ namespace Sample
                     await this.Alert("This file does not exist");
                     return;
                 }
+
+                var verb = this.HttpVerb.ToLower() switch
+                {
+                    "post" => HttpMethod.Post,
+                    "get" => HttpMethod.Get,
+                    "put" => HttpMethod.Put,
+                    _ => null
+                };
+                if (verb == null)
+                {
+                    await this.Alert("Invalid HTTP Verb - " + this.HttpVerb);
+                    return;
+                }
                 var request = new HttpTransferRequest(this.Url, this.FilePath, this.IsUpload)
                 {
                     UseMeteredConnection = this.UseMeteredConnection,
-                    HttpMethod = this.IsUpload ? System.Net.Http.HttpMethod.Post : System.Net.Http.HttpMethod.Get
+                    PostData = this.PostData,
+                    HttpMethod = verb
                 };
                 await httpTransfers.Enqueue(request);
 
@@ -82,17 +97,20 @@ namespace Sample
             base.OnAppearing();
             this.sub = this.WhenAnyProperty(x => x.IsUpload).Subscribe(upload =>
             {
-                if (!upload)
+                if (upload)
                 {
-                    this.FilePath = Path.Combine(this.platform.AppData.FullName, Guid.NewGuid().ToString() + ".download");
-                }
-                else
-                {
+                    this.Title = "New Upload";
+                    this.HttpVerb = "POST";
                     var path = this.GetRandomFilePath();
                     if (File.Exists(path))
                         this.FilePath = path;
                 }
-                this.Title = upload ? "New Upload" : "New Download";
+                else
+                {
+                    this.Title = "New Download";
+                    this.HttpVerb = "GET";
+                    this.FilePath = Path.Combine(this.platform.AppData.FullName, Guid.NewGuid().ToString() + ".download");
+                }
             });
         }
 
@@ -108,6 +126,22 @@ namespace Sample
         public ICommand SelectUpload { get; }
         public ICommand Delete { get; }
         public ICommand CreateRandom { get; }
+
+
+        string postData;
+        public string PostData
+        {
+            get => this.postData;
+            set => this.Set(ref this.postData, value);
+        }
+
+
+        string httpVerb;
+        public string HttpVerb
+        {
+            get => this.httpVerb;
+            set => this.Set(ref this.httpVerb, value);
+        }
 
 
         string title;

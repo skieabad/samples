@@ -19,54 +19,28 @@ namespace Sample
         }
 
 
-        public async Task OnError(HttpTransfer transfer, Exception ex) { }
-            //=> this.CreateHttpTransferEvent(transfer, "ERROR: " + ex);
+        public Task OnError(HttpTransfer transfer, Exception ex)
+            => this.CreateHttpTransferEvent(transfer);
 
 
-        public async Task OnCompleted(HttpTransfer transfer)
+
+        public Task OnCompleted(HttpTransfer transfer)
+            => this.CreateHttpTransferEvent(transfer);
+
+
+        async Task CreateHttpTransferEvent(HttpTransfer transfer)
         {
-            //if (!transfer.IsUpload && Path.GetExtension(transfer.LocalFilePath) == "db")
-            //{
-            //    try
-            //    {
-            //        using (var conn = new SQLiteConnection(transfer.LocalFilePath))
-            //        {
-            //            var count = conn.Execute("SELECT COUNT(*) FROM sqlite_master WHERE type='table'");
-            //            await this.CreateHttpTransferEvent(transfer, $"COMPLETE - SQLITE PASSED ({count} tables)");
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        await this.CreateHttpTransferEvent(transfer, $"COMPLETE - SQLITE FAILED - " + ex);
-            //    }
-            //}
-            //else
-            //{
-            //    await this.CreateHttpTransferEvent(transfer, "COMPLETE");
-            //}
+            var detail = transfer.Status == HttpTransferState.Completed ? $"Completed" : "Failed";
+
+            await this.conn.InsertAsync(new ShinyEvent
+            {
+                Text = transfer.Identifier,
+                Detail = detail
+            });
+            await this.notificationManager.Send(
+                "HTTP Transfer",
+                detail
+            );
         }
-
-
-        //async Task CreateHttpTransferEvent(HttpTransfer transfer, string description)
-        //{
-        //    await this.services.Connection.InsertAsync(new HttpEvent
-        //    {
-        //        Identifier = transfer.Identifier,
-        //        IsUpload = transfer.IsUpload,
-        //        FileSize = transfer.FileSize,
-        //        Uri = transfer.Uri,
-        //        Description = description,
-        //        DateCreated = DateTime.Now
-        //    });
-        //    await this.services.Notifications.Send(
-        //        this.GetType(),
-        //        false,
-        //        "HTTP Transfer",
-        //        description
-        //    );
-        //}
-
-        //public void Start()
-        //    => this.services.Notifications.Register(this.GetType(), false, "HTTP Transfers");
     }
 }
