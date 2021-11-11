@@ -5,6 +5,7 @@ using System.Reactive.Linq;
 using System.Windows.Input;
 using Shiny;
 using Shiny.Net.Http;
+using Shiny.Notifications;
 using Xamarin.Forms;
 
 
@@ -75,6 +76,9 @@ namespace Sample
         {
             base.OnAppearing();
             this.Load.Execute(null);
+            ShinyHost
+                .Resolve<INotificationManager>()
+                .RequestAccess();
 
             this.sub = this.httpTransfers
                 .WhenUpdated()

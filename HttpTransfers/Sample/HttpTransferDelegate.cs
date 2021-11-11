@@ -35,7 +35,8 @@ namespace Sample
             await this.conn.InsertAsync(new ShinyEvent
             {
                 Text = transfer.Identifier,
-                Detail = detail
+                Detail = detail,
+                Timestamp = DateTime.UtcNow
             });
             await this.notificationManager.Send(
                 "HTTP Transfer",

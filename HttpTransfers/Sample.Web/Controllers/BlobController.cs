@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 
 namespace Sample.Web.Controllers
@@ -12,7 +13,14 @@ namespace Sample.Web.Controllers
 	public class BlobController : ControllerBase
     {
 		readonly IWebHostEnvironment env;
-		public BlobController(IWebHostEnvironment env) => this.env = env;
+		readonly ILogger logger;
+
+
+		public BlobController(IWebHostEnvironment env, ILogger<BlobController> logger)
+		{
+			this.env = env;
+			this.logger = logger;
+		}
 
 
 		[HttpGet("~/download/{fileName}")]
@@ -26,6 +34,9 @@ namespace Sample.Web.Controllers
 		[HttpPost("~/upload")]
 		public async Task<ActionResult> Upload(IFormFile file)
         {
+			var msg = file == null ? "NO FILE" : $"File: {file.FileName} - Length: {file.Length}"; 
+			this.logger.LogInformation(msg);
+
 			var savePath = Path.Combine(this.env.WebRootPath, file.FileName);
 			using (var stream = file.OpenReadStream())
 				using (var fs = new FileStream(savePath, FileMode.CreateNew))
