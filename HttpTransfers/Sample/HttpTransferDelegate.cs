@@ -23,7 +23,6 @@ namespace Sample
             => this.CreateHttpTransferEvent(transfer);
 
 
-
         public Task OnCompleted(HttpTransfer transfer)
             => this.CreateHttpTransferEvent(transfer);
 

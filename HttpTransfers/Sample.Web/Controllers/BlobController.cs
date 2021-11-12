@@ -27,6 +27,13 @@ namespace Sample.Web.Controllers
 		public IActionResult Download(string fileName)
 		{
 			var path = Path.Combine(this.env.ContentRootPath, fileName);
+
+			this.logger.LogInformation("Received download request for " + path);
+			if (!System.IO.File.Exists(path))
+            {
+				this.logger.LogError($"File '{path}' does not exist");
+				return this.NotFound();
+            }
 			return this.PhysicalFile(path, "application/octet-stream");
 		}
 
@@ -34,7 +41,7 @@ namespace Sample.Web.Controllers
 		[HttpPost("~/upload")]
 		public async Task<ActionResult> Upload(IFormFile file)
         {
-			var msg = file == null ? "NO FILE" : $"File: {file.FileName} - Length: {file.Length}"; 
+			var msg = file == null ? "NO FILE" : $"File: {file.FileName} - Length: {file.Length}";
 			this.logger.LogInformation(msg);
 
 			var savePath = Path.Combine(this.env.WebRootPath, file.FileName);

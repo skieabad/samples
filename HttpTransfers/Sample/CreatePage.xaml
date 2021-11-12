@@ -57,6 +57,8 @@
 
                         <Frame IsVisible="{Binding IsUpload}">
                             <StackLayout>
+                                <Label Text="Upload Info" FontSize="Large" />
+
                                 <Button Text="Select Upload" Command="{Binding SelectUpload}" />
 
                                 <Label Text="File Size (MB)" />
