@@ -1,17 +1,25 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
+var builder = WebApplication.CreateBuilder(args);
 
-
-namespace Sample.Web
+builder.Host.ConfigureLogging(logging =>
 {
-    public class Program
-    {
-        public static void Main(string[] args) => Host
-            .CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(x => x
-                .UseStartup<Startup>()
-            )
-            .Build()
-            .Run();
-    }
+    logging.AddConsole();
+});
+
+builder.Host.ConfigureServices(services =>
+{
+    services.AddControllersWithViews();
+});
+
+var app = builder.Build();
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHsts();
 }
+
+app.UseRouting();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller}/{action=Index}/{id?}"
+);
+app.Run();
