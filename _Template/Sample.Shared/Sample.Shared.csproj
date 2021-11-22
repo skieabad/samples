@@ -5,9 +5,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Shiny.Core" Version="2.3.0.2919-preview" />
+		<PackageReference Include="Shiny.Core" Version="2.4.0.2960" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
 	</ItemGroup>
 
 	<!--<ItemGroup>

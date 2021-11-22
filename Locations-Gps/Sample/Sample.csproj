@@ -11,9 +11,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Shiny" Version="2.3.0.2919-preview" />
-    <PackageReference Include="Shiny.Locations" Version="2.3.0.2919-preview" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+    <PackageReference Include="Shiny" Version="2.4.0.2960" />
+    <PackageReference Include="Shiny.Locations" Version="2.4.0.2960" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
   </ItemGroup>
 
   <ItemGroup>
