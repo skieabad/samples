@@ -51,3 +51,9 @@
 |[GPS Tags](Sponsors-GpsTags)|GPS+Beacons|AirTags for Xamarin (but with normal beacons)|
 |[Data Sync](Sponsors-DataSync)|Jobs done right!|
 |[Trip Tracker](Sponsors-TripTracker)|Track runs, walks, drives, etc|includes data such as average speed, points of trip|
+
+## Advanced Customization
+|Link/Title|Description|
+|----------|-----------|
+|[Custom Dependency Injection](DI-custom)|This example shows how to configure Shiny to use Autofac|
+|[Register Platform Services](DI-platform)|This example shows how to register a platform specific services with Shiny|
