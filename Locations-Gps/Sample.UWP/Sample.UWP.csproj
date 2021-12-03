@@ -145,12 +145,16 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Shiny">
-      <Version>2.3.0.2919-preview</Version>
+      <Version>2.4.1.2971</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.12" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.2.13" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj">
+      <Project>{05f5828a-1c33-43af-a6f5-08746c71dd60}</Project>
+      <Name>Sample.Shared</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sample.UWP.Background\Sample.UWP.Background.csproj">
       <Project>{f07d2f85-6f84-4cab-a51a-d2f3a7c99a5b}</Project>
       <Name>Sample.UWP.Background</Name>
