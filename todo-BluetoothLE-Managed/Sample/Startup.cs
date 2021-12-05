@@ -1,17 +1,37 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Prism.Ioc;
+using Prism.Navigation;
 using Shiny;
-
+using Xamarin.Forms;
 
 namespace Sample
 {
-    public class Startup : ShinyStartup
+    public class Startup : FrameworkStartup
     {
-        public override void ConfigureServices(IServiceCollection services, IPlatform platform)
+        public override void ConfigureApp(Application app, IContainerRegistry containerRegistry)
         {
-            // we inject our db so we can use it in our shiny background events to store them for display later
-            services.AddSingleton<SampleSqliteConnection>();
-            services.UseNotifications();
-            services.UseBleClient<BleClientDelegate>();
+            containerRegistry.RegisterForNavigation<NavigationPage>();
+            containerRegistry.RegisterForNavigation<TabbedPage>();
+            containerRegistry.RegisterForNavigation<MainPage>();
+
+            
+        }
+
+
+        public override Task RunApp(INavigationService navigator)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+        protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
+        {
+            services.UseBleClient();
+
+            services.UseGlobalCommandExceptionHandler();
+            services.UseXfMaterialDialogs();
         }
     }
 }

@@ -3,11 +3,12 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public partial class App : Application
+    public partial class App : FrameworkApplication
     {
-        public App()
+        protected override void Initialize()
         {
             this.InitializeComponent();
+            base.Initialize();
         }
     }
 }

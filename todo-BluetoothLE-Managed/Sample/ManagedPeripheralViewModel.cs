@@ -1,30 +1,36 @@
 ﻿using System.Windows.Input;
+using Prism.Navigation;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
+using Shiny;
 using Shiny.BluetoothLE;
 using Shiny.BluetoothLE.Managed;
 using Xamarin.Forms;
 
 
-namespace Sample.Managed
+namespace Sample
 {
-    public class ManagedPeripheralViewModel : SampleViewModel
+    public class ManagedPeripheralViewModel : ViewModel
     {
-        readonly IPeripheral peripheral;
-
-
-        public ManagedPeripheralViewModel(IPeripheral peripheral)
+        public ManagedPeripheralViewModel()
         {
-            this.peripheral = peripheral;
-            this.ToggleRssi = new Command(() =>
-                this.IsRssi = this.Peripheral.ToggleRssi()
+            this.ToggleRssi = ReactiveCommand.Create(() =>
+                this.IsRssi = this.Peripheral?.ToggleRssi() ?? false
             );
+        }
+
+
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            base.OnNavigatedTo(parameters);
+            this.peripheral = parameters.GetValue<IPeripheral>("Peripheral");
         }
 
 
         public override void OnAppearing()
         {
             base.OnAppearing();
-            //this.peripheral
-            //    .CreateManaged();
+            this.Peripheral = this.peripheral!.CreateManaged();
         }
 
 
@@ -35,14 +41,10 @@ namespace Sample.Managed
         }
 
 
+        IPeripheral? peripheral;
         public ICommand ToggleRssi { get; }
-        public IManagedPeripheral Peripheral { get; private set; }
+        public IManagedPeripheral? Peripheral { get; private set; }
 
-        bool isRssi;
-        public bool IsRssi
-        {
-            get => this.isRssi;
-            private set => this.Set(ref this.isRssi, value);
-        }
+        [Reactive] public bool IsRssi { get; private set; }
     }
 }

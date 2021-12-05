@@ -1,6 +1,8 @@
-﻿namespace Sample.Managed
+﻿using Xamarin.Forms;
+
+namespace Sample
 {
-    public partial class ManagedScanPage : SampleContentPage
+    public partial class ManagedScanPage : ContentPage
     {
         public ManagedScanPage()
         {
