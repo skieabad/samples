@@ -1,7 +1,14 @@
-# GPS Tags
+# Trip Tracker
 This uses a sponsor-only library available from Shiny on SponsorConnect
 
-GPS Tags uses GPS+Beacons to give you the abilities as seen by the Apple AirTags but with nothing more than a standard beacon
+Trip Tracker combines motion activity+GPS to track your runs, walks, bike rides, and automotive trips.
+
+Features
+* Records the path the user took
+* Average Speed
+* Total Distance
+* Type of trip taken
+* Determines when a trip starts & stops
 
 ## 3rd Party Libs
 * [Xamarin Forms](https://github.com/xamarin/xamarin.forms) - The cross platform library for .NET that we all know and love

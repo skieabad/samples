@@ -1,7 +1,7 @@
-# OBD Interface
+# Media Sync
 This uses a sponsor-only library available from Shiny on SponsorConnect
 
-This project uses Shiny.ObdInterfaces which allows you to work with several mainstream OBD BluetoothLE dongles
+This library synchronizes deltas of a user's media files to a remote server using HTTP backgroudn transfers
 
 ## Libraries
 * [Xamarin Forms](https://github.com/xamarin/xamarin.forms) - The cross platform library for .NET that we all know and love

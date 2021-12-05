@@ -1,7 +1,7 @@
-# OBD Interface
+# Call Directory
 This uses a sponsor-only library available from Shiny on SponsorConnect
 
-This project uses Shiny.ObdInterfaces which allows you to work with several mainstream OBD BluetoothLE dongles
+Allows your app to block callers and provider call identification based on your own data sources
 
 ## Libraries
 * [Xamarin Forms](https://github.com/xamarin/xamarin.forms) - The cross platform library for .NET that we all know and love
