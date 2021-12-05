@@ -6,6 +6,7 @@ using Prism.Navigation;
 using Shiny;
 using Xamarin.Forms;
 
+
 namespace Sample
 {
     public class Startup : FrameworkStartup
@@ -13,17 +14,13 @@ namespace Sample
         public override void ConfigureApp(Application app, IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<TabbedPage>();
-            containerRegistry.RegisterForNavigation<MainPage>();
-
-            
+            containerRegistry.RegisterForNavigation<ManagedScanPage, ManagedScanViewModel>();
+            containerRegistry.RegisterForNavigation<ManagedPeripheralPage, ManagedPeripheralViewModel>();
         }
 
 
         public override Task RunApp(INavigationService navigator)
-        {
-            throw new System.NotImplementedException();
-        }
+            => navigator.Navigate("NavigationPage/ManagedScanPage");
 
 
         protected override void Configure(ILoggingBuilder builder, IServiceCollection services)

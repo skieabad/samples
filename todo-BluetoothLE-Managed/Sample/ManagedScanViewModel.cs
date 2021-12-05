@@ -4,6 +4,7 @@ using System.Reactive.Linq;
 using System.Windows.Input;
 using Prism.Navigation;
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 using Shiny;
 using Shiny.BluetoothLE;
 using Shiny.BluetoothLE.Managed;
@@ -21,44 +22,29 @@ namespace Sample
         {
             this.scanner = bleManager
                 .CreateManagedScanner(RxApp.MainThreadScheduler, TimeSpan.FromSeconds(10))
-                .DisposedBy(this.DeactivateWith);
+                .DisposedBy(this.DestroyWith);
 
-            this.Toggle = new Command(async () =>
+            this.Toggle = ReactiveCommand.Create(async () =>
                 this.IsBusy = await this.scanner.Toggle()
             );
 
-            this.WhenAnyProperty(x => x.SelectedPeripheral)
-                .Skip(1)
-                .WhereNotNull()
-                .Subscribe(async x =>
+            this.WhenAnyValueSelected(
+                x => x.SelectedPeripheral,
+                async x =>
                 {
-                    this.SelectedPeripheral = null;
                     this.scanner.Stop();
                     await navigator.Navigate(
                         nameof(ManagedScanPage),
-                        ("Peripheral", x.Peripheral)
+                        ("Peripheral", x!.Peripheral)
                     );
-                });
+                }
+            );
         }
 
 
         public ICommand Toggle { get; }
-
-
-        ManagedScanResult? selected;
-        public ManagedScanResult? SelectedPeripheral
-        {
-            get => this.selected;
-            set
-            {
-                this.selected = value;
-                this.RaisePropertyChanged();
-            }
-        }
-
-
-        public ObservableCollection<ManagedScanResult> Peripherals
-            => this.scanner.Peripherals;
+        public ObservableCollection<ManagedScanResult> Peripherals => this.scanner.Peripherals;
+        [Reactive] public ManagedScanResult? SelectedPeripheral { get; set; }
     }
 }
 

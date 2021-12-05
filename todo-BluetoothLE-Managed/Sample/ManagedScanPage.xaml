@@ -5,7 +5,7 @@
     xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
     xmlns:ble="clr-namespace:Shiny.BluetoothLE.Managed;assembly=Shiny.BluetoothLE"
     x:Class="Sample.ManagedScanPage"
-    Title="BLE Managed Scan">
+    Title="BLE Managed">
 
     <ContentPage.Content>
         <StackLayout>
