@@ -1,6 +1,8 @@
-﻿namespace Sample.Managed
+﻿using Xamarin.Forms;
+
+namespace Sample
 {
-    public partial class ManagedPeripheralPage : SampleContentPage
+    public partial class ManagedPeripheralPage : ContentPage
     {
         public ManagedPeripheralPage()
         {

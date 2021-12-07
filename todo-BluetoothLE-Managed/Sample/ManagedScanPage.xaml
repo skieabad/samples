@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<shared:SampleContentPage
+<ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
     xmlns:ble="clr-namespace:Shiny.BluetoothLE.Managed;assembly=Shiny.BluetoothLE"
-    x:Class="Sample.Managed.ManagedScanPage"
-    Title="BLE Managed Scan">
+    x:Class="Sample.ManagedScanPage"
+    Title="BLE Managed">
 
     <ContentPage.Content>
         <StackLayout>
@@ -75,4 +75,4 @@
             <ActivityIndicator IsRunning="{Binding IsBusy}" />
         </StackLayout>
     </ContentPage.Content>
-</shared:SampleContentPage>
+</ContentPage>

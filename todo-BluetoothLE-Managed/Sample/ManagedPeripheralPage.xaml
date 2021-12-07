@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<shared:SampleContentPage
+<ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
-    xmlns:sample="clr-namespace:Sample.Managed"
+    xmlns:sample="clr-namespace:Sample"
     x:DataType="sample:ManagedPeripheralViewModel"
-    x:Class="Sample.Managed.ManagedPeripheralPage"
+    x:Class="Sample.ManagedPeripheralPage"
     Title="{Binding Peripheral.Name}">
 
     <ContentPage.Content>
@@ -19,4 +19,4 @@
             </TableSection>
         </TableView>
     </ContentPage.Content>
-</shared:SampleContentPage>
+</ContentPage>

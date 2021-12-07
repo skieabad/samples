@@ -1,7 +1,7 @@
-# GPS Tags
+# Data Sync
 This uses a sponsor-only library available from Shiny on SponsorConnect
 
-GPS Tags uses GPS+Beacons to give you the abilities as seen by the Apple AirTags but with nothing more than a standard beacon
+This shows the data sync library working to use Jobs effectively to synchronize data with the server
 
 ## 3rd Party Libs
 * [Xamarin Forms](https://github.com/xamarin/xamarin.forms) - The cross platform library for .NET that we all know and love
