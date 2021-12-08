@@ -12,8 +12,8 @@ namespace Sample
             services.AddSingleton<SampleSqliteConnection>();
 
             services.AddSingleton<JobLoggerTask>();
-            //services.UseJobs();
-            //services.UseNotifications(); // adding notifications for some job fun
+            services.UseJobs(true);
+            services.UseNotifications(); // adding notifications for some job fun
 
             // OPTION 1 - register with the type
             //services.RegisterJob(typeof(SampleJob));
