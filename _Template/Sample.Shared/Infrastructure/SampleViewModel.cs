@@ -22,8 +22,8 @@ namespace Sample
 
         protected virtual async Task Loading(Func<Task> taskFunc)
         {
-
             this.IsBusy = true;
+            
             try
             {
                 await taskFunc.Invoke();

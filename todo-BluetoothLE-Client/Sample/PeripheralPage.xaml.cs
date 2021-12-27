@@ -1,6 +1,4 @@
-﻿using Xamarin.Forms;
-
-namespace Sample.Standard
+﻿namespace Sample
 {
     public partial class PeripheralPage : SampleContentPage
     {

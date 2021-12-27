@@ -1,13 +1,20 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace Sample.Standard
+namespace Sample
 {
-    public partial class CharacteristicPage : SampleContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CharacteristicPage : ContentPage
     {
         public CharacteristicPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

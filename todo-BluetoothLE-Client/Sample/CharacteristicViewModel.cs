@@ -1,23 +1,79 @@
 ﻿using System;
+using System.Text;
 using System.Windows.Input;
 using Shiny.BluetoothLE;
+using Xamarin.Forms;
 
 
-namespace Sample.Standard
+namespace Sample
 {
     public class CharacteristicViewModel : SampleViewModel
     {
+        IDisposable? dispose;
+
+
         public CharacteristicViewModel(IGattCharacteristic characteristic)
         {
+            this.CanNotify = characteristic.CanNotify();
+            this.CanRead = characteristic.CanRead();
+            this.CanWrite = characteristic.CanWrite();
 
+            this.Read = this.LoadingCommand(async () =>
+            {
+                var result = await characteristic.ReadAsync();
+                this.SetRead(result.Data);
+            });
+
+
+            this.ToggleNotify = new Command(async () =>
+            {
+                try
+                {
+                    if (this.dispose == null)
+                    { 
+                        this.dispose = characteristic
+                            .Notify()
+                            .SubOnMainThread(x => this.SetRead(x.Data));
+                    }
+                    else
+                    {
+                        this.Stop();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    await this.Alert(ex.ToString());
+                }
+            });
         }
 
 
         public override void OnDisappearing()
         {
             base.OnDisappearing();
+            this.Stop();
         }
 
+
+        void Stop()
+        {
+            this.dispose?.Dispose();
+            this.dispose = null;
+            this.IsNotifying = false;
+        }
+
+
+        void SetRead(byte[] data)
+        {
+            this.ReadValue = Encoding.UTF8.GetString(data);
+            this.LastValueTime = DateTime.Now.ToString();
+        }
+
+
+        public bool CanRead { get; }
+        public bool CanWrite { get; }
+        public bool CanNotify { get; }
 
         public ICommand Read { get; }
         public ICommand Write { get; }
