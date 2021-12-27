@@ -20,7 +20,6 @@ namespace Sample
             containerRegistry.RegisterForNavigation<CreatePage, CreateViewModel>();
             containerRegistry.RegisterForNavigation<RangingPage, RangingViewModel>();
             containerRegistry.RegisterForNavigation<MonitoringPage, MonitoringViewModel>();
-            containerRegistry.RegisterForNavigation<ManagedBeaconPage, ManagedBeaconViewModel>();
         }
 
 

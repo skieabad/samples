@@ -24,9 +24,6 @@
                                   Command="{Binding Navigate}"
                                   CommandParameter="NavigationPage/LogsPage" />
 
-                        <TextCell Text="Managed Ranging Scan"
-                                  Command="{Binding Navigate}"
-                                  CommandParameter="NavigationPage/ManagedBeaconPage" />
                     </TableSection>
                 </TableRoot>
             </TableView>

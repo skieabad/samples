@@ -7,6 +7,7 @@
 |Link/Title|Description|
 |----------|-----------|
 |[Beacons](Beacons)|Foreground & Background detection of BluetoothLE iBeacons|
+|[Beacons - Managed](Beacons)|iBeacon ranging on steroids - the managed mechanism manages broadcasting to the main thread, throttles output to keep your UI nice & snappy|
 |[Push - Native](Push-Native)|Uses purely native push notification API's provided by the OS|
 |[Push - Firebase](Push-Firebase)|Uses firebase messaging for push notifications on both iOS & Android|
 |[Push - Azure Notification Hubs](Push-AzureNotificationsHub)|Push notifications via Azure Notification Hubs and only 1 line of code to be changed|
@@ -15,6 +16,7 @@
 |[Jobs](Jobs)|How to register jobs at startup or dynamically|
 |[Key/Value Storage](Stores)|How Shiny uses a "viewmodel" style object to bind to OS preferences, secure storage, and others|
 |[Bluetooth LE - Client](BluetoothLE-Client)|The biggest module in all of Shiny|BluetoothLE powered by Reactive Extensions|
+|[Bluetooth LE - Client - Managed](BluetoothLE-Managed)|The BLE Managed functions make it super easy to scan and work with a BLE peripheral|
 |[Bluetooth LE - Hosting](BluetoothLE-Hosting)|BLE Hosting|Foreground only on this one|sorry :)|
 |[HTTP Transfers](HttpTransfers)|Perform upload & download operations while in the background.  Even track statistics while in the foreground|
 |[GPS](Locations-Gps)|Background GPS|

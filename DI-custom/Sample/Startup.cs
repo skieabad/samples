@@ -18,7 +18,6 @@ namespace Sample
 
         public override IServiceProvider? CreateServiceProvider(IServiceCollection services)
         {
-
             var factory = new AutofacServiceProviderFactory();
             var builder = new ContainerBuilder();
             builder.Populate(services);
