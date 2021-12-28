@@ -30,7 +30,7 @@ namespace Sample
                 try
                 {
                     if (this.dispose == null)
-                    { 
+                    {
                         this.dispose = characteristic
                             .Notify()
                             .SubOnMainThread(x => this.SetRead(x.Data));

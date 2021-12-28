@@ -8,6 +8,7 @@ namespace Sample
         public App()
         {
             this.InitializeComponent();
+            this.Resources.Add(new Styles());
         }
     }
 }

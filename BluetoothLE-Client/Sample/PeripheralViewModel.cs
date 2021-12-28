@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Windows.Input;
+using Shiny;
 using Shiny.BluetoothLE;
 
 
@@ -21,12 +23,34 @@ namespace Sample
 
                 this.RaisePropertyChanged(nameof(this.Services));
             });
+
+            this.WhenAnyProperty(x => x.SelectedService)
+                .Where(x => x != null)
+                .SubOnMainThread(async x =>
+                {
+                    this.SelectedService = null;
+                    await this.Navigation.PushAsync(new ServicePage
+                    {
+                        BindingContext = x
+                    });
+                });
         }
 
 
         public string Title { get; }
         public ICommand Load { get; }
         public List<ServiceViewModel> Services { get; private set; }
+
+        ServiceViewModel selected;
+        public ServiceViewModel SelectedService
+        {
+            get => this.selected;
+            set
+            {
+                this.selected = value;
+                this.RaisePropertyChanged();
+            }
+        }
 
 
         public override void OnAppearing()

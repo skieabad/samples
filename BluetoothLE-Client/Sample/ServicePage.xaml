@@ -2,14 +2,16 @@
 <shared:SampleContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared" 
+    xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
     xmlns:sample="clr-namespace:Sample"
     x:DataType="sample:ServiceViewModel"
     x:Class="Sample.ServicePage"
     Title="{Binding Title}">
-    
+
     <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding List}">
+        <CollectionView ItemsSource="{Binding List}"
+                        SelectedItem="{Binding SelectedCharacteristic}"
+                        SelectionMode="Single">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="sample:CharacteristicViewModel">
                     <StackLayout>
