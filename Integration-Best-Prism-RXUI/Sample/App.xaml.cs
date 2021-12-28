@@ -8,6 +8,7 @@ namespace Sample
         protected override void Initialize()
         {
             this.InitializeComponent();
+            this.Resources.Add(new Styles());
             base.Initialize();
         }
     }

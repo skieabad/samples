@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D65F7B5-71F5-4A09-B9BD-F402FB22F957}"
 	ProjectSection(SolutionItems) = preProject
+		Directory.build.props = Directory.build.props
+		Directory.build.targets = Directory.build.targets
 		readme.md = readme.md
 	EndProjectSection
 EndProject
