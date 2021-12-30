@@ -12,12 +12,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="Shiny.BluetoothLE" />
-		<PackageReference Include="Shiny.Framework" />
-		<PackageReference Include="ReactiveUI.Fody" Version="17.1.4" />
+		<PackageReference Include="Shiny.Notifications" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
 	</ItemGroup>
-
 </Project>
