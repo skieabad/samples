@@ -14,9 +14,6 @@ namespace Sample
         // all of your prism & shiny registrations in one place
         protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
         {
-            // configure all your services that are needed for Shiny - Prism will get access to all of these as well
-            services.AddSingleton<SampleSqliteConnection>();
-
             // handy dialogs
             services.UseXfMaterialDialogs();
 

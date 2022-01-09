@@ -11,7 +11,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ReactiveUI.Fody" Version="16.2.6" />
+		<PackageReference Include="ReactiveUI.Fody" Version="17.1.17" />
 		<PackageReference Include="Shiny" />
 		<PackageReference Include="Shiny.Framework" />
 		<PackageReference Include="Xamarin.Essentials" />
