@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Shiny" />
+		<PackageReference Include="Shiny.Logging.AppCenter" Version="$(ShinyVersion)" />
+		<PackageReference Include="sqlite-net-pcl" />
+		<PackageReference Include="Xamarin.Essentials" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Sample.Shared\Sample.Shared.csproj" />
+	</ItemGroup>
+</Project>

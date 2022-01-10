@@ -33,7 +33,7 @@
 |[Prism + DryIoc + Shiny](Integration-Prism)|Prism Integration Example
 |[Better Prism/RXUI Integration via Shiny.Framework](Integration-Best-Prism-RXUI)|Prism + ReactiveUI + Shiny with ease
 |SQLite|Stores, Settings, & Logging|
-|AppCenter|TODO|
+|[AppCenter](AppCenter)|This sample shows how to configure AppCenter logging in Shiny using Microsoft.Extensions.Logging and Shiny.Logging.AppCenter|
 |Firebase Analytics|TODO|
 
 ## Boilerplate Stuff
