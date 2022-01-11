@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Prism.Ioc;
 using Prism.Navigation;
 using Shiny;
+using Shiny.Extensions.Localization;
 using Xamarin.Forms;
 
 
@@ -33,7 +34,11 @@ namespace Sample
             });
 
             // localization done right
-            services.UseResxLocalization(this.GetType().Assembly, "Sample.Resources.Strings");
+            var localization = new LocalizationBuilder()
+                .AddResource("Sample.Resources.Strings", this.GetType().Assembly, "Strings")
+                .Build();
+
+            services.AddSingleton(localization);
         }
 
 
