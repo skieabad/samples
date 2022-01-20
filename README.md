@@ -43,17 +43,6 @@
 |[All Code Gen](Boilerplate-All-CodeGen)|Everything from your iOS AppDelegate, Android Application & Activity, and the Shiny startup are generated|along with a lot of third party libraries|
 |[Standard/Recommended](Jobs)|This will wire in your Xamarin Forms app as well as any Android/iOS boilerplate - you are in charge of the startup file|
 
-## Sponsors
-|Link/Title|Description|
-|----------|-----------|
-|[Call Directory](Sponsors-CallDirectory)|Allows you to enter your own call identifiers and even call block them if necessary|
-|[OBD Interface](Sponsors-Obd)|BLE+Others|Making working with BLE & Other OBD dongles easy|
-|[Media Sync](Sponsors-MediaSync)|Using the power of background transfers in HTTP transfers, this will sync media (and deltas) to a URL of your choice|
-|[GeoDispatch](Sponsors-GeoDispatch)|Push+GPS|a new idea on how to manage location based dispatching|
-|[GPS Tags](Sponsors-GpsTags)|GPS+Beacons|AirTags for Xamarin (but with normal beacons)|
-|[Data Sync](Sponsors-DataSync)|Jobs done right!|
-|[Trip Tracker](Sponsors-TripTracker)|Track runs, walks, drives, etc|includes data such as average speed, points of trip|
-
 ## Advanced Customization
 |Link/Title|Description|
 |----------|-----------|
