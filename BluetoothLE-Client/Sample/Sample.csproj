@@ -11,8 +11,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Shiny.BluetoothLE" />
-		<PackageReference Include="Shiny.Notifications" />
+		<PackageReference Include="Shiny.BluetoothLE" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Notifications" Version="$(ShinyVersion)" />
 	</ItemGroup>
 
 	<ItemGroup>

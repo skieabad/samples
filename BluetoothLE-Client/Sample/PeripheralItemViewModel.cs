@@ -2,7 +2,7 @@
 using Shiny.BluetoothLE;
 
 
-namespace Sample.Standard
+namespace Sample
 {
     public class PeripheralItemViewModel : SampleViewModel
     {

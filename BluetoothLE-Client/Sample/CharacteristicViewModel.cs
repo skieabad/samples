@@ -14,6 +14,9 @@ namespace Sample
 
         public CharacteristicViewModel(IGattCharacteristic characteristic)
         {
+            this.ServiceUUID = characteristic.Service.Uuid;
+            this.UUID = characteristic.Uuid;
+
             this.CanNotify = characteristic.CanNotify();
             this.CanRead = characteristic.CanRead();
             this.CanWrite = characteristic.CanWrite();
@@ -74,6 +77,8 @@ namespace Sample
         public bool CanRead { get; }
         public bool CanWrite { get; }
         public bool CanNotify { get; }
+        public string ServiceUUID { get; }
+        public string UUID { get; }
 
         public ICommand Read { get; }
         public ICommand Write { get; }

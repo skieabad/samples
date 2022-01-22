@@ -9,7 +9,7 @@ using Shiny.BluetoothLE;
 using Xamarin.Forms;
 
 
-namespace Sample.Standard
+namespace Sample
 {
     public class ScanViewModel : SampleViewModel
     {
@@ -36,6 +36,8 @@ namespace Sample.Standard
                     });
                 });
 
+            this.NavToTest = this.NavigateCommand<TestPage>();
+
             this.ToggleAdapterState = new Command(
                 async () =>
                 {
@@ -45,16 +47,15 @@ namespace Sample.Standard
                     }
                     else
                     {
-                        //if (bleManager.Status == AccessState.Available)
-                        //{
-                        //    await bleManager.TrySetAdapterState(false);
-                        //    await dialogs.Snackbar("Bluetooth Adapter Disabled");
-                        //}
-                        //else
-                        //{
-                        //    await bleManager.TrySetAdapterState(true);
-                        //    await dialogs.Snackbar("Bluetooth Adapter Enabled");
-                        //}
+                        var status = await bleManager.RequestAccess();
+                        if (status == AccessState.Available)
+                        {
+                            await bleManager.TrySetAdapterState(false);
+                        }
+                        else
+                        {
+                            await bleManager.TrySetAdapterState(true);
+                        }
                     }
                 }
             );
@@ -116,6 +117,7 @@ namespace Sample.Standard
         }
 
 
+        public ICommand NavToTest { get; }
         public ICommand ScanToggle { get; }
         public ICommand ToggleAdapterState { get; }
         public bool CanControlAdapterState { get; }

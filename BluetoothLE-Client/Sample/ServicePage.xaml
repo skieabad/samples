@@ -6,19 +6,30 @@
     xmlns:sample="clr-namespace:Sample"
     x:DataType="sample:ServiceViewModel"
     x:Class="Sample.ServicePage"
-    Title="{Binding Title}">
+    Title="Service">
 
     <ContentPage.Content>
-        <CollectionView ItemsSource="{Binding List}"
-                        SelectedItem="{Binding SelectedCharacteristic}"
-                        SelectionMode="Single">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="sample:CharacteristicViewModel">
-                    <StackLayout>
-                        <Label Text="{Binding Title}" />
-                    </StackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Label Text="{Binding Title, StringFormat='Service UUID: {0}'}"
+                   Grid.Row="0" />
+
+            <CollectionView ItemsSource="{Binding Characteristics}"
+                            SelectedItem="{Binding SelectedCharacteristic}"
+                            SelectionMode="Single"
+                            Grid.Row="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="sample:CharacteristicViewModel">
+                        <StackLayout>
+                            <Label Text="{Binding UUID}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentPage.Content>
 </shared:SampleContentPage>

@@ -3,11 +3,12 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
-    xmlns:standard="clr-namespace:Sample.Standard"
+    xmlns:sample="clr-namespace:Sample"
     x:Class="Sample.MainPage">
 
     <TabbedPage.Children>
-        <standard:ScanPage />
+        <sample:ScanPage />
         <shared:LogsPage />
+        <sample:TestPage />
     </TabbedPage.Children>
 </TabbedPage>

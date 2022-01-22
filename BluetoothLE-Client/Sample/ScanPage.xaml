@@ -2,12 +2,16 @@
 <shared:SampleContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:sample="clr-namespace:Sample.Standard"
+    xmlns:sample="clr-namespace:Sample"
     xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
     x:DataType="sample:ScanViewModel"
-    x:Class="Sample.Standard.ScanPage"
+    x:Class="Sample.ScanPage"
     Title="BLE Central"
     NavigationPage.BackButtonTitle="Back">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Test" Command="{Binding NavToTest}" />
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <StackLayout>
