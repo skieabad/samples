@@ -34,5 +34,9 @@
 	<string>Sample</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Put something useful here</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Put something useful here</string>
 </dict>
 </plist>
