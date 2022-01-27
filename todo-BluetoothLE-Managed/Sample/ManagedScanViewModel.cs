@@ -20,8 +20,19 @@ namespace Sample
 
         public ManagedScanViewModel(IBleManager bleManager, INavigationService navigator)
         {
+            // we are specifically scanning for VeePeak BLE OBD device
             this.scanner = bleManager
-                .CreateManagedScanner(RxApp.MainThreadScheduler, TimeSpan.FromSeconds(10))
+                .CreateManagedScanner(
+                    RxApp.MainThreadScheduler,
+                    TimeSpan.FromSeconds(10),
+                    new ScanConfig
+                    {
+                        ServiceUuids =
+                        {
+                            "FFF0"
+                        }
+                    }
+                )
                 .DisposedBy(this.DestroyWith);
 
             this.Toggle = ReactiveCommand.Create(async () =>

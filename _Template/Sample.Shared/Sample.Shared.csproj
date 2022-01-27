@@ -5,8 +5,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Shiny.Core" />
+		<PackageReference Include="Shiny.Core" Version="$(ShinyVersion)" />
 		<PackageReference Include="sqlite-net-pcl" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Xamarin.Forms" />
+	</ItemGroup>
 </Project>

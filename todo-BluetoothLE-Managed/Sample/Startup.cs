@@ -26,9 +26,7 @@ namespace Sample
         protected override void Configure(ILoggingBuilder builder, IServiceCollection services)
         {
             services.UseBleClient();
-
             services.UseGlobalCommandExceptionHandler();
-            services.UseXfMaterialDialogs();
         }
     }
 }

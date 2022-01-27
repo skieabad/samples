@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>netstandard2.1</TargetFramework>
 		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
 	</PropertyGroup>
 
@@ -13,7 +13,7 @@
 	<ItemGroup>
 		<PackageReference Include="Shiny.BluetoothLE" />
 		<PackageReference Include="Shiny.Framework" />
-		<PackageReference Include="ReactiveUI.Fody" Version="17.1.4" />
+		<PackageReference Include="ReactiveUI.Fody" Version="17.1.17" />
 	</ItemGroup>
 
 	<ItemGroup>
