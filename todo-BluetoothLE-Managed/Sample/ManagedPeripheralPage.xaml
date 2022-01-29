@@ -6,7 +6,7 @@
     xmlns:sample="clr-namespace:Sample"
     x:DataType="sample:ManagedPeripheralViewModel"
     x:Class="Sample.ManagedPeripheralPage"
-    Title="{Binding Peripheral.Name}">
+    Title="Peripheral">
 
     <ContentPage.Content>
         <Grid>
@@ -22,6 +22,11 @@
                     <TextCell Text="RSSI"
                               Detail="{Binding Peripheral.Rssi}"
                               Command="{Binding ToggleRssi}" />
+                </TableSection>
+
+                <TableSection>
+                    <TextCell Text="Start" Command="{Binding Start}" />
+                    <TextCell Text="Stop" Command="{Binding Stop}" />
                 </TableSection>
             </TableView>
 

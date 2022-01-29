@@ -31,6 +31,8 @@ namespace Sample
                 async () =>
                 {
                     this.IsStarted = true;
+                    this.Peripheral = this.peripheral.CreateManaged();
+
                     var sub = this.Peripheral
                         .WhenNotificationReceived(ServiceUuid, RxCharacteristicUuid)
                         .SubOnMainThread(data =>
@@ -70,7 +72,7 @@ namespace Sample
             );
 
             this.Stop = ReactiveCommand.Create(
-                () => this.Deactivate(),
+                () => this.DoStop(),
                 this.WhenAny(
                     x => x.IsStarted,
                     x => x.GetValue()
@@ -86,29 +88,30 @@ namespace Sample
         }
 
 
-        public override void OnAppearing()
-        {
-            base.OnAppearing();
-            this.Peripheral = this.peripheral!.CreateManaged();
-        }
-
-
         public override void OnDisappearing()
         {
             base.OnDisappearing();
-            this.Peripheral?.Dispose();
+            this.DoStop();
         }
 
 
         IPeripheral? peripheral;
         public ICommand ToggleRssi { get; }
-        public IManagedPeripheral? Peripheral { get; private set; }
+        public IManagedPeripheral? Peripheral { get; set; }
 
         public ICommand Start { get; }
         public ICommand Stop { get; }
         [Reactive] public bool IsStarted { get; private set; }
         [Reactive] public bool IsRssi { get; private set; }
         [Reactive] public string Log { get; private set; }
+
+
+        void DoStop()
+        {
+            this.Peripheral?.Dispose();
+            this.Deactivate();
+            this.IsStarted = false;
+        }
 
 
         void WriteLog(string value)

@@ -68,6 +68,7 @@
 		<None Include="Entitlements.plist" />
 		<None Include="Info.plist" />
 		<Compile Include="Properties\AssemblyInfo.cs" />
+		<None Include="packages.config" />
 	</ItemGroup>
 	<ItemGroup>
 		<InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -121,12 +122,66 @@
 		<Reference Include="Xamarin.iOS" />
 		<Reference Include="System.Numerics" />
 		<Reference Include="System.Numerics.Vectors" />
+		<Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
+		  <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.6.0.0\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+		  <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Buffers">
+		  <HintPath>..\packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Runtime.CompilerServices.Unsafe">
+		  <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Extensions.DependencyInjection">
+		  <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.6.0.0\lib\netstandard2.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Memory">
+		  <HintPath>..\packages\System.Memory.4.5.4\lib\netstandard2.0\System.Memory.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Extensions.Logging.Abstractions">
+		  <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Extensions.Primitives">
+		  <HintPath>..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Extensions.Options">
+		  <HintPath>..\packages\Microsoft.Extensions.Options.6.0.0\lib\netstandard2.1\Microsoft.Extensions.Options.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Diagnostics.DiagnosticSource">
+		  <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
+		</Reference>
+		<Reference Include="Microsoft.Extensions.Logging">
+		  <HintPath>..\packages\Microsoft.Extensions.Logging.6.0.0\lib\netstandard2.1\Microsoft.Extensions.Logging.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Reactive">
+		  <HintPath>..\packages\System.Reactive.5.0.0\lib\netstandard2.0\System.Reactive.dll</HintPath>
+		</Reference>
+		<Reference Include="Shiny.Core">
+		  <HintPath>..\packages\Shiny.Core.2.4.2.2996\lib\xamarinios10\Shiny.Core.dll</HintPath>
+		</Reference>
+		<Reference Include="System.Drawing.Common.dll" />
+		<Reference Include="Shiny.Jobs">
+		  <HintPath>..\packages\Shiny.Jobs.2.4.2.2996\lib\xamarinios10\Shiny.Jobs.dll</HintPath>
+		</Reference>
+		<Reference Include="Shiny">
+		  <HintPath>..\packages\Shiny.2.4.2.2996\lib\netstandard2.0\Shiny.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 	<ItemGroup>
 		<ProjectReference Include="..\Sample\Sample.csproj">
 			<Project>{C4A94D57-C146-4DE5-A133-30704425FCE7}</Project>
 			<Name>Sample</Name>
+			<ReferenceSourceTarget></ReferenceSourceTarget>
 		</ProjectReference>
 	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Xamarin.Forms">
+	    <Version>5.0.0.2337</Version>
+	  </PackageReference>
+	</ItemGroup>
+	<Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.0\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
+	<Import Project="..\packages\Shiny.2.4.2.2996\build\netstandard2.0\shiny.targets" Condition="Exists('..\packages\Shiny.2.4.2.2996\build\netstandard2.0\shiny.targets')" />
 </Project>

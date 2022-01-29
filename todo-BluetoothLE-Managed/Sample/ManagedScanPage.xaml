@@ -3,18 +3,21 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
-    xmlns:ble="clr-namespace:Shiny.BluetoothLE.Managed;assembly=Shiny.BluetoothLE"
+    xmlns:sample="clr-namespace:Sample"
+    xmlns:ble="clr-namespace:Shiny.BluetoothLE.Managed;assembly=Shiny.BluetoothLE" 
+    x:DataType="sample:ManagedScanViewModel"
     x:Class="Sample.ManagedScanPage"
-    Title="BLE Managed">
+    Title="BLE Managed"
+    NavigationPage.BackButtonTitle="Back">
 
     <ContentPage.Content>
         <StackLayout>
             <Button Command="{Binding Toggle}" Text="Scan">
                 <Button.Triggers>
-                    <DataTrigger TargetType="Button" Binding="{Binding IsScanning}" Value="True">
+                    <DataTrigger TargetType="Button" Binding="{Binding IsBusy}" Value="True">
                         <Setter Property="Text" Value="Stop Scan" />
                     </DataTrigger>
-                    <DataTrigger TargetType="Button" Binding="{Binding IsScanning}" Value="False">
+                    <DataTrigger TargetType="Button" Binding="{Binding IsBusy}" Value="False">
                         <Setter Property="Text" Value="Scan" />
                     </DataTrigger>
                 </Button.Triggers>

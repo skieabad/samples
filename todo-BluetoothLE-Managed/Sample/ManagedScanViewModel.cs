@@ -45,7 +45,7 @@ namespace Sample
                 {
                     this.scanner.Stop();
                     await navigator.Navigate(
-                        nameof(ManagedScanPage),
+                        nameof(ManagedPeripheralPage),
                         ("Peripheral", x!.Peripheral)
                     );
                 }
@@ -56,6 +56,13 @@ namespace Sample
         public ICommand Toggle { get; }
         public ObservableCollection<ManagedScanResult> Peripherals => this.scanner.Peripherals;
         [Reactive] public ManagedScanResult? SelectedPeripheral { get; set; }
+
+
+        public override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            this.scanner.Stop();
+        }
     }
 }
 

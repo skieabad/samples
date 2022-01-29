@@ -11,7 +11,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Shiny.BluetoothLE" />
+		<PackageReference Include="Shiny.BluetoothLE" Version="$(ShinyVersion)" />
 		<PackageReference Include="Shiny.Framework" />
 		<PackageReference Include="ReactiveUI.Fody" Version="17.1.17" />
 	</ItemGroup>
