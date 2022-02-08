@@ -59,9 +59,9 @@
       <Version>2.0.245</Version>
     </PackageReference>
     <PackageReference Include="Shiny">
-      <Version>2.2.0.2829</Version>
+      <Version>2.4.2.2996</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2125" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
   <ItemGroup>

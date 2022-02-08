@@ -9,8 +9,14 @@
              x:Class="Sample.SetupPage"
              Title="Setup">
 
+    <ContentPage.BindingContext>
+        <sample:SetupViewModel />
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <TableView Intent="Form">
+        <StackLayout>
+            <Button Text="Test" Command="{Binding RequestAccess}" />
+            <TableView Intent="Form">
             <TableRoot>
                 <TableSection Title="Registration">
                     <TextCell Text="Status"
@@ -36,5 +42,6 @@
                 </TableSection>
             </TableRoot>
         </TableView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
