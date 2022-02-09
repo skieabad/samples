@@ -10,7 +10,8 @@ namespace Sample
         public virtual void OnAppearing() { }
         public virtual void OnDisappearing() { }
 
-        protected virtual Command LoadingCommand(Func<Task> taskFunc) => new Command(() => this.LoadingCommand(taskFunc));
+        protected virtual Command LoadingCommand(Func<Task> taskFunc)
+            => new Command(async () => await this.Loading(taskFunc));
 
         protected virtual async Task Loading(Func<Task> taskFunc)
         {

@@ -72,8 +72,6 @@ namespace Sample
 
         async void Refresh()
         {
-            var result = await ShinyHost.Resolve<IPushManager>().RequestAccess();
-
             //this.UnRegister.ChangeCanExecute();
             this.RegToken = this.pushManager.CurrentRegistrationToken ?? "-";
             this.RegDate = this.pushManager.CurrentRegistrationTokenDate?.ToLocalTime();
