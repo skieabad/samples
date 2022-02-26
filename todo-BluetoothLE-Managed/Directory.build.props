@@ -1,8 +1,0 @@
-<Project>
-    <PropertyGroup>
-        <LangVersion>8.0</LangVersion>
-        <Nullable>enable</Nullable>
-        <ShinyVersion>2.4.2.2996</ShinyVersion>
-    </PropertyGroup>
-
-</Project>

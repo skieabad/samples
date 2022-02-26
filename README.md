@@ -15,7 +15,8 @@
 |[NFC](Nfc)|Near Field Communication|
 |[Jobs](Jobs)|How to register jobs at startup or dynamically|
 |[Key/Value Storage](Stores)|How Shiny uses a "viewmodel" style object to bind to OS preferences, secure storage, and others|
-|[Bluetooth LE - Client](BluetoothLE-Client)|The biggest module in all of Shiny|BluetoothLE powered by Reactive Extensions|
+|[Bluetooth LE - Client](BluetoothLE-Client)|The biggest module in all of Shiny BluetoothLE powered by Reactive Extensions|
+|[Bluetooth LE - Client Functions](BluetoothLE-Functions)|This shows other examples of the BLE client library|
 |[Bluetooth LE - Client - Managed](BluetoothLE-Managed)|The BLE Managed functions make it super easy to scan and work with a BLE peripheral|
 |[Bluetooth LE - Hosting](BluetoothLE-Hosting)|BLE Hosting|Foreground only on this one|sorry :)|
 |[HTTP Transfers](HttpTransfers)|Perform upload & download operations while in the background.  Even track statistics while in the foreground|
