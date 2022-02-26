@@ -1,5 +1,4 @@
 ﻿using ReactiveUI;
-using ReactiveUI.Fody.Helpers;
 using Shiny;
 using Shiny.BluetoothLE;
 using Shiny.Extensions.Dialogs;
@@ -18,20 +17,43 @@ namespace Sample
         {
             this.Functions = new List<CommandItem>
             {
-                Create("GetAllCharacteristicAsync", async (cmd) =>
+                Create("GetAllCharacteristicAsync", cmd => DoPeripheral(bleManager, cmd, async peripheral =>
                 {
-                    cmd.Detail = "Searching for Peripheral";
-                    var peripheral = await bleManager.ScanUntilPeripheralFound("").Timeout(TimeSpan.FromSeconds(20)).ToTask();
-                    cmd.Detail = "Peripheral Found";
                     var chs = await peripheral.GetAllCharacteristicsAsync();
-                    await dialogs.Alert($"Found {chs.Count} Characteristics");
-                })
+                    cmd.Detail = $"Found {chs.Count} Characteristics";
+                }))
             };
         }
 
 
+
         public List<CommandItem> Functions { get; }
-        [Reactive] public string Log { get; set; }
+
+
+        async Task DoPeripheral(IBleManager bleManager, CommandItem cmd, Func<IPeripheral, Task> doWork)
+        {
+            IPeripheral? peripheral = null;
+            try
+            {
+                cmd.Detail = "Searching for Peripheral";
+                peripheral = await bleManager
+                    .ScanUntilPeripheralFound(Constants.ScanPeripheralName)
+                    .Timeout(TimeSpan.FromSeconds(20))
+                    .ToTask();
+
+                await doWork(peripheral).ConfigureAwait(false);
+            }
+            catch
+            {
+                cmd.Detail = String.Empty;
+                throw;
+            }
+            finally
+            {
+                peripheral?.CancelConnection();
+            }
+        }
+
 
 
         CommandItem Create(string title, Func<CommandItem, Task> action)
