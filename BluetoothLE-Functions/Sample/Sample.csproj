@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.1</TargetFramework>
-		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+		<!--<ProduceReferenceAssembly>true</ProduceReferenceAssembly>-->
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
