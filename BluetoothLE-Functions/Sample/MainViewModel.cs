@@ -1,7 +1,6 @@
 ﻿using ReactiveUI;
 using Shiny;
 using Shiny.BluetoothLE;
-using Shiny.Extensions.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Reactive.Linq;
@@ -13,7 +12,7 @@ namespace Sample
 {
     public class MainViewModel : ViewModel
     {
-        public MainViewModel(IBleManager bleManager, IDialogs dialogs)
+        public MainViewModel(IBleManager bleManager)
         {
             this.Functions = new List<CommandItem>
             {
