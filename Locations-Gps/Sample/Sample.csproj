@@ -1,22 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DebugType>portable</DebugType>
-    <DebugSymbols>true</DebugSymbols>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DebugType>portable</DebugType>
+		<DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Shiny" Version="2.4.1.2971" />
-    <PackageReference Include="Shiny.Locations" Version="2.4.1.2971" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\fa-brands-400.ttf" />
+		<EmbeddedResource Include="Resources\fa-regular-400.ttf" />
+		<EmbeddedResource Include="Resources\fa-solid-900.ttf" />
+		<EmbeddedResource Include="Resources\notification.mp3" />
+	</ItemGroup>
 </Project>

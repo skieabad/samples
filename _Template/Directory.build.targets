@@ -1,26 +1,86 @@
 <Project>
 	<ItemGroup>
-		<PackageReference Update="Xamarin.Forms" Version="5.0.0.2337" />
-		<PackageReference Update="Xamarin.Essentials" Version="1.7.1" />
-		<PackageReference Update="sqlite-net-pcl" Version="1.8.116" />
-		<PackageReference Update="Shiny.Framework" Version="2.1.0.151" />
-		<PackageReference Update="Shiny.Extensions.Dialogs.XfMaterial" Version="2.1.0.151" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />		
     </ItemGroup>
 
+	<!--include what libs you need-->
 	<ItemGroup>
-		<PackageReference Update="Shiny" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Core" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Jobs" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Net.Http" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Locations" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Beacons" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.BluetoothLE" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Nfc" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Notifications" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Push" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Push.AzureNotificationHubs" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Push.FirebaseMessaging" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Push.OneSignal" Version="$(ShinyVersion)" />
-		<PackageReference Update="Shiny.Sensors" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny" Version="$(ShinyVersion)" />
+		<!--
+		<PackageReference Include="Shiny.Core" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Jobs" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Net.Http" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Locations" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Beacons" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.BluetoothLE" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Nfc" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Notifications" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Push" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Push.AzureNotificationHubs" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Push.FirebaseMessaging" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Push.OneSignal" Version="$(ShinyVersion)" />
+		<PackageReference Include="Shiny.Sensors" Version="$(ShinyVersion)" />
+		-->
 	</ItemGroup>
+
+	<!-- These must be included in your solution in order for this to work
+	<ItemGroup>
+		<PackageReference Include="$(DebugDirectory)\Shiny\Shiny.csproj">
+			<Name>Shiny</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Core\Shiny.Core.csproj">
+			<Name>Shiny.Core</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Generators\Shiny.Generators.csproj">
+			<Name>Shiny.Generators</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Jobs\Shiny.Jobs.csproj">
+			<Name>Shiny.Jobs</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.BluetoothLE\Shiny.BluetoothLE.csproj">
+			<Name>Shiny.BluetoothLE</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.BluetoothLE.Common\Shiny.BluetoothLE.Common.csproj">
+			<Name>Shiny.BluetoothLE.Common</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Locations\Shiny.Locations.csproj">
+			<Name>Shiny.Locations</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Locations.Common\Shiny.Locations.Common.csproj">
+			<Name>Shiny.Locations.Common</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Beacons\Shiny.Beacons.csproj">
+			<Name>Shiny.Beacons</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Nfc\Shiny.Nfc.csproj">
+			<Name>Shiny.Sensors</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Sensors\Shiny.Sensors.csproj">
+			<Name>Shiny.Sensors</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Notifications\Shiny.Notifications.csproj">
+			<Name>Shiny.Notifications</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Net.Http\Shiny.Net.Http.csproj">
+			<Name>Shiny.Net.Http</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Push\Shiny.Push.csproj">
+			<Name>Shiny.Push</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Push.Common\Shiny.Push.Common.csproj">
+			<Name>Shiny.Push.Common</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj">
+			<Name>Shiny.Push.AzureNotificationHubs</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Push.FirebaseMessaging\Shiny.Push.FirebaseMessaging.csproj">
+			<Name>Shiny.Push.FirebaseMessaging</Name>
+		</PackageReference>
+		<PackageReference Include="$(DebugDirectory)\Shiny.Push.OneSignal\Shiny.Push.OneSignal.csproj">
+			<Name>Shiny.Push.OneSignal</Name>
+		</PackageReference>		
+	</ItemGroup>
+	-->
 </Project>

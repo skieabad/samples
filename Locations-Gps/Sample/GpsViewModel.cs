@@ -3,6 +3,8 @@ using System.Linq;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
+using System.Threading.Tasks;
+
 using Shiny;
 using Shiny.Locations;
 using Xamarin.Forms;
@@ -356,18 +358,28 @@ namespace Sample
 
         Command CreateOneReading(LocationRetrieve retrieve) => new Command(async () =>
         {
-            var observable = retrieve switch
+            await Task.Run(async () =>
             {
-                LocationRetrieve.Last => this.manager.GetLastReading(),
-                LocationRetrieve.Current => this.manager.GetCurrentPosition(),
-                _ => this.manager.GetLastReadingOrCurrentPosition()
-            };
-            var reading = await observable.ToTask();
+                try
+                { 
+                    var observable = retrieve switch
+                    {
+                        LocationRetrieve.Last => this.manager.GetLastReading(),
+                        LocationRetrieve.Current => this.manager.GetCurrentPosition(),
+                        _ => this.manager.GetLastReadingOrCurrentPosition()
+                    };
+                    var reading = await observable.ToTask();
 
-            if (reading == null)
-                await this.Alert("Could not getting GPS coordinates");
-            else
-                this.SetValues(reading);
+                    if (reading == null)
+                        await this.Alert("Could not getting GPS coordinates");
+                    else
+                        this.SetValues(reading);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            });
         });
 
 

@@ -6,8 +6,7 @@ namespace Sample
     {
         public App()
         {
-            InitializeComponent();
-            this.Resources.Add(new Styles());
+            this.InitializeComponent();
             this.MainPage = new NavigationPage(new MainPage());
         }
     }

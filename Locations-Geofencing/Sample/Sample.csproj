@@ -9,15 +9,4 @@
 		<DebugType>portable</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Shiny.Locations" Version="2.4.1.2971" />
-		<PackageReference Include="Shiny.Notifications" Version="2.4.1.2971" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2244" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
-	</ItemGroup>
 </Project>
