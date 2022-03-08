@@ -57,11 +57,6 @@
 		<Reference Include="System.Numerics.Vectors" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Shiny">
-		  <Version>$(ShinyVersion)</Version>
-		</PackageReference>
-		<PackageReference Include="Xamarin.Forms" />
-		<PackageReference Include="Xamarin.Essentials" />
 		<PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.4.0.1" />
 	</ItemGroup>
 	<ItemGroup>

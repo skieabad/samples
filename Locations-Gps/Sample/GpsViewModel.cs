@@ -358,28 +358,30 @@ namespace Sample
 
         Command CreateOneReading(LocationRetrieve retrieve) => new Command(async () =>
         {
-            await Task.Run(async () =>
+            var observable = retrieve switch
             {
-                try
-                { 
-                    var observable = retrieve switch
-                    {
-                        LocationRetrieve.Last => this.manager.GetLastReading(),
-                        LocationRetrieve.Current => this.manager.GetCurrentPosition(),
-                        _ => this.manager.GetLastReadingOrCurrentPosition()
-                    };
-                    var reading = await observable.ToTask();
+                LocationRetrieve.Last => this.manager.GetLastReading(),
+                LocationRetrieve.Current => this.manager.GetCurrentPosition(),
+                _ => this.manager.GetLastReadingOrCurrentPosition()
+            };
+            var reading = await observable.ToTask();
 
-                    if (reading == null)
-                        await this.Alert("Could not getting GPS coordinates");
-                    else
-                        this.SetValues(reading);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex);
-                }
-            });
+            if (reading == null)
+                await this.Alert("Could not getting GPS coordinates");
+            else
+                this.SetValues(reading);
+
+            try
+            {
+                await this.manager.GetLastReadingOrCurrentPosition().ToTask();
+                await Task.Delay(2000).ConfigureAwait(false);
+                await this.manager.GetLastReadingOrCurrentPosition().ToTask();
+                Console.WriteLine("success");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         });
 
 

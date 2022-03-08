@@ -11,14 +11,5 @@
 
 	<ItemGroup>
 		<PackageReference Include="ReactiveUI.Fody" Version="17.1.50" />
-		<PackageReference Include="Shiny.Framework" />
-		<PackageReference Include="Shiny.Extensions.Dialogs.XfMaterial" />
-		<PackageReference Include="Shiny.BluetoothLE" />
-		<PackageReference Include="Xamarin.Essentials" />
-		<PackageReference Include="Xamarin.Forms" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\Sample.Shared\Sample.Shared.csproj" />
 	</ItemGroup>
 </Project>
