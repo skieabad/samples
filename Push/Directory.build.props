@@ -1,0 +1,21 @@
+<Project>
+    <PropertyGroup>
+        <LangVersion>8.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <ShinyVersion>2.5.0.3008-preview</ShinyVersion>
+		<DebugDirectory>C:\dev\shiny\shiny2\src</DebugDirectory>
+		<PushProvider></PushProvider><!--valid entries are blank (native), onesignal, firebase, & azure-->
+    </PropertyGroup>
+
+	<PropertyGroup Condition="$(PushProvider) == 'onesignal'">
+		<DefineConstants>$(DefineConstants);ONESIGNAL</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(PushProvider) == 'firebase'">
+		<DefineConstants>$(DefineConstants);FIREBASE</DefineConstants>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$(PushProvider) == 'azure'">
+		<DefineConstants>$(DefineConstants);AZURE</DefineConstants>
+	</PropertyGroup>
+</Project>

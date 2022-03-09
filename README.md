@@ -8,10 +8,7 @@
 |----------|-----------|
 |[Beacons](Beacons)|Foreground & Background detection of BluetoothLE iBeacons|
 |[Beacons - Managed](Beacons)|iBeacon ranging on steroids - the managed mechanism manages broadcasting to the main thread, throttles output to keep your UI nice & snappy|
-|[Push - Native](Push-Native)|Uses purely native push notification API's provided by the OS|
-|[Push - Firebase](Push-Firebase)|Uses firebase messaging for push notifications on both iOS & Android|
-|[Push - Azure Notification Hubs](Push-AzureNotificationsHub)|Push notifications via Azure Notification Hubs and only 1 line of code to be changed|
-|[Push - OneSignal](Push-OneSignal)|Push notifications via OneSignal and only 1 line of code to be changed|
+|[Push - ALL Providers (Native, OneSignal, Firebase, & Azure Notification Hubs)](Push)|Uses purely native push notification API's provided by the OS|
 |[NFC](Nfc)|Near Field Communication|
 |[Jobs](Jobs)|How to register jobs at startup or dynamically|
 |[Key/Value Storage](Stores)|How Shiny uses a "viewmodel" style object to bind to OS preferences, secure storage, and others|

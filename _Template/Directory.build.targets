@@ -27,60 +27,60 @@
 
 	<!-- These must be included in your solution in order for this to work
 	<ItemGroup>
-		<PackageReference Include="$(DebugDirectory)\Shiny\Shiny.csproj">
+		<ProjectReference Include="$(DebugDirectory)\Shiny\Shiny.csproj">
 			<Name>Shiny</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Core\Shiny.Core.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Core\Shiny.Core.csproj">
 			<Name>Shiny.Core</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Generators\Shiny.Generators.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Generators\Shiny.Generators.csproj">
 			<Name>Shiny.Generators</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Jobs\Shiny.Jobs.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Jobs\Shiny.Jobs.csproj">
 			<Name>Shiny.Jobs</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.BluetoothLE\Shiny.BluetoothLE.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.BluetoothLE\Shiny.BluetoothLE.csproj">
 			<Name>Shiny.BluetoothLE</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.BluetoothLE.Common\Shiny.BluetoothLE.Common.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.BluetoothLE.Common\Shiny.BluetoothLE.Common.csproj">
 			<Name>Shiny.BluetoothLE.Common</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Locations\Shiny.Locations.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Locations\Shiny.Locations.csproj">
 			<Name>Shiny.Locations</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Locations.Common\Shiny.Locations.Common.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Locations.Common\Shiny.Locations.Common.csproj">
 			<Name>Shiny.Locations.Common</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Beacons\Shiny.Beacons.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Beacons\Shiny.Beacons.csproj">
 			<Name>Shiny.Beacons</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Nfc\Shiny.Nfc.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Nfc\Shiny.Nfc.csproj">
 			<Name>Shiny.Sensors</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Sensors\Shiny.Sensors.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Sensors\Shiny.Sensors.csproj">
 			<Name>Shiny.Sensors</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Notifications\Shiny.Notifications.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Notifications\Shiny.Notifications.csproj">
 			<Name>Shiny.Notifications</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Net.Http\Shiny.Net.Http.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Net.Http\Shiny.Net.Http.csproj">
 			<Name>Shiny.Net.Http</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Push\Shiny.Push.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Push\Shiny.Push.csproj">
 			<Name>Shiny.Push</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Push.Common\Shiny.Push.Common.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Push.Common\Shiny.Push.Common.csproj">
 			<Name>Shiny.Push.Common</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj">
 			<Name>Shiny.Push.AzureNotificationHubs</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Push.FirebaseMessaging\Shiny.Push.FirebaseMessaging.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Push.FirebaseMessaging\Shiny.Push.FirebaseMessaging.csproj">
 			<Name>Shiny.Push.FirebaseMessaging</Name>
-		</PackageReference>
-		<PackageReference Include="$(DebugDirectory)\Shiny.Push.OneSignal\Shiny.Push.OneSignal.csproj">
+		</ProjectReference>
+		<ProjectReference Include="$(DebugDirectory)\Shiny.Push.OneSignal\Shiny.Push.OneSignal.csproj">
 			<Name>Shiny.Push.OneSignal</Name>
-		</PackageReference>		
+		</ProjectReference>		
 	</ItemGroup>
 	-->
 </Project>
