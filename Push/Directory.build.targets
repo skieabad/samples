@@ -1,9 +1,7 @@
 <Project>
 	<ItemGroup>
 		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
-		<PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
-		<PackageReference Include="Mobile.BuildTools" Version="2.0.245" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.1" />		
     </ItemGroup>
 
 	<!--include what libs you need-->

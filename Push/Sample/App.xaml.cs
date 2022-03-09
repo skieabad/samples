@@ -1,7 +1,4 @@
-﻿using System;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 
 namespace Sample
 {
@@ -9,7 +6,7 @@ namespace Sample
     {
         public App()
         {
-            InitializeComponent();
+            this.InitializeComponent();
             this.MainPage = new NavigationPage(new MainPage());
         }
     }

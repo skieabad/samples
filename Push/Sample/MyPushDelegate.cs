@@ -23,8 +23,7 @@ namespace Sample
         public Task OnReceived(PushNotification push)
             => this.Insert("PUSH RECEIVED");
 
-        public Task OnTokenChanged(string token)
-        //public Task OnTokenRefreshed(string token)
+        public Task OnTokenRefreshed(string token)
             => this.Insert("PUSH TOKEN REFRESH");
 
         Task Insert(string info) => this.conn.InsertAsync(new ShinyEvent

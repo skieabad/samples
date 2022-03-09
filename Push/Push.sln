@@ -11,9 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sample", "Sample\Sample.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8F76E178-020F-4AC5-A872-AB051DF69DEC}"
 	ProjectSection(SolutionItems) = preProject
+		appsettings.json = appsettings.json
+		buildtools.json = buildtools.json
 		Directory.build.props = Directory.build.props
 		Directory.build.targets = Directory.build.targets
 		google-services.json = google-services.json
+		GoogleService-Info.plist = GoogleService-Info.plist
 		readme.md = readme.md
 	EndProjectSection
 EndProject
