@@ -54,7 +54,9 @@
 		<Reference Include="System.Numerics.Vectors" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Shiny" />
+		<PackageReference Include="Shiny">
+		  <Version>$(ShinyVersion)</Version>
+		</PackageReference>
 		<PackageReference Include="Xamarin.Essentials" />
 	</ItemGroup>
 	<ItemGroup>
@@ -91,6 +93,7 @@
 		<ProjectReference Include="..\Sample\Sample.csproj">
 			<Project>{C4A94D57-C146-4DE5-A133-30704425FCE7}</Project>
 			<Name>Sample</Name>
+			<ReferenceSourceTarget></ReferenceSourceTarget>
 		</ProjectReference>
 	</ItemGroup>
 	<Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

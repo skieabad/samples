@@ -11,12 +11,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Shiny" />
+		<PackageReference Include="Shiny" Version="$(ShinyVersion)" />
 		<PackageReference Include="Xamarin.Essentials" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
 	</ItemGroup>
 
 </Project>

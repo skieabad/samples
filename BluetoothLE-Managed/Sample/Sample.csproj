@@ -11,13 +11,12 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Shiny.BluetoothLE" Version="$(ShinyVersion)" />
-		<PackageReference Include="Shiny.Framework" />
 		<PackageReference Include="ReactiveUI.Fody" Version="17.1.17" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
+		<EmbeddedResource Include="Resources\fa-solid-900.ttf" />
+		<EmbeddedResource Include="Resources\fa-brands-400.ttf" />
+		<EmbeddedResource Include="Resources\fa-regular-400.ttf" />
 	</ItemGroup>
-
 </Project>
