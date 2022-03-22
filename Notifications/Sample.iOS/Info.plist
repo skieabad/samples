@@ -34,5 +34,9 @@
 	<string>Sample</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Doing some maps and other cool stuff</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Doing some maps and other cool stuff</string>
 </dict>
 </plist>
