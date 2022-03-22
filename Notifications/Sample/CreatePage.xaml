@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sample="clr-namespace:Sample"
-                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
                           x:Class="Sample.CreatePage"
                           x:DataType="sample:CreateViewModel"
                           Title="Create">
@@ -37,7 +36,10 @@
 
                     <Label Text="Message" />
                     <Entry Text="{Binding NotificationMessage}" />
-
+                    
+                    <Label Text="Thread" />
+                    <Entry Text="{Binding Thread}" />
+                    
                     <Label Text="Channel" />
                     <Picker Title="Channel"
                             ItemsSource="{Binding Channels}"
@@ -65,10 +67,11 @@
             </ScrollView>
 
             <StackLayout Grid.Row="1">
+                <Button Text="Geofence Test (Use Current Location)" Command="{Binding SendGeofence}" />
                 <Button Text="Send" Command="{Binding Send}" />
                 <Button Text="Send Test Now" Command="{Binding SendNow}" />
                 <Button Text="Start A Chat" Command="{Binding StartChat}" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>
-</shared:SampleContentPage>
+</sample:SampleContentPage>

@@ -80,6 +80,7 @@ namespace Sample
                 Message = message,
                 BadgeCount = this.BadgeCount,
                 ScheduleDate = scheduleDate,
+                //Thread = this.Thread,
                 Channel = this.Channel
             };
             if (Int32.TryParse(this.Identifier, out var id))
@@ -103,6 +104,7 @@ namespace Sample
         public ICommand PermissionCheck { get; }
         public ICommand Send { get; }
         public ICommand SendNow { get; }
+        public ICommand SendGeofence { get; }
         public ICommand StartChat { get; }
 
 
@@ -135,6 +137,14 @@ namespace Sample
         {
             get => this.msg;
             set => this.Set(ref this.msg, value);
+        }
+
+
+        string thread;
+        public string Thread
+        {
+            get => this.thread;
+            set => this.Set(ref this.thread, value);
         }
 
 
