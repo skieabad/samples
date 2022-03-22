@@ -5,7 +5,7 @@ using Shiny.Notifications;
 using Xamarin.Forms;
 
 
-namespace Sample
+namespace Sample.Channels
 {
     public class ChannelCreateViewModel : SampleViewModel
     {

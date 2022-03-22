@@ -2,7 +2,7 @@
 using Xamarin.Forms;
 
 
-namespace Sample
+namespace Sample.Channels
 {
     public partial class ChannelListPage : SampleContentPage
     {

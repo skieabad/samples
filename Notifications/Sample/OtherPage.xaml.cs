@@ -1,8 +1,8 @@
 ﻿namespace Sample
 {
-    public partial class BadgePage : SampleContentPage
+    public partial class OtherPage : SampleContentPage
     {
-        public BadgePage()
+        public OtherPage()
         {
             this.InitializeComponent();
         }

@@ -2,11 +2,11 @@
 using Xamarin.Forms;
 
 
-namespace Sample
+namespace Sample.Create
 {
-    public partial class ChannelCreatePage : ContentPage
+    public partial class CreatePage : SampleContentPage
     {
-        public ChannelCreatePage()
+        public CreatePage()
         {
             this.InitializeComponent();
         }

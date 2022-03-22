@@ -8,16 +8,31 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class BadgeViewModel : SampleViewModel
+    public class OtherViewModel : SampleViewModel
     {
         readonly INotificationManager notifications;
         IDisposable? sub;
 
 
-        public BadgeViewModel()
+        public OtherViewModel()
         {
             this.notifications = ShinyHost.Resolve<INotificationManager>();
-            this.Clear = new Command(() => this.Badge = 0);
+            this.ClearBadge = new Command(() => this.Badge = 0);
+
+            this.PermissionCheck = new Command(async () =>
+            {
+                var result = await this.notifications.RequestAccess(AccessRequestFlags.All);
+                await this.Alert("Permission Check Result: " + result);
+            });
+
+            this.StartChat = new Command(async () =>
+                await this.notifications.Send(
+                    "Shiny Chat",
+                    "Hi, What's your name?",
+                    "ChatName",
+                    DateTime.Now.AddSeconds(10)
+                )
+            );
         }
 
 
@@ -41,7 +56,10 @@ namespace Sample
         }
 
 
-        public ICommand Clear { get; }
+        public ICommand QuickSend { get; }
+        public ICommand StartChat { get; }
+        public ICommand PermissionCheck { get; }
+        public ICommand ClearBadge { get; }
 
 
         int badge;

@@ -16,4 +16,22 @@
 		<EmbeddedResource Include="Resources\fa-solid-900.ttf" />
 		<EmbeddedResource Include="Resources\notification.mp3" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="OtherPage.xaml.cs">
+	    <DependentUpon>OtherPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Create\IntervalPage.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Create\LocationPage.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	  <EmbeddedResource Update="Create\SchedulePage.xaml">
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	</ItemGroup>
 </Project>

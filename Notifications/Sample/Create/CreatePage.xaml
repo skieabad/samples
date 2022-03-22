@@ -2,7 +2,7 @@
 <sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sample="clr-namespace:Sample"
-                          x:Class="Sample.CreatePage"
+                          x:Class="Sample.Create.CreatePage"
                           x:DataType="sample:CreateViewModel"
                           Title="Create">
 
@@ -48,15 +48,6 @@
                     <Label Text="Payload" />
                     <Entry Text="{Binding Payload}" />
 
-                    <Label Text="Badge Count" />
-                    <Entry Text="{Binding BadgeCount}" Keyboard="Numeric" />
-
-                    <Label Text="Schedule Date" />
-                    <DatePicker Date="{Binding SelectedDate}" />
-
-                    <Label Text="Schedule Time" />
-                    <TimePicker Time="{Binding SelectedTime}" />
-
                     <ContentView IsVisible="{Binding IsAndroid}">
                         <StackLayout>
                             <Label Text="Android big Text" />
@@ -67,10 +58,8 @@
             </ScrollView>
 
             <StackLayout Grid.Row="1">
-                <Button Text="Geofence Test (Use Current Location)" Command="{Binding SendGeofence}" />
                 <Button Text="Send" Command="{Binding Send}" />
-                <Button Text="Send Test Now" Command="{Binding SendNow}" />
-                <Button Text="Start A Chat" Command="{Binding StartChat}" />
+
             </StackLayout>
         </Grid>
     </ContentPage.Content>

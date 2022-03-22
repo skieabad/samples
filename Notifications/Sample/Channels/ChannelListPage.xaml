@@ -1,19 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<sample:SampleContentPage  xmlns="http://xamarin.com/schemas/2014/forms"
+<sample1:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                           xmlns:sample="clr-namespace:Sample"
+                           xmlns:sample="clr-namespace:Sample.Channels"
+                           xmlns:sample1="clr-namespace:Sample"
                            x:DataType="sample:ChannelListViewModel"
-                           x:Class="Sample.ChannelListPage"
+                           x:Class="Sample.Channels.ChannelListPage"
                            Title="Channels">
 
     <ContentPage.BindingContext>
         <sample:ChannelListViewModel />
     </ContentPage.BindingContext>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Create"
-                     Command="{Binding Create}" />
-    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Channels}">
@@ -24,7 +20,7 @@
             </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="sample:CommandItem">
+                <DataTemplate x:DataType="sample1:CommandItem">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -57,4 +53,4 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
     </ContentPage.Content>
-</sample:SampleContentPage>
+</sample1:SampleContentPage>

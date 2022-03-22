@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using Shiny;
@@ -7,14 +6,13 @@ using Shiny.Notifications;
 using Xamarin.Forms;
 
 
-namespace Sample
+namespace Sample.Channels
 {
     public class ChannelListViewModel : SampleViewModel
     {
         public ChannelListViewModel()
         {
             var notifications = ShinyHost.Resolve<INotificationManager>();
-            this.Create = new Command(async () => await this.Navigation.PushAsync(new ChannelCreatePage()));
 
             this.LoadChannels = this.LoadingCommand(async () =>
             {

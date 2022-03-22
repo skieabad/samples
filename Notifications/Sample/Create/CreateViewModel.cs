@@ -10,7 +10,7 @@ using Shiny.Notifications;
 using Shiny;
 
 
-namespace Sample
+namespace Sample.Create
 {
     public class CreateViewModel : SampleViewModel
     {
@@ -21,10 +21,6 @@ namespace Sample
         public CreateViewModel()
         {
             this.notificationManager = ShinyHost.Resolve<INotificationManager>();
-            this.NavToChannels = new Command(async () => await this.Navigation.PushAsync(new ChannelListPage()));
-
-            this.SelectedDate = DateTime.Now;
-            this.SelectedTime = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(1));
 
             this.SendNow = new Command(async () => await this.BuildAndSend(
                 "Test Now",
@@ -43,32 +39,15 @@ namespace Sample
                     await this.Alert("Message is required");
                     return;
                 }
-                if (this.ScheduledTime < DateTime.Now)
-                {
-                    await this.Alert("Scheduled Date & Time must be in the future");
-                    return;
-                }
+
                 await this.BuildAndSend(
                     this.NotificationTitle,
                     this.NotificationMessage,
-                    this.ScheduledTime
+                    null
                 );
             });
 
-            this.PermissionCheck = new Command(async () =>
-            {
-                var result = await notificationManager.RequestAccess();
-                await this.Alert("Permission Check Result: " + result);
-            });
 
-            this.StartChat = new Command(async () =>
-                await notificationManager.Send(
-                    "Shiny Chat",
-                    "Hi, What's your name?",
-                    "ChatName",
-                    DateTime.Now.AddSeconds(10)
-                )
-            );
         }
 
 
@@ -108,14 +87,6 @@ namespace Sample
         public ICommand StartChat { get; }
 
 
-        DateTime scheduledTime;
-        public DateTime ScheduledTime
-        {
-            get => this.scheduledTime;
-            private set => this.Set(ref this.scheduledTime, value);
-        }
-
-
         string id;
         public string Identifier
         {
@@ -153,30 +124,6 @@ namespace Sample
         {
             get => this.actions;
             set => this.Set(ref this.actions, value);
-        }
-
-
-        DateTime date;
-        public DateTime SelectedDate
-        {
-            get => this.date;
-            set => this.Set(ref this.date, value);
-        }
-
-
-        TimeSpan time;
-        public TimeSpan SelectedTime
-        {
-            get => this.time;
-            set => this.Set(ref this.time, value);
-        }
-
-
-        int badge;
-        public int BadgeCount
-        {
-            get => this.badge;
-            set => this.Set(ref this.badge, value);
         }
 
 
@@ -222,21 +169,6 @@ namespace Sample
         {
             base.OnAppearing();
 
-            this.disposer = new CompositeDisposable();
-            Observable
-                .Interval(TimeSpan.FromSeconds(10))
-                .Where(_ => this.ScheduledTime < DateTimeOffset.Now)
-                .SubOnMainThread(_ => this.SelectedTime.Add(TimeSpan.FromSeconds(1)))
-                .DisposedBy(this.disposer);
-
-            this.WhenAnyProperty(x => x.SelectedDate)
-                .Subscribe(_ => this.CalcDate())
-                .DisposedBy(this.disposer);
-
-            this.WhenAnyProperty(x => x.SelectedTime)
-                .Subscribe(_ => this.CalcDate())
-                .DisposedBy(this.disposer);
-
             this.Channels = (await this.notificationManager.GetChannels())
                 .Select(x => x.Identifier)
                 .ToArray();
@@ -250,17 +182,6 @@ namespace Sample
         }
 
 
-        void CalcDate()
-        {
-            this.ScheduledTime = new DateTime(
-                this.SelectedDate.Year,
-                this.SelectedDate.Month,
-                this.SelectedDate.Day,
-                this.SelectedTime.Hours,
-                this.SelectedTime.Minutes,
-                0
-            );
-        }
 
         void Reset()
         {

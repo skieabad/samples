@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sample="clr-namespace:Sample"
+             xmlns:sample="clr-namespace:Sample.Channels"
              x:DataType="sample:ChannelCreateViewModel"
-             x:Class="Sample.ChannelCreatePage"
+             x:Class="Sample.Channels.ChannelCreatePage"
              Title="Create Channel">
 
     <ContentPage.BindingContext>
