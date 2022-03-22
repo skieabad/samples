@@ -7,8 +7,15 @@
              x:Class="Sample.Create.LocationPage">
     
     <ContentPage.Content>
-        <StackLayout>
-            <maps:Map />
-        </StackLayout>
+        <Grid RowDefinitions="*, Auto">
+            <maps:Map HasScrollEnabled="True" 
+                      HasZoomEnabled="True" 
+                      MapType="Street"
+                      MapClicked="OnMapClicked"
+                      Grid.Row="0 "/>
+            <Button Text="Use Position"
+                    Command="{Binding Use}"
+                    Grid.Row="1" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
