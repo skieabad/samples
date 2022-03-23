@@ -13,7 +13,7 @@
         <RefreshView IsRefreshing="{Binding IsBusy}">
             <StackLayout>
                 <Label Text="Latitude" />
-                <Entry Text="{Binding Latitutude}" />
+                <Entry Text="{Binding Latitude}" />
 
                 <Label Text="Longitude" />
                 <Entry Text="{Binding Longitude}" />
@@ -21,6 +21,9 @@
                 <Button Text="Set Current Location"
                         Command="{Binding SetCurrentLocation}" />
 
+                <Button Text="Set CN Tower Location"
+                        Command="{Binding SetCnTower}" />
+                
                 <Button Text="Use Position"
                         Command="{Binding Use}"
                         Grid.Row="1" 

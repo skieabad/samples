@@ -26,7 +26,7 @@ namespace Sample.Create
                 {
                     Center = new Position(
                         this.Latitude,
-                        this.Longitudue
+                        this.Longitude
                     ),
                     Radius = Distance.FromMeters(300),
                     Repeat = true
@@ -34,25 +34,28 @@ namespace Sample.Create
                 await this.Navigation.PopModalAsync();
             });
 
-            this.SetCurrentLocation = new Command(async () =>
+            this.SetCnTower = new Command(() =>
             {
-                try
-                { 
-                    await gpsManager
-                        .GetCurrentPosition()
-                        .Timeout(TimeSpan.FromSeconds(20))
-                        .ToTask();
-                }
-                catch (Exception ex)
-                {
-                    await this.Alert("ERROR", "Could not retrieve location - " + ex);
-                }
+                this.Latitude = 43.6425701;
+                this.Longitude = -79.3892455;
+            });
+
+            this.SetCurrentLocation = this.LoadingCommand(async () =>
+            { 
+                var reading = await gpsManager
+                    .GetCurrentPosition()
+                    .Timeout(TimeSpan.FromSeconds(20))
+                    .ToTask();
+
+                this.Latitude = reading?.Position?.Latitude ?? 0;
+                this.Longitude = reading?.Position?.Longitude ?? 0;
             });
         }
 
 
         public ICommand Use { get; }
         public ICommand Cancel { get; }
+        public ICommand SetCnTower { get; }
         public ICommand SetCurrentLocation { get; }
 
 
@@ -64,11 +67,11 @@ namespace Sample.Create
         }
 
 
-        double longitudue;
-        public double Longitudue
+        double longitude;
+        public double Longitude
         {
-            get => this.longitudue;
-            set => this.Set(ref this.longitudue, value);
+            get => this.longitude;
+            set => this.Set(ref this.longitude, value);
         }
     }
 }
