@@ -2,18 +2,14 @@
 <sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sample="clr-namespace:Sample"
+                          xmlns:create="clr-namespace:Sample.Create"
                           x:Class="Sample.Create.CreatePage"
-                          x:DataType="sample:CreateViewModel"
+                          x:DataType="create:CreateViewModel"
                           Title="Create">
 
     <ContentPage.BindingContext>
-        <sample:CreateViewModel />
+        <create:CreateViewModel />
     </ContentPage.BindingContext>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Channels"
-                     Command="{Binding NavToChannels}" />
-    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <Grid>
@@ -24,10 +20,6 @@
 
             <ScrollView Grid.Row="0">
                 <StackLayout>
-
-                    <Button Text="Request Permissions"
-                            Command="{Binding PermissionCheck}" />
-
                     <Label Text="ID (Leave blank for auto/default)" />
                     <Entry Text="{Binding Identifier}" Keyboard="Numeric" />
 

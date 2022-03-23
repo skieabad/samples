@@ -3,6 +3,6 @@
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
         <ShinyVersion>2.5.0-preview.3040</ShinyVersion>
-		<DebugDirectory>C:\dev\shiny\src</DebugDirectory>
+		<DebugDirectory>../../../shiny/src</DebugDirectory>
     </PropertyGroup>
 </Project>

@@ -151,7 +151,7 @@ namespace Sample.Create
             }
         }
 
-        public bool IsAndroid => ShinyPlatform.Current.IsAndroid();
+        public bool IsAndroid => ShinyHost.Resolve<IPlatform>().IsAndroid();
 
 
         public async override void OnAppearing()
