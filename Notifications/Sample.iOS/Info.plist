@@ -25,7 +25,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Notifications</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.shiny.notifications</string>
+	<string>org.shiny.notifications</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>

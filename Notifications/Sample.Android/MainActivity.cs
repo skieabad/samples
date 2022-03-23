@@ -1,17 +1,18 @@
 ﻿using System;
 using Android.App;
 using Android.Content.PM;
+using Android.OS;
+using Android.Runtime;
+using Shiny;
+using Xamarin;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: Shiny.ShinyApplication(
-    ShinyStartupTypeName = "Sample.Startup",
-    XamarinFormsAppTypeName = "Sample.App"
-)]
 
 namespace Sample.Droid
 {
     [Activity(
-        Label = "Sample",
+        Label = "Notifications",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
@@ -24,5 +25,23 @@ namespace Sample.Droid
     )]
     public partial class MainActivity : FormsAppCompatActivity
     {
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            this.ShinyOnCreate();
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+            base.OnCreate(savedInstanceState);
+            Forms.Init(this, savedInstanceState);
+            FormsMaps.Init(this, savedInstanceState);
+
+            this.LoadApplication(new App());
+        }
+
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            this.ShinyOnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }

@@ -33,6 +33,11 @@ namespace Sample
                     DateTime.Now.AddSeconds(10)
                 )
             );
+
+            this.QuickSend = new Command(async () =>
+            {
+                await this.notifications.Send("QUICK SEND TITLE", "This is a quick message");
+            });
         }
 
 
@@ -45,7 +50,7 @@ namespace Sample
                 .Skip(1)
                 .Throttle(TimeSpan.FromMilliseconds(500))
                 .DistinctUntilChanged()
-                .Subscribe(badge => notifications.Badge = badge);
+                .Subscribe(badge => this.notifications.Badge = badge);
         }
 
 
