@@ -14,6 +14,8 @@ namespace Sample.Channels
         {
             var notifications = ShinyHost.Resolve<INotificationManager>();
 
+            this.Create = this.NavigateCommand<ChannelCreatePage>();
+
             this.LoadChannels = this.LoadingCommand(async () =>
             {
                 var channels = await notifications.GetChannels();

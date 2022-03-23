@@ -11,6 +11,11 @@
         <sample:ChannelListViewModel />
     </ContentPage.BindingContext>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Create" 
+                     Command="{Binding Create}" />
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <CollectionView ItemsSource="{Binding Channels}">
 

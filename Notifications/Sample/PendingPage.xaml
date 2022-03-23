@@ -13,17 +13,18 @@
         <sample:PendingViewModel />
     </ContentPage.BindingContext>
 
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="Clear"
-                     Command="{Binding Clear}" />
-    </ContentPage.ToolbarItems>-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Create"
+                     Command="{Binding Create}" />
+    </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
-        <StackLayout>
+        <Grid RowDefinitions="*, Auto">
             <ListView ItemsSource="{Binding PendingList}"
                       RefreshCommand="{Binding Load}"
                       IsRefreshing="{Binding IsBusy}"
-                      IsPullToRefreshEnabled="True">
+                      IsPullToRefreshEnabled="True"
+                      Grid.Row="0">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="sample:CommandItem">
                         <TextCell Text="{Binding Text}"
@@ -37,6 +38,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </StackLayout>
+
+            <Button Text="Clear"
+                    Command="{Binding Clear}" 
+                    Grid.Row="1" />
+        </Grid>
     </ContentPage.Content>
 </sample:SampleContentPage>

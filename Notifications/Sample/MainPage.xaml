@@ -6,18 +6,9 @@
             UnselectedTabColor="#4BA677"
             x:Class="Sample.MainPage"
             Title="Notifications">
-
-    <TabbedPage.BindingContext>
-        <sample:MainViewModel />
-    </TabbedPage.BindingContext>
     
     <TabbedPage.Children>
         <sample:PendingPage Title="Pending">
-            <ContentPage.ToolbarItems>
-                <ToolbarItem Text="Create" 
-                             Command="{Binding CreateNotification}" />
-            </ContentPage.ToolbarItems>
-            
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf03a;"
                                  FontFamily="FAS" />
@@ -25,11 +16,6 @@
         </sample:PendingPage>
 
         <channels:ChannelListPage Title="Channels">
-            <ContentPage.ToolbarItems>
-                <ToolbarItem Text="Create" 
-                             Command="{Binding CreateChannel}" />
-            </ContentPage.ToolbarItems>
-            
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf03a;"
                                  FontFamily="FAS" />

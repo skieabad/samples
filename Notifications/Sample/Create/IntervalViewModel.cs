@@ -17,7 +17,7 @@ namespace Sample.Create
                     TimeOfDay = new TimeSpan(0, this.TimeOfDayHour, this.TimeOfDayMinutes, 0)
                 };
                 if (this.SelectedDay != null)
-                    trigger.DayOfWeek = (DayOfWeek)this.SelectedDay;   
+                    trigger.DayOfWeek = (DayOfWeek)this.SelectedDay.Value.Value;
                 
                 State.CurrentNotification!.RepeatInterval = trigger;
                 State.CurrentNotification!.Geofence = null;
@@ -35,7 +35,7 @@ namespace Sample.Create
 
         public ICommand Use { get; }
 
-        public int? SelectedDay { get; set; }
+        public (string Text, int Value)? SelectedDay { get; set; }
         public (string Text, int Value)[] Days { get; }
 
         public int TimeOfDayHour { get; set; } = 8;

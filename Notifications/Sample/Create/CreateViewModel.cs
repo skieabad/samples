@@ -65,8 +65,6 @@ namespace Sample.Create
                     await this.Alert("Failed to send notification " + ex);
                 }
             });
-
-
         }
 
 

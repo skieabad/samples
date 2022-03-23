@@ -15,6 +15,8 @@ namespace Sample
         {
             var notifications = ShinyHost.Resolve<INotificationManager>();
 
+            this.Create = this.NavigateCommand<Create.CreatePage>();
+
             this.Load = this.LoadingCommand(async () =>
             {
                 var pending = await notifications.GetPending();
@@ -44,6 +46,7 @@ namespace Sample
 
 
         public ICommand Load { get; }
+        public ICommand Create { get; }
         public ICommand Clear { get; }
 
 
