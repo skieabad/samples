@@ -25,51 +25,49 @@ namespace Sample
                 await this.Alert("Permission Check Result: " + result);
             });
 
-            this.QuickSend = new Command(async () =>
-            {
-                await this.notifications.Send("QUICK SEND TITLE", "This is a quick message");
-            });
+            this.QuickSend = this.LoadingCommand(async () =>
+                await this.notifications.Send("QUICK SEND TITLE", "This is a quick message")
+            );
 
-            this.StartChat = new Command(async () =>
+            this.StartChat = this.LoadingCommand(async () => 
             {
                 await this.notifications.RemoveChannel("ChatRoom");
                 await this.notifications.RemoveChannel("ChatAnswer");
 
-                await this.notifications.SetChannels(
-                    new Channel
+                await this.notifications.AddChannel(new Channel
+                {
+                    Identifier = "ChatRoom",
+                    Importance = ChannelImportance.Normal,
+                    Actions =
                     {
-                        Identifier = "ChatRoom",
-                        Importance = ChannelImportance.Normal,
-                        Actions =
+                        new ChannelAction
                         {
-                            new ChannelAction
-                            {
-                                Identifier = "name",
-                                Title = "What is your name?",
-                                ActionType = ChannelActionType.TextReply
-                            }
-                        }
-                    },
-                    new Channel
-                    {
-                        Identifier = "ChatAnswer",
-                        Actions =
-                        {
-                            new ChannelAction
-                            {
-                                Title = "Yes",
-                                Identifier = "yes",
-                                ActionType = ChannelActionType.None
-                            },
-                            new ChannelAction
-                            {
-                                Title = "No",
-                                Identifier = "no",
-                                ActionType = ChannelActionType.Destructive
-                            }
+                            Identifier = "name",
+                            Title = "What is your name?",
+                            ActionType = ChannelActionType.TextReply
                         }
                     }
-                );
+
+                });
+                await this.notifications.AddChannel(new Channel
+                {
+                    Identifier = "ChatAnswer",
+                    Actions =
+                    {
+                        new ChannelAction
+                        {
+                            Title = "Yes",
+                            Identifier = "yes",
+                            ActionType = ChannelActionType.None
+                        },
+                        new ChannelAction
+                        {
+                            Title = "No",
+                            Identifier = "no",
+                            ActionType = ChannelActionType.Destructive
+                        }
+                    }
+                });
 
                 await this.notifications.Send(
                     "Shiny Chat",
