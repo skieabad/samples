@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps" 
              xmlns:create="clr-namespace:Sample.Create"
              x:DataType="create:LocationViewModel"
              x:Class="Sample.Create.LocationPage">
@@ -11,22 +10,27 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid RowDefinitions="*, Auto" ColumnDefinitions="1*, 1*">
-            <maps:Map HasScrollEnabled="True" 
-                      HasZoomEnabled="True" 
-                      MapType="Street"
-                      MapClicked="OnMapClicked"
-                      Grid.Row="0 "/>
-            
-            <Button Text="Use Position"
-                    Command="{Binding Use}"
-                    Grid.Row="1" 
-                    Grid.Column="0" />
+        <RefreshView IsRefreshing="{Binding IsBusy}">
+            <StackLayout>
+                <Label Text="Latitude" />
+                <Entry Text="{Binding Latitutude}" />
 
-            <Button Text="Cancel"
-                    Command="{Binding Cancel}"
-                    Grid.Row="1" 
-                    Grid.Column="1" />
-        </Grid>
+                <Label Text="Longitude" />
+                <Entry Text="{Binding Longitude}" />
+            
+                <Button Text="Set Current Location"
+                        Command="{Binding SetCurrentLocation}" />
+
+                <Button Text="Use Position"
+                        Command="{Binding Use}"
+                        Grid.Row="1" 
+                        Grid.Column="0" />
+
+                <Button Text="Cancel"
+                        Command="{Binding Cancel}"
+                        Grid.Row="1" 
+                        Grid.Column="1" />
+            </StackLayout>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

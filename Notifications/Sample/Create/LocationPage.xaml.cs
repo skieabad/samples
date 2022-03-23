@@ -1,5 +1,4 @@
 ﻿using Xamarin.Forms;
-using Xamarin.Forms.Maps;
 
 
 namespace Sample.Create
@@ -9,12 +8,6 @@ namespace Sample.Create
         public LocationPage()
         {
             this.InitializeComponent();
-        }
-
-
-        private void OnMapClicked(object sender, MapClickedEventArgs e)
-        {
-            ((LocationViewModel)this.BindingContext).SelectedPosition = new Shiny.Locations.Position(e.Position.Latitude, e.Position.Longitude);
         }
     }
 }

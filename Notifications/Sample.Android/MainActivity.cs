@@ -1,10 +1,8 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Shiny;
-using Xamarin;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -32,7 +30,6 @@ namespace Sample.Droid
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(savedInstanceState);
             Forms.Init(this, savedInstanceState);
-            FormsMaps.Init(this, savedInstanceState);
 
             this.LoadApplication(new App());
         }
