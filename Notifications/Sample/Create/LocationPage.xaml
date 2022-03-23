@@ -5,17 +5,28 @@
              xmlns:create="clr-namespace:Sample.Create"
              x:DataType="create:LocationViewModel"
              x:Class="Sample.Create.LocationPage">
+
+    <ContentPage.BindingContext>
+        <create:LocationViewModel />
+    </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <Grid RowDefinitions="*, Auto">
+        <Grid RowDefinitions="*, Auto" ColumnDefinitions="1*, 1*">
             <maps:Map HasScrollEnabled="True" 
                       HasZoomEnabled="True" 
                       MapType="Street"
                       MapClicked="OnMapClicked"
                       Grid.Row="0 "/>
+            
             <Button Text="Use Position"
                     Command="{Binding Use}"
-                    Grid.Row="1" />
+                    Grid.Row="1" 
+                    Grid.Column="0" />
+
+            <Button Text="Cancel"
+                    Command="{Binding Cancel}"
+                    Grid.Row="1" 
+                    Grid.Column="1" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

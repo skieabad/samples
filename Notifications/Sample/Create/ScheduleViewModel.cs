@@ -2,7 +2,9 @@
 using System;
 using System.Reactive.Disposables;
 using System.Reactive.Linq;
+using System.Windows.Input;
 
+using Xamarin.Forms;
 
 namespace Sample.Create
 {
@@ -16,11 +18,20 @@ namespace Sample.Create
             this.SelectedDate = DateTime.Now;
             this.SelectedTime = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(1));
 
-            //if (this.ScheduledTime < DateTime.Now)
-            //{
-            //    await this.Alert("Scheduled Date & Time must be in the future");
-            //    return;
-            //}
+            this.Use = new Command(async () =>
+            {
+                if (this.ScheduledTime < DateTime.Now)
+                {
+                    await this.Alert("Scheduled Date & Time must be in the future");
+                    return;
+                }
+                State.CurrentNotification!.ScheduleDate = this.SelectedDate;
+                State.CurrentNotification!.Geofence = null;
+                State.CurrentNotification!.RepeatInterval = null;
+
+                await this.Navigation.PopAsync();
+            });
+
         }
 
 
@@ -41,6 +52,9 @@ namespace Sample.Create
                 .Subscribe(_ => this.CalcDate())
                 .DisposedBy(this.disposer);
         }
+
+
+        public ICommand Use { get; }
 
 
         DateTime date;

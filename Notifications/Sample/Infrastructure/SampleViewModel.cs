@@ -40,10 +40,13 @@ namespace Sample
         }
 
 
-        protected virtual ICommand NavigateCommand<TPage>() where TPage: Page, new() => this.NavigateCommand(() => new TPage());
-        protected virtual ICommand NavigateCommand(Func<Page> getPage) => new Command(async () =>
-            await this.Navigation.PushAsync(getPage())
-        );
+        protected virtual ICommand NavigateCommand<TPage>(bool modal = false) where TPage: Page, new() => this.NavigateCommand(() => new TPage(), modal);
+        protected virtual ICommand NavigateCommand(Func<Page> getPage, bool modal = false) => new Command(async () =>
+        {
+            var page = getPage();
+            var task = modal ? this.Navigation.PushModalAsync(page) : this.Navigation.PushAsync(page);
+            await task;
+        });
 
         protected virtual ICommand ConfirmCommand(string question, Func<Task> taskFunc) => new Command(async () =>
         {

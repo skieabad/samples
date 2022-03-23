@@ -10,9 +10,20 @@ namespace Sample.Create
     {
         public IntervalViewModel()
         {
-            this.Use = new Command(() =>
+            this.Use = new Command(async () =>
             {
-                //this.Navigation.PopAsync()
+                var trigger = new Shiny.Notifications.IntervalTrigger
+                {
+                    TimeOfDay = new TimeSpan(0, this.TimeOfDayHour, this.TimeOfDayMinutes, 0)
+                };
+                if (this.SelectedDay != null)
+                    trigger.DayOfWeek = (DayOfWeek)this.SelectedDay;   
+                
+                State.CurrentNotification!.RepeatInterval = trigger;
+                State.CurrentNotification!.Geofence = null;
+                State.CurrentNotification!.ScheduleDate = null;
+                
+                await this.Navigation.PopModalAsync();
             });
             
             this.Days = Enum
