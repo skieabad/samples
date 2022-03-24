@@ -16,7 +16,7 @@ namespace Sample.Create
         public ScheduleViewModel()
         {
             this.SelectedDate = DateTime.Now;
-            this.SelectedTime = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(1));
+            this.SelectedTime = DateTime.Now.TimeOfDay.Add(TimeSpan.FromMinutes(3));
 
             this.Use = new Command(async () =>
             {
@@ -25,7 +25,7 @@ namespace Sample.Create
                     await this.Alert("Scheduled Date & Time must be in the future");
                     return;
                 }
-                State.CurrentNotification!.ScheduleDate = this.SelectedDate;
+                State.CurrentNotification!.ScheduleDate = this.ScheduledTime;
                 State.CurrentNotification!.Geofence = null;
                 State.CurrentNotification!.RepeatInterval = null;
 

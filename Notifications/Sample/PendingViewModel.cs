@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
 using Shiny;
@@ -24,7 +23,7 @@ namespace Sample
                     .Select(x => new CommandItem
                     {
                         Text = $"[{x.Id}] {x.Title}",
-                        Detail = $"[{x.ScheduleDate.Value}] {x.Message}",
+                        //Detail = $"[{x.ScheduleDate.Value}] {x.Message}",
                         PrimaryCommand = new Command(async () =>
                         {
                             await notifications.Cancel(x.Id);

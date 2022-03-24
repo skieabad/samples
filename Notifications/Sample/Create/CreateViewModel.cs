@@ -62,14 +62,14 @@ namespace Sample.Create
                 }
                 n.Android.UseBigTextStyle = this.UseAndroidBigTextStyle;
 
-                var result = await notificationManager.RequestRequiredAccess(n).ConfigureAwait(false);
+                var result = await notificationManager.RequestRequiredAccess(n);
                 if (result != AccessState.Available)
                 {
                     await this.Alert("Invalid Permission: " + result);
                 }
                 else
                 {
-                    await notificationManager.Send(n).ConfigureAwait(false);
+                    await notificationManager.Send(n);
                     await this.Alert("Notification Sent");
                     await this.Navigation.PopAsync();
                 }
