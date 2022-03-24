@@ -24,50 +24,52 @@ namespace Sample.Create
             this.SetGeofence = this.NavigateCommand<LocationPage>(true);
             this.SetInterval = this.NavigateCommand<IntervalPage>(true);
             this.SetScheduleDate = this.NavigateCommand<SchedulePage>(true);
-
-            this.Send = new Command(async () =>
+            this.SetNoTrigger = new Command(() =>
             {
-                try
-                { 
-                    if (this.NotificationTitle.IsEmpty())
-                    {
-                        await this.Alert("Title is required");
-                        return;
-                    }
-                    if (this.NotificationMessage.IsEmpty())
-                    {
-                        await this.Alert("Message is required");
-                        return;
-                    }
+                State.CurrentNotification.ScheduleDate = null;
+                State.CurrentNotification.Geofence = null;
+                State.CurrentNotification.RepeatInterval = null;
+                this.TriggerDetails = null;
+                this.IsTriggerVisible = false;
+            });
 
-                    var n = State.CurrentNotification!;
-                    n.Title = this.NotificationTitle;
-                    n.Message = this.NotificationMessage;
-                    n.Thread = this.Thread;
-                    n.Channel = this.Channel;
-                    if (Int32.TryParse(this.Identifier, out var id))
-                        n.Id = id;
-                
-                    if (!this.Payload.IsEmpty())
-                    {
-                        n.Payload = new Dictionary<string, string> {
-                            { nameof(this.Payload), this.Payload }
-                        };
-                    }
-                    n.Android.UseBigTextStyle = this.UseAndroidBigTextStyle;
-
-                    await notificationManager.Send(n).ConfigureAwait(false);
-                    await this.Alert("Notification Sent");
-                    await this.Navigation.PopAsync();
-                }
-                catch (Exception ex)
+            this.Send = this.LoadingCommand(async () =>
+            {
+                if (this.NotificationTitle.IsEmpty())
                 {
-                    await this.Alert("Failed to send notification " + ex);
+                    await this.Alert("Title is required");
+                    return;
                 }
+                if (this.NotificationMessage.IsEmpty())
+                {
+                    await this.Alert("Message is required");
+                    return;
+                }
+
+                var n = State.CurrentNotification!;
+                n.Title = this.NotificationTitle;
+                n.Message = this.NotificationMessage;
+                n.Thread = this.Thread;
+                n.Channel = this.Channel;
+                if (Int32.TryParse(this.Identifier, out var id))
+                    n.Id = id;
+                
+                if (!this.Payload.IsEmpty())
+                {
+                    n.Payload = new Dictionary<string, string> {
+                        { nameof(this.Payload), this.Payload }
+                    };
+                }
+                n.Android.UseBigTextStyle = this.UseAndroidBigTextStyle;
+
+                await notificationManager.Send(n).ConfigureAwait(false);
+                await this.Alert("Notification Sent");
+                await this.Navigation.PopAsync();
             });
         }
 
 
+        public ICommand SetNoTrigger { get; }
         public ICommand SetScheduleDate { get; }
         public ICommand SetInterval { get; }
         public ICommand SetGeofence { get; }
@@ -130,11 +132,27 @@ namespace Sample.Create
         }
 
 
-        string channel;
+        string? channel;
         public string? Channel
         {
             get => this.channel;
             set => this.Set(ref this.channel, value);
+        }
+
+
+        string? triggerDetails;
+        public string? TriggerDetails
+        {
+            get => this.triggerDetails;
+            private set => this.Set(ref this.triggerDetails, value);
+        }
+
+
+        bool isTriggerVisible;
+        public bool IsTriggerVisible
+        {
+            get => this.isTriggerVisible;
+            private set => this.Set(ref this.isTriggerVisible, value);
         }
 
 
@@ -159,6 +177,35 @@ namespace Sample.Create
             this.Channels = (await this.notificationManager.GetChannels())
                 .Select(x => x.Identifier)
                 .ToArray();
+
+            this.IsTriggerVisible = true;
+            var n = State.CurrentNotification!;
+            if (n.ScheduleDate != null)
+            {
+                this.TriggerDetails = $"Scheduled: {n.ScheduleDate:MMM dd, yyyy hh:mm tt}";
+            }
+            else if (n.RepeatInterval != null)
+            {
+                var ri = n.RepeatInterval;
+
+                if (ri.Interval == null)
+                {
+                    this.TriggerDetails = $"Interval: {ri.DayOfWeek} Time: {ri.TimeOfDay}";
+                }
+                else
+                {
+                    this.TriggerDetails = $"Interval: {ri.Interval}";
+                }
+            }
+            else if (n.Geofence != null)
+            {
+                this.TriggerDetails = $"Location Aware: {n.Geofence.Center!.Latitude} / {n.Geofence.Center!.Longitude}";
+            }
+            else
+            {
+                this.TriggerDetails = null;
+                this.IsTriggerVisible = false;
+            }
         }
     }
 }

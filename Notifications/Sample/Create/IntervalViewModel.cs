@@ -10,6 +10,8 @@ namespace Sample.Create
     {
         public IntervalViewModel()
         {
+            this.Cancel = new Command(async () => await this.Navigation.PopModalAsync());
+
             this.Use = new Command(async () =>
             {
                 var trigger = new Shiny.Notifications.IntervalTrigger
@@ -28,17 +30,30 @@ namespace Sample.Create
             
             this.Days = Enum
                 .GetNames(typeof(DayOfWeek))
-                .Select((name, index) => (name, index))
+                .Select((name, index) => new Item(name, index))
                 .ToArray();
         }
 
 
         public ICommand Use { get; }
+        public ICommand Cancel { get; }
 
-        public (string Text, int Value)? SelectedDay { get; set; }
-        public (string Text, int Value)[] Days { get; }
+        public Item? SelectedDay { get; set; }
+        public Item[] Days { get; }
 
         public int TimeOfDayHour { get; set; } = 8;
         public int TimeOfDayMinutes { get; set; } = 0;
+    }
+
+
+    public struct Item
+    {
+        public Item(string text, int value)
+        {
+            this.Text = text;
+            this.Value = value;
+        }
+        public string Text { get; }
+        public int Value { get; }
     }
 }

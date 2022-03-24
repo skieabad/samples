@@ -11,6 +11,8 @@ namespace Sample
             // we inject our db so we can use it in our shiny background events to store them for display later
             services.AddSingleton<SampleSqliteConnection>();
 
+            // we need gps for sample in iOS
+            services.UseGps();
             services.UseNotifications<NotificationDelegate>();
         }
     }

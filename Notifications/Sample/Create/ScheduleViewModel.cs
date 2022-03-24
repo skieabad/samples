@@ -20,7 +20,7 @@ namespace Sample.Create
 
             this.Use = new Command(async () =>
             {
-                if (this.ScheduledTime < DateTime.Now)
+                if (this.ScheduledTime > DateTime.Now)
                 {
                     await this.Alert("Scheduled Date & Time must be in the future");
                     return;
@@ -29,7 +29,7 @@ namespace Sample.Create
                 State.CurrentNotification!.Geofence = null;
                 State.CurrentNotification!.RepeatInterval = null;
 
-                await this.Navigation.PopAsync();
+                await this.Navigation.PopModalAsync();
             });
 
         }

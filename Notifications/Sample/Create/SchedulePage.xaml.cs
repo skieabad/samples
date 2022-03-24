@@ -1,4 +1,6 @@
 ﻿using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 
 namespace Sample.Create
@@ -8,6 +10,7 @@ namespace Sample.Create
         public SchedulePage()
         {
             this.InitializeComponent();
+            this.On<iOS>().SetModalPresentationStyle(UIModalPresentationStyle.FormSheet);
         }
     }
 }

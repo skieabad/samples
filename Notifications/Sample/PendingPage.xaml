@@ -5,6 +5,7 @@
                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                           xmlns:sample="clr-namespace:Sample"
                           mc:Ignorable="d"
+                          NavigationPage.BackButtonTitle="Back"
                           x:DataType="sample:PendingViewModel"
                           x:Class="Sample.PendingPage"
                           Title="Pending">
