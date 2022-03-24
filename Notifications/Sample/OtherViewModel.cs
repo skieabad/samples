@@ -31,12 +31,12 @@ namespace Sample
 
             this.StartChat = this.LoadingCommand(async () => 
             {
-                await this.notifications.RemoveChannel("ChatRoom");
+                await this.notifications.RemoveChannel("ChatName");
                 await this.notifications.RemoveChannel("ChatAnswer");
 
                 await this.notifications.AddChannel(new Channel
                 {
-                    Identifier = "ChatRoom",
+                    Identifier = "ChatName",
                     Importance = ChannelImportance.Normal,
                     Actions =
                     {
