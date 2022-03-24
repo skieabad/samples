@@ -79,16 +79,17 @@ namespace Sample
         }
 
 
-        public override void OnAppearing()
+        public override async void OnAppearing()
         {
             base.OnAppearing();
-            this.Badge = this.notifications.Badge;
+            this.Badge = await this.notifications.GetBadge();
 
             this.sub = this.WhenAnyProperty(x => x.Badge)
                 .Skip(1)
                 .Throttle(TimeSpan.FromMilliseconds(500))
                 .DistinctUntilChanged()
-                .Subscribe(badge => this.notifications.Badge = badge);
+                .Select(x => Observable.FromAsync(() => this.notifications.SetBadge(x)))
+                .Subscribe();
         }
 
 
