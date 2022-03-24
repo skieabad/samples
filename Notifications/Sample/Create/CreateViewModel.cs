@@ -62,9 +62,17 @@ namespace Sample.Create
                 }
                 n.Android.UseBigTextStyle = this.UseAndroidBigTextStyle;
 
-                await notificationManager.Send(n).ConfigureAwait(false);
-                await this.Alert("Notification Sent");
-                await this.Navigation.PopAsync();
+                var result = await notificationManager.RequestRequiredAccess(n).ConfigureAwait(false);
+                if (result != AccessState.Available)
+                {
+                    await this.Alert("Invalid Permission: " + result);
+                }
+                else
+                {
+                    await notificationManager.Send(n).ConfigureAwait(false);
+                    await this.Alert("Notification Sent");
+                    await this.Navigation.PopAsync();
+                }
             });
         }
 
