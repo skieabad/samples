@@ -20,12 +20,12 @@ namespace Sample.Create
 
             this.Use = new Command(async () =>
             {
-                if (this.ScheduledTime > DateTime.Now)
+                if (this.ScheduledDateTime < DateTime.Now)
                 {
                     await this.Alert("Scheduled Date & Time must be in the future");
                     return;
                 }
-                State.CurrentNotification!.ScheduleDate = this.ScheduledTime;
+                State.CurrentNotification!.ScheduleDate = this.ScheduledDateTime;
                 State.CurrentNotification!.Geofence = null;
                 State.CurrentNotification!.RepeatInterval = null;
 
@@ -38,11 +38,6 @@ namespace Sample.Create
         public override void OnAppearing()
         {
             this.disposer = new CompositeDisposable();
-            Observable
-                .Interval(TimeSpan.FromSeconds(10))
-                .Where(_ => this.ScheduledTime < DateTimeOffset.Now)
-                .SubOnMainThread(_ => this.SelectedTime.Add(TimeSpan.FromSeconds(1)))
-                .DisposedBy(this.disposer);
 
             this.WhenAnyProperty(x => x.SelectedDate)
                 .Subscribe(_ => this.CalcDate())
@@ -73,17 +68,17 @@ namespace Sample.Create
         }
 
 
-        DateTime scheduledTime;
-        public DateTime ScheduledTime
+        DateTime scheduledDateTime;
+        public DateTime ScheduledDateTime
         {
-            get => this.scheduledTime;
-            private set => this.Set(ref this.scheduledTime, value);
+            get => this.scheduledDateTime;
+            private set => this.Set(ref this.scheduledDateTime, value);
         }
 
 
         void CalcDate()
         {
-            this.ScheduledTime = new DateTime(
+            this.ScheduledDateTime = new DateTime(
                 this.SelectedDate.Year,
                 this.SelectedDate.Month,
                 this.SelectedDate.Day,

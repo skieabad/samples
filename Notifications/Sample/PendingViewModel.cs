@@ -18,16 +18,16 @@ namespace Sample
 
             this.Load = this.LoadingCommand(async () =>
             {
-                var pending = await notifications.GetPending();
+                var pending = await notifications.GetPendingNotifications();
                 this.PendingList = pending
                     .Select(x => new CommandItem
                     {
                         Text = $"[{x.Id}] {x.Title}",
-                        //Detail = $"[{x.ScheduleDate.Value}] {x.Message}",
+                        Detail = this.GetDetails(x),
                         PrimaryCommand = new Command(async () =>
                         {
                             await notifications.Cancel(x.Id);
-                            this.Load.Execute(null);
+                            this.Load!.Execute(null);
                         })
                     })
                     .ToList();
@@ -49,6 +49,7 @@ namespace Sample
         public ICommand Clear { get; }
 
 
+
         IList<CommandItem> pending;
         public IList<CommandItem> PendingList
         {
@@ -65,6 +66,21 @@ namespace Sample
         {
             base.OnAppearing();
             this.Load.Execute(null);
+        }
+
+
+        string GetDetails(Notification notification)
+        {
+            if (notification.Geofence != null)
+                return $"Geofence Trigger: {notification.Geofence.Center!.Latitude} / {notification.Geofence.Center!.Longitude}";
+
+            if (notification.RepeatInterval != null)
+                return $"Interval Trigger: {notification.RepeatInterval.DayOfWeek} - Hour: {notification.RepeatInterval.TimeOfDay}";
+
+            if (notification.ScheduleDate != null)
+                return $"Schedule Trigger: {notification.ScheduleDate}";
+
+            return "No Trigger";
         }
     }
 }
