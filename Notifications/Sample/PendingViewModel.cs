@@ -33,11 +33,11 @@ namespace Sample
                     .ToList();
             });
 
-            this.Clear = this.ConfirmCommand(
-                "Clear All Pending Notifications?",
+            this.CancelAll = this.ConfirmCommand(
+                "Cancel All Notifications?",
                 async () =>
                 {
-                    await notifications.Clear();
+                    await notifications.Cancel();
                     this.Load.Execute(null);
                 }
             );
@@ -46,7 +46,7 @@ namespace Sample
 
         public ICommand Load { get; }
         public ICommand Create { get; }
-        public ICommand Clear { get; }
+        public ICommand CancelAll { get; }
 
 
 

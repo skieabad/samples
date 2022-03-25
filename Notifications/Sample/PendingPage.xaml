@@ -40,8 +40,8 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Button Text="Clear"
-                    Command="{Binding Clear}" 
+            <Button Text="Cancel All"
+                    Command="{Binding CancelAll}" 
                     Grid.Row="1" />
         </Grid>
     </ContentPage.Content>
