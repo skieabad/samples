@@ -17,7 +17,10 @@
 
                 <Label Text="Longitude" />
                 <Entry Text="{Binding Longitude}" />
-            
+
+                <Label Text="Radius (meters)" />
+                <Entry Text="{Binding Radius}" />
+
                 <Button Text="Set Current Location"
                         Command="{Binding SetCurrentLocation}" />
 

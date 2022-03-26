@@ -21,16 +21,13 @@ namespace Sample
 
         public async Task OnEntry(NotificationResponse response)
         {
-            //var @event = new NotificationEvent
-            //{
-            //    NotificationId = response.Notification.Id,
-            //    NotificationTitle = response.Notification.Title ?? response.Notification.Message,
-            //    Action = response.ActionIdentifier,
-            //    ReplyText = response.Text,
-            //    Timestamp = DateTime.Now
-            //};
-            //await this.conn.InsertAsync(@event);
-            //this.messageBus.Publish(@event);
+            var @event = new ShinyEvent
+            {
+                Text = $"[Entry] {response.Notification.Title ?? response.Notification.Message}",
+                Detail = $"Action: {response.ActionIdentifier} - Reply: {response.Text}",
+                Timestamp = DateTime.Now
+            };
+            await this.conn.InsertAsync(@event);
 
             await this.DoChat(response);
         }

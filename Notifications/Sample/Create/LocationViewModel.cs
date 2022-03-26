@@ -19,6 +19,11 @@ namespace Sample.Create
 
             this.Use = new Command(async () =>
             {
+                if (this.Radius < 150 || this.Radius > 5000)
+                {
+                    await this.Alert("Radius must be between 150-5000 meters");
+                    return;
+                }
                 State.CurrentNotification!.RepeatInterval = null;
                 State.CurrentNotification!.ScheduleDate = null;
 
@@ -28,7 +33,7 @@ namespace Sample.Create
                         this.Latitude,
                         this.Longitude
                     ),
-                    Radius = Distance.FromMeters(300),
+                    Radius = Distance.FromMeters(this.Radius),
                     Repeat = true
                 };
                 await this.Navigation.PopModalAsync();
@@ -72,6 +77,14 @@ namespace Sample.Create
         {
             get => this.longitude;
             set => this.Set(ref this.longitude, value);
+        }
+
+
+        int radius = 1000;
+        public int Radius
+        {
+            get => this.radius;
+            set => this.Set(ref this.radius, value);
         }
     }
 }
