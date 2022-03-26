@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FirebaseAdmin" Version="2.3.0" />
+		<PackageReference Include="Microsoft.Azure.NotificationHubs" Version="4.1.0" />
+		<PackageReference Include="Refit" Version="6.3.2" />
+		<PackageReference Include="Shiny.Extensions.Push" Version="1.1.0.60" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+	</ItemGroup>
+
+</Project>
