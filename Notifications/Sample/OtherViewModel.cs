@@ -89,6 +89,7 @@ namespace Sample
                 .Throttle(TimeSpan.FromMilliseconds(500))
                 .DistinctUntilChanged()
                 .Select(x => Observable.FromAsync(() => this.notifications.SetBadge(x)))
+                .Switch()
                 .Subscribe();
         }
 
