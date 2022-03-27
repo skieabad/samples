@@ -13,9 +13,7 @@ builder.Services.AddPushManagement(x => x
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-builder.Services.Configure<AzureConfig>(builder.Configuration);
-builder.Services.Configure<OneSignalConfig>(builder.Configuration);
+builder.Services.Configure<PushConfig>(builder.Configuration);
 
 var app = builder.Build();
 
