@@ -11,7 +11,7 @@ using Android.Content;
 namespace Sample.Droid
 {
     [Activity(
-        Label = "Sample",
+        Label = "GPS",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
