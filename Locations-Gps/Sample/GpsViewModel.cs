@@ -4,7 +4,6 @@ using System.Reactive.Disposables;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
 using System.Threading.Tasks;
-
 using Shiny;
 using Shiny.Locations;
 using Xamarin.Forms;
@@ -28,10 +27,7 @@ namespace Sample
             var mode = l?.BackgroundMode ?? GpsBackgroundMode.None;
             this.UseBackground = mode != GpsBackgroundMode.None;
             this.UseRealtime = mode == GpsBackgroundMode.Realtime;
-            this.Priority = l?.Priority ?? GpsPriority.Normal;
-            this.DesiredInterval = l?.Interval.TotalSeconds.ToString() ?? String.Empty;
-            this.ThrottledInterval = l?.ThrottledInterval?.TotalSeconds.ToString() ?? String.Empty;
-            this.MinimumDistanceMeters = l?.MinimumDistance?.TotalMeters.ToString() ?? String.Empty;
+            this.Accuracy = l?.Accuracy ?? GpsAccuracy.Normal;
 
             this.NotificationTitle = manager.Title;
             this.NotificationMessage = manager.Message;
@@ -40,15 +36,17 @@ namespace Sample
             this.GetLastReading = this.CreateOneReading(LocationRetrieve.Last);
             this.GetLastOrCurrent = this.CreateOneReading(LocationRetrieve.LastOrCurrent);
 
-            this.SelectPriority = new Command(async () =>
+            this.SelectAccuracy = new Command(async () =>
             {
                 var choice = await this.Choose(
-                    "Select Priority",
-                    GpsPriority.Highest.ToString(),
-                    GpsPriority.Normal.ToString(),
-                    GpsPriority.Low.ToString()
+                    "Select Accuracy",
+                    GpsAccuracy.Highest.ToString(),
+                    GpsAccuracy.High.ToString(),
+                    GpsAccuracy.Normal.ToString(),
+                    GpsAccuracy.Low.ToString(),
+                    GpsAccuracy.Lowest.ToString()
                 );
-                this.Priority = (GpsPriority)Enum.Parse(typeof(GpsPriority), choice);
+                this.Accuracy = (GpsAccuracy)Enum.Parse(typeof(GpsAccuracy), choice);
             });
 
 
@@ -76,17 +74,8 @@ namespace Sample
                         var request = new GpsRequest
                         {
                             BackgroundMode = this.GetMode(),
-                            Priority = this.Priority,
+                            Accuracy = this.Accuracy,
                         };
-                        if (IsNumeric(this.DesiredInterval))
-                            request.Interval = ToInterval(this.DesiredInterval);
-
-                        if (IsNumeric(this.ThrottledInterval))
-                            request.ThrottledInterval = ToInterval(this.ThrottledInterval);
-
-                        if (IsNumeric(this.MinimumDistanceMeters))
-                            request.MinimumDistance = Distance.FromMeters(Int32.Parse(this.MinimumDistanceMeters));
-
                         try
                         {
                             await this.manager.StartListener(request);
@@ -97,22 +86,6 @@ namespace Sample
                         }
                     }
                     this.IsUpdating = this.manager.CurrentListener != null;
-                },
-                () =>
-                {
-
-                    var isdesired = IsNumeric(this.DesiredInterval);
-                    var isthrottled = IsNumeric(this.ThrottledInterval);
-                    var ismindist = IsNumeric(this.MinimumDistanceMeters);
-
-                    if (isdesired && isthrottled)
-                    {
-                        var desired = ToInterval(this.DesiredInterval);
-                        var throttle = ToInterval(this.ThrottledInterval);
-                        if (throttle.TotalSeconds >= desired.TotalSeconds)
-                            return false;
-                    }
-                    return true;
                 }
             );
 
@@ -163,7 +136,7 @@ namespace Sample
         }
 
 
-        public Command SelectPriority { get; }
+        public Command SelectAccuracy { get; }
         public Command GetLastReading { get; }
         public Command GetCurrentPosition { get; }
         public Command GetLastOrCurrent { get; }
@@ -211,32 +184,11 @@ namespace Sample
         }
 
 
-        GpsPriority priority = GpsPriority.Normal;
-        public GpsPriority Priority
+        GpsAccuracy accuracy = GpsAccuracy.Normal;
+        public GpsAccuracy Accuracy
         {
-            get => this.priority;
-            set => this.Set(ref this.priority, value);
-        }
-
-        string dInt;
-        public string DesiredInterval
-        {
-            get => this.dInt;
-            set => this.Set(ref this.dInt, value);
-        }
-
-        string thrInt;
-        public string ThrottledInterval
-        {
-            get => this.thrInt;
-            set => this.Set(ref this.thrInt, value);
-        }
-
-        string minDist;
-        public string MinimumDistanceMeters
-        {
-            get => this.minDist;
-            set => this.Set(ref this.minDist, value);
+            get => this.accuracy;
+            set => this.Set(ref this.accuracy, value);
         }
 
         string access;

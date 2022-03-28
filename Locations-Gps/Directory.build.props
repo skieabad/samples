@@ -2,7 +2,7 @@
     <PropertyGroup>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <ShinyVersion>2.5.0.3008-preview</ShinyVersion>
-		<DebugDirectory>C:\dev\shiny\shiny2\src</DebugDirectory>
+        <ShinyVersion>2.5.0-preview.3062</ShinyVersion>
+		<DebugDirectory>../../../shiny/src</DebugDirectory>
     </PropertyGroup>
 </Project>

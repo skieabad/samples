@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sample="clr-namespace:Sample"
-                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
                           x:DataType="sample:GpsViewModel"
                           x:Class="Sample.GpsPage"
                           Title="Setup">
@@ -60,22 +59,8 @@
                                         On="{Binding UseRealtime}" />
 
                             <TextCell Text="Priority/Accuracy"
-                                      Detail="{Binding Priority}"
-                                      Command="{Binding SelectPriority}"/>
-
-                            <TextCell Text="The OS will try to provide values at this speed if available (but faster if it can)" />
-                            <EntryCell Label="Desired Interval (secs)"
-                                       Text="{Binding DesiredInterval}"
-                                       Keyboard="Numeric" />
-
-                            <TextCell Text="The OS will not ping your delegate faster than this value" />
-                            <EntryCell Label="Throttled Interval (secs)"
-                                       Text="{Binding ThrottledInterval}"
-                                       Keyboard="Numeric" />
-
-                            <EntryCell Label="Minimum Distance (meters)"
-                                       Text="{Binding MinimumDistanceMeters}"
-                                       Keyboard="Numeric" />
+                                      Detail="{Binding Accuracy}"
+                                      Command="{Binding SelectAccuracy}"/>
                         </TableSection>
                     </TableRoot>
                 </TableView>
@@ -86,4 +71,4 @@
             </Grid>
         </RefreshView>
     </ContentPage.Content>
-</shared:SampleContentPage>
+</sample:SampleContentPage>
