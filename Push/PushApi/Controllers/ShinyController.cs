@@ -19,7 +19,7 @@ public class ShinyController : ControllerBase
     }
 
 
-    [HttpPost]
+    [HttpPost("send")]
     public async Task<ActionResult> Send([FromBody] ShinySendArgs args)
     {
         await this.pushManager.Send(
@@ -39,7 +39,7 @@ public class ShinyController : ControllerBase
         => this.DoRegister(true, platform, deviceToken);
 
 
-    [HttpPost]
+    [HttpPost("unregister/{platform}/{deviceToken}")]
     public Task<ActionResult> UnRegister(string platform, string deviceToken)
         => this.DoRegister(false, platform, deviceToken);
 
