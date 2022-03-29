@@ -2,7 +2,6 @@ namespace PushApi.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-
 using PushApi.Contracts;
 using PushApi.Infrastructure;
 

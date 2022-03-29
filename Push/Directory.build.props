@@ -4,9 +4,10 @@
         <Nullable>enable</Nullable>
         <ShinyVersion>2.5.0.3008-preview</ShinyVersion>
 		<DebugDirectory>../../../shiny/src</DebugDirectory>
-		<PushProvider>azure</PushProvider><!--valid entries are blank (native), onesignal, firebase, & azure-->
+		<UseNuget>false</UseNuget>
+		<PushProvider></PushProvider><!--valid entries are blank (native), onesignal, firebase, & azure-->
     </PropertyGroup>
-
+	
 	<PropertyGroup Condition="$(PushProvider) == ''">
 		<DefineConstants>$(DefineConstants);NATIVE</DefineConstants>
 	</PropertyGroup>
@@ -22,4 +23,8 @@
 	<PropertyGroup Condition="$(PushProvider) == 'azure'">
 		<DefineConstants>$(DefineConstants);AZURE</DefineConstants>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+	</ItemGroup>
 </Project>
