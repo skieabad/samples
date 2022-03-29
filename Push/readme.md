@@ -23,5 +23,7 @@ Make sure to enter the appropriate values under appsettings.json (OneSignalAppId
 
 
 ## Bad Practices
-This sample uses several bad practices for the sake of the sample.  It includes appsettings.json (secrets) & the firebase config files.  I have blanked them out for the sake of my own keys not being stolen, but they should always be excluded from
-your GIT repository and only inserted at build time
+This sample uses several bad practices for the sake of the sample!!  
+
+* It includes appsettings.json (secrets) & the firebase config files.  I have blanked them out for the sake of my own keys not being stolen, but they should always be excluded from your GIT repository and only inserted at build time.
+* appsettings.json also contains both server and client side configurations.  Server side vars should obviously NOT be deployed to your client/mobile apps
