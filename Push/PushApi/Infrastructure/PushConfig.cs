@@ -1,13 +1,25 @@
-﻿namespace PushApi.Infrastructure;
+﻿using Shiny.Extensions.Push;
+
+namespace PushApi.Infrastructure;
 
 public class PushConfig
 {
-    public string OneSignalApiKey { get; set; }
+    public OneSignalConfig OneSignal { get; set; }
+    public AzureNotificationHubConfig AzureNotificationHubs { get; set; }
 
-    public string AzureNotificationHubsListenerConnectionString { get; set; }
-    public string AzureNotificationHubsHubName { get; set; }
+    public GoogleConfiguration Google { get; set; }
+    public AppleConfiguration Apple { get; set; }
 }
-  //"OneSignalAppId": "",
-  //"AzureNotificationHubsListenerConnectionString": "",
-  //"AzureNotificationHubsFullConnectionString": "",
-  //"AzureNotificationHubsHubName": ""
+
+public class OneSignalConfig
+{
+    public string ApiKey { get; set; }
+    //public string AppId { get; set; }
+}
+
+public class AzureNotificationHubConfig
+{
+    public string FullConnectionString { get; set; }
+    public string ListenerConnectionString { get; set; }
+    public string HubName { get; set; }
+}

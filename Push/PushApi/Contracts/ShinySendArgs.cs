@@ -3,7 +3,7 @@
 using Shiny.Extensions.Push;
 
 
-public class SendArgs
+public class ShinySendArgs
 {
     public string Title { get; set; }
     public string Message { get; set; }

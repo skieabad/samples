@@ -17,12 +17,12 @@ namespace Sample
 #if AZURE
             
             services.UsePushAzureNotificationHubs<MyPushDelegate>(
-                config["AzureNotificationHubsListenerConnectionString"],
-                config["AzureNotificationHubsHubName"]
+                config["AzureNotificationHubs:ListenerConnectionString"],
+                config["AzureNotificationHubs:HubName"]
             );
 #elif ONESIGNAL
             
-            services.UseOneSignalPush<MyPushDelegate>(config["OneSignalAppId"]);
+            services.UseOneSignalPush<MyPushDelegate>(config["OneSignal:AppId"]);
 #elif FIREBASE
             services.UseFirebaseMessaging<MyPushDelegate>();
 #else

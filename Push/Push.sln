@@ -12,7 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8F76E178-020F-4AC5-A872-AB051DF69DEC}"
 	ProjectSection(SolutionItems) = preProject
 		appsettings.json = appsettings.json
-		buildtools.json = buildtools.json
 		Directory.build.props = Directory.build.props
 		Directory.build.targets = Directory.build.targets
 		google-services.json = google-services.json
@@ -34,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.OneSignal", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.AzureNotificationHubs", "..\..\shiny\src\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj", "{F6EFE9B1-CA95-42BD-9370-EF423475DB74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PushApi", "PushApi\PushApi.csproj", "{04EF0B2F-0BB4-4261-8244-7EE3AFFB2101}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PushApi", "PushApi\PushApi.csproj", "{04EF0B2F-0BB4-4261-8244-7EE3AFFB2101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -20,7 +20,7 @@ public class ShinyController : ControllerBase
 
 
     [HttpPost]
-    public async Task<ActionResult> Send([FromBody] SendArgs args)
+    public async Task<ActionResult> Send([FromBody] ShinySendArgs args)
     {
         await this.pushManager.Send(
             new Notification

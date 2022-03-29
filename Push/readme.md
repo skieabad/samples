@@ -14,12 +14,11 @@ This was designed to show how simple it is to swap between providers with Shiny
 If using firebase on iOS, copy your GoogleService-Info.plist to the solution root
 
 ## Azure Notification Hubs & OneSignal
-Make sure to enter the appropriate values under appsettings.json (OneSignalAppId or the Azure variables)
+Make sure to enter the appropriate values under appsettings.json (OneSignal/AppId or the Azure variables)
 
 ## 3rd Party Libs
 * [Xamarin Forms](https://github.com/xamarin/xamarin.forms) - The cross platform library for .NET that we all know and love
 * [SQLite.NET](https://github.com/praeclarum/sqlite-net) - An open source SQLite lightweight object relational mapper to store & read our background events
-* [Mobile Build Tools](https://mobilebuildtools.com/) - This is an awesome open source library by Dan Siegel for compiling with secrets like a connection string or token
 
 
 ## Bad Practices

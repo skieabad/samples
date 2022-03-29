@@ -88,7 +88,7 @@
                     query = query.Where(x => x.DeviceToken.Equals(filter.DeviceToken));
 
                 if (!String.IsNullOrWhiteSpace(filter.UserId))
-                    query = query.Where(x => x.UserId?.Equals(filter.UserId) ?? false);
+                    query = query.Where(x => x.UserId == filter.UserId);
 
             }
             return this.registrations.AsEnumerable();
