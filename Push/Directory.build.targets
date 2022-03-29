@@ -1,14 +1,7 @@
 <Project>
+
 	<Choose>
-		<When Condition="'$(UseNuget)' == 'true'">
-			<ItemGroup>
-				<PackageReference Include="Shiny.Push" Version="$(ShinyVersion)" Condition="'$(PushProvider)' == ''" />
-				<PackageReference Include="Shiny.Push.AzureNotificationHubs" Version="$(ShinyVersion)" Condition="'$(PushProvider)' == 'azure'"/>
-				<PackageReference Include="Shiny.Push.FirebaseMessaging" Version="$(ShinyVersion)" Condition="'$(PushProvider)' == 'firebase'"/>
-				<PackageReference Include="Shiny.Push.OneSignal" Version="$(ShinyVersion)" Condition="'$(PushProvider)' == 'onesignal'"/>
-			</ItemGroup>
-		</When>
-		<Otherwise>
+		<When Condition="'$(UseNuget)' != 'true'">
 			<ItemGroup>
 				<ProjectReference Include="$(DebugDirectory)\Shiny.Core\Shiny.Core.csproj">
 					<Name>Shiny.Core</Name>
@@ -16,20 +9,77 @@
 				<ProjectReference Include="$(DebugDirectory)\Shiny.Push.Common\Shiny.Push.Common.csproj">
 					<Name>Shiny.Push.Common</Name>
 				</ProjectReference>
-				<ProjectReference Include="$(DebugDirectory)\Shiny.Push\Shiny.Push.csproj" Condition="'$(PushProvider)' == ''">
-					<Name>Shiny.Push</Name>
-				</ProjectReference>
-				<ProjectReference Include="$(DebugDirectory)\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj" Condition="'$(PushProvider)' == 'azure'">
-					<Name>Shiny.Push.AzureNotificationHubs</Name>
-				</ProjectReference>
-				<ProjectReference Include="$(DebugDirectory)\Shiny.Push.FirebaseMessaging\Shiny.Push.FirebaseMessaging.csproj" Condition="'$(PushProvider)' == 'firebase'">
-					<Name>Shiny.Push.FirebaseMessaging</Name>
-				</ProjectReference>
-				<ProjectReference Include="$(DebugDirectory)\Shiny.Push.OneSignal\Shiny.Push.OneSignal.csproj" Condition="'$(PushProvider)' == 'onesignal'">
-					<Name>Shiny.Push.OneSignal</Name>
-				</ProjectReference>
 			</ItemGroup>
-		</Otherwise>
+		</When>
 	</Choose>
-
+	
+	<Choose>
+		<When Condition="'$(PushProvider)' == ''">
+			<Choose>
+				<When Condition="'$(UseNuget)' == 'true'">
+					<ItemGroup>
+						<PackageReference Include="Shiny.Push" Version="$(ShinyVersion)" />
+					</ItemGroup>
+				</When>
+				<Otherwise>
+					<ItemGroup>
+						<ProjectReference Include="$(DebugDirectory)\Shiny.Push\Shiny.Push.csproj" Condition="'$(PushProvider)' == ''">
+							<Name>Shiny.Push</Name>
+						</ProjectReference>
+					</ItemGroup>
+				</Otherwise>
+			</Choose>			
+		</When>
+		
+		<When Condition="'$(PushProvider)' == 'azure'">
+			<Choose>
+				<When Condition="'$(UseNuget)' == 'true'">
+					<ItemGroup>
+						<PackageReference Include="Shiny.Push.AzureNotificationHubs" Version="$(ShinyVersion)" />
+					</ItemGroup>
+				</When>
+				<Otherwise>
+					<ItemGroup>
+						<ProjectReference Include="$(DebugDirectory)\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj">
+							<Name>Shiny.Push.AzureNotificationHubs</Name>
+						</ProjectReference>
+					</ItemGroup>
+				</Otherwise>
+			</Choose>
+		</When>
+	
+		<When Condition="'$(PushProvider)' == 'firebase'">
+			<Choose>
+				<When Condition="'$(UseNuget)' == 'true'">
+					<ItemGroup>
+						<PackageReference Include="Shiny.Push.FirebaseMessaging" Version="$(ShinyVersion)" />
+					</ItemGroup>
+				</When>
+				<Otherwise>
+					<ItemGroup>
+						<ProjectReference Include="$(DebugDirectory)\Shiny.Push.FirebaseMessaging\Shiny.Push.FirebaseMessaging.csproj">
+							<Name>Shiny.Push.FirebaseMessaging</Name>
+						</ProjectReference>
+					</ItemGroup>
+				</Otherwise>
+			</Choose>
+		</When>
+	
+		<When Condition="'$(PushProvider)' == 'onesignal'">
+			<Choose>
+				<When Condition="'$(UseNuget)' == 'true'">
+					<ItemGroup>
+						<PackageReference Include="Shiny.Push.OneSignal" Version="$(ShinyVersion)" />
+					</ItemGroup>
+				</When>
+				<Otherwise>
+					<ItemGroup>
+						<ProjectReference Include="$(DebugDirectory)\Shiny.Push.OneSignal\Shiny.Push.OneSignal.csproj">
+							<Name>Shiny.Push.OneSignal</Name>
+						</ProjectReference>
+					</ItemGroup>
+				</Otherwise>
+			</Choose>
+		</When>
+	</Choose>
 </Project>
