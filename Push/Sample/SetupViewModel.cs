@@ -19,6 +19,8 @@ namespace Sample
             {
                 var result = await this.pushManager.RequestAccess();
                 this.AccessStatus = result.Status;
+#if NATIVE
+#endif
                 this.Refresh();
             });
 
@@ -26,6 +28,8 @@ namespace Sample
             {
                 await this.pushManager.UnRegister();
                 this.AccessStatus = AccessState.Disabled;
+#if NATIVE
+#endif
                 this.Refresh();
             });
 

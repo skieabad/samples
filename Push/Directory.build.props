@@ -7,6 +7,10 @@
 		<PushProvider>azure</PushProvider><!--valid entries are blank (native), onesignal, firebase, & azure-->
     </PropertyGroup>
 
+	<PropertyGroup Condition="$(PushProvider) == ''">
+		<DefineConstants>$(DefineConstants);NATIVE</DefineConstants>
+	</PropertyGroup>
+
 	<PropertyGroup Condition="$(PushProvider) == 'onesignal'">
 		<DefineConstants>$(DefineConstants);ONESIGNAL</DefineConstants>
 	</PropertyGroup>
