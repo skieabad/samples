@@ -17,7 +17,7 @@ namespace Sample
             this.pushManager = pushManager;
         }
 
-        public Task OnEntry(PushNotificationResponse push)
+        public Task OnEntry(PushNotification push)
             => this.Insert("PUSH ENTRY");
 
         public Task OnReceived(PushNotification push)
