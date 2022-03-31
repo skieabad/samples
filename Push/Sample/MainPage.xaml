@@ -23,21 +23,12 @@
             </ContentPage.IconImageSource>
         </sample:SetupPage>
 
-        <!--
         <sample:TagsPage>
             <ContentPage.IconImageSource>
                 <FontImageSource Glyph="&#xf013;"
                                  FontFamily="FAS" />
             </ContentPage.IconImageSource>
         </sample:TagsPage>
-
-        <sample:SendPage>
-            <ContentPage.IconImageSource>
-                <FontImageSource Glyph="&#xf013;"
-                                 FontFamily="FAS" />
-            </ContentPage.IconImageSource>
-        </sample:SendPage>
-        -->
 
         <sample:LogsPage>
             <ContentPage.IconImageSource>

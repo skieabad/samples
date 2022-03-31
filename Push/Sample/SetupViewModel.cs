@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using Shiny;
 using Shiny.Push;
-
+using Xamarin.Forms;
 
 namespace Sample
 {
@@ -32,8 +32,6 @@ namespace Sample
 #endif
                 this.Refresh();
             });
-
-            this.Refresh();
         }
 
 
