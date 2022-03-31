@@ -12,7 +12,7 @@ namespace Sample
     {
         public TagsViewModel()
         {
-            var push = (IPushTagSupport)ShinyHost.Resolve<IPushManager>();
+            var push = ShinyHost.Resolve<IPushManager>() as IPushTagSupport;
 
             this.Add = new Command(async () =>
             {
