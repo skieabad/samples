@@ -34,12 +34,12 @@ public class ShinyController : ControllerBase
     }
 
 
-    [HttpPost("register/{platform}/{deviceToken}")]
+    [HttpGet("register/{platform}/{deviceToken}")]
     public Task<ActionResult> Register(string platform, string deviceToken)
         => this.DoRegister(true, platform, deviceToken);
 
 
-    [HttpPost("unregister/{platform}/{deviceToken}")]
+    [HttpGet("unregister/{platform}/{deviceToken}")]
     public Task<ActionResult> UnRegister(string platform, string deviceToken)
         => this.DoRegister(false, platform, deviceToken);
 

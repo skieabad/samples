@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows.Input;
+using Microsoft.Extensions.Configuration;
+using Sample.Infrastructure;
 using Shiny;
 using Shiny.Push;
-using Xamarin.Forms;
+
 
 namespace Sample
 {
@@ -14,23 +16,28 @@ namespace Sample
         public SetupViewModel()
         {
             this.pushManager = ShinyHost.Resolve<IPushManager>();
+            var config = ShinyHost.Resolve<IConfiguration>();
 
             this.RequestAccess = this.LoadingCommand(async () =>
             {
                 var result = await this.pushManager.RequestAccess();
                 this.AccessStatus = result.Status;
-#if NATIVE
-#endif
                 this.Refresh();
+#if NATIVE
+                if (this.AccessStatus == AccessState.Available)
+                    await SampleApi.Current.Register(result.RegistrationToken!);
+#endif
             });
 
             this.UnRegister = this.LoadingCommand(async () =>
             {
+                var deviceToken = this.pushManager.CurrentRegistrationToken;
                 await this.pushManager.UnRegister();
                 this.AccessStatus = AccessState.Disabled;
-#if NATIVE
-#endif
                 this.Refresh();
+#if NATIVE
+                await SampleApi.Current.UnRegister(deviceToken!);
+#endif
             });
         }
 
@@ -74,7 +81,6 @@ namespace Sample
 
         void Refresh()
         {
-            //this.UnRegister.ChangeCanExecute();
             this.RegToken = this.pushManager.CurrentRegistrationToken ?? "-";
             this.RegDate = this.pushManager.CurrentRegistrationTokenDate?.ToLocalTime();
         }
