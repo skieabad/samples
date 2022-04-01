@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Extensions.Configuration;
 using Sample.Infrastructure;
@@ -25,7 +26,7 @@ namespace Sample
                 this.Refresh();
 #if NATIVE
                 if (this.AccessStatus == AccessState.Available)
-                    await SampleApi.Current.Register(result.RegistrationToken!);
+                    await this.Try(() => SampleApi.Current.Register(result.RegistrationToken!));
 #endif
             });
 
@@ -36,7 +37,7 @@ namespace Sample
                 this.AccessStatus = AccessState.Disabled;
                 this.Refresh();
 #if NATIVE
-                await SampleApi.Current.UnRegister(deviceToken!);
+                await this.Try(() => SampleApi.Current.UnRegister(deviceToken!));
 #endif
             });
         }
@@ -83,6 +84,19 @@ namespace Sample
         {
             this.RegToken = this.pushManager.CurrentRegistrationToken ?? "-";
             this.RegDate = this.pushManager.CurrentRegistrationTokenDate?.ToLocalTime();
+        }
+
+
+        async Task Try(Func<Task> taskFunc)
+        {
+            try
+            {
+                await taskFunc();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }
