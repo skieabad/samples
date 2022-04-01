@@ -1,4 +1,7 @@
 ﻿using Foundation;
+
+using Microsoft.Extensions.Configuration;
+
 using Shiny;
 using System;
 using UIKit;
@@ -13,7 +16,17 @@ namespace Sample.iOS
     {
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			this.ShinyFinishedLaunching(new Startup());
+			this.ShinyFinishedLaunching(new Startup
+            {
+#if FIREBASE
+                // if you want to try initialization with straight config vars instead of a google-services.json - set the Firebase node in config and switch some comments in Startup.cs
+                RegisterPlatform = (services, config) =>
+                {
+                    var cfg = config.GetSection("Firebase").Get<Shiny.Push.FirebaseMessaging.FirebaseConfiguration>() ?? throw new ArgumentException("Missing Firebase configuration");
+                    services.UsePush<MyPushDelegate>(cfg);
+                }
+#endif
+            });
 			Forms.Init();
 			this.LoadApplication(new App());
 			return base.FinishedLaunching(app, options);
