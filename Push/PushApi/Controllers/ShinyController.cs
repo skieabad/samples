@@ -1,8 +1,7 @@
+namespace PushApi.Controllers;
 
 using Microsoft.AspNetCore.Mvc;
-
 using PushApi.Contracts;
-
 using Shiny.Extensions.Push;
 
 

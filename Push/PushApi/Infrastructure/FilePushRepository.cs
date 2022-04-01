@@ -27,7 +27,7 @@
             else
             {
                 var json = File.ReadAllText(this.fileInfo.FullName);
-                if (String.IsNullOrWhiteSpace(json))
+                if (!String.IsNullOrWhiteSpace(json))
                     this.registrations = JsonConvert.DeserializeObject<List<PushRegistration>>(json);
             }
             this.registrations ??= new List<PushRegistration>();
@@ -91,7 +91,8 @@
                     query = query.Where(x => x.UserId == filter.UserId);
 
             }
-            return this.registrations.AsEnumerable();
+            var result = this.registrations.ToList();
+            return result;
         }
     }
 }
