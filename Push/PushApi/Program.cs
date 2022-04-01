@@ -41,7 +41,6 @@ app.UseSwaggerUI(x =>
     x.SwaggerEndpoint("/swagger/v1/swagger.json", "Push Sample v1")
 );
 app.UseSwagger();
-app.UseHttpsRedirection();
 app.MapControllers();
 
 app.Run();

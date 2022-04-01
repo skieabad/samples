@@ -46,12 +46,12 @@ public class ShinyController : ControllerBase
 
     async Task<ActionResult> DoRegister(bool register, string platform, string deviceToken)
     {
-        var plat = Enum.Parse<PushPlatforms>(platform);
+        var plat = Enum.Parse<PushPlatforms>(platform, true);
 
         var task = register 
             ? this.pushManager.Register(new PushRegistration
             {
-                Platform = Enum.Parse<PushPlatforms>(platform),
+                Platform = plat,
                 DeviceToken = deviceToken
             }) 
             : this.pushManager.UnRegister(plat, deviceToken);
