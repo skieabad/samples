@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Microsoft.Extensions.Configuration;
 using Sample.Infrastructure;
 using Shiny;
 using Shiny.Push;
+using Xamarin.Forms;
 
 
 namespace Sample
@@ -12,12 +12,13 @@ namespace Sample
     public class SetupViewModel : ViewModel
     {
         readonly IPushManager pushManager;
+        readonly SampleApi apiClient;
 
 
         public SetupViewModel()
         {
             this.pushManager = ShinyHost.Resolve<IPushManager>();
-            var config = ShinyHost.Resolve<IConfiguration>();
+            this.apiClient = ShinyHost.Resolve<SampleApi>();
 
             this.RequestAccess = this.LoadingCommand(async () =>
             {
@@ -26,7 +27,7 @@ namespace Sample
                 this.Refresh();
 #if NATIVE
                 if (this.AccessStatus == AccessState.Available)
-                    await this.Try(() => SampleApi.Current.Register(result.RegistrationToken!));
+                    await this.Try(() => this.apiClient.Register(result.RegistrationToken!));
 #endif
             });
 
@@ -37,17 +38,24 @@ namespace Sample
                 this.AccessStatus = AccessState.Disabled;
                 this.Refresh();
 #if NATIVE
-                await this.Try(() => SampleApi.Current.UnRegister(deviceToken!));
+                await this.Try(() => this.apiClient.UnRegister(deviceToken!));
 #endif
+            });
+
+            this.ResetBaseUri = new Command(() =>
+            {
+                this.apiClient.Reset();
+                this.RaisePropertyChanged(nameof(this.BaseUri));
             });
         }
 
 
         public ICommand RequestAccess { get; }
         public ICommand UnRegister { get; }
-
+        public ICommand ResetBaseUri { get; }
         public bool IsTagsSupported => this.pushManager.IsTagsSupport();
         public string Implementation => this.pushManager.GetType().FullName;
+
 
         string regToken;
         public string RegToken
@@ -71,6 +79,19 @@ namespace Sample
             get => this.access;
             private set => this.Set(ref this.access, value);
         }
+
+
+        public string BaseUri
+        {
+            get => this.apiClient.BaseUri;
+            set => this.apiClient.BaseUri = value;
+        }
+
+#if NATIVE
+        public bool IsNative => true;
+#else
+        public bool IsNative => false;
+#endif
 
 
         public override void OnAppearing()

@@ -1,33 +1,37 @@
 ﻿using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using Refit;
 using Shiny;
 
 
 namespace Sample.Infrastructure
 {
-    public class SampleApi
+    public class SampleApi : NotifyPropertyChanged
     {
-        readonly ISampleApi apiClient;
         readonly IPlatform platform;
 
 
-        SampleApi()
+        public SampleApi(IPlatform platform)
         {
-            this.platform = ShinyHost.Resolve<IPlatform>();
-            var localUri = ShinyHost.Resolve<IConfiguration>()["LocalUri"];
-            localUri ??= this.platform.IsAndroid() ? "http://10.0.2.2:5118" : "https://localhost:7118";
-
-            this.apiClient = RestService.For<ISampleApi>(localUri);
+            this.platform = platform;
         }
 
 
+        public void Reset()
+        {
+            this.BaseUri = this.platform.IsAndroid() ? "http://10.0.2.2:5118" : "https://192.168.1.153:7118";
+        }
+
+        string baseUri;
+        public string BaseUri
+        {
+            get => this.baseUri;
+            set => this.Set(ref this.baseUri, value);
+        }
+
         public Task Register(string deviceToken)
-            => this.apiClient.Register(this.platform.IsIos() ? "apple" : "google", deviceToken);
+            => RestService.For<ISampleApi>(this.BaseUri).Register(this.platform.IsIos() ? "apple" : "google", deviceToken);
 
         public Task UnRegister(string deviceToken)
-            => this.apiClient.UnRegister(this.platform.IsIos() ? "apple" : "google", deviceToken);
-
-        public static SampleApi Current { get; } = new SampleApi();
+            => RestService.For<ISampleApi>(this.BaseUri).UnRegister(this.platform.IsIos() ? "apple" : "google", deviceToken);
     }
 }

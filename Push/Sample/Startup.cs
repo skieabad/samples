@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Sample.Infrastructure;
 using Shiny;
 using System;
 
@@ -19,7 +20,8 @@ namespace Sample
 
             // we inject our db so we can use it in our shiny background events to store them for display later
             services.AddSingleton<SampleSqliteConnection>();
-            services.AddSingleton<IConfiguration>(config);
+            services.AddSingleton<SampleApi>();
+
 #if AZURE
             services.UsePushAzureNotificationHubs<MyPushDelegate>(
                 config["AzureNotificationHubs:ListenerConnectionString"],
