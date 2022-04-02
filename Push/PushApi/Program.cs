@@ -7,6 +7,13 @@ using Shiny.Extensions.Push;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(5118);
+    options.ListenAnyIP(7118, configure => configure.UseHttps());
+});
+
+
 #if DEBUG
 var cfg = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json", false)
