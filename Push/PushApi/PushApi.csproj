@@ -11,7 +11,7 @@
 		<PackageReference Include="FirebaseAdmin" Version="2.3.0" />
 		<PackageReference Include="Microsoft.Azure.NotificationHubs" Version="4.1.0" />
 		<PackageReference Include="Refit" Version="6.3.2" />
-		<PackageReference Include="Shiny.Extensions.Push" Version="1.1.0.60" />
+		<PackageReference Include="Shiny.Extensions.Push" Version="1.2.0-preview.58" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
 	</ItemGroup>
 
