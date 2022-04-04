@@ -44,10 +44,10 @@ namespace Sample
 
 
         protected virtual Task Alert(string message, string title = "Info")
-            => App.Current.MainPage.DisplayAlert(title, message, "OK");
+            => Device.InvokeOnMainThreadAsync(() => App.Current.MainPage.DisplayAlert(title, message, "OK"));
 
         protected virtual Task<bool> Confirm(string question, string title = "Question")
-            => App.Current.MainPage.DisplayAlert(title, question, "Ok", "Cancel");
+            => Device.InvokeOnMainThreadAsync(() => App.Current.MainPage.DisplayAlert(title, question, "Ok", "Cancel"));
 
         protected virtual Task<string> Prompt(string question)
             => App.Current.MainPage.DisplayPromptAsync("Question", question);

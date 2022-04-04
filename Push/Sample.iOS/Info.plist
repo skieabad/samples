@@ -23,7 +23,7 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Shiny Push</string>
+	<string>Push</string>
 	<key>CFBundleIdentifier</key>
 	<string>org.shiny.pushsample</string>
 	<key>CFBundleVersion</key>

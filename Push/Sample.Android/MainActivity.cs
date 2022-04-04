@@ -10,7 +10,7 @@ using Xamarin.Forms.Platform.Android;
 namespace Sample.Droid
 {
     [Activity(
-        Label = "Notifications",
+        Label = "Push",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
