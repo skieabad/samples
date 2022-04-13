@@ -2,7 +2,7 @@
 
 Many samples have Shiny projects linked for debugging/testing by the devs, but the samples are defaulted to use nuget packages.  If the Shiny projects aren't loading, don't worry - IGNORE THEM.  The project will build just fine with nuget.
 
-## Libraries
+## Mobile/Xamarin
 
 |Link/Title|Description|
 |----------|-----------|
@@ -24,6 +24,7 @@ Many samples have Shiny projects linked for debugging/testing by the devs, but t
 |[Sensors](Sensors)|Reactive sensors|RX was made for this!|
 |[Speech Recognition](SpeechRecognition)|Local speech recognition|while not officially supported by Shiny|we give this away just because|
 |Platform Intrisics|TODO|
+|Configuration Extensions|TODO|
 
 ## Integrations
 |Link/Title|Description|
@@ -34,15 +35,24 @@ Many samples have Shiny projects linked for debugging/testing by the devs, but t
 |[AppCenter](AppCenter)|This sample shows how to configure AppCenter logging in Shiny using Microsoft.Extensions.Logging and Shiny.Logging.AppCenter|
 |Firebase Analytics|TODO|
 
-## Boilerplate Stuff
+### Boilerplate Stuff
 |Link/Title|Description|
 |----------|-----------|
 |[No Code Gen](Boilerplate-NoCodeGen)|AppDelegate, Android App, & Android Activity are all manually hooked for Shiny to fully operate|
 |[All Code Gen](Boilerplate-All-CodeGen)|Everything from your iOS AppDelegate, Android Application & Activity, and the Shiny startup are generated|along with a lot of third party libraries|
 |[Standard/Recommended](Jobs)|This will wire in your Xamarin Forms app as well as any Android/iOS boilerplate - you are in charge of the startup file|
 
-## Advanced Customization
+### Advanced Customization
 |Link/Title|Description|
 |----------|-----------|
 |[Custom Dependency Injection](DI-custom)|This example shows how to configure Shiny to use Autofac|
 |[Register Platform Services](DI-platform)|This example shows how to register a platform specific services with Shiny|
+
+
+## Server Side Libraries
+
+|Link/Title|Description|
+|----------|-----------|
+|[Push Notification Manager](Push)|This sample shows how to use the push manager inside of your own API|
+|Localization|TODO|
+|Mail Engine|TODO|
