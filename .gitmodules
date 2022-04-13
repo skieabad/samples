@@ -1,7 +1,3 @@
-[submodule "lib/shiny"]
-	path = lib/shiny
-	url = https://github.com/shinyorg/shiny
-	branch = dev
 [submodule "submodules/shiny"]
 	path = submodules/shiny
 	url = https://github.com/shinyorg/shiny
