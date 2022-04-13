@@ -4,3 +4,9 @@
 [submodule "submodules/apiservices"]
 	path = submodules/apiservices
 	url = https://github.com/shinyorg/apiservices
+[submodule "submodules/framework"]
+	path = submodules/framework
+	url = https://github.com/shinyorg/framework
+[submodule "submodules/configurationextensions"]
+	path = submodules/configurationextensions
+	url = https://github.com/shinyorg/configurationextensions

@@ -26,14 +26,16 @@ Many samples have Shiny projects linked for debugging/testing by the devs, but t
 |Platform Intrisics|TODO|
 |Configuration Extensions|TODO|
 
-## Integrations
+### Integrations
 |Link/Title|Description|
 |----------|-----------|
 |[Prism + DryIoc + Shiny](Integration-Prism)|Prism Integration Example
 |[Better Prism/RXUI Integration via Shiny.Framework](Integration-Best-Prism-RXUI)|Prism + ReactiveUI + Shiny with ease
-|SQLite|Stores, Settings, & Logging|
-|[AppCenter](AppCenter)|This sample shows how to configure AppCenter logging in Shiny using Microsoft.Extensions.Logging and Shiny.Logging.AppCenter|
+|[Shiny Framework](Framework)|All the other toys our framework offers|
+|[AppCenter](AppCenter)|This sample shows how to configure AppCenter logging in Shiny using Microsoft.
+Extensions.Logging and Shiny.Logging.AppCenter|
 |Firebase Analytics|TODO|
+
 
 ### Boilerplate Stuff
 |Link/Title|Description|
@@ -49,10 +51,11 @@ Many samples have Shiny projects linked for debugging/testing by the devs, but t
 |[Register Platform Services](DI-platform)|This example shows how to register a platform specific services with Shiny|
 
 
+
 ## Server Side Libraries
 
 |Link/Title|Description|
 |----------|-----------|
 |[Push Notification Manager](Push)|This sample shows how to use the push manager inside of your own API|
-|Localization|TODO|
-|Mail Engine|TODO|
+|[Localization](ApiExtensions)|Server side example of returning localization|
+|[Mail Engine](ApiExtensions)|Our email templating mechanism is awesome! See it in action here|
