@@ -1,3 +1,6 @@
 [submodule "submodules/shiny"]
 	path = submodules/shiny
 	url = https://github.com/shinyorg/shiny
+[submodule "submodules/apiservices"]
+	path = submodules/apiservices
+	url = https://github.com/shinyorg/apiservices

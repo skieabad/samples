@@ -9,7 +9,6 @@
 		<When Condition="'$(UseNuget)' == 'true'">
 			<ItemGroup>
 				<PackageReference Include="Shiny.BluetoothLE" Version="$(ShinyVersion)" />
-				<PackageReference Include="Shiny.Notifications" Version="$(ShinyVersion)" />
 			</ItemGroup>
 		</When>
 		<Otherwise>
@@ -22,9 +21,6 @@
 				</ProjectReference>
 				<ProjectReference Include="$(DebugDirectory)\Shiny.BluetoothLE.Common\Shiny.BluetoothLE.Common.csproj">
 					<Name>Shiny.BluetoothLE.Common</Name>
-				</ProjectReference>
-				<ProjectReference Include="$(DebugDirectory)\Shiny.Notifications\Shiny.Notifications.csproj">
-					<Name>Shiny.Notifications</Name>
 				</ProjectReference>
 			</ItemGroup>
 		</Otherwise>

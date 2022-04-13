@@ -21,17 +21,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{17D525B0-0CC9-4838-A993-0524EA4F86CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Core", "..\..\shiny\src\Shiny.Core\Shiny.Core.csproj", "{F7A76C94-5FFD-45B4-A898-37D5D3ABE21E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Core", "..\submodules\shiny\src\Shiny.Core\Shiny.Core.csproj", "{F7A76C94-5FFD-45B4-A898-37D5D3ABE21E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push", "..\..\shiny\src\Shiny.Push\Shiny.Push.csproj", "{32827F67-2C5D-4446-AEEB-5C328BFCE373}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push", "..\submodules\shiny\src\Shiny.Push\Shiny.Push.csproj", "{32827F67-2C5D-4446-AEEB-5C328BFCE373}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.Common", "..\..\shiny\src\Shiny.Push.Common\Shiny.Push.Common.csproj", "{91819556-E032-473A-AE00-FEC7154DF4CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.Common", "..\submodules\shiny\src\Shiny.Push.Common\Shiny.Push.Common.csproj", "{91819556-E032-473A-AE00-FEC7154DF4CA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.FirebaseMessaging", "..\..\shiny\src\Shiny.Push.FirebaseMessaging\Shiny.Push.FirebaseMessaging.csproj", "{AFF2B470-1524-4A5B-BBDA-85E57E64E8C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.FirebaseMessaging", "..\submodules\shiny\src\Shiny.Push.FirebaseMessaging\Shiny.Push.FirebaseMessaging.csproj", "{AFF2B470-1524-4A5B-BBDA-85E57E64E8C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.OneSignal", "..\..\shiny\src\Shiny.Push.OneSignal\Shiny.Push.OneSignal.csproj", "{BCC5A729-8E15-4968-B8E8-77986A724312}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.OneSignal", "..\submodules\shiny\src\Shiny.Push.OneSignal\Shiny.Push.OneSignal.csproj", "{BCC5A729-8E15-4968-B8E8-77986A724312}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.AzureNotificationHubs", "..\..\shiny\src\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj", "{F6EFE9B1-CA95-42BD-9370-EF423475DB74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Push.AzureNotificationHubs", "..\submodules\shiny\src\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj", "{F6EFE9B1-CA95-42BD-9370-EF423475DB74}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PushApi", "PushApi\PushApi.csproj", "{04EF0B2F-0BB4-4261-8244-7EE3AFFB2101}"
 EndProject
