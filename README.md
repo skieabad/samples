@@ -1,6 +1,6 @@
 # Shiny Samples
- 
-## THESE SAMPLES ARE NOT DONE (EVEN THE ONES THAT DON"T SAY TODO - THIS NOTE WILL DISAPPEAR WHEN THEY ARE)
+
+Many samples have Shiny projects linked for debugging/testing by the devs, but the samples are defaulted to use nuget packages.  If the Shiny projects aren't loading, don't worry - IGNORE THEM.  The project will build just fine with nuget.
 
 ## Libraries
 
