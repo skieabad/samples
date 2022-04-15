@@ -1,7 +1,5 @@
 ﻿using Foundation;
-
 using Microsoft.Extensions.Configuration;
-
 using Shiny;
 using System;
 using UIKit;
@@ -26,7 +24,7 @@ namespace Sample.iOS
                     services.UsePush<MyPushDelegate>(cfg);
                 }
 #endif
-            });
+            }, options);
 			Forms.Init();
 			this.LoadApplication(new App());
 			return base.FinishedLaunching(app, options);
