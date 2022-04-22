@@ -49,11 +49,12 @@ namespace Sample.Create
                 var n = State.CurrentNotification!;
                 n.Title = this.NotificationTitle;
                 n.Message = this.NotificationMessage;
+                n.ImageUri = this.ImageUri;
                 n.Thread = this.Thread;
                 n.Channel = this.Channel;
                 if (Int32.TryParse(this.Identifier, out var id))
                     n.Id = id;
-                
+
                 if (!this.Payload.IsEmpty())
                 {
                     n.Payload = new Dictionary<string, string> {
@@ -82,7 +83,7 @@ namespace Sample.Create
         public ICommand SetInterval { get; }
         public ICommand SetGeofence { get; }
         public ICommand Send { get; }
-        
+
 
         string id;
         public string Identifier
@@ -105,6 +106,14 @@ namespace Sample.Create
         {
             get => this.msg;
             set => this.Set(ref this.msg, value);
+        }
+
+
+        string imageUri = "https://github.com/shinyorg/shiny/blob/master/art/nuget.png";
+        public string ImageUri
+        {
+            get => this.imageUri;
+            set => this.Set(ref this.imageUri, value);
         }
 
 

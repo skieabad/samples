@@ -29,10 +29,13 @@
 
                     <Label Text="Message" />
                     <Entry Text="{Binding NotificationMessage}" />
-                    
+
+                    <Label Text="Image URI" />
+                    <Entry Text="{Binding ImageUri}" />
+
                     <Label Text="Thread" />
                     <Entry Text="{Binding Thread}" />
-                    
+
                     <Label Text="Channel" />
                     <Picker Title="Channel"
                             ItemsSource="{Binding Channels}"

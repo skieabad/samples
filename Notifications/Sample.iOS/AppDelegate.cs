@@ -12,7 +12,7 @@ namespace Sample.iOS
     {
 		public override bool FinishedLaunching(UIApplication app, NSDictionary options)
 		{
-			this.ShinyFinishedLaunching(new Startup());
+			this.ShinyFinishedLaunching(new Startup(), options);
 			Forms.Init();
 			this.LoadApplication(new App());
 			return base.FinishedLaunching(app, options);
