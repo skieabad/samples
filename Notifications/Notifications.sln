@@ -18,15 +18,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{6BF8E7DD-326C-4924-AA08-9AC996251FE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Core", "..\..\shiny\src\Shiny.Core\Shiny.Core.csproj", "{0ECF7E01-CD37-47E5-9498-15E15948573A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Core", "..\submodules\shiny\src\Shiny.Core\Shiny.Core.csproj", "{0ECF7E01-CD37-47E5-9498-15E15948573A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Locations", "..\..\shiny\src\Shiny.Locations\Shiny.Locations.csproj", "{E33C88D3-DA19-41BB-AC98-7D2E2CD8857C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Locations", "..\submodules\shiny\src\Shiny.Locations\Shiny.Locations.csproj", "{E33C88D3-DA19-41BB-AC98-7D2E2CD8857C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Locations.Common", "..\..\shiny\src\Shiny.Locations.Common\Shiny.Locations.Common.csproj", "{B9699E76-B549-4BE3-865A-CAA759F3BB60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Locations.Common", "..\submodules\shiny\src\Shiny.Locations.Common\Shiny.Locations.Common.csproj", "{B9699E76-B549-4BE3-865A-CAA759F3BB60}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Jobs", "..\..\shiny\src\Shiny.Jobs\Shiny.Jobs.csproj", "{54EDA9C0-400D-42E3-A1D0-5E63836324F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Jobs", "..\submodules\shiny\src\Shiny.Jobs\Shiny.Jobs.csproj", "{54EDA9C0-400D-42E3-A1D0-5E63836324F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Notifications", "..\..\shiny\src\Shiny.Notifications\Shiny.Notifications.csproj", "{C7D49ACD-C829-417D-804F-04779598CCC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Notifications", "..\submodules\shiny\src\Shiny.Notifications\Shiny.Notifications.csproj", "{C7D49ACD-C829-417D-804F-04779598CCC5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shiny.Notifications.Common", "..\submodules\shiny\src\Shiny.Notifications.Common\Shiny.Notifications.Common.csproj", "{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -306,6 +308,34 @@ Global
 		{C7D49ACD-C829-417D-804F-04779598CCC5}.Release|x64.Build.0 = Release|Any CPU
 		{C7D49ACD-C829-417D-804F-04779598CCC5}.Release|x86.ActiveCfg = Release|Any CPU
 		{C7D49ACD-C829-417D-804F-04779598CCC5}.Release|x86.Build.0 = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|x64.Build.0 = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Debug|x86.Build.0 = Debug|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|ARM.Build.0 = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|ARM64.Build.0 = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|iPhone.Build.0 = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|x64.ActiveCfg = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|x64.Build.0 = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|x86.ActiveCfg = Release|Any CPU
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -316,6 +346,7 @@ Global
 		{B9699E76-B549-4BE3-865A-CAA759F3BB60} = {6BF8E7DD-326C-4924-AA08-9AC996251FE5}
 		{54EDA9C0-400D-42E3-A1D0-5E63836324F4} = {6BF8E7DD-326C-4924-AA08-9AC996251FE5}
 		{C7D49ACD-C829-417D-804F-04779598CCC5} = {6BF8E7DD-326C-4924-AA08-9AC996251FE5}
+		{6F265ED5-DB04-4417-A32C-C72BC0DB48D4} = {6BF8E7DD-326C-4924-AA08-9AC996251FE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F774770C-EF90-4F19-A2DB-DD0100B6ACF7}

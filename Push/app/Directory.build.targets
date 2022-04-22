@@ -12,7 +12,7 @@
 			</ItemGroup>
 		</When>
 	</Choose>
-	
+
 	<Choose>
 		<When Condition="'$(PushProvider)' == ''">
 			<Choose>
@@ -28,9 +28,9 @@
 						</ProjectReference>
 					</ItemGroup>
 				</Otherwise>
-			</Choose>			
+			</Choose>
 		</When>
-		
+
 		<When Condition="'$(PushProvider)' == 'azure'">
 			<Choose>
 				<When Condition="'$(UseNuget)' == 'true'">
@@ -47,7 +47,7 @@
 				</Otherwise>
 			</Choose>
 		</When>
-	
+
 		<When Condition="'$(PushProvider)' == 'firebase'">
 			<Choose>
 				<When Condition="'$(UseNuget)' == 'true'">
@@ -64,7 +64,7 @@
 				</Otherwise>
 			</Choose>
 		</When>
-	
+
 		<When Condition="'$(PushProvider)' == 'onesignal'">
 			<Choose>
 				<When Condition="'$(UseNuget)' == 'true'">

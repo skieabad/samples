@@ -64,10 +64,10 @@
 		<Compile Include="Properties\AssemblyInfo.cs" />
 	</ItemGroup>
 	<ItemGroup>
-		<AndroidAsset Include="..\appsettings.json">
+		<AndroidAsset Include="../../appsettings.json">
 			<Link>Assets\appsettings.json</Link>
 		</AndroidAsset>
-		<GoogleServicesJson Include="../google-services.json">
+		<GoogleServicesJson Include="../../google-services.json">
 			<Link>google-services.json</Link>
 		</GoogleServicesJson>
 		<None Include="Properties\AndroidManifest.xml" />

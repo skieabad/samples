@@ -5,27 +5,33 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     </ItemGroup>
 
-	<!--include what libs you need
-	<ItemGroup>
-		<PackageReference Include="Shiny.Notifications" Version="$(ShinyVersion)" />
-	</ItemGroup>
--->
-	<!-- These must be included in your solution in order for this to work-->
-	<ItemGroup>
-		<ProjectReference Include="$(DebugDirectory)\Shiny.Core\Shiny.Core.csproj">
-			<Name>Shiny.Core</Name>
-		</ProjectReference>
-		<ProjectReference Include="$(DebugDirectory)\Shiny.Jobs\Shiny.Jobs.csproj">
-			<Name>Shiny.Jobs</Name>
-		</ProjectReference>
-		<ProjectReference Include="$(DebugDirectory)\Shiny.Locations\Shiny.Locations.csproj">
-			<Name>Shiny.Locations</Name>
-		</ProjectReference>
-		<ProjectReference Include="$(DebugDirectory)\Shiny.Locations.Common\Shiny.Locations.Common.csproj">
-			<Name>Shiny.Locations.Common</Name>
-		</ProjectReference>
-		<ProjectReference Include="$(DebugDirectory)\Shiny.Notifications\Shiny.Notifications.csproj">
-			<Name>Shiny.Notifications</Name>
-		</ProjectReference>
-	</ItemGroup>
+	<Choose>
+		<When Condition="'$(UseNuget)' == 'true'">
+			<ItemGroup>
+				<PackageReference Include="Shiny.Notifications" Version="$(ShinyVersion)" />
+			</ItemGroup>
+		</When>
+		<Otherwise>
+			<ItemGroup>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Core\Shiny.Core.csproj">
+					<Name>Shiny.Core</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Jobs\Shiny.Jobs.csproj">
+					<Name>Shiny.Jobs</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Locations\Shiny.Locations.csproj">
+					<Name>Shiny.Locations</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Locations.Common\Shiny.Locations.Common.csproj">
+					<Name>Shiny.Locations.Common</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Notifications\Shiny.Notifications.csproj">
+					<Name>Shiny.Notifications</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Notifications.Common\Shiny.Notifications.Common.csproj">
+					<Name>Shiny.Notifications.Common</Name>
+				</ProjectReference>
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
 </Project>

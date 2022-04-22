@@ -69,10 +69,10 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
-    <BundleResource Include="..\appsettings.json">
+    <BundleResource Include="../../appsettings.json">
       <Link>appsettings.json</Link>
     </BundleResource>
-    <None Include="..\GoogleService-Info.plist">
+    <None Include="../../GoogleService-Info.plist">
       <Link>GoogleService-Info.plist</Link>
     </None>
     <None Include="Entitlements.plist" />
