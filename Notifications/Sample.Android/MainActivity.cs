@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Shiny;
+using Shiny.Notifications;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -21,11 +22,14 @@ namespace Sample.Droid
             ConfigChanges.ScreenLayout |
             ConfigChanges.SmallestScreenSize
     )]
+    [IntentFilter(
+        new[] { ShinyIntents.NotificationClickAction },
+        Categories = new[] { Intent.CategoryDefault }
+    )]
     public partial class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            this.ShinyOnCreate();
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
             base.OnCreate(savedInstanceState);
