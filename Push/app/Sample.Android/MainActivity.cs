@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
@@ -21,7 +22,11 @@ namespace Sample.Droid
             ConfigChanges.ScreenLayout |
             ConfigChanges.SmallestScreenSize
     )]
-    public partial class MainActivity : FormsAppCompatActivity
+    [IntentFilter(
+        new [] {  Shiny.Push.Constants.ShinyIntentClickAction }, 
+        Categories = new[] { Intent.CategoryDefault }
+    )]
+    public class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
