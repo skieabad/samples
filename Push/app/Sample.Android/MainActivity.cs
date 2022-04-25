@@ -4,6 +4,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Shiny;
+using Shiny.Push;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -23,7 +24,7 @@ namespace Sample.Droid
             ConfigChanges.SmallestScreenSize
     )]
     [IntentFilter(
-        new [] {  Shiny.Push.Constants.ShinyIntentClickAction }, 
+        new [] { ShinyIntents.NotificationClickAction }, 
         Categories = new[] { Intent.CategoryDefault }
     )]
     public class MainActivity : FormsAppCompatActivity
