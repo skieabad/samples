@@ -11,8 +11,37 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
+        <Grid RowDefinitions="auto, *">
+            <TableView Grid.Row="0">
+                <TableRoot>
+                    <TableSection>
+                        <TextCell Text="Write/Notify Flow" Command="{Binding WriteNotifyFlow}" />
+                        <TextCell Text="Read/Write Flow" Command="{Binding ReadWriteFlow}" />
+                        <TextCell Text="Continuous Notify" Command="{Binding ContinuousNotify}" />
+                        <TextCell Text="Device Info" Command="{Binding DeviceInfo}" />
+                    </TableSection>
 
-        </StackLayout>
+                    <TableSection>
+                        <TextCell Text="Stop" Command="{Binding Stop}" />
+                        <TextCell Text="Clear Logs" Command="{Binding ClearLogs}" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+
+            <CollectionView ItemsSource="{Binding Logs}" Grid.Row="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="sample:LogItem">
+                        <StackLayout>
+                            <Label Text="{Binding Description}"
+                                   FontSize="Medium" />
+
+                            <Label Text="{Binding Timestamp, StringFormat='{0:hh:mm:ss tt}'}"
+                                   FontSize="Small"
+                                   FontAttributes="Italic" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
