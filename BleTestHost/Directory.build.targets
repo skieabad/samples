@@ -1,0 +1,26 @@
+<Project>
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+    </ItemGroup>
+
+	<Choose>
+		<When Condition="'$(UseNuget)' == 'true'">
+			<ItemGroup>
+				<PackageReference Include="Shiny.BluetoothLE.Hosting" Version="$(ShinyVersion)" />
+			</ItemGroup>
+		</When>
+		<Otherwise>
+			<ItemGroup>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Core\Shiny.Core.csproj">
+					<Name>Shiny.Core</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.BluetoothLE.Hosting\Shiny.BluetoothLE.Hosting.csproj">
+					<Name>Shiny.BluetoothLE</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.BluetoothLE.Common\Shiny.BluetoothLE.Common.csproj">
+					<Name>Shiny.BluetoothLE.Common</Name>
+				</ProjectReference>
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+</Project>

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <ShinyVersion>2.5.0-preview.3067</ShinyVersion>
+        <ShinyVersion>2.5.0-preview-3108</ShinyVersion>
 		<DebugDirectory>../../../submodules/shiny/src</DebugDirectory>
 		<UseNuget>true</UseNuget>
 		<PushProvider></PushProvider><!--valid entries are blank (native), onesignal, firebase, & azure-->
