@@ -23,7 +23,6 @@ namespace Sample
         {
             var manager = ShinyHost.Resolve<IBleHostingManager>();
 
-
             this.ClearLogs = new Command(() =>
             {
                 this.Logs?.Clear();
@@ -48,7 +47,7 @@ namespace Sample
                         this.WriteEvent(msg);
                     }));
 
-                    sb.AddWriteCharacteristic(CharacteristicUuid2, async (data, peripheral) =>
+                    sb.AddWriteCharacteristic(CharacteristicUuid2, async (peripheral, data) =>
                     {
                         var send = BitConverter.GetBytes(data[0] + 1);
                         await notifier.Notify(send, peripheral);
@@ -57,7 +56,7 @@ namespace Sample
                 disposable = Disposable.Create(() =>
                 {
                     this.WriteEvent("Stopping write/notify flow");
-                    manager.RemoveService(ServiceUuid)
+                    manager.RemoveService(ServiceUuid);
                 });
             });
 
@@ -70,13 +69,13 @@ namespace Sample
                 {
                     var read = -1;
 
-                    sb.AddReadCharacteristic(CharacteristicUuid1, () =>
+                    sb.AddReadCharacteristic(CharacteristicUuid1, _ =>
                     {
                         this.WriteEvent("Read received - sending: " + read);
                         return BitConverter.GetBytes(read);
                     });
 
-                    sb.AddWriteCharacteristic(CharacteristicUuid2, data =>
+                    sb.AddWriteCharacteristic(CharacteristicUuid2, (peripheral, data) =>
                     {
                         read = data[0] + 1;
                         this.WriteEvent("Write received - next read: " + read);
