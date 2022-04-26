@@ -28,6 +28,7 @@ var pushConfig = cfg.Get<PushConfig>() ?? throw new InvalidProgramException("Cou
 builder.Services.AddPushManagement(x => x
     .AddGooglePush(pushConfig.Google ?? throw new InvalidOperationException("Google configuration not found"))
     .AddApplePush(pushConfig.Apple ?? throw new InvalidOperationException("Apple configuration not found"))
+    .AddAutoRemoveNoReceive()
     .UseRepository<FilePushRepository>()
 );
 builder.Services.Configure<PushConfig>(cfg);

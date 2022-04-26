@@ -3,6 +3,7 @@ using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
 using Shiny;
+using Shiny.Notifications;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
@@ -20,6 +21,10 @@ namespace Sample.Droid
             ConfigChanges.UiMode |
             ConfigChanges.ScreenLayout |
             ConfigChanges.SmallestScreenSize
+    )]
+    [IntentFilter(
+        new[] { ShinyIntents.NotificationClickAction },
+        Categories = new[] { Intent.CategoryDefault }
     )]
     public partial class MainActivity : FormsAppCompatActivity
     {
