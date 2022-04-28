@@ -1,12 +1,12 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
+using Android.OS;
+using Android.Runtime;
+using Shiny;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: Shiny.ShinyApplication(
-    ShinyStartupTypeName = "Sample.Startup",
-    XamarinFormsAppTypeName = "Sample.App"
-)]
 
 namespace Sample.Droid
 {
@@ -24,5 +24,28 @@ namespace Sample.Droid
     )]
     public partial class MainActivity : FormsAppCompatActivity
     {
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+            base.OnCreate(savedInstanceState);
+            Forms.Init(this, savedInstanceState);
+
+            this.LoadApplication(new App());
+        }
+
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+            this.ShinyOnActivityResult(requestCode, resultCode, data);
+        }
+
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            this.ShinyOnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }
