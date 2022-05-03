@@ -1,6 +1,9 @@
-﻿namespace Sample
+﻿using Xamarin.Forms;
+
+
+namespace Sample
 {
-    public partial class MainPage : SampleContentPage
+    public partial class MainPage : TabbedPage
     {
         public MainPage()
         {

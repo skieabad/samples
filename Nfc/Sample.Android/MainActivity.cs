@@ -22,6 +22,10 @@ namespace Sample.Droid
             ConfigChanges.ScreenLayout |
             ConfigChanges.SmallestScreenSize
     )]
+    [IntentFilter(new [] { 
+        "android.nfc.action.NDEF_DISCOVERED",
+        "android.nfc.action.TAG_DISCOVERED"
+    })]
     public partial class MainActivity : FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

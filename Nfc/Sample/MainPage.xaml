@@ -1,51 +1,21 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                          xmlns:sample="clr-namespace:Sample"
-                          x:DataType="sample:MainViewModel"
-                          x:Class="Sample.MainPage"
-                          Title="NFC">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:sample="clr-namespace:Sample"
+            x:Class="Sample.MainPage"
+            Title="NFC">
+    
+    <TabbedPage.Children>
+        <NavigationPage>
+            <x:Arguments>
+                <sample:ReadPage Title="Read" />
+            </x:Arguments>
+        </NavigationPage>
 
-    <ContentPage.BindingContext>
-        <sample:MainViewModel />
-    </ContentPage.BindingContext>
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Clear" Command="{Binding Clear}" />
-    </ContentPage.ToolbarItems>
-
-    <ContentPage.Content>
-        <StackLayout>
-            <Button Text="{Binding Access, StringFormat='Check Access: {0}'}"
-                    Command="{Binding CheckPermission}"/>
-
-            <Button Text="Single Read" Command="{Binding Read}" />
-            <Button Text="Start Listening" Command="{Binding Continuous}">
-                <Button.Triggers>
-                    <DataTrigger TargetType="Button" Binding="{Binding IsListening}" Value="True">
-                        <Setter Property="Text" Value="Stop Listening" />
-                    </DataTrigger>
-                    <DataTrigger TargetType="Button" Binding="{Binding IsListening}" Value="False">
-                        <Setter Property="Text" Value="Start Listening" />
-                    </DataTrigger>
-                </Button.Triggers>
-            </Button>
-            <CollectionView ItemsSource="{Binding NDefRecords}"
-                            VerticalOptions="FillAndExpand"
-                            HorizontalOptions="FillAndExpand">
-                <CollectionView.EmptyView>
-                    <Label Text="No Records Found" />
-                </CollectionView.EmptyView>
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="sample:NDefItemViewModel">
-                        <StackLayout>
-                            <Label Text="{Binding Type}" FontSize="Title" />
-                            <Label Text="{Binding Payload}" FontSize="Subtitle" />
-                        </StackLayout>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </StackLayout>
-    </ContentPage.Content>
-</sample:SampleContentPage>
+        <NavigationPage>
+            <x:Arguments>
+                <sample:WritePage Title="Write" />
+            </x:Arguments>
+        </NavigationPage>
+    </TabbedPage.Children>
+</TabbedPage>

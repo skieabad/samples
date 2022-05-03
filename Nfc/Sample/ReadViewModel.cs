@@ -12,12 +12,12 @@ using Xamarin.Forms;
 
 namespace Sample
 {
-    public class MainViewModel : SampleViewModel
+    public class ReadViewModel : SampleViewModel
     {
         IDisposable? sub;
 
 
-        public MainViewModel()
+        public ReadViewModel()
         {
             var manager = ShinyHost.Resolve<INfcManager>();
 
