@@ -1,4 +1,7 @@
-# Sample Title
+﻿# NFC Sample
+
+## iOS Setup
+For iOS, you MUST have a provisioning profile with NFC tag reading enabled
 
 
 ## 3rd Party Libs
