@@ -23,9 +23,9 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>Sample</string>
+	<string>NFC</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.shiny.test</string>
+	<string>com.shiny.nfcsample</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -34,7 +34,7 @@
 	<string>Sample</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
-        <key>NFCReaderUsageDescription</key>
-        <string>Put your friendly message as to why here!</string>
+	<key>NFCReaderUsageDescription</key>
+	<string>Put your friendly message as to why here!</string>
 </dict>
 </plist>
