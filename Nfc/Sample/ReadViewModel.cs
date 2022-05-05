@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Threading.Tasks;
-using System.Threading.Tasks;
+using System.Text;
 using System.Windows.Input;
 using Shiny;
 using Shiny.Nfc;
-using Xamarin.Forms;
 
 
 namespace Sample
@@ -21,58 +20,49 @@ namespace Sample
         {
             var manager = ShinyHost.Resolve<INfcManager>();
 
-            this.CheckPermission = new Command(async () =>
-                await this.DoCheckPermission(manager)
-            );
-
-            this.Clear = new Command(() =>
-                this.NDefRecords.Clear()
-            );
-
-            this.Read = new Command(async () =>
+            this.Listen = this.LoadingCommand(async () =>
             {
                 if (this.IsListening)
                 {
-                    await this.Alert("Already listening");
-                    return;
+                    this.sub?.Dispose();
+                    this.IsListening = false;
                 }
-                await this.DoCheckPermission(manager);
-                if (this.Access == AccessState.Available)
-                    this.ManageObservable(manager.SingleRead());
-            });
+                else
+                { 
+                    var access = await manager.RequestAccess().ToTask();
 
-            this.Continuous = new Command(async () =>
-            {
-                await this.DoCheckPermission(manager);
-                if (this.Access == AccessState.Available)
-                {
-                    if (this.IsListening)
+                    if (access != AccessState.Available)
                     {
-                        this.IsListening = false;
-                        this.sub?.Dispose();
+                        await this.Alert("Permission failed: " + access);
                     }
                     else
                     {
-                        this.ManageObservable(manager.ContinuousRead());
+                        this.sub = manager
+                            .WhenRecordsDetected()
+                            .Subscribe(
+                                message =>
+                                {
+                                    this.TagId = Encoding.UTF8.GetString(message.Tag.Identifier);
+                                    this.Records = message
+                                        .Records
+                                        .Select(x => new NDefItemViewModel(x))
+                                        .ToList();
+                                },
+                                async ex =>
+                                {
+                                    await this.Alert("Error Starting NFC:" + ex);
+                                    this.IsListening = false;
+                                }
+                            );
+
+                        this.IsListening = true;
                     }
                 }
             });
         }
 
 
-        public ICommand Clear { get; }
-        public ICommand Continuous { get; }
-        public ICommand Read { get; }
-        public ICommand CheckPermission { get; }
-        public ObservableCollection<NDefItemViewModel> NDefRecords { get; } = new ObservableCollection<NDefItemViewModel>();
-
-
-        AccessState state = AccessState.Unknown;
-        public AccessState Access
-        {
-            get => this.state;
-            private set => this.Set(ref this.state, value);
-        }
+        public ICommand Listen { get; }
 
 
         bool listening;
@@ -83,37 +73,31 @@ namespace Sample
         }
 
 
+        string tagId = "";
+        public string TagId
+        {
+            get => this.tagId;
+            private set => this.Set(ref this.tagId, value);
+        }
+
+
+        List<NDefItemViewModel> records;
+        public List<NDefItemViewModel> Records
+        {
+            get => this.records;
+            private set
+            {
+                this.records = value;
+                this.RaisePropertyChanged();
+            }
+        }
+
+
         public override void OnDisappearing()
         {
             base.OnDisappearing();
             this.sub?.Dispose();
-        }
-
-
-        void ManageObservable(IObservable<NDefRecord[]> obs)
-        {
-            this.sub = obs
-                .SelectMany(x => x.Select(y => new NDefItemViewModel(y)))
-                .SubOnMainThread(
-                    x => this.NDefRecords.Add(x),
-                    async ex =>
-                    {
-                        this.sub?.Dispose();
-                        this.IsListening = false;
-                        await this.Alert(ex.ToString());
-                    }
-                );
-
-            this.IsListening = true;
-        }
-
-
-        async Task DoCheckPermission(INfcManager? manager = null)
-        {
-            if (manager == null)
-                this.Access = AccessState.NotSupported;
-            else
-                this.Access = await manager.RequestAccess().ToTask();
+            this.IsListening = false;
         }
     }
 }

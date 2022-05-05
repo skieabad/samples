@@ -2,7 +2,7 @@
 <sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sample="clr-namespace:Sample"
-                          x:DataType="sample:MainViewModel"
+                          x:DataType="sample:ReadViewModel"
                           x:Class="Sample.ReadPage"
                           Title="NFC">
 
@@ -10,42 +10,35 @@
         <sample:ReadViewModel />
     </ContentPage.BindingContext>
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Clear" Command="{Binding Clear}" />
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="{Binding Access, StringFormat='Check Access: {0}'}"
-                    Command="{Binding CheckPermission}"/>
-
-            <Button Text="Single Read" Command="{Binding Read}" />
-            <Button Text="Start Listening" Command="{Binding Continuous}">
+        <Grid RowDefinitions="Auto, Auto, *">
+            <Button Text="Listen" Command="{Binding Listen}" Grid.Row="0">
                 <Button.Triggers>
                     <DataTrigger TargetType="Button" Binding="{Binding IsListening}" Value="True">
                         <Setter Property="Text" Value="Stop Listening" />
                     </DataTrigger>
                     <DataTrigger TargetType="Button" Binding="{Binding IsListening}" Value="False">
-                        <Setter Property="Text" Value="Start Listening" />
+                        <Setter Property="Text" Value="Listen" />
                     </DataTrigger>
                 </Button.Triggers>
             </Button>
-            <CollectionView ItemsSource="{Binding NDefRecords}"
-                            VerticalOptions="FillAndExpand"
-                            HorizontalOptions="FillAndExpand">
-                <CollectionView.EmptyView>
-                    <Label Text="No Records Found" />
-                </CollectionView.EmptyView>
 
+            <Label Text="{Binding TagId, StringFormat='Tag ID: {0}'}"
+                   Grid.Row="1" />
+
+            <CollectionView ItemsSource="{Binding Records}" Grid.Row="2">
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="sample:NDefItemViewModel">
                         <StackLayout>
-                            <Label Text="{Binding Type}" FontSize="Title" />
-                            <Label Text="{Binding Payload}" FontSize="Subtitle" />
+                            <Label Text="{Binding Type}" FontSize="Medium" />
+                            <Label Text="{Binding Payload}" FontSize="Small" />
+                            <BoxView HorizontalOptions="FillAndExpand"
+                                     HeightRequest="1"
+                                     BackgroundColor="Black" />
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </sample:SampleContentPage>

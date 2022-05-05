@@ -11,5 +11,6 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
+        <Button Text="Write" Command="{Binding Write}" />
     </ContentPage.Content>
 </ContentPage>

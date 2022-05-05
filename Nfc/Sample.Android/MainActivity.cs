@@ -39,11 +39,17 @@ namespace Sample.Droid
         }
 
 
-        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        protected override void OnNewIntent(Intent intent)
         {
-            base.OnActivityResult(requestCode, resultCode, data);
-            this.ShinyOnActivityResult(requestCode, resultCode, data);
+            base.OnNewIntent(intent);
+            this.ShinyOnNewIntent(intent);
         }
+
+        //protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        //{
+        //    base.OnActivityResult(requestCode, resultCode, data);
+        //    this.ShinyOnActivityResult(requestCode, resultCode, data);
+        //}
 
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)

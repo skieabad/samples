@@ -13,7 +13,8 @@ namespace Sample
         public string Type => this.record.PayloadType.ToString();
         public string Payload => this.record.PayloadType switch
         {
-            NfcPayloadType.Uri => this.record.Uri,
+            NDefPayloadType.Empty => "Empty",
+            NDefPayloadType.Uri => this.record.Uri ?? "No URI",
             _ => Encoding.UTF8.GetString(this.record.Payload)
         };
     }

@@ -6,16 +6,7 @@
             Title="NFC">
     
     <TabbedPage.Children>
-        <NavigationPage>
-            <x:Arguments>
-                <sample:ReadPage Title="Read" />
-            </x:Arguments>
-        </NavigationPage>
-
-        <NavigationPage>
-            <x:Arguments>
-                <sample:WritePage Title="Write" />
-            </x:Arguments>
-        </NavigationPage>
+        <sample:ReadPage Title="Read" />
+        <sample:WritePage Title="Write" />
     </TabbedPage.Children>
 </TabbedPage>
