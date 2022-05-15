@@ -1,10 +1,8 @@
 <Project>
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
-		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />		
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
     </ItemGroup>
-
-
 	
 	<Choose>
 		<When Condition="'$(UseNuget)' == 'true'">
