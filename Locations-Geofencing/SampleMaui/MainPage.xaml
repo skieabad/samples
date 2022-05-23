@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:sample="clr-namespace:Sample"
+            x:Class="Sample.MainPage"
+            SelectedTabColor="#C2E812"
+            UnselectedTabColor="#4BA677"
+            Title="Geofencing">
+
+    <sample:ListPage>
+        <ContentPage.IconImageSource>
+            <FontImageSource Glyph="&#xf0ac;"
+                                FontFamily="FAS" />
+        </ContentPage.IconImageSource>
+    </sample:ListPage>
+    <sample:LogsPage>
+        <ContentPage.IconImageSource>
+            <FontImageSource Glyph="&#xf7e6;"
+                                FontFamily="FAS" />
+        </ContentPage.IconImageSource>
+    </sample:LogsPage>
+</TabbedPage>
