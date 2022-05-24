@@ -2,8 +2,9 @@
 
 public partial class CreatePage : ContentPage
 {
-	public CreatePage ()
+	public CreatePage(CreateViewModel viewModel)
 	{
 		this.InitializeComponent();
+		this.BindingContext = viewModel;
 	}
 }

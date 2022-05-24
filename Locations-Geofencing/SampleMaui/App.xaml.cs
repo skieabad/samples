@@ -5,10 +5,9 @@ namespace Sample;
 
 public partial class App : Application
 {
-    public App()
+    public App(MainPage page)
     {
         this.InitializeComponent();
-
-        this.MainPage = new MainPage();
+        this.MainPage = page;
     }
 }

@@ -16,6 +16,13 @@ public static class MauiProgram
                 fonts.AddFont("faregular400.ttf", "FAR");
             });
 
+        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<LogsPage>();
+        builder.Services.AddTransient<LogsViewModel>();
+        builder.Services.AddTransient<CreatePage>();
+        builder.Services.AddTransient<CreateViewModel>();
+        builder.Services.AddTransient<ListPage>();
+        builder.Services.AddTransient<ListViewModel>();
 
         builder.Services.AddSingleton<SampleSqliteConnection>();
 

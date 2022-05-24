@@ -3,8 +3,9 @@
 
 public partial class LogsPage : SampleContentPage
 {
-    public LogsPage()
+    public LogsPage(LogsViewModel viewModel)
     {
         this.InitializeComponent();
+        this.BindingContext = viewModel;
     }
 }

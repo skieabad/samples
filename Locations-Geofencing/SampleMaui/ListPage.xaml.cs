@@ -2,8 +2,9 @@
 
 public partial class ListPage : SampleContentPage
 {
-	public ListPage ()
+	public ListPage(ListViewModel viewModel)
 	{
 		this.InitializeComponent();
+		this.BindingContext = viewModel;
 	}
 }
