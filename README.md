@@ -1,6 +1,11 @@
 # Shiny Samples
 
-Many samples have Shiny projects linked for debugging/testing by the devs, but the samples are defaulted to use nuget packages.  If the Shiny projects aren't loading, don't worry - IGNORE THEM.  The project will build just fine with nuget.
+## NOTES
+1. Many samples have Shiny projects linked for debugging/testing by the devs, but the samples are defaulted to use nuget packages.  If the Shiny projects aren't loading, don't worry - IGNORE THEM.  The project will build just fine with nuget.  They are linked through submodules if needed for debugging against the shiny source code
+2. DO NOT USE THESE FOR SENDING ISSUES - Why you ask?  Because they can often be out of date with a new Android release, a new Xamarin release, a new Xamarin Forms release, etc.  There is a lot of features & a lot of samples and at present - ONLY 1 maintainer!
+3. Most nuget versions are managed through Directory.build.props which means you cannot not use the nuget manager to update packages.  This is due to how we swap between nugets for samples and debugging/testing
+4. These samples are meant as GUIDELINES on how to use the libraries (which means that they don't use every feature and again why we don't want bug reports for them)
+
 
 ## Mobile/Xamarin
 
