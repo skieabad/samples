@@ -8,6 +8,7 @@
 		<When Condition="'$(UseNuget)' == 'true'">
 			<ItemGroup>
 				<PackageReference Include="Shiny.Notifications" Version="$(ShinyVersion)" />
+				<PackageReference Include="Shiny.Locations" Version="$(ShinyVersion)" />
 			</ItemGroup>
 		</When>
 		<Otherwise>
