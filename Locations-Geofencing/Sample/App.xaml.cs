@@ -7,7 +7,8 @@ namespace Sample
         public App()
         {
             this.InitializeComponent();
-            this.MainPage = new NavigationPage(new MainPage());
+            //this.MainPage = new NavigationPage(new MainPage());
+            this.MainPage = new NavigationPage(new LogsPage());
         }
     }
 }

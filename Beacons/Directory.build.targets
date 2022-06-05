@@ -5,6 +5,7 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="ReactiveUI.Fody" Version="18.0.10" />
 		<PackageReference Include="Shiny.Framework" Version="2.3.0" />
+		<PackageReference Include="Shiny.Extensions.Dialogs.XfMaterial" Version="2.3.0" />
     </ItemGroup>
 	
 	<Choose>
@@ -20,6 +21,9 @@
 				</ProjectReference>
 				<ProjectReference Include="$(DebugDirectory)\Shiny.Beacons\Shiny.Beacons.csproj">
 					<Name>Shiny.Beacons</Name>
+				</ProjectReference>
+				<ProjectReference Include="$(DebugDirectory)\Shiny.Locations.Common\Shiny.Locations.Common.csproj">
+					<Name>Shiny.Locations.Common</Name>
 				</ProjectReference>
 				<ProjectReference Include="$(DebugDirectory)\Shiny.BluetoothLE\Shiny.BluetoothLE.csproj">
 					<Name>Shiny.BluetoothLE</Name>

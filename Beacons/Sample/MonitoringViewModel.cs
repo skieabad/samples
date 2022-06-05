@@ -8,6 +8,7 @@ using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using Shiny;
 using Shiny.Beacons;
+using Shiny.Extensions.Dialogs;
 using Shiny.XamForms;
 
 

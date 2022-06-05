@@ -2,8 +2,8 @@
     <PropertyGroup>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <ShinyVersion>2.5.1</ShinyVersion>
+        <ShinyVersion>2.5.3</ShinyVersion>
 		<DebugDirectory>../../submodules/shiny/src</DebugDirectory>
-        <UseNuget>true</UseNuget>
+        <UseNuget>false</UseNuget>
     </PropertyGroup>
 </Project>

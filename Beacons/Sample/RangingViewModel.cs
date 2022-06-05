@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Reactive.Linq;
 using Shiny;
 using Shiny.Beacons;
+using Shiny.Extensions.Dialogs;
 using Prism.Navigation;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;

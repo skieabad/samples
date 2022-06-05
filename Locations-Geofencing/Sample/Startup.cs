@@ -11,7 +11,10 @@ namespace Sample
             // we inject our db so we can use it in our shiny background events to store them for display later
             services.AddSingleton<SampleSqliteConnection>();
 
-            services.UseGeofencing<GeofenceDelegate>();
+            //services.UseGeofencing<GeofenceDelegate>();
+
+            // if you need realtime geofencing based on full background gps, you can use this.  It will kill your user's battery
+            services.UseGpsDirectGeofencing<GeofenceDelegate>();
 
             // let's send some notifications from our geofence
             services.UseNotifications();

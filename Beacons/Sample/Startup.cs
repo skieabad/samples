@@ -3,7 +3,6 @@ using Microsoft.Extensions.Logging;
 using Prism.Ioc;
 using Prism.Navigation;
 using Shiny;
-using Shiny.Beacons;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -34,7 +33,7 @@ namespace Sample
             services.UseGlobalCommandExceptionHandler();
 
             services.AddSingleton<SampleSqliteConnection>();
-            services.UseBeaconMonitoring<MyBeaconMonitorDelegate>(new BeaconMonitorConfig().UseEstimote());
+            services.UseBeaconMonitoring<MyBeaconMonitorDelegate>();
             services.UseBeaconRanging();
         }
     }
