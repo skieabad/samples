@@ -9,17 +9,4 @@
 		<DebugType>portable</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="ReactiveUI.Fody" Version="17.1.9" />
-		<PackageReference Include="Shiny" />
-		<PackageReference Include="Shiny.Beacons" />
-		<PackageReference Include="Shiny.Framework" />
-		<PackageReference Include="Xamarin.Forms" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\_Template\Sample.Shared\Sample.Shared.csproj" />
-	</ItemGroup>
-
 </Project>
