@@ -4,6 +4,6 @@
         <Nullable>enable</Nullable>
         <ShinyVersion>2.5.3</ShinyVersion>
 		<DebugDirectory>../../submodules/shiny/src</DebugDirectory>
-        <UseNuget>false</UseNuget>
+        <UseNuget>true</UseNuget>
     </PropertyGroup>
 </Project>
