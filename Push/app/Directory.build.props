@@ -3,10 +3,10 @@
     <PropertyGroup>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <ShinyVersion>2.5.0-preview-3108</ShinyVersion>
+        <ShinyVersion>2.5.5</ShinyVersion>
 		<DebugDirectory>../../../submodules/shiny/src</DebugDirectory>
 		<UseNuget>true</UseNuget>
-		<PushProvider></PushProvider><!--valid entries are blank (native), onesignal, firebase, & azure-->
+		<PushProvider>firebase</PushProvider><!--valid entries are blank (native), onesignal, firebase, & azure-->
     </PropertyGroup>
 
 	<PropertyGroup Condition="$(PushProvider) == ''">
@@ -26,6 +26,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2401" />
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
 	</ItemGroup>
 </Project>
