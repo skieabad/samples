@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 using DryIoc.Microsoft.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 using Prism.DryIoc;
 using Prism.Ioc;
 using Shiny;
+using Shiny.Push;
 
 
 namespace Sample
@@ -14,6 +16,8 @@ namespace Sample
         {
             // we inject our db so we can use it in our shiny background events to store them for display later
             //services.AddSingleton<SampleSqliteConnection>();
+            services.UseJobs(true);
+            //services.UseFirebaseMessaging<MyPushDelegate>();
         }
 
 
@@ -26,5 +30,12 @@ namespace Sample
             DryIocAdapter.Populate(container, services);
             return container.GetServiceProvider();
         }
+    }
+
+    public class MyPushDelegate : Shiny.Push.IPushDelegate
+    {
+        public Task OnEntry(PushNotification data) => Task.CompletedTask;
+        public Task OnReceived(PushNotification data) => Task.CompletedTask;
+        public Task OnTokenRefreshed(string token) => Task.CompletedTask;
     }
 }

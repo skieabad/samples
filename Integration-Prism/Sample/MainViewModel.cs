@@ -4,7 +4,7 @@
     {
         public MainViewModel()
         {
-
+            System.Console.WriteLine("Hello");
         }
     }
 }

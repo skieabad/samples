@@ -1,17 +1,18 @@
-﻿using System;
-using Android.App;
+﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
+using Android.OS;
+using Android.Runtime;
+using Shiny;
+using Shiny.Push;
+using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 
-[assembly: Shiny.ShinyApplication(
-    ShinyStartupTypeName = "Sample.Startup",
-    XamarinFormsAppTypeName = "Sample.App"
-)]
 
 namespace Sample.Droid
 {
     [Activity(
-        Label = "Sample",
+        Label = "Push",
         Icon = "@mipmap/icon",
         Theme = "@style/MainTheme",
         MainLauncher = true,
@@ -22,7 +23,27 @@ namespace Sample.Droid
             ConfigChanges.ScreenLayout |
             ConfigChanges.SmallestScreenSize
     )]
-    public partial class MainActivity : FormsAppCompatActivity
+    [IntentFilter(
+        new [] { ShinyIntents.NotificationClickAction }, 
+        Categories = new[] { Intent.CategoryDefault }
+    )]
+    public class MainActivity : FormsAppCompatActivity
     {
+        protected override void OnCreate(Bundle savedInstanceState)
+        {
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+            base.OnCreate(savedInstanceState);
+            Forms.Init(this, savedInstanceState);
+
+            this.LoadApplication(new App());
+        }
+
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults)
+        {
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            this.ShinyOnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }

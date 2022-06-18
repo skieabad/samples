@@ -9,11 +9,4 @@
 		<DebugType>portable</DebugType>
 		<DebugSymbols>true</DebugSymbols>
 	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
-		<PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
-		<PackageReference Include="Shiny" />
-		<PackageReference Include="Xamarin.Essentials" />
-	</ItemGroup>
 </Project>
