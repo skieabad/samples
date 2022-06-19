@@ -2,7 +2,15 @@
     <PropertyGroup>
         <LangVersion>8.0</LangVersion>
         <Nullable>enable</Nullable>
-        <ShinyVersion>2.5.0.2985-preview</ShinyVersion>
+        <ShinyVersion>2.5.5</ShinyVersion>
+		<DebugDirectory>../../submodules/shiny/src</DebugDirectory>
+		<UseNuget>true</UseNuget>
     </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="Xamarin.Forms" Version="5.0.0.2478" />
+		<PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
+		<PackageReference Include="DryIoc.Microsoft.DependencyInjection" Version="5.1.0" />
+		<PackageReference Include="Prism.DryIoc.Forms" Version="8.1.97" />
+	</ItemGroup>
 </Project>
