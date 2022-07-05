@@ -13,7 +13,25 @@ namespace Sample.Droid
 
 		public override void OnCreate()
 		{
-			this.ShinyOnCreate(new Startup());
+            var methodName = "Initialize";
+            var type = typeof(JNIEnv);
+            var first = true;
+            var methods = type.GetMethods(bindingAttr: System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.FlattenHierarchy);
+            foreach (var method in methods)
+            {
+                if (method.Name.Contains(methodName))
+                {
+                    if (first)
+                    {
+                        first = false;
+                        continue;
+                    }
+                    System.Diagnostics.Debug.WriteLine("Method: " + method.Name);
+                    method.Invoke(null, null);
+                }
+            }
+
+            this.ShinyOnCreate(new Startup());
 			base.OnCreate();
 		}
 	}

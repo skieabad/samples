@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<shared:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<sample:SampleContentPage xmlns="http://xamarin.com/schemas/2014/forms"
                           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                           xmlns:sample="clr-namespace:Sample"
-                          xmlns:shared="clr-namespace:Sample;assembly=Sample.Shared"
                           xmlns:sys="clr-namespace:System;assembly=mscorlib"
                           x:Class="Sample.ListPage"
                           Title="Activities">
@@ -49,7 +48,7 @@
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <StackLayout x:DataType="shared:CommandItem">
+                            <StackLayout x:DataType="sample:CommandItem">
                                 <Label Text="{Binding Text}" FontSize="Title" />
                                 <Label Text="{Binding Detail}" FontSize="Subtitle" />
                                 <BoxView HeightRequest="1"
@@ -62,4 +61,4 @@
             </RefreshView>
         </Grid>
     </ContentPage.Content>
-</shared:SampleContentPage>
+</sample:SampleContentPage>
