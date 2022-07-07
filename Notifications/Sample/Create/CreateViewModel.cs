@@ -6,7 +6,9 @@ using System.Reactive.Linq;
 using Xamarin.Forms;
 using Shiny.Notifications;
 using Shiny;
-
+using System.Threading.Tasks;
+using System.IO;
+using System.Net.Http;
 
 namespace Sample.Create
 {
@@ -49,12 +51,13 @@ namespace Sample.Create
                 var n = State.CurrentNotification!;
                 n.Title = this.NotificationTitle;
                 n.Message = this.NotificationMessage;
-                n.ImageUri = this.ImageUri;
+
                 n.Thread = this.Thread;
                 n.Channel = this.Channel;
                 if (Int32.TryParse(this.Identifier, out var id))
                     n.Id = id;
 
+                await this.TrySetDownload(n);
                 if (!this.Payload.IsEmpty())
                 {
                     n.Payload = new Dictionary<string, string> {
@@ -75,6 +78,25 @@ namespace Sample.Create
                     await this.Navigation.PopAsync();
                 }
             });
+        }
+
+
+        readonly HttpClient httpClient = new HttpClient();
+        async Task TrySetDownload(Notification notification)
+        {
+            if (this.ImageUri.IsEmpty())
+                return;
+
+            var filePath = Path.GetTempFileName();
+            using (var stream = await this.httpClient.GetStreamAsync(this.ImageUri))
+            {
+                using (var fs = File.Create(filePath))
+                {
+                    await stream.CopyToAsync(fs);
+                }
+                
+            }
+            notification.Attachment = new FileInfo(filePath);
         }
 
 
